@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÀWA — Guia Visual Numerado · Vitão - Toda Manhã</title>
+  <style>
+    :root { --bg: #050505; --card: #111; --border: #242424; --fg: #f4f4f4; --dim: #8f8f8f; --accent: #ffffff; --green: #4ade80; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; padding: 32px 24px 96px; }
+    header { max-width: 1360px; margin: 0 auto 32px; border-bottom: 1px solid var(--border); padding-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: flex-end; }
+    h1 { margin: 0 0 6px; font-size: 1.5rem; letter-spacing: -0.02em; }
+    p.lead { margin: 0; color: var(--dim); font-size: 0.92rem; max-width: 780px; }
+    .actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #000; border: 0; padding: 10px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.85rem; }
+    .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    main { max-width: 1360px; margin: 0 auto; }
+    .group { margin-bottom: 40px; }
+    .group h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 14px; border-left: 3px solid var(--accent); padding-left: 10px; }
+    .group h2 .count { color: var(--dim); font-weight: 400; font-size: 0.85rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; }
+    .card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; cursor: pointer; transition: border-color 0.15s; }
+    .card:has(.pick:checked) { border-color: var(--green); }
+    .card:has(.pick:checked) .badge.alt { background: rgba(74, 222, 128, 0.92); color: #052e16; border-color: transparent; }
+    .media-wrap { position: relative; aspect-ratio: 4 / 3; background: #000; overflow: hidden; }
+    .media-wrap img, .media-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .media-wrap video { position: absolute; inset: 0; opacity: 0; transition: opacity 0.18s; }
+    .card:hover .media-wrap video { opacity: 1; }
+    .num-badge { position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.88); color: #fff; border: 1px solid rgba(255,255,255,0.28); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.78rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+    .badge { position: absolute; top: 8px; right: 8px; font-size: 0.68rem; font-weight: 700; padding: 3px 7px; border-radius: 4px; letter-spacing: 0.04em; }
+    .badge.live { background: rgba(74, 222, 128, 0.92); color: #052e16; }
+    .badge.alt { background: rgba(20, 20, 20, 0.85); color: #d4d4d4; border: 1px solid #404040; }
+    .meta { padding: 12px; }
+    .row-top { display: flex; align-items: flex-start; gap: 8px; }
+    .title { font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
+    .num-inline { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--green); margin-right: 4px; }
+    .sub { margin-top: 6px; font-size: 0.75rem; color: var(--dim); font-family: ui-monospace, SFMono-Regular, monospace; }
+    #toast { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: #052e16; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Guia Visual Numerado — Vitão: Toda Manhã</h1>
+      <p class="lead">Sincronizado com os <strong>17 takes</strong> ativos no site (de 56 decupados · 1440×1080 · 4:3). Passe o mouse para ver o vídeo, marque os planos escolhidos e clique em <strong>Copiar Seleção</strong> (<span id="selectedCount">0</span> selecionados).</p>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" href="projeto.html?id=vitao-toda-manha" target="_blank">Abrir Projeto no Site ↗</a>
+      <a class="btn ghost" href="portfolio.html" target="_blank">Abrir Portfólio ↗</a>
+      <button class="btn ghost" id="selectAllBtn">Marcar Todos</button>
+      <button class="btn ghost" id="resetBtn">Limpar Seleção</button>
+      <button class="btn" id="copyBtn">Copiar Seleção</button>
+    </div>
+  </header>
+  <main>
+    <section class="group">
+      <h2>Abertura, Carro & Encontro na Névoa <span class="count">(7 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="01_vitao_beco_grafite">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/01_vitao_beco_grafite.jpg" alt="Vitão no Beco Grafiteado com Fumaça" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/01_vitao_beco_grafite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#01</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#01" value="#01 | 01_vitao_beco_grafite | Vitão no Beco Grafiteado com Fumaça" checked>
+              <span class="title"><span class="num-inline">#01</span> Vitão no Beco Grafiteado com Fumaça</span>
+            </div>
+            <div class="sub">01:00:01:12 · 8.22s · Plano Médio · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="02_carro_farol_nevoa">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/02_carro_farol_nevoa.jpg" alt="Carro Clássico sob Faróis na Névoa" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/02_carro_farol_nevoa.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#02</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#02" value="#02 | 02_carro_farol_nevoa | Carro Clássico sob Faróis na Névoa" checked>
+              <span class="title"><span class="num-inline">#02</span> Carro Clássico sob Faróis na Névoa</span>
+            </div>
+            <div class="sub">01:00:09:17 · 7.34s · Plano Geral · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="03_day_silhueta_carro">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/03_day_silhueta_carro.jpg" alt="Day Caminhando Diante do Carro" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/03_day_silhueta_carro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#03</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#03" value="#03 | 03_day_silhueta_carro | Day Caminhando Diante do Carro">
+              <span class="title"><span class="num-inline">#03</span> Day Caminhando Diante do Carro</span>
+            </div>
+            <div class="sub">01:00:17:01 · 2.50s · Plano Conjunto · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="04_detalhe_mao_luz_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/04_detalhe_mao_luz_azul.jpg" alt="Detalhe da Mão e Jaqueta na Luz Azul" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/04_detalhe_mao_luz_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#04</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#04" value="#04 | 04_detalhe_mao_luz_azul | Detalhe da Mão e Jaqueta na Luz Azul" checked>
+              <span class="title"><span class="num-inline">#04</span> Detalhe da Mão e Jaqueta na Luz Azul</span>
+            </div>
+            <div class="sub">01:00:19:13 · 6.88s · Plano Detalhe · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="05_perfil_vitao_chapeu">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/05_perfil_vitao_chapeu.jpg" alt="Perfil de Vitão de Chapéu na Fumaça" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/05_perfil_vitao_chapeu.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#05</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#05" value="#05 | 05_perfil_vitao_chapeu | Perfil de Vitão de Chapéu na Fumaça">
+              <span class="title"><span class="num-inline">#05</span> Perfil de Vitão de Chapéu na Fumaça</span>
+            </div>
+            <div class="sub">01:00:26:11 · 6.01s · Primeiro Plano · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="06_close_day_e_ots_vitao">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/06_close_day_e_ots_vitao.jpg" alt="Close-up de Day e Over-the-Shoulder na Névoa" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/06_close_day_e_ots_vitao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#06</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#06" value="#06 | 06_close_day_e_ots_vitao | Close-up de Day e Over-the-Shoulder na Névoa" checked>
+              <span class="title"><span class="num-inline">#06</span> Close-up de Day e Over-the-Shoulder na Névoa</span>
+            </div>
+            <div class="sub">01:00:32:11 · 2.60s · Close-up / OTS · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="07_cartela_toda_manha">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/07_cartela_toda_manha.jpg" alt="Cartela Oficial — Toda Manhã" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/07_cartela_toda_manha.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#07</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#07" value="#07 | 07_cartela_toda_manha | Cartela Oficial — Toda Manhã">
+              <span class="title"><span class="num-inline">#07</span> Cartela Oficial — Toda Manhã</span>
+            </div>
+            <div class="sub">01:00:35:07 · 3.53s · Cartela Gráfica · 4:3</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group">
+      <h2>Coreografia no Beco & Faróis do Carro <span class="count">(16 takes)</span></h2>
+      <div class="grid">
+        <label class="card" data-slug="08_silhueta_beco_contraluz">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/08_silhueta_beco_contraluz.jpg" alt="Silhueta de Vitão no Beco em Contraluz" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/08_silhueta_beco_contraluz.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#08</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#08" value="#08 | 08_silhueta_beco_contraluz | Silhueta de Vitão no Beco em Contraluz">
+              <span class="title"><span class="num-inline">#08</span> Silhueta de Vitão no Beco em Contraluz</span>
+            </div>
+            <div class="sub">01:00:38:20 · 7.76s · Silhueta · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="09_grupo_farois_azuis">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/09_grupo_farois_azuis.jpg" alt="Vitão e Grupo Diante dos Faróis Azuis" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/09_grupo_farois_azuis.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#09</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#09" value="#09 | 09_grupo_farois_azuis | Vitão e Grupo Diante dos Faróis Azuis">
+              <span class="title"><span class="num-inline">#09</span> Vitão e Grupo Diante dos Faróis Azuis</span>
+            </div>
+            <div class="sub">01:00:46:14 · 2.29s · Plano Conjunto · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="10_coreografia_grupo_quente">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/10_coreografia_grupo_quente.jpg" alt="Coreografia em Grupo — Luz Quente" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/10_coreografia_grupo_quente.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#10</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#10" value="#10 | 10_coreografia_grupo_quente | Coreografia em Grupo — Luz Quente">
+              <span class="title"><span class="num-inline">#10</span> Coreografia em Grupo — Luz Quente</span>
+            </div>
+            <div class="sub">01:00:48:21 · 1.50s · Plano Médio · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="11_encontro_fumaca_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/11_encontro_fumaca_azul.jpg" alt="Vitão e Dançarino na Fumaça Azul" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/11_encontro_fumaca_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#11</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#11" value="#11 | 11_encontro_fumaca_azul | Vitão e Dançarino na Fumaça Azul" checked>
+              <span class="title"><span class="num-inline">#11</span> Vitão e Dançarino na Fumaça Azul</span>
+            </div>
+            <div class="sub">01:00:50:09 · 1.51s · Plano Médio · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="12_day_grafite_sombra">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/12_day_grafite_sombra.jpg" alt="Day Diante do Muro Grafiteado" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/12_day_grafite_sombra.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#12</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#12" value="#12 | 12_day_grafite_sombra | Day Diante do Muro Grafiteado">
+              <span class="title"><span class="num-inline">#12</span> Day Diante do Muro Grafiteado</span>
+            </div>
+            <div class="sub">01:00:51:21 · 1.37s · Primeiro Plano · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="13_grupo_coreo_fumaca">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/13_grupo_coreo_fumaca.jpg" alt="Coreografia Coletiva na Fumaça" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/13_grupo_coreo_fumaca.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#13</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#13" value="#13 | 13_grupo_coreo_fumaca | Coreografia Coletiva na Fumaça">
+              <span class="title"><span class="num-inline">#13</span> Coreografia Coletiva na Fumaça</span>
+            </div>
+            <div class="sub">01:00:53:06 · 1.88s · Plano Conjunto · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="14_vitao_jaqueta_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/14_vitao_jaqueta_azul.jpg" alt="Vitão de Jaqueta Azul no Capô" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/14_vitao_jaqueta_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#14</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#14" value="#14 | 14_vitao_jaqueta_azul | Vitão de Jaqueta Azul no Capô">
+              <span class="title"><span class="num-inline">#14</span> Vitão de Jaqueta Azul no Capô</span>
+            </div>
+            <div class="sub">01:00:55:03 · 0.71s · Plano Médio · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="15_mural_grafite_chapeu">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/15_mural_grafite_chapeu.jpg" alt="Mural Grafiteado e Perfil de Chapéu" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/15_mural_grafite_chapeu.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#15</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#15" value="#15 | 15_mural_grafite_chapeu | Mural Grafiteado e Perfil de Chapéu">
+              <span class="title"><span class="num-inline">#15</span> Mural Grafiteado e Perfil de Chapéu</span>
+            </div>
+            <div class="sub">01:00:55:20 · 2.71s · Plano Médio · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="16_grupo_carro_farol_verde">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/16_grupo_carro_farol_verde.jpg" alt="Grupo no Carro com Faróis Verdes" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/16_grupo_carro_farol_verde.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#16</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#16" value="#16 | 16_grupo_carro_farol_verde | Grupo no Carro com Faróis Verdes">
+              <span class="title"><span class="num-inline">#16</span> Grupo no Carro com Faróis Verdes</span>
+            </div>
+            <div class="sub">01:00:58:13 · 4.29s · Plano Conjunto · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="17_grupo_contra_plongee">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/17_grupo_contra_plongee.jpg" alt="Grupo em Contra-Plongée" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/17_grupo_contra_plongee.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#17</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#17" value="#17 | 17_grupo_contra_plongee | Grupo em Contra-Plongée">
+              <span class="title"><span class="num-inline">#17</span> Grupo em Contra-Plongée</span>
+            </div>
+            <div class="sub">01:01:02:20 · 0.96s · Contra-Plongée · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="18_duo_mural_danca">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/18_duo_mural_danca.jpg" alt="Duo Dançando Diante do Mural" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/18_duo_mural_danca.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#18</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#18" value="#18 | 18_duo_mural_danca | Duo Dançando Diante do Mural" checked>
+              <span class="title"><span class="num-inline">#18</span> Duo Dançando Diante do Mural</span>
+            </div>
+            <div class="sub">01:01:03:19 · 4.34s · Plano Conjunto · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="19_grupo_passos_fumaca">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/19_grupo_passos_fumaca.jpg" alt="Grupo em Passos Sincronizados" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/19_grupo_passos_fumaca.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#19</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#19" value="#19 | 19_grupo_passos_fumaca | Grupo em Passos Sincronizados">
+              <span class="title"><span class="num-inline">#19</span> Grupo em Passos Sincronizados</span>
+            </div>
+            <div class="sub">01:01:11:16 · 1.63s · Plano Médio · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="20_grupo_energia_beco">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/20_grupo_energia_beco.jpg" alt="Grupo Vibrando no Beco" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/20_grupo_energia_beco.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#20</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#20" value="#20 | 20_grupo_energia_beco | Grupo Vibrando no Beco">
+              <span class="title"><span class="num-inline">#20</span> Grupo Vibrando no Beco</span>
+            </div>
+            <div class="sub">01:01:13:07 · 1.50s · Plano Conjunto · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="21_chicote_movimento_noturno">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/21_chicote_movimento_noturno.jpg" alt="Movimento Rápido / Chicote Noturno" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/21_chicote_movimento_noturno.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#21</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#21" value="#21 | 21_chicote_movimento_noturno | Movimento Rápido / Chicote Noturno">
+              <span class="title"><span class="num-inline">#21</span> Movimento Rápido / Chicote Noturno</span>
+            </div>
+            <div class="sub">01:01:14:19 · 8.55s · Plano em Movimento · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="22_carro_farois_estourados">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/22_carro_farois_estourados.jpg" alt="Carro com Faróis Verdes Estourados" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/22_carro_farois_estourados.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#22</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#22" value="#22 | 22_carro_farois_estourados | Carro com Faróis Verdes Estourados">
+              <span class="title"><span class="num-inline">#22</span> Carro com Faróis Verdes Estourados</span>
+            </div>
+            <div class="sub">01:01:23:08 · 2.13s · Plano Geral · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="23_grupo_olhar_camera">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/23_grupo_olhar_camera.jpg" alt="Grupo Encarando a Câmera" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/23_grupo_olhar_camera.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#23</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#23" value="#23 | 23_grupo_olhar_camera | Grupo Encarando a Câmera">
+              <span class="title"><span class="num-inline">#23</span> Grupo Encarando a Câmera</span>
+            </div>
+            <div class="sub">01:01:25:11 · 1.96s · Plano Conjunto · 4:3</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group">
+      <h2>Estúdio Preto & Luva Brilhante <span class="count">(11 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="24_estudio_smoking_luva_cima">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/24_estudio_smoking_luva_cima.jpg" alt="Vitão de Smoking e Luva Brilhante Olhando Acima" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/24_estudio_smoking_luva_cima.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#24</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#24" value="#24 | 24_estudio_smoking_luva_cima | Vitão de Smoking e Luva Brilhante Olhando Acima" checked>
+              <span class="title"><span class="num-inline">#24</span> Vitão de Smoking e Luva Brilhante Olhando Acima</span>
+            </div>
+            <div class="sub">01:01:08:04 · 3.50s · Primeiro Plano · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="25_estudio_close_luva_cristal">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/25_estudio_close_luva_cristal.jpg" alt="Close-up com Luva de Cristais" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/25_estudio_close_luva_cristal.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#25</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#25" value="#25 | 25_estudio_close_luva_cristal | Close-up com Luva de Cristais" checked>
+              <span class="title"><span class="num-inline">#25</span> Close-up com Luva de Cristais</span>
+            </div>
+            <div class="sub">01:01:44:10 · 2.41s · Close-up · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="26_estudio_plano_geral_danca">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/26_estudio_plano_geral_danca.jpg" alt="Plano Geral no Estúdio Preto" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/26_estudio_plano_geral_danca.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#26</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#26" value="#26 | 26_estudio_plano_geral_danca | Plano Geral no Estúdio Preto" checked>
+              <span class="title"><span class="num-inline">#26</span> Plano Geral no Estúdio Preto</span>
+            </div>
+            <div class="sub">01:01:46:19 · 3.63s · Plano Geral · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="27_estudio_punhos_cerrados">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/27_estudio_punhos_cerrados.jpg" alt="Vitão de Smoking — Expressão Intensa" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/27_estudio_punhos_cerrados.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#27</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#27" value="#27 | 27_estudio_punhos_cerrados | Vitão de Smoking — Expressão Intensa">
+              <span class="title"><span class="num-inline">#27</span> Vitão de Smoking — Expressão Intensa</span>
+            </div>
+            <div class="sub">01:01:50:11 · 1.05s · Primeiro Plano · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="28_estudio_camisa_branca_pose">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/28_estudio_camisa_branca_pose.jpg" alt="Pose Clássica de Camisa Branca no Estúdio" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/28_estudio_camisa_branca_pose.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#28</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#28" value="#28 | 28_estudio_camisa_branca_pose | Pose Clássica de Camisa Branca no Estúdio">
+              <span class="title"><span class="num-inline">#28</span> Pose Clássica de Camisa Branca no Estúdio</span>
+            </div>
+            <div class="sub">01:01:51:12 · 2.58s · Plano Americano · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="29_estudio_detalhe_luva_queixo">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/29_estudio_detalhe_luva_queixo.jpg" alt="Detalhe da Luva Brilhante no Rosto" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/29_estudio_detalhe_luva_queixo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#29</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#29" value="#29 | 29_estudio_detalhe_luva_queixo | Detalhe da Luva Brilhante no Rosto">
+              <span class="title"><span class="num-inline">#29</span> Detalhe da Luva Brilhante no Rosto</span>
+            </div>
+            <div class="sub">01:01:59:12 · 1.67s · Big Close-up · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="30_estudio_luva_microfone">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/30_estudio_luva_microfone.jpg" alt="Luva Brilhante na Boca em Contraluz" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/30_estudio_luva_microfone.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#30</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#30" value="#30 | 30_estudio_luva_microfone | Luva Brilhante na Boca em Contraluz">
+              <span class="title"><span class="num-inline">#30</span> Luva Brilhante na Boca em Contraluz</span>
+            </div>
+            <div class="sub">01:02:01:04 · 0.88s · Primeiro Plano · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="31_estudio_pose_spotlight">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/31_estudio_pose_spotlight.jpg" alt="Pose sob Spotlight no Estúdio Preto" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/31_estudio_pose_spotlight.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#31</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#31" value="#31 | 31_estudio_pose_spotlight | Pose sob Spotlight no Estúdio Preto">
+              <span class="title"><span class="num-inline">#31</span> Pose sob Spotlight no Estúdio Preto</span>
+            </div>
+            <div class="sub">01:02:05:01 · 3.50s · Plano Americano · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="32_estudio_braco_estendido">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/32_estudio_braco_estendido.jpg" alt="Silhueta com Braço Estendido no Estúdio" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/32_estudio_braco_estendido.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#32</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#32" value="#32 | 32_estudio_braco_estendido | Silhueta com Braço Estendido no Estúdio">
+              <span class="title"><span class="num-inline">#32</span> Silhueta com Braço Estendido no Estúdio</span>
+            </div>
+            <div class="sub">01:02:31:20 · 3.92s · Plano Geral · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="33_estudio_close_inclinado">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/33_estudio_close_inclinado.jpg" alt="Close-up Inclinado no Estúdio Preto" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/33_estudio_close_inclinado.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#33</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#33" value="#33 | 33_estudio_close_inclinado | Close-up Inclinado no Estúdio Preto" checked>
+              <span class="title"><span class="num-inline">#33</span> Close-up Inclinado no Estúdio Preto</span>
+            </div>
+            <div class="sub">01:02:37:04 · 2.75s · Close-up · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="34_estudio_mao_peito_luva">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/34_estudio_mao_peito_luva.jpg" alt="Retrato com Luva no Peito" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/34_estudio_mao_peito_luva.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#34</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#34" value="#34 | 34_estudio_mao_peito_luva | Retrato com Luva no Peito">
+              <span class="title"><span class="num-inline">#34</span> Retrato com Luva no Peito</span>
+            </div>
+            <div class="sub">01:02:43:11 · 1.29s · Primeiro Plano · 4:3</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group">
+      <h2>Confronto, Silhuetas & Clímax no Beco <span class="count">(21 takes)</span></h2>
+      <div class="grid">
+        <label class="card" data-slug="35_confronto_silhueta_day">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/35_confronto_silhueta_day.jpg" alt="Confronto em Silhueta — Vitão e Day" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/35_confronto_silhueta_day.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#35</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#35" value="#35 | 35_confronto_silhueta_day | Confronto em Silhueta — Vitão e Day">
+              <span class="title"><span class="num-inline">#35</span> Confronto em Silhueta — Vitão e Day</span>
+            </div>
+            <div class="sub">01:01:27:10 · 8.76s · Plano Médio · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="36_flare_azul_day">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/36_flare_azul_day.jpg" alt="Flare Azul Atrás de Day" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/36_flare_azul_day.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#36</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#36" value="#36 | 36_flare_azul_day | Flare Azul Atrás de Day">
+              <span class="title"><span class="num-inline">#36</span> Flare Azul Atrás de Day</span>
+            </div>
+            <div class="sub">01:01:36:04 · 0.83s · Primeiro Plano · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="37_silhueta_chapeu_neblina">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/37_silhueta_chapeu_neblina.jpg" alt="Silhueta de Chapéu na Neblina Azulada" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/37_silhueta_chapeu_neblina.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#37</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#37" value="#37 | 37_silhueta_chapeu_neblina | Silhueta de Chapéu na Neblina Azulada">
+              <span class="title"><span class="num-inline">#37</span> Silhueta de Chapéu na Neblina Azulada</span>
+            </div>
+            <div class="sub">01:01:37:00 · 1.76s · Silhueta · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="38_grupo_inclinado_ritmo">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/38_grupo_inclinado_ritmo.jpg" alt="Grupo Inclinado no Ritmo da Batida" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/38_grupo_inclinado_ritmo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#38</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#38" value="#38 | 38_grupo_inclinado_ritmo | Grupo Inclinado no Ritmo da Batida">
+              <span class="title"><span class="num-inline">#38</span> Grupo Inclinado no Ritmo da Batida</span>
+            </div>
+            <div class="sub">01:01:38:18 · 2.92s · Plano Conjunto · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="39_silhueta_chapeu_backlight">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/39_silhueta_chapeu_backlight.jpg" alt="Silhueta Frontal em Backlight Frio" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/39_silhueta_chapeu_backlight.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#39</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#39" value="#39 | 39_silhueta_chapeu_backlight | Silhueta Frontal em Backlight Frio" checked>
+              <span class="title"><span class="num-inline">#39</span> Silhueta Frontal em Backlight Frio</span>
+            </div>
+            <div class="sub">01:01:41:17 · 2.71s · Silhueta · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="40_carro_farois_grupo_noite">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/40_carro_farois_grupo_noite.jpg" alt="Grupo Diante do Carro — Faróis Intensos" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/40_carro_farois_grupo_noite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#40</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#40" value="#40 | 40_carro_farois_grupo_noite | Grupo Diante do Carro — Faróis Intensos" checked>
+              <span class="title"><span class="num-inline">#40</span> Grupo Diante do Carro — Faróis Intensos</span>
+            </div>
+            <div class="sub">01:01:54:02 · 2.92s · Plano Geral · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="41_grupo_danca_mural_quente">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/41_grupo_danca_mural_quente.jpg" alt="Dança em Grupo sob Luz Quente" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/41_grupo_danca_mural_quente.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#41</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#41" value="#41 | 41_grupo_danca_mural_quente | Dança em Grupo sob Luz Quente" checked>
+              <span class="title"><span class="num-inline">#41</span> Dança em Grupo sob Luz Quente</span>
+            </div>
+            <div class="sub">01:01:57:00 · 2.50s · Plano Conjunto · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="42_vitao_perfil_beco_grupo">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/42_vitao_perfil_beco_grupo.jpg" alt="Vitão de Perfil Caminhando pelo Beco" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/42_vitao_perfil_beco_grupo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#42</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#42" value="#42 | 42_vitao_perfil_beco_grupo | Vitão de Perfil Caminhando pelo Beco">
+              <span class="title"><span class="num-inline">#42</span> Vitão de Perfil Caminhando pelo Beco</span>
+            </div>
+            <div class="sub">01:02:02:01 · 1.38s · Plano Médio · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="43_grupo_sentado_escada">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/43_grupo_sentado_escada.jpg" alt="Grupo Sentado — Luz Quente" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/43_grupo_sentado_escada.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#43</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#43" value="#43 | 43_grupo_sentado_escada | Grupo Sentado — Luz Quente">
+              <span class="title"><span class="num-inline">#43</span> Grupo Sentado — Luz Quente</span>
+            </div>
+            <div class="sub">01:02:03:10 · 1.62s · Plano Conjunto · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="44_grupo_perfil_luz_dura">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/44_grupo_perfil_luz_dura.jpg" alt="Grupo Alinhado sob Luz Dura" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/44_grupo_perfil_luz_dura.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#44</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#44" value="#44 | 44_grupo_perfil_luz_dura | Grupo Alinhado sob Luz Dura">
+              <span class="title"><span class="num-inline">#44</span> Grupo Alinhado sob Luz Dura</span>
+            </div>
+            <div class="sub">01:02:08:13 · 2.80s · Plano Conjunto · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="45_day_flare_ciano">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/45_day_flare_ciano.jpg" alt="Perfil de Day com Flare Ciano" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/45_day_flare_ciano.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#45</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#45" value="#45 | 45_day_flare_ciano | Perfil de Day com Flare Ciano">
+              <span class="title"><span class="num-inline">#45</span> Perfil de Day com Flare Ciano</span>
+            </div>
+            <div class="sub">01:02:11:08 · 0.58s · Primeiro Plano · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="46_day_contraluz_sombrio">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/46_day_contraluz_sombrio.jpg" alt="Silhueta Sombria de Day" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/46_day_contraluz_sombrio.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#46</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#46" value="#46 | 46_day_contraluz_sombrio | Silhueta Sombria de Day">
+              <span class="title"><span class="num-inline">#46</span> Silhueta Sombria de Day</span>
+            </div>
+            <div class="sub">01:02:11:22 · 0.92s · Silhueta · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="47_carro_farois_azul_verde">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/47_carro_farois_azul_verde.jpg" alt="Carro com Faróis Verdes e Azuis" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/47_carro_farois_azul_verde.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#47</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#47" value="#47 | 47_carro_farois_azul_verde | Carro com Faróis Verdes e Azuis" checked>
+              <span class="title"><span class="num-inline">#47</span> Carro com Faróis Verdes e Azuis</span>
+            </div>
+            <div class="sub">01:02:12:20 · 2.92s · Plano Geral · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="48_vitao_olhar_lateral_grupo">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/48_vitao_olhar_lateral_grupo.jpg" alt="Vitão Olhando para o Lado com Grupo" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/48_vitao_olhar_lateral_grupo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#48</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#48" value="#48 | 48_vitao_olhar_lateral_grupo | Vitão Olhando para o Lado com Grupo">
+              <span class="title"><span class="num-inline">#48</span> Vitão Olhando para o Lado com Grupo</span>
+            </div>
+            <div class="sub">01:02:15:18 · 6.92s · Plano Médio · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="49_grupo_carro_noite_aberta">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/49_grupo_carro_noite_aberta.jpg" alt="Plano Aberto do Grupo no Carro" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/49_grupo_carro_noite_aberta.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#49</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#49" value="#49 | 49_grupo_carro_noite_aberta | Plano Aberto do Grupo no Carro">
+              <span class="title"><span class="num-inline">#49</span> Plano Aberto do Grupo no Carro</span>
+            </div>
+            <div class="sub">01:02:22:16 · 2.55s · Plano Geral · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="50_day_close_sombra_grafite">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/50_day_close_sombra_grafite.jpg" alt="Day na Sombra Diante do Grafite" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/50_day_close_sombra_grafite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#50</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#50" value="#50 | 50_day_close_sombra_grafite | Day na Sombra Diante do Grafite">
+              <span class="title"><span class="num-inline">#50</span> Day na Sombra Diante do Grafite</span>
+            </div>
+            <div class="sub">01:02:25:06 · 2.63s · Close-up · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="51_vitao_caminhando_nevoa">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/51_vitao_caminhando_nevoa.jpg" alt="Vitão Caminhando na Névoa com Grupo" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/51_vitao_caminhando_nevoa.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#51</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#51" value="#51 | 51_vitao_caminhando_nevoa | Vitão Caminhando na Névoa com Grupo">
+              <span class="title"><span class="num-inline">#51</span> Vitão Caminhando na Névoa com Grupo</span>
+            </div>
+            <div class="sub">01:02:27:21 · 3.96s · Plano Conjunto · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="52_carro_farois_grupo_climax">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/52_carro_farois_grupo_climax.jpg" alt="Grupo no Carro — Clímax Luminoso" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/52_carro_farois_grupo_climax.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#52</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#52" value="#52 | 52_carro_farois_grupo_climax | Grupo no Carro — Clímax Luminoso">
+              <span class="title"><span class="num-inline">#52</span> Grupo no Carro — Clímax Luminoso</span>
+            </div>
+            <div class="sub">01:02:35:18 · 1.42s · Plano Geral · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="53_coreo_geral_beco_iluminado">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/53_coreo_geral_beco_iluminado.jpg" alt="Plano Geral da Coreografia no Beco" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/53_coreo_geral_beco_iluminado.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#53</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#53" value="#53 | 53_coreo_geral_beco_iluminado | Plano Geral da Coreografia no Beco" checked>
+              <span class="title"><span class="num-inline">#53</span> Plano Geral da Coreografia no Beco</span>
+            </div>
+            <div class="sub">01:02:39:22 · 2.59s · Plano Geral · 4:3</div>
+          </div>
+        </label>
+        <label class="card" data-slug="54_grupo_saltando_farois">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/54_grupo_saltando_farois.jpg" alt="Grupo Saltando Diante dos Faróis" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/54_grupo_saltando_farois.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#54</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#54" value="#54 | 54_grupo_saltando_farois | Grupo Saltando Diante dos Faróis">
+              <span class="title"><span class="num-inline">#54</span> Grupo Saltando Diante dos Faróis</span>
+            </div>
+            <div class="sub">01:02:42:12 · 0.96s · Plano Geral · 4:3</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="55_climax_vitao_mao_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/55_climax_vitao_mao_azul.jpg" alt="Clímax — Vitão Estendendo a Mão na Luz Azul" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/55_climax_vitao_mao_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#55</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#55" value="#55 | 55_climax_vitao_mao_azul | Clímax — Vitão Estendendo a Mão na Luz Azul" checked>
+              <span class="title"><span class="num-inline">#55</span> Clímax — Vitão Estendendo a Mão na Luz Azul</span>
+            </div>
+            <div class="sub">01:02:44:18 · 21.19s · Primeiro Plano · 4:3</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group">
+      <h2>Créditos Finais <span class="count">(1 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="56_creditos_finais_toda_manha">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_toda_manha/56_creditos_finais_toda_manha.jpg" alt="Créditos Finais — Um Filme de Caio Luigi & Vitão" loading="lazy">
+            <video src="assets/videos/vitao_toda_manha/56_creditos_finais_toda_manha.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#56</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#56" value="#56 | 56_creditos_finais_toda_manha | Créditos Finais — Um Filme de Caio Luigi & Vitão" checked>
+              <span class="title"><span class="num-inline">#56</span> Créditos Finais — Um Filme de Caio Luigi & Vitão</span>
+            </div>
+            <div class="sub">01:03:05:23 · 10.21s · Cartela de Créditos · 4:3</div>
+          </div>
+        </label>
+      </div>
+    </section>
+  </main>
+  <div id="toast">Seleção copiada para a área de transferência!</div>
+  <script>
+    const STORAGE_KEY = 'awa_guide_toda_manha_v3';
+    const picks = [...document.querySelectorAll('.pick')];
+    const countEl = document.getElementById('selectedCount');
+    function updateCount() {
+      countEl.textContent = picks.filter(el => el.checked).length;
+    }
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+      if (saved && typeof saved === 'object') {
+        picks.forEach(el => {
+          if (el.dataset.num in saved) el.checked = saved[el.dataset.num];
+        });
+      }
+    } catch (e) {}
+    updateCount();
+    function saveState() {
+      const state = {};
+      picks.forEach(el => state[el.dataset.num] = el.checked);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      updateCount();
+    }
+    picks.forEach(el => el.addEventListener('change', saveState));
+    document.getElementById('selectAllBtn').addEventListener('click', () => {
+      picks.forEach(el => el.checked = true);
+      saveState();
+    });
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      picks.forEach(el => el.checked = false);
+      localStorage.removeItem(STORAGE_KEY);
+      updateCount();
+    });
+    document.querySelectorAll('.card').forEach(card => {
+      const vid = card.querySelector('video');
+      card.addEventListener('mouseenter', () => { vid.play().catch(() => {}); });
+      card.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+    });
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const picked = picks.filter(el => el.checked).map(el => el.value);
+      navigator.clipboard.writeText(picked.join('\n')).then(() => {
+        const t = document.getElementById('toast');
+        t.style.display = 'block';
+        setTimeout(() => t.style.display = 'none', 2500);
+      });
+    });
+  </script>
+</body>
+</html>
