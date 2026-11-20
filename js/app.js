@@ -1,0 +1,1465 @@
+/**
+ * ÀWA — Motor de Interatividade, Busca Shotdeck, Navegação e Chat de Contato
+ */
+
+(function () {
+  const cfg = window.AWA_CONFIG;
+
+  // Normaliza texto para busca tolerante a acentos e plural simples ("zenitais" -> "zenital")
+  function norm(str) {
+    return (str || "")
+      .toString()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+  }
+
+  function matchQuery(haystack, query) {
+    const q = norm(query);
+    if (!q) return true;
+    const h = norm(haystack);
+    const tokens = q.split(/\s+/).filter(Boolean);
+    return tokens.every((tok) => {
+      if (h.includes(tok)) return true;
+      // Suporte simples a plural em PT-BR: "zenitais" -> "zenital", "closes" -> "close"
+      if (tok.endsWith("ais") && h.includes(tok.slice(0, -3) + "al")) return true;
+      if (tok.endsWith("is") && h.includes(tok.slice(0, -2) + "l")) return true;
+      if (tok.endsWith("es") && h.includes(tok.slice(0, -2))) return true;
+      if (tok.endsWith("s") && tok.length > 3 && h.includes(tok.slice(0, -1))) return true;
+      return false;
+    });
+  }
+
+  function getProjectById(id) {
+    return (window.AWA_PROJECTS || []).find((p) => p.id === id) || window.AWA_PROJECTS[0];
+  }
+
+  function shuffleArray(arr) {
+    const copy = [...arr];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
+  // Lazy-play videos only when visible in the viewport so large Shotdeck grids stay fast
+  let _videoObserver = null;
+  function attachViewportVideoObserver(rootEl) {
+    if (!rootEl) return;
+    const videos = rootEl.querySelectorAll("video[data-src]");
+    if (!videos.length) return;
+    if (!("IntersectionObserver" in window)) {
+      videos.forEach((v) => {
+        if (!v.getAttribute("src")) v.setAttribute("src", v.dataset.src);
+        v.play().catch(() => {});
+      });
+      return;
+    }
+    if (_videoObserver) _videoObserver.disconnect();
+    _videoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const vid = entry.target;
+          if (entry.isIntersecting) {
+            if (!vid.getAttribute("src")) {
+              vid.setAttribute("src", vid.dataset.src);
+            }
+            vid.play().catch(() => {});
+          } else {
+            vid.pause();
+          }
+        });
+      },
+      { rootMargin: "120px 0px", threshold: 0.05 }
+    );
+    videos.forEach((v) => _videoObserver.observe(v));
+  }
+
+  function extractYouTubeId(input) {
+    if (!input) return "";
+    const str = input.trim();
+    if (/^[a-zA-Z0-9_-]{11}$/.test(str)) return str;
+    const match = str.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/|v\/))([a-zA-Z0-9_-]{11})/);
+    return match ? match[1] : "";
+  }
+
+  // =========================================================================
+  // 1. HEADER & FOOTER COMPARTILHADOS
+  // =========================================================================
+  function renderLayoutChrome() {
+    const currentPage = document.body.dataset.page || "home";
+    const navItems = [
+      { id: "home", label: "Início", href: "index.html" },
+      { id: "portfolio", label: "Portfólio / Shotdeck", href: "portfolio.html" },
+      { id: "time", label: "Time & Parceiros", href: "time.html" },
+      { id: "clientes", label: "Clientes & Projetos", href: "clientes.html" }
+    ];
+
+    const headerEl = document.getElementById("site-header");
+    if (headerEl) {
+      headerEl.innerHTML = `
+        <div class="container header-inner">
+          <a href="index.html" class="brand-link" aria-label="ÀWA — Página inicial">
+            <img src="${cfg.assets.simbolo}" alt="Símbolo ÀWA" class="brand-symbol" />
+            <img src="${cfg.assets.tipografia}" alt="ÀWA" class="brand-wordmark" />
+          </a>
+
+          <nav class="nav-links" aria-label="Navegação principal">
+            ${navItems
+              .map(
+                (item) => `
+              <a href="${item.href}" class="nav-link ${currentPage === item.id ? "active" : ""}">
+                ${item.label}
+              </a>`
+              )
+              .join("")}
+          </nav>
+
+          <div style="display:flex;align-items:center;gap:12px;">
+            <a href="contato.html" class="nav-cta nav-cta-desktop ${currentPage === "contato" ? "active" : ""}">
+              Contato
+            </a>
+            <button type="button" class="menu-toggle" id="menu-toggle-btn" aria-label="Abrir menu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <line x1="3" y1="7" x2="21" y2="7"></line>
+                <line x1="3" y1="17" x2="21" y2="17"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    const mobileNavEl = document.getElementById("mobile-nav");
+    if (mobileNavEl) {
+      mobileNavEl.innerHTML = `
+        ${navItems
+          .map(
+            (item) =>
+              `<a href="${item.href}" class="nav-link ${currentPage === item.id ? "active" : ""}">${item.label}</a>`
+          )
+          .join("")}
+        <a href="contato.html" class="nav-link ${currentPage === "contato" ? "active" : ""}">Contato (Chat → E-mail)</a>
+      `;
+    }
+
+    const toggleBtn = document.getElementById("menu-toggle-btn");
+    if (toggleBtn && mobileNavEl) {
+      toggleBtn.addEventListener("click", () => {
+        mobileNavEl.classList.toggle("open");
+      });
+    }
+
+    const footerEl = document.getElementById("site-footer");
+    if (footerEl) {
+      footerEl.innerHTML = `
+        <div class="container">
+          <div class="footer-grid">
+            <div>
+              <img src="${cfg.assets.juncao}" alt="ÀWA — Símbolo e Tipografia" style="height:68px;width:auto;margin-bottom:16px;" />
+              <p style="color:var(--fg-muted);font-size:0.9rem;max-width:32ch;line-height:1.6;">
+                Àwa significa <strong>nós</strong>. Cinema autoral tecido a muitas mãos — da concepção do quadro ao corte final.
+              </p>
+            </div>
+            <div>
+              <div class="footer-heading">Setores</div>
+              <div class="footer-links">
+                <a href="index.html">Início & Notícias</a>
+                <a href="portfolio.html">Portfólio / Shotdeck</a>
+                <a href="time.html">Time & Parceiros</a>
+                <a href="clientes.html">Clientes & Projetos</a>
+                <a href="contato.html">Contato Direto</a>
+              </div>
+            </div>
+            <div>
+              <div class="footer-heading">Busca Rápida Shotdeck</div>
+              <div class="footer-links">
+                <a href="portfolio.html?q=zenital">Takes Zenitais</a>
+                <a href="portfolio.html?q=anamorfica">Lentes Anamórficas</a>
+                <a href="portfolio.html?q=preto%20e%20branco">Monocromático P&B</a>
+                <a href="portfolio.html?q=documentario">Documentários</a>
+              </div>
+            </div>
+            <div>
+              <div class="footer-heading">Contato & Estúdio</div>
+              <div class="footer-links">
+                <a href="mailto:${cfg.email}">${cfg.email}</a>
+                <span>${cfg.location}</span>
+                <span>${cfg.instagram}</span>
+                <a href="contato.html" style="color:var(--fg);text-decoration:underline;text-underline-offset:4px;">Abrir chat para e-mail →</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span>© 2026 ÀWA — Todos os direitos reservados</span>
+            <span>Identidade Monocromática · 8 Pontas · Nó Infinito</span>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // =========================================================================
+  // 2. MODAL GLOBAL (INSPEÇÃO DE TAKE / NOTÍCIA)
+  // =========================================================================
+  function ensureGlobalModal() {
+    let modal = document.getElementById("awa-modal");
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = "awa-modal";
+      modal.className = "modal-backdrop";
+      modal.setAttribute("role", "dialog");
+      modal.setAttribute("aria-modal", "true");
+      document.body.appendChild(modal);
+    }
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+    return modal;
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("awa-modal");
+    if (modal) {
+      modal.classList.remove("open");
+      modal.querySelectorAll("video").forEach((v) => v.pause());
+    }
+    const eyeModal = document.getElementById("awa-eyecandy-modal");
+    if (eyeModal) {
+      eyeModal.classList.remove("open");
+      eyeModal.querySelectorAll("video").forEach((v) => v.pause());
+    }
+    document.body.style.overflow = "";
+  }
+
+  let activeLightboxNav = null;
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+    if (activeLightboxNav && document.getElementById("awa-eyecandy-modal")?.classList.contains("open")) {
+      if (e.key === "ArrowLeft") activeLightboxNav.prev();
+      if (e.key === "ArrowRight") activeLightboxNav.next();
+    }
+  });
+
+  function ensureEyecandyModal() {
+    let modal = document.getElementById("awa-eyecandy-modal");
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = "awa-eyecandy-modal";
+      modal.className = "eyecandy-modal-backdrop";
+      modal.setAttribute("role", "dialog");
+      modal.setAttribute("aria-modal", "true");
+      document.body.appendChild(modal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+    }
+    return modal;
+  }
+
+  function openShotModal(shotId, listContext) {
+    const shots = listContext && listContext.length ? listContext : window.AWA_SHOTS;
+    const idx = shots.findIndex((s) => s.id === shotId);
+    const shot = shots[idx] || window.AWA_SHOTS[0];
+    const project = getProjectById(shot.projectId);
+    const modal = ensureEyecandyModal();
+
+    const prevShot = shots[(idx - 1 + shots.length) % shots.length];
+    const nextShot = shots[(idx + 1) % shots.length];
+
+    const mediaHtml = shot.video
+      ? `<video src="${shot.video}" poster="${shot.image}" autoplay loop controls playsinline></video>`
+      : `<img src="${shot.image}" alt="${shot.title}" />`;
+
+    modal.innerHTML = `
+      <button type="button" class="eyecandy-modal-close" id="eye-close-btn" aria-label="Fechar">×</button>
+      <button type="button" class="eyecandy-modal-chevron prev" id="eye-prev-btn" aria-label="Anterior">‹</button>
+      <button type="button" class="eyecandy-modal-chevron next" id="eye-next-btn" aria-label="Próximo">›</button>
+
+      <div class="eyecandy-modal-stage">
+        <div class="eyecandy-modal-video-wrap">
+          ${mediaHtml}
+        </div>
+
+        <div class="eyecandy-modal-meta">
+          <div>
+            <h2 class="eyecandy-modal-title">${shot.title} <span style="opacity:0.55;font-weight:400;">(${project.year})</span></h2>
+            <div class="eyecandy-credit-list">
+              <div><strong>Técnica / Enquadramento —</strong> <a href="portfolio.html?q=${encodeURIComponent(shot.enquadramento)}" class="eyecandy-credit-link">${shot.enquadramento}</a> · ${shot.movimento}</div>
+              <div><strong>Obra —</strong> <a href="projeto.html?id=${encodeURIComponent(project.id)}" class="eyecandy-credit-link">${project.title}</a> (${project.category})</div>
+              <div><strong>Óptica & Câmera —</strong> ${shot.lente} · ${shot.camera} · ${shot.iluminacao}</div>
+              <div><strong>Timecode —</strong> <span class="mono">${shot.timecode}</span></div>
+            </div>
+            <p style="color:var(--fg-muted);font-size:0.9rem;line-height:1.55;margin-bottom:14px;max-width:66ch;">${shot.notes}</p>
+            <div class="eyecandy-pill-tags">
+              ${shot.tags
+                .slice(0, 6)
+                .map(
+                  (t) =>
+                    `<a href="portfolio.html?q=${encodeURIComponent(t)}" class="eyecandy-pill-tag">${t}</a>`
+                )
+                .join("")}
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end;">
+            <a href="projeto.html?id=${encodeURIComponent(project.id)}&shot=${encodeURIComponent(shot.id)}" class="btn btn-primary">
+              Ir para a Página do Projeto →
+            </a>
+            <span class="mono" style="font-size:0.68rem;color:var(--fg-dim);">${idx + 1} / ${shots.length} · ← → PARA NAVEGAR</span>
+          </div>
+        </div>
+      </div>
+    `;
+
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+
+    const goPrev = () => openShotModal(prevShot.id, shots);
+    const goNext = () => openShotModal(nextShot.id, shots);
+    activeLightboxNav = { prev: goPrev, next: goNext };
+
+    document.getElementById("eye-close-btn").onclick = closeModal;
+    document.getElementById("eye-prev-btn").onclick = goPrev;
+    document.getElementById("eye-next-btn").onclick = goNext;
+  }
+
+  function openNewsModal(newsId) {
+    const item = (window.AWA_NEWS || []).find((n) => n.id === newsId);
+    if (!item) return;
+    const project = getProjectById(item.projectId);
+    const modal = ensureGlobalModal();
+
+    modal.innerHTML = `
+      <div class="modal-panel" style="max-width:860px;">
+        <div class="modal-top-bar">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span class="news-tag">${item.tag}</span>
+            <span class="mono" style="font-size:0.72rem;color:var(--fg-muted);">${item.date}</span>
+          </div>
+          <button type="button" class="btn btn-ghost btn-sm" id="modal-close-btn">Fechar [ESC]</button>
+        </div>
+        <div class="modal-media">
+          <img src="${item.image}" alt="${item.title}" />
+        </div>
+        <div style="padding:28px 32px;display:flex;flex-direction:column;gap:16px;">
+          <h2 style="font-family:var(--font-display);font-size:1.75rem;line-height:1.2;">${item.title}</h2>
+          <p style="color:var(--fg-soft);font-size:1rem;line-height:1.7;">${item.fullText}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;">
+            <a href="projeto.html?id=${encodeURIComponent(project.id)}" class="btn btn-primary">
+              Ver Obra Relacionada (${project.title}) →
+            </a>
+            <a href="portfolio.html" class="btn btn-ghost">Explorar Takes no Shotdeck</a>
+          </div>
+        </div>
+      </div>
+    `;
+
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    document.getElementById("modal-close-btn").onclick = closeModal;
+  }
+
+  // =========================================================================
+  // 3. HOME PAGE (NOTÍCIAS TOPO + GALERIA INTERATIVA + CAPAS)
+  // =========================================================================
+  function initHomePage() {
+    const tickerEl = document.getElementById("news-ticker-items");
+    const heroFeatureEl = document.getElementById("hero-featured-news");
+    const newsGridEl = document.getElementById("news-grid");
+    const galleryFiltersEl = document.getElementById("gallery-filters");
+    const galleryGridEl = document.getElementById("interactive-gallery-grid");
+
+    if (tickerEl) {
+      tickerEl.innerHTML = window.AWA_NEWS.map(
+        (n) => `
+        <span class="ticker-item" data-news-id="${n.id}">
+          <span class="ticker-dot"></span>
+          <strong style="color:var(--fg);">${n.date}</strong> · ${n.title}
+        </span>`
+      ).join("");
+
+      tickerEl.querySelectorAll("[data-news-id]").forEach((el) => {
+        el.addEventListener("click", () => openNewsModal(el.dataset.newsId));
+      });
+    }
+
+    if (heroFeatureEl) {
+      if (window.AWA_NEWS.length) {
+        const lead = window.AWA_NEWS[0];
+        heroFeatureEl.innerHTML = `
+          <div class="hero-featured-media">
+            <img src="${lead.image}" alt="${lead.title}" />
+          </div>
+          <div class="hero-featured-body">
+            <div class="news-meta-row">
+              <span class="news-tag">${lead.tag} · DESTAQUE RECENTE</span>
+              <span>${lead.date}</span>
+            </div>
+            <h2 style="font-family:var(--font-display);font-size:1.35rem;font-weight:500;line-height:1.28;">${lead.title}</h2>
+            <p style="color:var(--fg-muted);font-size:0.9rem;">${lead.excerpt}</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border);">
+              <span class="mono" style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;">Ler nota completa</span>
+              <span>→</span>
+            </div>
+          </div>
+        `;
+        heroFeatureEl.addEventListener("click", () => openNewsModal(lead.id));
+      } else {
+        heroFeatureEl.innerHTML = `
+          <div class="hero-featured-body" style="justify-content:center;align-items:flex-start;min-height:280px;">
+            <span class="news-tag">EM BREVE</span>
+            <h2 style="font-family:var(--font-display);font-size:1.35rem;font-weight:500;">Novo acervo ÀWA em ingestão</h2>
+            <p style="color:var(--fg-muted);font-size:0.92rem;">Os primeiros trabalhos e despachos oficiais estão sendo catalogados direto do DaVinci Resolve Studio.</p>
+          </div>
+        `;
+      }
+    }
+
+    if (newsGridEl) {
+      newsGridEl.innerHTML = window.AWA_NEWS.slice(1, 4)
+        .map(
+          (n) => `
+        <article class="news-card" data-news-id="${n.id}">
+          <div>
+            <div class="news-meta-row" style="margin-bottom:14px;">
+              <span class="news-tag">${n.tag}</span>
+              <span>${n.date}</span>
+            </div>
+            <h3 class="news-card-title">${n.title}</h3>
+            <p class="news-card-excerpt" style="margin-top:10px;">${n.excerpt}</p>
+          </div>
+          <div class="news-card-foot">
+            <span>Abrir despacho</span>
+            <span>→</span>
+          </div>
+        </article>`
+        )
+        .join("");
+
+      newsGridEl.querySelectorAll("[data-news-id]").forEach((el) => {
+        el.addEventListener("click", () => openNewsModal(el.dataset.newsId));
+      });
+    }
+
+    // Galeria Interativa
+    const categories = ["Todos", "Ficção", "Documentário", "Videoclipe", "Publicidade", "Bastidores"];
+    let activeCat = "Todos";
+
+    function renderGallery() {
+      const basePool =
+        activeCat === "Todos"
+          ? window.AWA_SHOTS
+          : window.AWA_SHOTS.filter((s) => s.category === activeCat);
+      const filtered = shuffleArray(basePool).slice(0, 8);
+
+      if (!filtered.length) {
+        galleryGridEl.className = "interactive-gallery-grid";
+        galleryGridEl.innerHTML = `
+          <div class="empty-state" style="grid-column: 1 / -1;">
+            <img src="${cfg.assets.simbolo}" alt="" style="width:36px;opacity:0.4;" />
+            <p style="color:var(--fg-muted);">Acervo zerado — aguardando a publicação dos primeiros takes oficiais.</p>
+          </div>`;
+        return;
+      }
+
+      const w = window.innerWidth;
+      const maxCols = w >= 1400 ? 4 : w >= 900 ? 3 : 2;
+      const numCols = Math.min(maxCols, filtered.length);
+      const cols = Array.from({ length: numCols }, () => []);
+      filtered.forEach((shot, i) => cols[i % numCols].push(shot));
+
+      galleryGridEl.className = "eyecandy-masonry";
+      galleryGridEl.innerHTML = cols
+        .map(
+          (colShots) => `
+        <div class="eyecandy-masonry-col">
+          ${colShots
+            .map((shot) => {
+              const project = getProjectById(shot.projectId);
+              const aspectStyle = shot.aspect ? `aspect-ratio:${shot.aspect};` : "aspect-ratio:16 / 9;";
+              return `
+              <article class="video-masonry-card" data-shot-id="${shot.id}" style="${aspectStyle}" tabindex="0" aria-label="${shot.title} — ${project ? project.title : ""}">
+                ${
+                  shot.video
+                    ? `<video data-src="${shot.video}" poster="${shot.image}" style="background:#000 url('${shot.image}') center/cover no-repeat;" loop muted playsinline preload="none"></video>`
+                    : `<img src="${shot.image}" alt="${shot.title}" loading="lazy" />`
+                }
+                <div class="video-masonry-hover">
+                  <div class="video-masonry-top">
+                    <span class="video-loop-dot">● ${shot.enquadramento}</span>
+                  </div>
+                  <div>
+                    <div class="video-masonry-title">${shot.title}</div>
+                    <div class="video-masonry-sub">${project ? project.title : ""}</div>
+                  </div>
+                </div>
+              </article>`;
+            })
+            .join("")}
+        </div>`
+        )
+        .join("");
+
+      galleryGridEl.querySelectorAll("[data-shot-id]").forEach((tile) => {
+        tile.addEventListener("click", () => openShotModal(tile.dataset.shotId, filtered));
+      });
+      attachViewportVideoObserver(galleryGridEl);
+    }
+
+    if (galleryFiltersEl && galleryGridEl) {
+      galleryFiltersEl.innerHTML = categories
+        .map(
+          (cat) => `
+        <button type="button" class="filter-pill ${cat === activeCat ? "active" : ""}" data-cat="${cat}">
+          ${cat}
+        </button>`
+        )
+        .join("");
+
+      galleryFiltersEl.querySelectorAll("[data-cat]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeCat = btn.dataset.cat;
+          galleryFiltersEl.querySelectorAll(".filter-pill").forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderGallery();
+        });
+      });
+
+      renderGallery();
+    }
+  }
+
+  // =========================================================================
+  // 4. PORTFÓLIO EM VÍDEO / SHOTDECK (ESTILO EYECANDY + BUSCA GOOGLE)
+  // =========================================================================
+  function initPortfolioPage() {
+    const searchInput = document.getElementById("shotdeck-search-input");
+    const clearBtn = document.getElementById("search-clear-btn");
+    const suggestionsEl = document.getElementById("search-suggestions");
+    const tagCloudEl = document.getElementById("eyecandy-tag-cloud");
+    const sortSelectEl = document.getElementById("eyecandy-sort-select");
+    const resultsGridEl = document.getElementById("shotdeck-results-grid");
+    const resultsCountEl = document.getElementById("results-count");
+    const facetFramingEl = document.getElementById("facet-framing");
+    const facetCategoryEl = document.getElementById("facet-category");
+    const facetCameraEl = document.getElementById("facet-camera");
+    const modeTabs = document.querySelectorAll("[data-mode]");
+
+    if (!searchInput || !resultsGridEl) return;
+
+    const params = new URLSearchParams(window.location.search);
+    let state = {
+      query: params.get("q") || "",
+      mode: params.get("mode") || "shots", // "shots" | "projects"
+      sort: "shuffle", // "shuffle" | "popular" | "recent" | "title"
+      framing: "all",
+      category: "all",
+      camera: "all"
+    };
+
+    searchInput.value = state.query;
+
+    // Placeholder animado estilo Eyecandy
+    const placeholderExamples = [
+      'Buscar "zenital"...',
+      'Buscar "arvoreser"...',
+      'Buscar "anamórfica"...',
+      'Buscar "silhueta"...',
+      'Buscar "preto e branco"...',
+      'Buscar "documentário"...'
+    ];
+    let phIdx = 0;
+    setInterval(() => {
+      if (document.activeElement !== searchInput && !searchInput.value) {
+        phIdx = (phIdx + 1) % placeholderExamples.length;
+        searchInput.placeholder = placeholderExamples[phIdx];
+      }
+    }, 2600);
+
+    // Nuvem limpa de técnicas & termos (estilo Eyecandy)
+    const cloudTerms = [
+      "ZENITAL",
+      "SILHUETA",
+      "CONTRA-PLONGÉE",
+      "CLOSE-UP",
+      "PLANO GERAL",
+      "PLANO MÉDIO",
+      "PLONGÉE",
+      "OVER-THE-SHOULDER",
+      "LENS FLARE",
+      "CONTRALUZ",
+      "DETALHE",
+      "WHIP PAN",
+      "VIDEOCLIPE",
+      "SHOW AO VIVO",
+      "VITÃO",
+      "MARIANA NOLASCO",
+      "JUNIOR CASTRO",
+      "BMMCC 2.5K",
+      "BMPCC 6K",
+      "BMPCC 4K",
+      "SESC MOGI"
+    ];
+
+    // Construir índice de autocompletar
+    const suggestionPool = [];
+    const seen = new Set();
+    function addSug(text, type) {
+      const k = norm(text);
+      if (!k || seen.has(k)) return;
+      seen.add(k);
+      suggestionPool.push({ text, type });
+    }
+    window.AWA_SHOTS.forEach((s) => {
+      addSug(s.enquadramento, "Enquadramento");
+      addSug(s.lente, "Lente");
+      addSug(s.camera, "Câmera");
+      addSug(s.title, "Take");
+      s.tags.forEach((t) => addSug(t, "Tag"));
+    });
+    window.AWA_PROJECTS.forEach((p) => {
+      addSug(p.title, "Projeto");
+      addSug(p.category, "Formato");
+    });
+
+    function renderTagCloud() {
+      if (!tagCloudEl) return;
+      tagCloudEl.innerHTML = cloudTerms
+        .map(
+          (t) => `
+        <button type="button" class="cloud-tag-btn ${norm(state.query) === norm(t) ? "active" : ""}" data-q="${t.toLowerCase()}">
+          ${t}
+        </button>`
+        )
+        .join("");
+
+      tagCloudEl.querySelectorAll("[data-q]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.query = norm(state.query) === norm(btn.dataset.q) ? "" : btn.dataset.q;
+          searchInput.value = state.query;
+          renderAll();
+        });
+      });
+    }
+
+    function renderSuggestions() {
+      const q = state.query.trim();
+      if (!q || document.activeElement !== searchInput) {
+        suggestionsEl.classList.remove("open");
+        return;
+      }
+      const matches = suggestionPool.filter((s) => matchQuery(s.text, q)).slice(0, 7);
+      if (!matches.length) {
+        suggestionsEl.classList.remove("open");
+        return;
+      }
+      suggestionsEl.innerHTML = matches
+        .map(
+          (m) => `
+        <div class="suggestion-row" data-sug="${m.text}">
+          <span>${m.text}</span>
+          <span class="suggestion-type">${m.type}</span>
+        </div>`
+        )
+        .join("");
+      suggestionsEl.classList.add("open");
+
+      suggestionsEl.querySelectorAll("[data-sug]").forEach((row) => {
+        row.addEventListener("mousedown", (e) => {
+          e.preventDefault();
+          state.query = row.dataset.sug;
+          searchInput.value = state.query;
+          suggestionsEl.classList.remove("open");
+          renderAll();
+        });
+      });
+    }
+
+    function sortList(items) {
+      const copy = [...items];
+      if (state.sort === "popular") {
+        copy.sort((a, b) => (b.popularity || 0) - (a.popularity || 0));
+      } else if (state.sort === "recent") {
+        copy.sort((a, b) => (b.addedOrder || 0) - (a.addedOrder || 0));
+      } else if (state.sort === "title") {
+        copy.sort((a, b) => a.title.localeCompare(b.title, "pt-BR"));
+      } else if (state.sort === "shuffle") {
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+      }
+      return copy;
+    }
+
+    function renderResults() {
+      clearBtn.classList.toggle("visible", state.query.length > 0);
+      modeTabs.forEach((tab) => tab.classList.toggle("active", tab.dataset.mode === state.mode));
+
+      if (state.mode === "shots") {
+        resultsGridEl.className = "eyecandy-masonry";
+
+        const filtered = sortList(
+          window.AWA_SHOTS.filter((shot) => {
+            const proj = getProjectById(shot.projectId);
+            const searchBlob = [
+              shot.title,
+              shot.enquadramento,
+              shot.movimento,
+              shot.iluminacao,
+              shot.lente,
+              shot.camera,
+              shot.cor,
+              shot.notes,
+              shot.category,
+              proj.title,
+              proj.client,
+              ...shot.tags
+            ].join(" ");
+
+            if (!matchQuery(searchBlob, state.query)) return false;
+            if (state.framing !== "all" && norm(shot.enquadramento) !== norm(state.framing)) return false;
+            if (state.category !== "all" && norm(shot.category) !== norm(state.category)) return false;
+            if (state.camera !== "all" && !norm(shot.camera).includes(norm(state.camera))) return false;
+            return true;
+          })
+        );
+
+        resultsCountEl.textContent = `${filtered.length} ${
+          filtered.length === 1 ? "take em vídeo" : "takes em vídeo"
+        }${state.query ? ` para "${state.query}"` : ""}`;
+
+        if (!filtered.length) {
+          resultsGridEl.className = "shotdeck-grid";
+          resultsGridEl.innerHTML = `
+            <div class="empty-state">
+              <img src="${cfg.assets.simbolo}" alt="" style="width:42px;opacity:0.4;" />
+              <h3 style="font-family:var(--font-display);font-size:1.3rem;">Nenhum take encontrado para "${state.query}"</h3>
+              <p style="color:var(--fg-muted);max-width:44ch;">Tente buscar por enquadramentos como <strong>zenital</strong>, <strong>arvoreser</strong>, <strong>anamórfica</strong> ou limpe os filtros.</p>
+              <button type="button" class="btn btn-ghost btn-sm" id="reset-search-btn">Limpar busca e filtros</button>
+            </div>`;
+          const resetBtn = document.getElementById("reset-search-btn");
+          if (resetBtn) {
+            resetBtn.onclick = () => {
+              state.query = "";
+              state.framing = "all";
+              state.category = "all";
+              state.camera = "all";
+              searchInput.value = "";
+              facetFramingEl.value = "all";
+              facetCategoryEl.value = "all";
+              facetCameraEl.value = "all";
+              renderAll();
+            };
+          }
+          return;
+        }
+
+        function getMasonryCols() {
+          const w = window.innerWidth;
+          if (w >= 2000) return 7;
+          if (w >= 1600) return 6;
+          if (w >= 1200) return 5;
+          if (w >= 900) return 4;
+          if (w >= 600) return 3;
+          return 2;
+        }
+
+        const numCols = Math.min(getMasonryCols(), Math.max(1, filtered.length));
+        const cols = Array.from({ length: numCols }, () => []);
+        filtered.forEach((shot, i) => {
+          cols[i % numCols].push(shot);
+        });
+
+        resultsGridEl.innerHTML = cols
+          .map(
+            (colShots) => `
+          <div class="eyecandy-masonry-col">
+            ${colShots
+              .map((shot) => {
+                const proj = getProjectById(shot.projectId);
+                const aspectStyle = shot.aspect ? `aspect-ratio:${shot.aspect};` : "aspect-ratio:16 / 9;";
+                return `
+                <article class="video-masonry-card" data-shot-id="${shot.id}" style="${aspectStyle}" tabindex="0" aria-label="${shot.title} — ${proj.title}">
+                  ${
+                    shot.video
+                      ? `<video data-src="${shot.video}" poster="${shot.image}" style="background:#000 url('${shot.image}') center/cover no-repeat;" loop muted playsinline preload="none"></video>`
+                      : `<img src="${shot.image}" alt="${shot.title}" loading="lazy" />`
+                  }
+                  <div class="video-masonry-hover">
+                    <div class="video-masonry-top">
+                      <span class="video-loop-dot">● ${shot.enquadramento}</span>
+                      <span class="video-loop-dot">${shot.lente}</span>
+                    </div>
+                    <div>
+                      <div class="video-masonry-title">${shot.title}</div>
+                      <div class="video-masonry-sub">${proj.title} · ${proj.year}</div>
+                    </div>
+                  </div>
+                </article>`;
+              })
+              .join("")}
+          </div>`
+          )
+          .join("");
+
+        resultsGridEl.dataset.lastCols = String(numCols);
+
+        resultsGridEl.querySelectorAll("[data-shot-id]").forEach((card) => {
+          card.addEventListener("click", () => openShotModal(card.dataset.shotId, filtered));
+          card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openShotModal(card.dataset.shotId, filtered);
+            }
+          });
+        });
+        attachViewportVideoObserver(resultsGridEl);
+      } else {
+        // Modo "Trabalhos Completos (Obras)"
+        resultsGridEl.className = "shotdeck-grid";
+        const filteredProjects = window.AWA_PROJECTS.filter((proj) => {
+          const projShots = window.AWA_SHOTS.filter((s) => s.projectId === proj.id);
+          const blob = [
+            proj.title,
+            proj.category,
+            proj.client,
+            proj.year,
+            proj.camera,
+            proj.lenses,
+            proj.logline,
+            proj.synopsis,
+            ...projShots.flatMap((s) => [s.enquadramento, ...s.tags])
+          ].join(" ");
+          if (!matchQuery(blob, state.query)) return false;
+          if (state.category !== "all" && norm(proj.category) !== norm(state.category)) return false;
+          if (state.camera !== "all" && !norm(proj.camera).includes(norm(state.camera))) return false;
+          return true;
+        });
+
+        resultsCountEl.textContent = `${filteredProjects.length} ${
+          filteredProjects.length === 1 ? "trabalho completo" : "trabalhos completos"
+        }${state.query ? ` relacionados a "${state.query}"` : ""}`;
+
+        resultsGridEl.innerHTML = filteredProjects
+          .map(
+            (proj) => `
+          <a href="projeto.html?id=${encodeURIComponent(proj.id)}" class="shot-card">
+            <div class="shot-card-media">
+              ${
+                proj.coverVideo
+                  ? `<video src="${proj.coverVideo}" poster="${proj.coverImage}" autoplay loop muted playsinline preload="metadata"></video>`
+                  : `<img src="${proj.coverImage}" alt="${proj.title}" loading="lazy" />`
+              }
+              <div class="shot-card-badges">
+                <span class="shot-chip">${proj.category}</span>
+                <span class="shot-chip">${proj.year}</span>
+              </div>
+            </div>
+            <div class="shot-card-body">
+              <div class="shot-card-project">${proj.client}</div>
+              <h3 class="shot-card-title">${proj.title}</h3>
+              <p style="color:var(--fg-muted);font-size:0.86rem;line-height:1.5;">${proj.logline}</p>
+              <div class="shot-specs-line" style="margin-top:auto;padding-top:8px;">
+                <span>${proj.duration}</span>
+                <span>·</span>
+                <span>${proj.aspectRatio}</span>
+                <span>·</span>
+                <span style="color:var(--fg);">Abrir obra →</span>
+              </div>
+            </div>
+          </a>`
+          )
+          .join("");
+      }
+    }
+
+    function renderAll() {
+      renderTagCloud();
+      renderResults();
+    }
+
+    searchInput.addEventListener("input", () => {
+      state.query = searchInput.value;
+      renderAll();
+      renderSuggestions();
+    });
+
+    searchInput.addEventListener("focus", renderSuggestions);
+    searchInput.addEventListener("blur", () => {
+      setTimeout(() => suggestionsEl.classList.remove("open"), 150);
+    });
+
+    clearBtn.addEventListener("click", () => {
+      state.query = "";
+      searchInput.value = "";
+      searchInput.focus();
+      renderAll();
+    });
+
+    if (sortSelectEl) {
+      sortSelectEl.addEventListener("change", () => {
+        state.sort = sortSelectEl.value;
+        renderResults();
+      });
+    }
+
+    modeTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        state.mode = tab.dataset.mode;
+        renderAll();
+      });
+    });
+
+    facetFramingEl.addEventListener("change", () => {
+      state.framing = facetFramingEl.value;
+      renderAll();
+    });
+    facetCategoryEl.addEventListener("change", () => {
+      state.category = facetCategoryEl.value;
+      renderAll();
+    });
+    facetCameraEl.addEventListener("change", () => {
+      state.camera = facetCameraEl.value;
+      renderAll();
+    });
+
+    // Atalho "/" para focar na busca
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "/" && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+
+    // Rebalanceia colunas ao redimensionar a janela lateralmente
+    let lastWidth = window.innerWidth;
+    window.addEventListener("resize", () => {
+      if (Math.abs(window.innerWidth - lastWidth) > 40) {
+        lastWidth = window.innerWidth;
+        if (state.mode === "shots") renderResults();
+      }
+    });
+
+    renderAll();
+  }
+
+  // =========================================================================
+  // 5. PÁGINA DO PROJETO (projeto.html?id=...)
+  // =========================================================================
+  function initProjectPage() {
+    const container = document.getElementById("project-detail-root");
+    if (!container) return;
+
+    if (!window.AWA_PROJECTS || !window.AWA_PROJECTS.length) {
+      container.innerHTML = `
+        <section class="page-banner">
+          <div class="container">
+            <div class="eyebrow">Acervo em Preparação</div>
+            <h1 class="page-title">Nenhum projeto publicado ainda</h1>
+            <p style="color:var(--fg-muted);margin-bottom:24px;">Assim que você aprovar os primeiros takes, este espaço exibirá a ficha técnica e o vídeo completo da obra.</p>
+            <a href="portfolio.html" class="btn btn-primary">Voltar ao Portfólio</a>
+          </div>
+        </section>`;
+      return;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const focusShotId = params.get("shot");
+    const projIdx = window.AWA_PROJECTS.findIndex((p) => p.id === id);
+    const project = projIdx >= 0 ? window.AWA_PROJECTS[projIdx] : window.AWA_PROJECTS[0];
+    const prevProject = window.AWA_PROJECTS[(projIdx - 1 + window.AWA_PROJECTS.length) % window.AWA_PROJECTS.length];
+    const nextProject = window.AWA_PROJECTS[(projIdx + 1) % window.AWA_PROJECTS.length];
+
+    document.title = `${project.title} — ÀWA`;
+
+    const projectShots = window.AWA_SHOTS.filter((s) => s.projectId === project.id);
+    const ytId = extractYouTubeId(project.youtubeId || project.youtubeUrl);
+    const ytDirectUrl = ytId ? `https://www.youtube.com/watch?v=${ytId}` : "";
+
+    container.innerHTML = `
+      <section class="project-hero">
+        <div class="container">
+          <div class="breadcrumb">
+            <a href="index.html">Início</a>
+            <span>/</span>
+            <a href="portfolio.html">Portfólio & Shotdeck</a>
+            <span>/</span>
+            <span style="color:var(--fg);">${project.title}</span>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;">
+            <div>
+              <div class="eyebrow" style="margin-bottom:14px;">${project.category} · ${project.year} · ${project.status}</div>
+              <h1 class="project-title-xl">${project.title}</h1>
+              <p style="color:var(--fg-soft);font-size:1.15rem;max-width:60ch;">${project.logline}</p>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              ${
+                ytId
+                  ? `<a href="#filme-completo" class="btn btn-primary btn-sm">▶ Assistir Filme Completo</a>`
+                  : ""
+              }
+              <a href="portfolio.html" class="btn btn-ghost btn-sm">← Voltar ao Shotdeck</a>
+              <a href="contato.html?assunto=${encodeURIComponent("Projeto: " + project.title)}" class="btn btn-ghost btn-sm">Solicitar Ficha / Orçamento</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      ${
+        ytId
+          ? `
+      <section id="filme-completo" style="padding:52px 0;border-bottom:1px solid var(--border);background:var(--surface-1);">
+        <div class="container">
+          <div class="section-header-bar" style="margin-bottom:24px;">
+            <div>
+              <div class="eyebrow" style="margin-bottom:8px;">Projeção Completa · YouTube</div>
+              <h2 class="section-heading">Filme Completo</h2>
+            </div>
+            <a href="${ytDirectUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+              Abrir no YouTube ↗
+            </a>
+          </div>
+          <div class="youtube-player-wrap">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/${ytId}?rel=0&modestbranding=1"
+              title="${project.title} — Filme Completo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>`
+          : ""
+      }
+
+      <section>
+        <div class="container project-details-grid">
+          <div style="display:flex;flex-direction:column;gap:28px;">
+            <div>
+              <div class="eyebrow" style="margin-bottom:12px;">Sinopse & Abordagem</div>
+              <p style="color:var(--fg-soft);font-size:1.05rem;line-height:1.75;">${project.synopsis}</p>
+            </div>
+            <div style="border-left:2px solid var(--fg);padding-left:20px;">
+              <div class="mono" style="font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--fg-muted);margin-bottom:8px;">Nota de Direção & Óptica</div>
+              <p style="color:var(--fg);font-size:0.98rem;line-height:1.65;">"${project.directorNote}"</p>
+            </div>
+            <div>
+              <div class="eyebrow" style="margin-bottom:16px;">Créditos de Set (Sistema ÀWA)</div>
+              <div class="spec-table">
+                ${project.credits
+                  .map(
+                    (c) => `
+                  <div class="spec-row">
+                    <span class="spec-label">${c.role}</span>
+                    <span class="spec-value">${c.name}</span>
+                  </div>`
+                  )
+                  .join("")}
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="eyebrow" style="margin-bottom:16px;">Especificações Técnicas</div>
+            <div class="spec-table">
+              <div class="spec-row"><span class="spec-label">Cliente / Produção</span><span class="spec-value">${project.client}</span></div>
+              <div class="spec-row"><span class="spec-label">Ano</span><span class="spec-value">${project.year}</span></div>
+              <div class="spec-row"><span class="spec-label">Duração</span><span class="spec-value">${project.duration}</span></div>
+              <div class="spec-row"><span class="spec-label">Aspect Ratio</span><span class="spec-value">${project.aspectRatio}</span></div>
+              <div class="spec-row"><span class="spec-label">Câmera</span><span class="spec-value">${project.camera}</span></div>
+              <div class="spec-row"><span class="spec-label">Lentes</span><span class="spec-value">${project.lenses}</span></div>
+              <div class="spec-row"><span class="spec-label">Finalização</span><span class="spec-value">${project.format}</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding:56px 0 80px;border-bottom:1px solid var(--border);">
+        <div class="container">
+          <div class="section-header-bar">
+            <div>
+              <div class="eyebrow" style="margin-bottom:10px;">Shotdeck da Obra</div>
+              <h2 class="section-heading">Takes Indexados deste Projeto (${projectShots.length})</h2>
+            </div>
+            <a href="portfolio.html?q=${encodeURIComponent(project.title)}" class="btn btn-ghost btn-sm">Ver todos no buscador →</a>
+          </div>
+
+          <div class="shotdeck-grid" id="project-shots-grid">
+            ${projectShots
+              .map(
+                (shot) => `
+              <article class="shot-card ${focusShotId === shot.id ? "shot-highlight" : ""}" data-shot-id="${shot.id}" id="take-${shot.id}">
+                <div class="shot-card-media">
+                  ${
+                    shot.video
+                      ? `<video data-src="${shot.video}" poster="${shot.image}" style="background:#000 url('${shot.image}') center/cover no-repeat;" loop muted playsinline preload="none"></video>`
+                      : `<img src="${shot.image}" alt="${shot.title}" />`
+                  }
+                  <div class="shot-card-badges">
+                    <span class="shot-chip">${shot.enquadramento}</span>
+                    <span class="shot-chip">${shot.timecode}</span>
+                  </div>
+                </div>
+                <div class="shot-card-body">
+                  <h3 class="shot-card-title">${shot.title}</h3>
+                  <div class="shot-specs-line">${shot.lente} · ${shot.movimento}</div>
+                  <p style="font-size:0.84rem;color:var(--fg-muted);">${shot.notes}</p>
+                </div>
+              </article>`
+              )
+              .join("")}
+          </div>
+
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:32px;border-top:1px solid var(--border);">
+            <a href="projeto.html?id=${encodeURIComponent(prevProject.id)}" class="btn btn-ghost">← Anterior: ${prevProject.title}</a>
+            <a href="projeto.html?id=${encodeURIComponent(nextProject.id)}" class="btn btn-ghost">Próximo: ${nextProject.title} →</a>
+          </div>
+        </div>
+      </section>
+    `;
+
+    container.querySelectorAll("[data-shot-id]").forEach((card) => {
+      card.addEventListener("click", () => openShotModal(card.dataset.shotId, projectShots));
+    });
+    attachViewportVideoObserver(container);
+
+    if (focusShotId) {
+      const target = document.getElementById(`take-${focusShotId}`);
+      if (target) {
+        setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "center" }), 250);
+      }
+    }
+  }
+
+  // =========================================================================
+  // 6. TIME & PARCEIROS (time.html)
+  // =========================================================================
+  function initTimePage() {
+    const teamGrid = document.getElementById("team-grid");
+    const variantsWall = document.getElementById("variants-wall");
+    const partnersGrid = document.getElementById("partners-grid");
+
+    if (teamGrid) {
+      teamGrid.innerHTML = window.AWA_TEAM.map(
+        (m) => `
+        <article class="team-card">
+          <div class="team-card-photo">
+            <img src="${m.image}" alt="${m.name}" loading="lazy" />
+          </div>
+          <div class="team-card-body">
+            <span class="set-badge">${m.badge}</span>
+            <h3 style="font-family:var(--font-display);font-size:1.25rem;font-weight:500;">${m.name}</h3>
+            <p style="color:var(--fg-muted);font-size:0.9rem;line-height:1.6;">${m.bio}</p>
+          </div>
+        </article>`
+      ).join("");
+    }
+
+    if (variantsWall) {
+      variantsWall.innerHTML = window.AWA_SET_VARIANTS.map(
+        (v) => `
+        <div class="variant-cell">
+          <img src="${cfg.assets.tipografia}" alt="ÀWA" />
+          <div class="variant-role">${v.label}</div>
+          <div class="variant-dept">${v.dept}</div>
+        </div>`
+      ).join("");
+    }
+
+    if (partnersGrid) {
+      partnersGrid.innerHTML = window.AWA_PARTNERS.map(
+        (p) => `
+        <article class="partner-card">
+          <div>
+            <div class="mono" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-muted);margin-bottom:10px;">
+              ${p.type} · ${p.city}
+            </div>
+            <h3 style="font-family:var(--font-display);font-size:1.25rem;font-weight:500;margin-bottom:10px;">${p.name}</h3>
+            <p style="color:var(--fg-muted);font-size:0.9rem;line-height:1.6;">${p.desc}</p>
+          </div>
+          <div class="mono" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-dim);">
+            Aliança Técnica Ativa
+          </div>
+        </article>`
+      ).join("");
+    }
+  }
+
+  // =========================================================================
+  // 7. CLIENTES & PROJETOS (clientes.html)
+  // =========================================================================
+  function initClientesPage() {
+    const clientsWall = document.getElementById("clients-wall");
+    const projectsTableBody = document.getElementById("projects-index-body");
+    const categoryFilterBar = document.getElementById("clientes-category-filters");
+    if (!clientsWall || !projectsTableBody) return;
+
+    let activeFilter = "Todos";
+    const cats = ["Todos", "Ficção", "Documentário", "Videoclipe", "Publicidade", "Bastidores"];
+
+    clientsWall.innerHTML = window.AWA_CLIENTS.map(
+      (c) => `
+      <a href="projeto.html?id=${encodeURIComponent(c.projectId)}" class="client-tile">
+        <div>
+          <div class="mono" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-muted);margin-bottom:10px;">
+            ${c.sector}
+          </div>
+          <h3 class="client-name">${c.name}</h3>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:0.7rem;color:var(--fg-soft);">
+          <span>${c.projectsCount} · ${c.highlight}</span>
+          <span>→</span>
+        </div>
+      </a>`
+    ).join("");
+
+    function renderTable() {
+      const list =
+        activeFilter === "Todos"
+          ? window.AWA_PROJECTS
+          : window.AWA_PROJECTS.filter((p) => p.category === activeFilter);
+
+      projectsTableBody.innerHTML = list
+        .map(
+          (p) => `
+        <tr class="projects-index-row" onclick="window.location.href='projeto.html?id=${encodeURIComponent(p.id)}'">
+          <td class="mono" style="font-size:0.8rem;color:var(--fg-muted);">${p.year}</td>
+          <td>
+            <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:500;">${p.title}</div>
+            <div class="mono" style="font-size:0.68rem;color:var(--fg-dim);margin-top:3px;">${p.camera} · ${p.aspectRatio}</div>
+          </td>
+          <td class="hide-mobile" style="color:var(--fg-soft);font-size:0.92rem;">${p.client}</td>
+          <td><span class="news-tag">${p.category}</span></td>
+          <td class="hide-mobile" style="color:var(--fg-muted);font-size:0.86rem;">${p.status}</td>
+          <td class="mono" style="text-align:right;font-size:0.78rem;">Ver →</td>
+        </tr>`
+        )
+        .join("");
+    }
+
+    if (categoryFilterBar) {
+      categoryFilterBar.innerHTML = cats
+        .map(
+          (c) =>
+            `<button type="button" class="filter-pill ${c === activeFilter ? "active" : ""}" data-cat="${c}">${c}</button>`
+        )
+        .join("");
+
+      categoryFilterBar.querySelectorAll("[data-cat]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeFilter = btn.dataset.cat;
+          categoryFilterBar.querySelectorAll(".filter-pill").forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderTable();
+        });
+      });
+    }
+
+    renderTable();
+  }
+
+  // =========================================================================
+  // 8. CONTATO — CHAT INTERATIVO DIRETO PARA O E-MAIL (contato.html)
+  // =========================================================================
+  function initContactChat() {
+    const messagesEl = document.getElementById("chat-messages");
+    const quickRepliesEl = document.getElementById("chat-quick-replies");
+    const formEl = document.getElementById("chat-form");
+    const inputEl = document.getElementById("chat-input");
+    const summaryWrapEl = document.getElementById("email-summary-wrap");
+    const targetEmailLabel = document.getElementById("target-email-display");
+    const resetChatBtn = document.getElementById("reset-chat-btn");
+
+    if (!messagesEl || !formEl || !inputEl) return;
+    if (targetEmailLabel) targetEmailLabel.textContent = cfg.email;
+
+    const params = new URLSearchParams(window.location.search);
+    const preSubject = params.get("assunto");
+
+    const chatData = {
+      name: "",
+      senderEmail: "",
+      projectType: preSubject || "",
+      brief: ""
+    };
+
+    const steps = [
+      {
+        key: "name",
+        prompt: "Olá! Aqui é a mesa de direção da ÀWA. Como podemos te chamar (seu nome ou produtora)?",
+        placeholder: "Ex: Mariana Luz / Selo Brisa",
+        quick: []
+      },
+      {
+        key: "projectType",
+        prompt: (d) => `Prazer, ${d.name}. Sobre qual formato ou frente você gostaria de conversar?`,
+        placeholder: "Escolha uma opção ou escreva o tipo de projeto...",
+        quick: ["Ficção / Curta ou Longa", "Documentário", "Videoclipe / Filme-Álbum", "Publicidade", "Coprodução / Orçamento"]
+      },
+      {
+        key: "senderEmail",
+        prompt: "Qual é o seu melhor e-mail para retornarmos a resposta?",
+        placeholder: "seuemail@dominio.com.br",
+        quick: []
+      },
+      {
+        key: "brief",
+        prompt: "Agora conte em poucas linhas a ideia, janela de gravação ou referência visual que você imagina:",
+        placeholder: "Descreva seu projeto, prazos ou dúvidas...",
+        quick: ["Já tenho roteiro / tratamento", "Quero desenvolver do zero com a ÀWA", "Cotação de diária / equipe"]
+      }
+    ];
+
+    let stepIndex = 0;
+
+    function addBubble(sender, text) {
+      const div = document.createElement("div");
+      div.className = `chat-msg ${sender}`;
+      div.innerHTML = `
+        <div class="chat-msg-meta">${sender === "awa" ? "ÀWA · DIREÇÃO" : "VOCÊ"}</div>
+        <div>${text.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</div>
+      `;
+      messagesEl.appendChild(div);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function renderQuickReplies(options) {
+      quickRepliesEl.innerHTML = (options || [])
+        .map((opt) => `<button type="button" class="quick-tag" data-reply="${opt}">${opt}</button>`)
+        .join("");
+
+      quickRepliesEl.querySelectorAll("[data-reply]").forEach((btn) => {
+        btn.addEventListener("click", () => handleUserAnswer(btn.dataset.reply));
+      });
+    }
+
+    function compileEmailSummary() {
+      const subject = `[Site ÀWA] ${chatData.projectType || "Novo Contato"} — ${chatData.name}`;
+      const body = [
+        `Olá equipe ÀWA,`,
+        ``,
+        `Nome / Organização: ${chatData.name}`,
+        `E-mail de retorno: ${chatData.senderEmail}`,
+        `Formato / Assunto: ${chatData.projectType}`,
+        ``,
+        `Mensagem / Briefing:`,
+        `${chatData.brief}`,
+        ``,
+        `---`,
+        `Enviado via Chat Direto do Site ÀWA`
+      ].join("\n");
+
+      const mailtoHref = `mailto:${encodeURIComponent(cfg.email)}?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(body)}`;
+
+      summaryWrapEl.innerHTML = `
+        <div class="email-summary-box">
+          <div class="news-meta-row" style="margin-bottom:12px;">
+            <span class="news-tag">PRONTO PARA ENVIAR</span>
+            <span>DESTINO: ${cfg.email}</span>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:0.78rem;color:var(--fg-soft);margin-bottom:12px;">
+            <strong>Assunto:</strong> ${subject}
+          </div>
+          <pre style="white-space:pre-wrap;font-family:var(--font-mono);font-size:0.76rem;color:var(--fg-muted);background:var(--surface-2);padding:14px;border:1px solid var(--border);margin-bottom:16px;line-height:1.55;">${body}</pre>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;">
+            <a href="${mailtoHref}" class="btn btn-primary" id="open-mailto-btn">
+              Abrir no Meu E-mail e Enviar →
+            </a>
+            <button type="button" class="btn btn-ghost" id="copy-brief-btn">
+              Copiar Mensagem
+            </button>
+          </div>
+        </div>
+      `;
+
+      const copyBtn = document.getElementById("copy-brief-btn");
+      if (copyBtn) {
+        copyBtn.onclick = () => {
+          navigator.clipboard?.writeText(`Para: ${cfg.email}\nAssunto: ${subject}\n\n${body}`);
+          copyBtn.textContent = "Copiado ✓";
+          setTimeout(() => (copyBtn.textContent = "Copiar Mensagem"), 2000);
+        };
+      }
+    }
+
+    function promptCurrentStep() {
+      if (stepIndex >= steps.length) {
+        addBubble(
+          "awa",
+          `Perfeito, ${chatData.name}! Compilei toda a nossa conversa abaixo. Clique em "Abrir no Meu E-mail e Enviar" para disparar direto para ${cfg.email}.`
+        );
+        renderQuickReplies([]);
+        inputEl.placeholder = "Deseja acrescentar mais algum detalhe ao e-mail?";
+        compileEmailSummary();
+        return;
+      }
+
+      const step = steps[stepIndex];
+      const msgText = typeof step.prompt === "function" ? step.prompt(chatData) : step.prompt;
+      addBubble("awa", msgText);
+      inputEl.placeholder = step.placeholder;
+      renderQuickReplies(step.quick);
+    }
+
+    function handleUserAnswer(val) {
+      const clean = (val || "").trim();
+      if (!clean) return;
+      addBubble("user", clean);
+      inputEl.value = "";
+
+      if (stepIndex < steps.length) {
+        const key = steps[stepIndex].key;
+        chatData[key] = clean;
+        stepIndex += 1;
+        setTimeout(promptCurrentStep, 220);
+      } else {
+        // Mensagens extras depois de concluído são anexadas ao briefing
+        chatData.brief += `\n+ Complemento: ${clean}`;
+        compileEmailSummary();
+        addBubble("awa", "Adicionado ao corpo do e-mail! Você já pode clicar no botão abaixo para enviar.");
+      }
+    }
+
+    formEl.addEventListener("submit", (e) => {
+      e.preventDefault();
+      handleUserAnswer(inputEl.value);
+    });
+
+    function startChat() {
+      messagesEl.innerHTML = "";
+      summaryWrapEl.innerHTML = "";
+      stepIndex = 0;
+      chatData.name = "";
+      chatData.senderEmail = "";
+      chatData.projectType = preSubject || "";
+      chatData.brief = "";
+      promptCurrentStep();
+    }
+
+    if (resetChatBtn) resetChatBtn.addEventListener("click", startChat);
+    startChat();
+  }
+
+  // Boot
+  document.addEventListener("DOMContentLoaded", () => {
+    renderLayoutChrome();
+    const page = document.body.dataset.page;
+    if (page === "home") initHomePage();
+    if (page === "portfolio") initPortfolioPage();
+    if (page === "projeto") initProjectPage();
+    if (page === "time") initTimePage();
+    if (page === "clientes") initClientesPage();
+    if (page === "contato") initContactChat();
+  });
+})();

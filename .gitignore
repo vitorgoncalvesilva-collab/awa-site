@@ -1,0 +1,5 @@
+in_videos/
+.DS_Store
+*.log
+/tmp/
+cerebro_AIedit/

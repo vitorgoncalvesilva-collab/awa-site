@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio em Vídeo & Shotdeck — ÀWA</title>
+  <meta name="description" content="Acervo visual em vídeo da ÀWA: pesquise takes em loop por técnica (zenital, contra-plongée, anamórfica), câmera ou obra completa." />
+  <link rel="icon" type="image/png" href="assets/brand/awa-simbolo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/awa.css" />
+</head>
+<body data-page="portfolio">
+  <header class="site-header" id="site-header"></header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu móvel"></nav>
+
+  <main>
+    <!-- HERO ESTILO EYECANDY: MARCA + NUVEM DE TÉCNICAS + BUSCA EM PÍLULA + ORDENAÇÃO -->
+    <section class="eyecandy-hero">
+      <div class="container">
+        <div class="eyecandy-center">
+          <div class="eyecandy-wordmark-wrap">
+            <img src="assets/brand/awa-simbolo.png" alt="" style="width:36px;height:36px;object-fit:contain;" />
+            <img src="assets/brand/awa-tipografia.png" alt="ÀWA" style="height:28px;width:auto;" />
+            <span class="news-tag">ACERVO EM VÍDEO</span>
+          </div>
+
+          <!-- Nuvem limpa de técnicas e termos clicáveis (estilo Eyecandy) -->
+          <div class="eyecandy-tag-cloud" id="eyecandy-tag-cloud" aria-label="Técnicas e palavras-chave"></div>
+
+          <!-- Barra de pesquisa em pílula + Dropdown de ordenação -->
+          <div class="eyecandy-search-row">
+            <div class="pill-search-wrap">
+              <div class="pill-search-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.8;flex-shrink:0;">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  type="search"
+                  id="shotdeck-search-input"
+                  class="search-input"
+                  placeholder='Buscar "zenital"...'
+                  autocomplete="off"
+                  aria-label="Buscar takes em vídeo e projetos ÀWA"
+                />
+                <button type="button" class="search-clear-btn" id="search-clear-btn">Limpar</button>
+                <span class="search-kbd" title="Atalho de teclado">/</span>
+              </div>
+              <div class="search-suggestions-dropdown" id="search-suggestions"></div>
+            </div>
+
+            <select id="eyecandy-sort-select" class="eyecandy-sort-select" aria-label="Ordenar takes">
+              <option value="shuffle" selected>Aleatório (Descoberta)</option>
+              <option value="popular">Mais populares</option>
+              <option value="recent">Mais recentes</option>
+              <option value="title">Título (A–Z)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTROLES DISCRETOS & GRADE MASONRY DE VÍDEOS -->
+    <section class="eyecandy-grid-container">
+      <div class="eyecandy-subcontrols">
+        <div class="eyecandy-mode-pills" role="tablist" aria-label="Modo de visualização">
+          <button type="button" class="eyecandy-mode-pill active" data-mode="shots">Takes em Vídeo</button>
+          <button type="button" class="eyecandy-mode-pill" data-mode="projects">Trabalhos Completos</button>
+        </div>
+
+        <div class="facets-row">
+          <span id="results-count" class="mono" style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg-muted);margin-right:6px;">
+            Carregando...
+          </span>
+          <select id="facet-framing" class="facet-select" aria-label="Filtrar por enquadramento">
+            <option value="all">Enquadramento: Todos</option>
+            <option value="Zenital">Zenital</option>
+            <option value="Contra-Plongée">Contra-Plongée</option>
+            <option value="Close-Up">Close-Up</option>
+            <option value="Plano Geral">Plano Geral</option>
+            <option value="Plano Médio">Plano Médio</option>
+          </select>
+
+          <select id="facet-category" class="facet-select" aria-label="Filtrar por formato">
+            <option value="all">Formato: Todos</option>
+            <option value="Show Ao Vivo">Show Ao Vivo</option>
+            <option value="Ficção">Ficção</option>
+            <option value="Documentário">Documentário</option>
+            <option value="Videoclipe">Videoclipe</option>
+            <option value="Publicidade">Publicidade</option>
+            <option value="Bastidores">Bastidores</option>
+          </select>
+
+          <select id="facet-camera" class="facet-select" aria-label="Filtrar por câmera">
+            <option value="all">Câmera: Todas</option>
+            <option value="BMPCC 6K">BMPCC 6K</option>
+            <option value="BMPCC 4K">BMPCC 4K</option>
+            <option value="Lumix S9">Lumix S9</option>
+            <option value="Cinema Digital">Cinema Digital</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Grade Masonry 5 colunas estilo Eyecandy -->
+      <div id="shotdeck-results-grid" class="eyecandy-masonry"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="js/data.js?v=20261119b"></script>
+  <script src="js/app.js?v=20261119b"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato — ÀWA</title>
+  <meta name="description" content="Inicie uma conversa direta no chat da ÀWA para enviar seu briefing, roteiro ou orçamento direto para o nosso e-mail." />
+  <link rel="icon" type="image/png" href="assets/brand/awa-simbolo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/awa.css" />
+</head>
+<body data-page="contato">
+  <header class="site-header" id="site-header"></header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu móvel"></nav>
+
+  <main>
+    <section class="page-banner">
+      <div class="container">
+        <div class="eyebrow">Mesa de Direção & Atendimento</div>
+        <h1 class="page-title">Contato Direto</h1>
+        <p style="color:var(--fg-muted);max-width:60ch;font-size:1.05rem;">
+          Converse com nosso chat abaixo. Ao final de 4 perguntas rápidas, toda a conversa é compilada e encaminhada diretamente para o nosso e-mail.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container contact-layout">
+        <aside style="display:flex;flex-direction:column;gap:24px;">
+          <div style="border:1px solid var(--border);background:var(--surface-1);padding:28px;">
+            <img src="assets/brand/awa-juncao.png" alt="ÀWA" style="height:64px;width:auto;margin-bottom:20px;" />
+            <div class="eyebrow" style="margin-bottom:10px;">Canal Oficial</div>
+            <p class="mono" style="font-size:0.92rem;color:var(--fg);margin-bottom:18px;" id="target-email-display">contato@awacinema.com.br</p>
+            <p style="color:var(--fg-muted);font-size:0.9rem;line-height:1.65;">
+              Recebemos propostas de direção, roteiros de ficção e documentário, videoclipes, filmes autorais de marca e convites de coprodução.
+            </p>
+          </div>
+
+          <div class="spec-table">
+            <div class="spec-row"><span class="spec-label">Base</span><span class="spec-value">SP · SSA · RJ</span></div>
+            <div class="spec-row"><span class="spec-label">Formato</span><span class="spec-value">Chat Guiado → E-mail</span></div>
+            <div class="spec-row"><span class="spec-label">Retorno Médio</span><span class="spec-value">Até 24h úteis</span></div>
+          </div>
+
+          <div style="border:1px dashed var(--border-strong);padding:18px;font-size:0.84rem;color:var(--fg-muted);line-height:1.6;">
+            <strong style="color:var(--fg);">Nota técnica:</strong> Para apontar o chat para o seu e-mail pessoal/da produtora, basta alterar o campo <code class="mono" style="color:var(--fg);">email</code> em <code class="mono" style="color:var(--fg);">js/data.js</code>.
+          </div>
+        </aside>
+
+        <div>
+          <div class="chat-window">
+            <div class="chat-header">
+              <div class="chat-status">
+                <span class="status-dot"></span>
+                <span>Chat ÀWA → E-mail</span>
+              </div>
+              <button type="button" class="btn btn-ghost btn-sm" id="reset-chat-btn">Reiniciar conversa</button>
+            </div>
+
+            <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+
+            <div class="chat-quick-replies" id="chat-quick-replies"></div>
+
+            <form class="chat-input-bar" id="chat-form">
+              <input
+                type="text"
+                id="chat-input"
+                class="chat-input"
+                placeholder="Digite sua resposta..."
+                autocomplete="off"
+                required
+              />
+              <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+            </form>
+          </div>
+
+          <div id="email-summary-wrap"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

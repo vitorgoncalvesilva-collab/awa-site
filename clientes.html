@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clientes & Projetos — ÀWA</title>
+  <meta name="description" content="Índice institucional de clientes, coproduções, editais e catálogo completo de obras realizadas pela ÀWA." />
+  <link rel="icon" type="image/png" href="assets/brand/awa-simbolo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/awa.css" />
+</head>
+<body data-page="clientes">
+  <header class="site-header" id="site-header"></header>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu móvel"></nav>
+
+  <main>
+    <section class="page-banner">
+      <div class="container">
+        <div class="eyebrow">Acervo Institucional</div>
+        <h1 class="page-title">Clientes & Projetos</h1>
+        <p style="color:var(--fg-muted);max-width:60ch;font-size:1.05rem;">
+          Instituições culturais, selos musicais, editais e marcas autorais com quem construímos cinema e narrativas visuais.
+        </p>
+      </div>
+    </section>
+
+    <section style="padding:56px 0 88px;">
+      <div class="container">
+        <div class="section-header-bar" style="margin-bottom:24px;">
+          <div>
+            <div class="eyebrow" style="margin-bottom:8px;">Quem Confia na ÀWA</div>
+            <h2 class="section-heading">Clientes & Instituições</h2>
+          </div>
+          <a href="portfolio.html" class="btn btn-ghost btn-sm">Pesquisar por Takes no Shotdeck →</a>
+        </div>
+
+        <div class="clients-wall" id="clients-wall"></div>
+
+        <div class="section-header-bar" style="margin-bottom:24px;">
+          <div>
+            <div class="eyebrow" style="margin-bottom:8px;">Índice Cronológico</div>
+            <h2 class="section-heading">Catálogo de Projetos</h2>
+          </div>
+          <div class="filter-pills" id="clientes-category-filters"></div>
+        </div>
+
+        <table class="projects-index-table">
+          <thead>
+            <tr>
+              <th>Ano</th>
+              <th>Obra & Especificações</th>
+              <th class="hide-mobile">Cliente / Produção</th>
+              <th>Formato</th>
+              <th class="hide-mobile">Circulação / Status</th>
+              <th style="text-align:right;">Página</th>
+            </tr>
+          </thead>
+          <tbody id="projects-index-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

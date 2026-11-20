@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÀWA — Guia Visual Numerado · Quintais Negros</title>
+  <style>
+    :root { --bg: #050505; --card: #111; --border: #242424; --fg: #f4f4f4; --dim: #8f8f8f; --accent: #ffffff; --green: #4ade80; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; padding: 32px 24px 96px; }
+    header { max-width: 1360px; margin: 0 auto 32px; border-bottom: 1px solid var(--border); padding-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: flex-end; }
+    h1 { margin: 0 0 6px; font-size: 1.5rem; letter-spacing: -0.02em; }
+    p.lead { margin: 0; color: var(--dim); font-size: 0.92rem; max-width: 760px; }
+    .actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #000; border: 0; padding: 10px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.85rem; }
+    .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    main { max-width: 1360px; margin: 0 auto; }
+    .group { margin-bottom: 40px; }
+    .group h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 14px; border-left: 3px solid var(--accent); padding-left: 10px; }
+    .group h2 .count { color: var(--dim); font-weight: 400; font-size: 0.85rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 16px; }
+    .card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; cursor: pointer; transition: border-color 0.15s; }
+    .card:has(.pick:checked) { border-color: var(--green); }
+    .media-wrap { position: relative; aspect-ratio: 854 / 388; background: #000; overflow: hidden; }
+    .media-wrap img, .media-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .media-wrap video { position: absolute; inset: 0; opacity: 0; transition: opacity 0.18s; }
+    .card:hover .media-wrap video { opacity: 1; }
+    .num-badge { position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.88); color: #fff; border: 1px solid rgba(255,255,255,0.28); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.78rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+    .badge { position: absolute; top: 8px; right: 8px; font-size: 0.68rem; font-weight: 700; padding: 3px 7px; border-radius: 4px; letter-spacing: 0.04em; }
+    .badge.live { background: rgba(74, 222, 128, 0.92); color: #052e16; }
+    .badge.alt { background: rgba(20, 20, 20, 0.85); color: #d4d4d4; border: 1px solid #404040; }
+    .meta { padding: 12px; }
+    .row-top { display: flex; align-items: flex-start; gap: 8px; }
+    .title { font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
+    .num-inline { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--green); margin-right: 4px; }
+    .sub { margin-top: 6px; font-size: 0.75rem; color: var(--dim); font-family: ui-monospace, SFMono-Regular, monospace; }
+    #toast { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: #052e16; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Guia Visual Numerado — Quintais Negros</h1>
+      <p class="lead">Sincronizado com os <strong>31 takes</strong> ativos no site (incluindo Fachadas, Esculturas e Caminhada Noturna unificados). Passe o mouse para ver o vídeo, marque/desmarque e clique em <strong>Copiar Seleção</strong>.</p>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" href="projeto.html?id=quintais-negros-vila-industrial" target="_blank">Abrir Projeto no Site ↗</a>
+      <a class="btn ghost" href="portfolio.html" target="_blank">Abrir Portfólio ↗</a>
+      <button class="btn ghost" id="resetBtn">Resetar Padrão</button>
+      <button class="btn" id="copyBtn">Copiar Seleção</button>
+    </div>
+  </header>
+  <main>
+    
+    <section class="group">
+      <h2>Drones do Bairro (Vila Industrial) <span class="count">(3 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="01_drone_horizonte_crepusculo">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/01_drone_horizonte_crepusculo.jpg" alt="Horizonte da Vila Industrial ao Entardecer" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/01_drone_horizonte_crepusculo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#01</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#01" value="#01 | 01_drone_horizonte_crepusculo | Horizonte da Vila Industrial ao Entardecer" checked>
+              <span class="title"><span class="num-inline">#01</span> Horizonte da Vila Industrial ao Entardecer</span>
+            </div>
+            <div class="sub">01:00:11:05 · 1.83s · Plano Geral Aéreo · Mavic Mini 2 (24mm eq.)</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="02_drone_avenida_central">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/02_drone_avenida_central.jpg" alt="Avenida Central — Vista Aérea" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/02_drone_avenida_central.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#02</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#02" value="#02 | 02_drone_avenida_central | Avenida Central — Vista Aérea" checked>
+              <span class="title"><span class="num-inline">#02</span> Avenida Central — Vista Aérea</span>
+            </div>
+            <div class="sub">01:00:13:01 · 3.38s · Plongée Aéreo · Mavic Mini 2 (24mm eq.)</div>
+          </div>
+        </label>
+        <label class="card " data-slug="03_drone_bairro_luz_dourada">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/03_drone_bairro_luz_dourada.jpg" alt="Telhados da Vila em Luz Dourada" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/03_drone_bairro_luz_dourada.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#03</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#03" value="#03 | 03_drone_bairro_luz_dourada | Telhados da Vila em Luz Dourada" >
+              <span class="title"><span class="num-inline">#03</span> Telhados da Vila em Luz Dourada</span>
+            </div>
+            <div class="sub">01:00:41:06 · 4.13s · Plano Geral Aéreo · Mavic Mini 2 (24mm eq.)</div>
+          </div>
+        </label></div>
+    </section>
+    <section class="group">
+      <h2>Drones Zenitais (Top-Down) <span class="count">(2 takes)</span></h2>
+      <div class="grid">
+        <label class="card " data-slug="04_drone_zenital_casas">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/04_drone_zenital_casas.jpg" alt="Geometria Urbana — Zenital" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/04_drone_zenital_casas.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#04</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#04" value="#04 | 04_drone_zenital_casas | Geometria Urbana — Zenital" >
+              <span class="title"><span class="num-inline">#04</span> Geometria Urbana — Zenital</span>
+            </div>
+            <div class="sub">01:00:50:06 · 4.84s · Zenital (Top-Down) · Mavic Mini 2 (24mm eq.)</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="05_drone_zenital_rua_telhados">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/05_drone_zenital_rua_telhados.jpg" alt="Cruzamento de Telhados — Zenital" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/05_drone_zenital_rua_telhados.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#05</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#05" value="#05 | 05_drone_zenital_rua_telhados | Cruzamento de Telhados — Zenital" checked>
+              <span class="title"><span class="num-inline">#05</span> Cruzamento de Telhados — Zenital</span>
+            </div>
+            <div class="sub">01:04:57:14 · 5.84s · Zenital (Top-Down) · Mavic Mini 2 (24mm eq.)</div>
+          </div>
+        </label></div>
+    </section>
+    <section class="group">
+      <h2>Drones da Paróquia N. Sra. do Rosário <span class="count">(3 takes)</span></h2>
+      <div class="grid">
+        <label class="card " data-slug="06_drone_igreja_lateral">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/06_drone_igreja_lateral.jpg" alt="Paróquia N. Sra. do Rosário — Aéreo" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/06_drone_igreja_lateral.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#06</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#06" value="#06 | 06_drone_igreja_lateral | Paróquia N. Sra. do Rosário — Aéreo" >
+              <span class="title"><span class="num-inline">#06</span> Paróquia N. Sra. do Rosário — Aéreo</span>
+            </div>
+            <div class="sub">01:00:32:22 · 2.34s · Plano Geral Aéreo · Mavic Mini 2 (24mm eq.)</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="07_drone_cruz_por_do_sol">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/07_drone_cruz_por_do_sol.jpg" alt="Cruz da Igreja contra o Pôr do Sol" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/07_drone_cruz_por_do_sol.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#07</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#07" value="#07 | 07_drone_cruz_por_do_sol | Cruz da Igreja contra o Pôr do Sol" checked>
+              <span class="title"><span class="num-inline">#07</span> Cruz da Igreja contra o Pôr do Sol</span>
+            </div>
+            <div class="sub">01:00:35:06 · 3.38s · Plano Médio Aéreo · Mavic Mini 2 (24mm eq.)</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="08_drone_torre_igreja">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/08_drone_torre_igreja.jpg" alt="Torre da Paróquia — Aéreo Alto" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/08_drone_torre_igreja.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#08</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#08" value="#08 | 08_drone_torre_igreja | Torre da Paróquia — Aéreo Alto" checked>
+              <span class="title"><span class="num-inline">#08</span> Torre da Paróquia — Aéreo Alto</span>
+            </div>
+            <div class="sub">01:05:03:10 · 5.0s · Plongée Aéreo · Mavic Mini 2 (24mm eq.)</div>
+          </div>
+        </label></div>
+    </section>
+    <section class="group">
+      <h2>Drones do Estádio Nogueirão <span class="count">(2 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="09_drone_estadio_nogueirao">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/09_drone_estadio_nogueirao.jpg" alt="Estádio Nogueirão — Aéreo Diagonal" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/09_drone_estadio_nogueirao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#09</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#09" value="#09 | 09_drone_estadio_nogueirao | Estádio Nogueirão — Aéreo Diagonal" checked>
+              <span class="title"><span class="num-inline">#09</span> Estádio Nogueirão — Aéreo Diagonal</span>
+            </div>
+            <div class="sub">01:09:22:13 · 4.96s · Plano Geral Aéreo · Mavic Mini 2 (24mm eq.)</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="10_drone_zenital_campo">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/10_drone_zenital_campo.jpg" alt="Gramado do Nogueirão — Zenital" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/10_drone_zenital_campo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#10</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#10" value="#10 | 10_drone_zenital_campo | Gramado do Nogueirão — Zenital" checked>
+              <span class="title"><span class="num-inline">#10</span> Gramado do Nogueirão — Zenital</span>
+            </div>
+            <div class="sub">01:09:51:21 · 4.05s · Zenital (Top-Down) · Mavic Mini 2 (24mm eq.)</div>
+          </div>
+        </label></div>
+    </section>
+    <section class="group">
+      <h2>Fachadas da Vila Industrial (Unificado) <span class="count">(1 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="11_fachadas_vila_industrial">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/11_fachadas_vila_industrial.jpg" alt="Fachadas da Vila Industrial — Sequência (4 planos)" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/11_fachadas_vila_industrial.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#11</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#11" value="#11 | 11_fachadas_vila_industrial | Fachadas da Vila Industrial — Sequência (4 planos)" checked>
+              <span class="title"><span class="num-inline">#11</span> Fachadas da Vila Industrial — Sequência (4 planos)</span>
+            </div>
+            <div class="sub">01:00:47:20 · 4.8s · Plano Geral / Detalhe · Rokinon 35mm / Sony 50mm</div>
+          </div>
+        </label></div>
+    </section>
+    <section class="group">
+      <h2>Xavier Filho ao Violão na Calçada <span class="count">(2 takes)</span></h2>
+      <div class="grid">
+        <label class="card " data-slug="16_xavier_violao_aberto">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/16_xavier_violao_aberto.jpg" alt="Xavier Filho ao Violão na Calçada" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/16_xavier_violao_aberto.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#13</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#13" value="#13 | 16_xavier_violao_aberto | Xavier Filho ao Violão na Calçada" >
+              <span class="title"><span class="num-inline">#13</span> Xavier Filho ao Violão na Calçada</span>
+            </div>
+            <div class="sub">01:01:07:17 · 2.25s · Plano Geral · Rokinon 35mm f1.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="17_xavier_violao_medio">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/17_xavier_violao_medio.jpg" alt="Xavier Filho ao Violão — Plano Médio" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/17_xavier_violao_medio.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#14</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#14" value="#14 | 17_xavier_violao_medio | Xavier Filho ao Violão — Plano Médio" checked>
+              <span class="title"><span class="num-inline">#14</span> Xavier Filho ao Violão — Plano Médio</span>
+            </div>
+            <div class="sub">01:01:09:23 · 6.09s · Plano Médio · Makinon 135mm f2.8</div>
+          </div>
+        </label></div>
+    </section>
+    <section class="group">
+      <h2>Roda de Conversa no Sesc Mogi <span class="count">(3 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="20_roda_sesc_grande_angular">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/20_roda_sesc_grande_angular.jpg" alt="Roda de Conversa — Grande Angular" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/20_roda_sesc_grande_angular.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#17</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#17" value="#17 | 20_roda_sesc_grande_angular | Roda de Conversa — Grande Angular" checked>
+              <span class="title"><span class="num-inline">#17</span> Roda de Conversa — Grande Angular</span>
+            </div>
+            <div class="sub">01:01:47:11 · 1.75s · Plano Geral · Sigma 17-35mm f2.8</div>
+          </div>
+        </label>
+        <label class="card " data-slug="21_mara_vidal_sesc_media">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/21_mara_vidal_sesc_media.jpg" alt="Mara Vidal na Roda de Conversa" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/21_mara_vidal_sesc_media.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#18</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#18" value="#18 | 21_mara_vidal_sesc_media | Mara Vidal na Roda de Conversa" >
+              <span class="title"><span class="num-inline">#18</span> Mara Vidal na Roda de Conversa</span>
+            </div>
+            <div class="sub">01:01:58:21 · 8.13s · Plano Médio · Sony 50mm f1.8</div>
+          </div>
+        </label>
+        <label class="card " data-slug="22_isabella_santos_roda">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/22_isabella_santos_roda.jpg" alt="Isabella Santos Mediando o Encontro" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/22_isabella_santos_roda.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#19</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#19" value="#19 | 22_isabella_santos_roda | Isabella Santos Mediando o Encontro" >
+              <span class="title"><span class="num-inline">#19</span> Isabella Santos Mediando o Encontro</span>
+            </div>
+            <div class="sub">01:02:56:10 · 12.76s · Plano Médio · Makinon 135mm f2.8</div>
+          </div>
+        </label></div>
+    </section>
+    <section class="group">
+      <h2>Mara Vidal na Igreja (Médio vs Close) <span class="count">(2 takes)</span></h2>
+      <div class="grid">
+        <label class="card " data-slug="26_mara_vidal_igreja_media">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/26_mara_vidal_igreja_media.jpg" alt="Mara Vidal na Igreja — Plano Médio" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/26_mara_vidal_igreja_media.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#23</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#23" value="#23 | 26_mara_vidal_igreja_media | Mara Vidal na Igreja — Plano Médio" >
+              <span class="title"><span class="num-inline">#23</span> Mara Vidal na Igreja — Plano Médio</span>
+            </div>
+            <div class="sub">01:05:48:16 · 3.34s · Plano Médio · Sony 50mm f1.8</div>
+          </div>
+        </label>
+        <label class="card " data-slug="27_mara_vidal_igreja_close">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/27_mara_vidal_igreja_close.jpg" alt="Mara Vidal na Igreja — Close" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/27_mara_vidal_igreja_close.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#24</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#24" value="#24 | 27_mara_vidal_igreja_close | Mara Vidal na Igreja — Close" >
+              <span class="title"><span class="num-inline">#24</span> Mara Vidal na Igreja — Close</span>
+            </div>
+            <div class="sub">01:05:52:00 · 7.22s · Close-up · Makinon 135mm f2.8</div>
+          </div>
+        </label></div>
+    </section>
+    <section class="group">
+      <h2>Mara Vidal na Rua (Médio vs Close) <span class="count">(2 takes)</span></h2>
+      <div class="grid">
+        <label class="card " data-slug="30_mara_vidal_rua_media">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/30_mara_vidal_rua_media.jpg" alt="Mara Vidal na Rua da Vila — Médio" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/30_mara_vidal_rua_media.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#27</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#27" value="#27 | 30_mara_vidal_rua_media | Mara Vidal na Rua da Vila — Médio" >
+              <span class="title"><span class="num-inline">#27</span> Mara Vidal na Rua da Vila — Médio</span>
+            </div>
+            <div class="sub">01:07:57:08 · 8.43s · Plano Médio · Sony 50mm f1.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="31_mara_vidal_rua_close">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/31_mara_vidal_rua_close.jpg" alt="Mara Vidal na Rua da Vila — Close" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/31_mara_vidal_rua_close.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#28</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#28" value="#28 | 31_mara_vidal_rua_close | Mara Vidal na Rua da Vila — Close" checked>
+              <span class="title"><span class="num-inline">#28</span> Mara Vidal na Rua da Vila — Close</span>
+            </div>
+            <div class="sub">01:08:05:19 · 2.29s · Close-up · Makinon 135mm f2.8</div>
+          </div>
+        </label></div>
+    </section>
+    <section class="group">
+      <h2>Xavier Filho na Arquibancada (Variações) <span class="count">(3 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="34_xavier_arquibancada_medio">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/34_xavier_arquibancada_medio.jpg" alt="Xavier Filho na Arquibancada — Médio" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/34_xavier_arquibancada_medio.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#31</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#31" value="#31 | 34_xavier_arquibancada_medio | Xavier Filho na Arquibancada — Médio" checked>
+              <span class="title"><span class="num-inline">#31</span> Xavier Filho na Arquibancada — Médio</span>
+            </div>
+            <div class="sub">01:09:15:21 · 4.75s · Plano Médio · Sony 50mm f1.8</div>
+          </div>
+        </label>
+        <label class="card " data-slug="35_xavier_arquibancada_close">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/35_xavier_arquibancada_close.jpg" alt="Xavier Filho na Arquibancada — Close" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/35_xavier_arquibancada_close.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#32</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#32" value="#32 | 35_xavier_arquibancada_close | Xavier Filho na Arquibancada — Close" >
+              <span class="title"><span class="num-inline">#32</span> Xavier Filho na Arquibancada — Close</span>
+            </div>
+            <div class="sub">01:09:49:13 · 2.34s · Close-up · Makinon 135mm f2.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="36_xavier_arquibancada_gesto">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/36_xavier_arquibancada_gesto.jpg" alt="Xavier Apontando para o Campo" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/36_xavier_arquibancada_gesto.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#33</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#33" value="#33 | 36_xavier_arquibancada_gesto | Xavier Apontando para o Campo" checked>
+              <span class="title"><span class="num-inline">#33</span> Xavier Apontando para o Campo</span>
+            </div>
+            <div class="sub">01:11:39:02 · 3.59s · Plano Médio · Rokinon 35mm f1.8</div>
+          </div>
+        </label></div>
+    </section>
+    <section class="group">
+      <h2>Depoimento no Barracão de Carnaval <span class="count">(2 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="40_barracao_narradora_amarelo">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/40_barracao_narradora_amarelo.jpg" alt="Depoimento no Barracão — Casaco Amarelo" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/40_barracao_narradora_amarelo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#37</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#37" value="#37 | 40_barracao_narradora_amarelo | Depoimento no Barracão — Casaco Amarelo" checked>
+              <span class="title"><span class="num-inline">#37</span> Depoimento no Barracão — Casaco Amarelo</span>
+            </div>
+            <div class="sub">01:13:33:13 · 2.08s · Plano Médio · Sony 50mm f1.8</div>
+          </div>
+        </label>
+        <label class="card " data-slug="41_barracao_narradora_amarelo_alt">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/41_barracao_narradora_amarelo_alt.jpg" alt="Depoimento no Barracão — Variação Frontal" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/41_barracao_narradora_amarelo_alt.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#38</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#38" value="#38 | 41_barracao_narradora_amarelo_alt | Depoimento no Barracão — Variação Frontal" >
+              <span class="title"><span class="num-inline">#38</span> Depoimento no Barracão — Variação Frontal</span>
+            </div>
+            <div class="sub">01:13:40:07 · 3.84s · Plano Médio · Sony 50mm f1.8</div>
+          </div>
+        </label></div>
+    </section>
+    <section class="group">
+      <h2>Esculturas Alegóricas (Unificado) <span class="count">(1 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="42_esculturas_carnaval_detalhes">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/42_esculturas_carnaval_detalhes.jpg" alt="Esculturas Alegóricas (Verde & Dourada) — Sequência" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/42_esculturas_carnaval_detalhes.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#39</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#39" value="#39 | 42_esculturas_carnaval_detalhes | Esculturas Alegóricas (Verde & Dourada) — Sequência" checked>
+              <span class="title"><span class="num-inline">#39</span> Esculturas Alegóricas (Verde & Dourada) — Sequência</span>
+            </div>
+            <div class="sub">01:14:48:20 · 3.2s · Close-up · Makinon 135mm f2.8</div>
+          </div>
+        </label></div>
+    </section>
+    <section class="group">
+      <h2>Caminhada Noturna pela Vila (Unificado) <span class="count">(1 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="45_caminhada_noturna_vila">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/45_caminhada_noturna_vila.jpg" alt="Caminhada Noturna pela Vila — Sequência (2 planos)" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/45_caminhada_noturna_vila.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#41</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#41" value="#41 | 45_caminhada_noturna_vila | Caminhada Noturna pela Vila — Sequência (2 planos)" checked>
+              <span class="title"><span class="num-inline">#41</span> Caminhada Noturna pela Vila — Sequência (2 planos)</span>
+            </div>
+            <div class="sub">01:15:09:20 · 3.0s · Plano Geral · Sigma 17-35mm / Rokinon 35mm</div>
+          </div>
+        </label></div>
+    </section>
+    <section class="group">
+      <h2>Outros Planos Únicos no Site <span class="count">(17 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="15_viela_varal_muro">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/15_viela_varal_muro.jpg" alt="Viela com Varal e Muro Grafite" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/15_viela_varal_muro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#12</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#12" value="#12 | 15_viela_varal_muro | Viela com Varal e Muro Grafite" checked>
+              <span class="title"><span class="num-inline">#12</span> Viela com Varal e Muro Grafite</span>
+            </div>
+            <div class="sub">01:01:18:14 · 1.0s · Plano Geral · Sigma 17-35mm f2.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="18_xavier_apontando_rua">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/18_xavier_apontando_rua.jpg" alt="Xavier Apontando na Caminhada" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/18_xavier_apontando_rua.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#15</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#15" value="#15 | 18_xavier_apontando_rua | Xavier Apontando na Caminhada" checked>
+              <span class="title"><span class="num-inline">#15</span> Xavier Apontando na Caminhada</span>
+            </div>
+            <div class="sub">01:01:17:15 · 0.96s · Plano Médio · Rokinon 35mm f1.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="19_sesc_fachada_noturna">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/19_sesc_fachada_noturna.jpg" alt="Sesc Mogi à Noite — Abertura da Roda" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/19_sesc_fachada_noturna.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#16</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#16" value="#16 | 19_sesc_fachada_noturna | Sesc Mogi à Noite — Abertura da Roda" checked>
+              <span class="title"><span class="num-inline">#16</span> Sesc Mogi à Noite — Abertura da Roda</span>
+            </div>
+            <div class="sub">01:01:28:21 · 3.75s · Plano Geral · Sigma 17-35mm f2.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="23_close_mulher_lenco">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/23_close_mulher_lenco.jpg" alt="Escuta Atenta — Close com Lenço" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/23_close_mulher_lenco.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#20</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#20" value="#20 | 23_close_mulher_lenco | Escuta Atenta — Close com Lenço" checked>
+              <span class="title"><span class="num-inline">#20</span> Escuta Atenta — Close com Lenço</span>
+            </div>
+            <div class="sub">01:01:50:17 · 1.75s · Close-up · Makinon 135mm f2.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="24_letreiro_paroquia_rosario">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/24_letreiro_paroquia_rosario.jpg" alt="Paróquia Nossa Sra. do Rosário — Fachada" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/24_letreiro_paroquia_rosario.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#21</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#21" value="#21 | 24_letreiro_paroquia_rosario | Paróquia Nossa Sra. do Rosário — Fachada" checked>
+              <span class="title"><span class="num-inline">#21</span> Paróquia Nossa Sra. do Rosário — Fachada</span>
+            </div>
+            <div class="sub">01:05:08:10 · 2.34s · Plano Médio · Sony 50mm f1.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="25_grupo_entrando_igreja_noite">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/25_grupo_entrando_igreja_noite.jpg" alt="Chegada Noturna à Paróquia" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/25_grupo_entrando_igreja_noite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#22</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#22" value="#22 | 25_grupo_entrando_igreja_noite | Chegada Noturna à Paróquia" checked>
+              <span class="title"><span class="num-inline">#22</span> Chegada Noturna à Paróquia</span>
+            </div>
+            <div class="sub">01:05:14:19 · 4.71s · Plano Geral · Sigma 17-35mm f2.8</div>
+          </div>
+        </label>
+        <label class="card " data-slug="28_xavier_igreja_geral">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/28_xavier_igreja_geral.jpg" alt="Xavier Filho Falando aos Participantes" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/28_xavier_igreja_geral.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#25</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#25" value="#25 | 28_xavier_igreja_geral | Xavier Filho Falando aos Participantes" >
+              <span class="title"><span class="num-inline">#25</span> Xavier Filho Falando aos Participantes</span>
+            </div>
+            <div class="sub">01:06:33:07 · 2.42s · Plano Geral · Sigma 17-35mm f2.8</div>
+          </div>
+        </label>
+        <label class="card " data-slug="29_debora_mello_igreja">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/29_debora_mello_igreja.jpg" alt="Débora Mello — Guia de Turismo" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/29_debora_mello_igreja.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#26</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#26" value="#26 | 29_debora_mello_igreja | Débora Mello — Guia de Turismo" >
+              <span class="title"><span class="num-inline">#26</span> Débora Mello — Guia de Turismo</span>
+            </div>
+            <div class="sub">01:06:55:11 · 3.0s · Plano Médio · Sony 50mm f1.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="32_letreiro_estadio_nogueirao">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/32_letreiro_estadio_nogueirao.jpg" alt="Estádio Municipal Nogueirão — Placa" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/32_letreiro_estadio_nogueirao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#29</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#29" value="#29 | 32_letreiro_estadio_nogueirao | Estádio Municipal Nogueirão — Placa" checked>
+              <span class="title"><span class="num-inline">#29</span> Estádio Municipal Nogueirão — Placa</span>
+            </div>
+            <div class="sub">01:08:56:14 · 6.05s · Plano Médio · Sony 50mm f1.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="33_pes_na_grama_estadio">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/33_pes_na_grama_estadio.jpg" alt="Passos no Gramado à Noite" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/33_pes_na_grama_estadio.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#30</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#30" value="#30 | 33_pes_na_grama_estadio | Passos no Gramado à Noite" checked>
+              <span class="title"><span class="num-inline">#30</span> Passos no Gramado à Noite</span>
+            </div>
+            <div class="sub">01:09:06:13 · 2.42s · Plano Detalhe · Rokinon 35mm f1.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="37_xavier_costas_grade">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/37_xavier_costas_grade.jpg" alt="Xavier de Costas na Grade do Campo" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/37_xavier_costas_grade.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#34</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#34" value="#34 | 37_xavier_costas_grade | Xavier de Costas na Grade do Campo" checked>
+              <span class="title"><span class="num-inline">#34</span> Xavier de Costas na Grade do Campo</span>
+            </div>
+            <div class="sub">01:09:42:19 · 6.76s · Plano Médio · Sony 50mm f1.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="38_letreiro_unidos_vila_industrial">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/38_letreiro_unidos_vila_industrial.jpg" alt="G.R.E.S. Unidos da Vila Industrial" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/38_letreiro_unidos_vila_industrial.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#35</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#35" value="#35 | 38_letreiro_unidos_vila_industrial | G.R.E.S. Unidos da Vila Industrial" checked>
+              <span class="title"><span class="num-inline">#35</span> G.R.E.S. Unidos da Vila Industrial</span>
+            </div>
+            <div class="sub">01:12:27:12 · 1.0s · Plano Médio · Sony 50mm f1.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="39_barracao_plongee_geral">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/39_barracao_plongee_geral.jpg" alt="Barracão de Carnaval — Plongée Geral" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/39_barracao_plongee_geral.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#36</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#36" value="#36 | 39_barracao_plongee_geral | Barracão de Carnaval — Plongée Geral" checked>
+              <span class="title"><span class="num-inline">#36</span> Barracão de Carnaval — Plongée Geral</span>
+            </div>
+            <div class="sub">01:12:39:22 · 3.42s · Plongée · Sigma 17-35mm f2.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="44_caminhada_estacionamento_plongee">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/44_caminhada_estacionamento_plongee.jpg" alt="Grupo no Estacionamento — Vista Alta" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/44_caminhada_estacionamento_plongee.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#40</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#40" value="#40 | 44_caminhada_estacionamento_plongee | Grupo no Estacionamento — Vista Alta" checked>
+              <span class="title"><span class="num-inline">#40</span> Grupo no Estacionamento — Vista Alta</span>
+            </div>
+            <div class="sub">01:15:02:09 · 7.47s · Plongée · Rokinon 35mm f1.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="47_xavier_falando_grupo_noite">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/47_xavier_falando_grupo_noite.jpg" alt="Xavier Conduzindo o Grupo à Noite" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/47_xavier_falando_grupo_noite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#42</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#42" value="#42 | 47_xavier_falando_grupo_noite | Xavier Conduzindo o Grupo à Noite" checked>
+              <span class="title"><span class="num-inline">#42</span> Xavier Conduzindo o Grupo à Noite</span>
+            </div>
+            <div class="sub">01:15:37:18 · 13.76s · Plano Médio · Sony 50mm f1.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="48_ciclista_silhueta_noite">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/48_ciclista_silhueta_noite.jpg" alt="Ciclista em Silhueta Noturna" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/48_ciclista_silhueta_noite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#43</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#43" value="#43 | 48_ciclista_silhueta_noite | Ciclista em Silhueta Noturna" checked>
+              <span class="title"><span class="num-inline">#43</span> Ciclista em Silhueta Noturna</span>
+            </div>
+            <div class="sub">01:15:34:01 · 1.75s · Plano Médio · Rokinon 35mm f1.8</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="49_esquina_casa_branca_noite">
+          <div class="media-wrap">
+            <img src="assets/shots/quintais_negros_vila_industrial/49_esquina_casa_branca_noite.jpg" alt="Esquina da Casa Branca à Noite" loading="lazy">
+            <video src="assets/videos/quintais_negros_vila_industrial/49_esquina_casa_branca_noite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#44</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#44" value="#44 | 49_esquina_casa_branca_noite | Esquina da Casa Branca à Noite" checked>
+              <span class="title"><span class="num-inline">#44</span> Esquina da Casa Branca à Noite</span>
+            </div>
+            <div class="sub">01:16:05:08 · 1.88s · Plano Geral · Sigma 17-35mm f2.8</div>
+          </div>
+        </label></div>
+    </section>
+  </main>
+  <div id="toast">Seleção copiada para a área de transferência!</div>
+  <script>
+    const STORAGE_KEY = 'awa_guide_quintais_v3';
+    const picks = [...document.querySelectorAll('.pick')];
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+      if (saved && typeof saved === 'object') {
+        picks.forEach(el => {
+          if (el.dataset.num in saved) el.checked = saved[el.dataset.num];
+        });
+      }
+    } catch (e) {}
+    function saveState() {
+      const state = {};
+      picks.forEach(el => state[el.dataset.num] = el.checked);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+    picks.forEach(el => el.addEventListener('change', saveState));
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      localStorage.removeItem(STORAGE_KEY);
+      location.reload();
+    });
+    document.querySelectorAll('.card').forEach(card => {
+      const vid = card.querySelector('video');
+      card.addEventListener('mouseenter', () => { vid.play().catch(() => {}); });
+      card.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+    });
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const picked = picks.filter(el => el.checked).map(el => el.value);
+      navigator.clipboard.writeText(picked.join('\n')).then(() => {
+        const t = document.getElementById('toast');
+        t.style.display = 'block';
+        setTimeout(() => t.style.display = 'none', 2500);
+      });
+    });
+  </script>
+</body>
+</html>
