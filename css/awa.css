@@ -2077,14 +2077,14 @@ main {
 /* Clean at rest, subtle metadata reveal only on hover */
 .video-masonry-hover {
   position: absolute;
-  inset: 0;
-  padding: 12px 14px;
+  inset: auto 0 0 0;
+  padding: 22px 12px 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, transparent 35%, rgba(0, 0, 0, 0.84) 100%);
+  justify-content: flex-end;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.78) 100%);
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.2s ease;
   pointer-events: none;
 }
 

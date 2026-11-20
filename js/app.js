@@ -541,13 +541,7 @@
                     : `<img src="${shot.image}" alt="${shot.title}" loading="lazy" />`
                 }
                 <div class="video-masonry-hover">
-                  <div class="video-masonry-top">
-                    <span class="video-loop-dot">● ${shot.enquadramento}</span>
-                  </div>
-                  <div>
-                    <div class="video-masonry-title">${shot.title}</div>
-                    <div class="video-masonry-sub">${project ? project.title : ""}</div>
-                  </div>
+                  <div class="video-masonry-sub">${project ? `${project.title} · ${project.year}` : ""}</div>
                 </div>
               </article>`;
             })
@@ -843,14 +837,7 @@
                       : `<img src="${shot.image}" alt="${shot.title}" loading="lazy" />`
                   }
                   <div class="video-masonry-hover">
-                    <div class="video-masonry-top">
-                      <span class="video-loop-dot">● ${shot.enquadramento}</span>
-                      <span class="video-loop-dot">${shot.lente}</span>
-                    </div>
-                    <div>
-                      <div class="video-masonry-title">${shot.title}</div>
-                      <div class="video-masonry-sub">${proj.title} · ${proj.year}</div>
-                    </div>
+                    <div class="video-masonry-sub">${proj.title} · ${proj.year}</div>
                   </div>
                 </article>`;
               })
