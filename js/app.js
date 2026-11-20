@@ -44,16 +44,67 @@
     return copy;
   }
 
-  // Lazy-play videos only when visible in the viewport so large Shotdeck grids stay fast
+  // Lazy-play videos when visible in viewport + mobile Safari/Android autoplay unlock
   let _videoObserver = null;
+  let _visibleVideos = new Set();
+
+  function prepareMobileVideoAttrs(vid) {
+    vid.muted = true;
+    vid.defaultMuted = true;
+    vid.playsInline = true;
+    vid.loop = true;
+    vid.autoplay = true;
+    vid.setAttribute("muted", "");
+    vid.setAttribute("playsinline", "");
+    vid.setAttribute("webkit-playsinline", "");
+    vid.setAttribute("autoplay", "");
+  }
+
+  function safePlayVideo(vid) {
+    prepareMobileVideoAttrs(vid);
+    if (!vid.getAttribute("src") && vid.dataset.src) {
+      vid.setAttribute("src", vid.dataset.src);
+      vid.addEventListener(
+        "loadeddata",
+        () => {
+          if (_visibleVideos.has(vid)) {
+            vid.play().catch(() => {});
+          }
+        },
+        { once: true }
+      );
+      vid.load();
+    }
+    const p = vid.play();
+    if (p && typeof p.catch === "function") {
+      p.catch(() => {});
+    }
+  }
+
+  // First touch/scroll on mobile unlocks any deferred <video> autoplay loops
+  ["touchstart", "pointerdown", "click"].forEach((evt) => {
+    document.addEventListener(
+      evt,
+      () => {
+        _visibleVideos.forEach((vid) => {
+          if (vid.paused) safePlayVideo(vid);
+        });
+      },
+      { passive: true }
+    );
+  });
+
   function attachViewportVideoObserver(rootEl) {
     if (!rootEl) return;
     const videos = rootEl.querySelectorAll("video[data-src]");
     if (!videos.length) return;
+    _visibleVideos.clear();
+    videos.forEach(prepareMobileVideoAttrs);
+
     if (!("IntersectionObserver" in window)) {
       videos.forEach((v) => {
-        if (!v.getAttribute("src")) v.setAttribute("src", v.dataset.src);
-        v.play().catch(() => {});
+        _visibleVideos.add(v);
+        safePlayVideo(v);
       });
       return;
     }
@@ -63,16 +114,15 @@
         entries.forEach((entry) => {
           const vid = entry.target;
           if (entry.isIntersecting) {
-            if (!vid.getAttribute("src")) {
-              vid.setAttribute("src", vid.dataset.src);
-            }
-            vid.play().catch(() => {});
+            _visibleVideos.add(vid);
+            safePlayVideo(vid);
           } else {
+            _visibleVideos.delete(vid);
             vid.pause();
           }
         });
       },
-      { rootMargin: "120px 0px", threshold: 0.05 }
+      { rootMargin: "80px 0px", threshold: 0.05 }
     );
     videos.forEach((v) => _videoObserver.observe(v));
   }
@@ -487,7 +537,7 @@
               <article class="video-masonry-card" data-shot-id="${shot.id}" style="${aspectStyle}" tabindex="0" aria-label="${shot.title} — ${project ? project.title : ""}">
                 ${
                   shot.video
-                    ? `<video data-src="${shot.video}" poster="${shot.image}" style="background:#000 url('${shot.image}') center/cover no-repeat;" loop muted playsinline preload="none"></video>`
+                    ? `<video data-src="${shot.video}" poster="${shot.image}" style="background:#000 url('${shot.image}') center/cover no-repeat;" autoplay loop muted playsinline webkit-playsinline preload="metadata"></video>`
                     : `<img src="${shot.image}" alt="${shot.title}" loading="lazy" />`
                 }
                 <div class="video-masonry-hover">
@@ -789,7 +839,7 @@
                 <article class="video-masonry-card" data-shot-id="${shot.id}" style="${aspectStyle}" tabindex="0" aria-label="${shot.title} — ${proj.title}">
                   ${
                     shot.video
-                      ? `<video data-src="${shot.video}" poster="${shot.image}" style="background:#000 url('${shot.image}') center/cover no-repeat;" loop muted playsinline preload="none"></video>`
+                      ? `<video data-src="${shot.video}" poster="${shot.image}" style="background:#000 url('${shot.image}') center/cover no-repeat;" autoplay loop muted playsinline webkit-playsinline preload="metadata"></video>`
                       : `<img src="${shot.image}" alt="${shot.title}" loading="lazy" />`
                   }
                   <div class="video-masonry-hover">
@@ -1101,7 +1151,7 @@
                 <div class="shot-card-media">
                   ${
                     shot.video
-                      ? `<video data-src="${shot.video}" poster="${shot.image}" style="background:#000 url('${shot.image}') center/cover no-repeat;" loop muted playsinline preload="none"></video>`
+                      ? `<video data-src="${shot.video}" poster="${shot.image}" style="background:#000 url('${shot.image}') center/cover no-repeat;" autoplay loop muted playsinline webkit-playsinline preload="metadata"></video>`
                       : `<img src="${shot.image}" alt="${shot.title}" />`
                   }
                   <div class="shot-card-badges">
