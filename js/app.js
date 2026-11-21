@@ -35,6 +35,14 @@
     return (window.AWA_PROJECTS || []).find((p) => p.id === id) || window.AWA_PROJECTS[0];
   }
 
+  /**
+   * Renders minimal hover metadata with project title and slightly smaller year.
+   */
+  function renderHoverMeta(project) {
+    if (!project) return "";
+    return `<div class="video-masonry-sub"><span class="video-masonry-proj">${project.title}</span><span class="video-masonry-year"> · ${project.year}</span></div>`;
+  }
+
   function shuffleArray(arr) {
     const copy = [...arr];
     for (let i = copy.length - 1; i > 0; i--) {
@@ -541,7 +549,7 @@
                     : `<img src="${shot.image}" alt="${shot.title}" loading="lazy" />`
                 }
                 <div class="video-masonry-hover">
-                  <div class="video-masonry-sub">${project ? `${project.title} · ${project.year}` : ""}</div>
+                  ${renderHoverMeta(project)}
                 </div>
               </article>`;
             })
@@ -837,7 +845,7 @@
                       : `<img src="${shot.image}" alt="${shot.title}" loading="lazy" />`
                   }
                   <div class="video-masonry-hover">
-                    <div class="video-masonry-sub">${proj.title} · ${proj.year}</div>
+                    ${renderHoverMeta(proj)}
                   </div>
                 </article>`;
               })

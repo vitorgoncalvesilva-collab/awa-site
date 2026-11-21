@@ -2078,11 +2078,11 @@ main {
 .video-masonry-hover {
   position: absolute;
   inset: auto 0 0 0;
-  padding: 22px 12px 10px;
+  padding: 14px 10px 7px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.78) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.72) 100%);
   opacity: 0;
   transition: opacity 0.2s ease;
   pointer-events: none;
@@ -2125,11 +2125,18 @@ main {
 
 .video-masonry-sub {
   font-family: var(--font-mono);
-  font-size: 0.64rem;
-  letter-spacing: 0.08em;
+  font-size: 0.54rem;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.74);
-  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.84);
+  margin-top: 0;
+}
+
+.video-masonry-year {
+  font-size: 0.84em;
+  color: rgba(255, 255, 255, 0.62);
+  white-space: nowrap;
 }
 
 /* Video support inside Home Gallery & Project Cards */
