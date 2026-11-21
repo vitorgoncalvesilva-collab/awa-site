@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÀWA — Guia Visual Numerado · Vitão - Olhar Pro Lado</title>
+  <style>
+    :root { --bg: #050505; --card: #111; --border: #242424; --fg: #f4f4f4; --dim: #8f8f8f; --accent: #ffffff; --green: #4ade80; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; padding: 32px 24px 96px; }
+    header { max-width: 1360px; margin: 0 auto 32px; border-bottom: 1px solid var(--border); padding-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: flex-end; }
+    h1 { margin: 0 0 6px; font-size: 1.5rem; letter-spacing: -0.02em; }
+    p.lead { margin: 0; color: var(--dim); font-size: 0.92rem; max-width: 780px; }
+    .actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #000; border: 0; padding: 10px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.85rem; }
+    .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    main { max-width: 1360px; margin: 0 auto; }
+    .group { margin-bottom: 40px; }
+    .group h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 14px; border-left: 3px solid var(--accent); padding-left: 10px; }
+    .group h2 .count { color: var(--dim); font-weight: 400; font-size: 0.85rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    .card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; cursor: pointer; transition: border-color 0.15s; }
+    .card:has(.pick:checked) { border-color: var(--green); }
+    .card:has(.pick:checked) .badge.alt { background: rgba(74, 222, 128, 0.92); color: #052e16; border-color: transparent; }
+    .media-wrap { position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+    .media-wrap img, .media-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .media-wrap video { position: absolute; inset: 0; opacity: 0; transition: opacity 0.18s; }
+    .card:hover .media-wrap video { opacity: 1; }
+    .num-badge { position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.88); color: #fff; border: 1px solid rgba(255,255,255,0.28); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.78rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+    .badge { position: absolute; top: 8px; right: 8px; font-size: 0.68rem; font-weight: 700; padding: 3px 7px; border-radius: 4px; letter-spacing: 0.04em; }
+    .badge.live { background: rgba(74, 222, 128, 0.92); color: #052e16; }
+    .badge.alt { background: rgba(20, 20, 20, 0.85); color: #d4d4d4; border: 1px solid #404040; }
+    .meta { padding: 12px; }
+    .row-top { display: flex; align-items: flex-start; gap: 8px; }
+    .title { font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
+    .num-inline { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--green); margin-right: 4px; }
+    .sub { margin-top: 6px; font-size: 0.75rem; color: var(--dim); font-family: ui-monospace, SFMono-Regular, monospace; }
+    #toast { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: #052e16; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Guia Visual Numerado — Vitão: Olhar Pro Lado</h1>
+      <p class="lead">Sincronizado com os <strong>30 takes/sequências</strong> ativos no site (de 96 decupados · 1920×1080 · 16:9). Passe o mouse para ver o vídeo, marque os planos escolhidos e clique em <strong>Copiar Seleção</strong> (<span id="selectedCount">0</span> selecionados).</p>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" href="projeto.html?id=vitao-olhar-pro-lado" target="_blank">Abrir Projeto no Site ↗</a>
+      <a class="btn ghost" href="portfolio.html" target="_blank">Abrir Portfólio ↗</a>
+      <button class="btn ghost" id="selectAllBtn">Marcar Todos</button>
+      <button class="btn ghost" id="resetBtn">Limpar Seleção</button>
+      <button class="btn" id="copyBtn">Copiar Seleção</button>
+    </div>
+  </header>
+  <main>
+    <section class="group">
+      <h2>Abertura, Skatepark Dourada & Cartela <span class="count">(27 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="01_skatepark_pordosol_geral">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/01_skatepark_pordosol_geral.jpg" alt="Skatepark ao Pôr do Sol — Plano Geral" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/01_skatepark_pordosol_geral.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#01</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#01" value="#01 | 01_skatepark_pordosol_geral | Skatepark ao Pôr do Sol — Plano Geral" checked>
+              <span class="title"><span class="num-inline">#01</span> Skatepark ao Pôr do Sol — Plano Geral</span>
+            </div>
+            <div class="sub">01:00:00:12 · 6.13s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="02_pes_agua_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/02_pes_agua_azul.jpg" alt="Pés Caminhando na Água Azul" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/02_pes_agua_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#02</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#02" value="#02 | 02_pes_agua_azul | Pés Caminhando na Água Azul">
+              <span class="title"><span class="num-inline">#02</span> Pés Caminhando na Água Azul</span>
+            </div>
+            <div class="sub">01:00:06:15 · 1.29s · Plano Detalhe · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="03_fogueira_sombra_noite">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/03_fogueira_sombra_noite.jpg" alt="Detalhe na Sombra Noturna" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/03_fogueira_sombra_noite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#03</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#03" value="#03 | 03_fogueira_sombra_noite | Detalhe na Sombra Noturna">
+              <span class="title"><span class="num-inline">#03</span> Detalhe na Sombra Noturna</span>
+            </div>
+            <div class="sub">01:00:09:17 · 1.62s · Plano Detalhe · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="04_silhueta_grade_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/04_silhueta_grade_azul.jpg" alt="Silhueta Diante de Grade sob Luz Azul" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/04_silhueta_grade_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#04</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#04" value="#04 | 04_silhueta_grade_azul | Silhueta Diante de Grade sob Luz Azul" checked>
+              <span class="title"><span class="num-inline">#04</span> Silhueta Diante de Grade sob Luz Azul</span>
+            </div>
+            <div class="sub">01:00:11:08 · 2.84s · Silhueta · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="05_vitao_guitarra_dourada">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/05_vitao_guitarra_dourada.jpg" alt="Vitão com Guitarra na Pista Dourada" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/05_vitao_guitarra_dourada.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#05</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#05" value="#05 | 05_vitao_guitarra_dourada | Vitão com Guitarra na Pista Dourada" checked>
+              <span class="title"><span class="num-inline">#05</span> Vitão com Guitarra na Pista Dourada</span>
+            </div>
+            <div class="sub">01:00:14:04 · 2.71s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="06_silhueta_agua_brilho">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/06_silhueta_agua_brilho.jpg" alt="Silhueta sobre Água Cintilante" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/06_silhueta_agua_brilho.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#06</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#06" value="#06 | 06_silhueta_agua_brilho | Silhueta sobre Água Cintilante" checked>
+              <span class="title"><span class="num-inline">#06</span> Silhueta sobre Água Cintilante</span>
+            </div>
+            <div class="sub">01:00:16:21 · 2.84s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="07_cartela_olhar_pro_lado">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/07_cartela_olhar_pro_lado.jpg" alt="Cartela Oficial — Vitão: Olhar Pro Lado" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/07_cartela_olhar_pro_lado.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#07</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#07" value="#07 | 07_cartela_olhar_pro_lado | Cartela Oficial — Vitão: Olhar Pro Lado" checked>
+              <span class="title"><span class="num-inline">#07</span> Cartela Oficial — Vitão: Olhar Pro Lado</span>
+            </div>
+            <div class="sub">01:00:19:18 · 7.84s · Cartela Gráfica · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="08_skatista_rampa_predios">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/08_skatista_rampa_predios.jpg" alt="Skatista na Borda da Rampa — Prédios ao Fundo" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/08_skatista_rampa_predios.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#08</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#08" value="#08 | 08_skatista_rampa_predios | Skatista na Borda da Rampa — Prédios ao Fundo">
+              <span class="title"><span class="num-inline">#08</span> Skatista na Borda da Rampa — Prédios ao Fundo</span>
+            </div>
+            <div class="sub">01:00:27:14 · 2.54s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="09_vitao_violao_carro_sol">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/09_vitao_violao_carro_sol.jpg" alt="Vitão com Guitarra no Carro — Luz Dourada" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/09_vitao_violao_carro_sol.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#09</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#09" value="#09 | 09_vitao_violao_carro_sol | Vitão com Guitarra no Carro — Luz Dourada">
+              <span class="title"><span class="num-inline">#09</span> Vitão com Guitarra no Carro — Luz Dourada</span>
+            </div>
+            <div class="sub">01:00:30:03 · 3.01s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="10_detalhe_tenis_skate">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/10_detalhe_tenis_skate.jpg" alt="Detalhe dos Pés no Skate" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/10_detalhe_tenis_skate.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#10</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#10" value="#10 | 10_detalhe_tenis_skate | Detalhe dos Pés no Skate" checked>
+              <span class="title"><span class="num-inline">#10</span> Detalhe dos Pés no Skate</span>
+            </div>
+            <div class="sub">01:00:33:03 · 3.42s · Plano Detalhe · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="11_vitao_perfil_sol_carro">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/11_vitao_perfil_sol_carro.jpg" alt="Vitão de Perfil Junto ao Carro Dourado" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/11_vitao_perfil_sol_carro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#11</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#11" value="#11 | 11_vitao_perfil_sol_carro | Vitão de Perfil Junto ao Carro Dourado">
+              <span class="title"><span class="num-inline">#11</span> Vitão de Perfil Junto ao Carro Dourado</span>
+            </div>
+            <div class="sub">01:00:36:13 · 1.41s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="12_horizonte_dourado_silhueta">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/12_horizonte_dourado_silhueta.jpg" alt="Horizonte Dourado em Contraluz" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/12_horizonte_dourado_silhueta.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#12</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#12" value="#12 | 12_horizonte_dourado_silhueta | Horizonte Dourado em Contraluz" checked>
+              <span class="title"><span class="num-inline">#12</span> Horizonte Dourado em Contraluz</span>
+            </div>
+            <div class="sub">01:00:37:23 · 3.17s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="13_vitao_olhando_baixo_sol">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/13_vitao_olhando_baixo_sol.jpg" alt="Vitão Olhando para Baixo na Luz Dourada" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/13_vitao_olhando_baixo_sol.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#13</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#13" value="#13 | 13_vitao_olhando_baixo_sol | Vitão Olhando para Baixo na Luz Dourada">
+              <span class="title"><span class="num-inline">#13</span> Vitão Olhando para Baixo na Luz Dourada</span>
+            </div>
+            <div class="sub">01:00:41:03 · 7.05s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="14_skatista_salto_crepuculo">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/14_skatista_salto_crepuculo.jpg" alt="Skatista Saltando no Crepúsculo Laranja" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/14_skatista_salto_crepuculo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#14</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#14" value="#14 | 14_skatista_salto_crepuculo | Skatista Saltando no Crepúsculo Laranja">
+              <span class="title"><span class="num-inline">#14</span> Skatista Saltando no Crepúsculo Laranja</span>
+            </div>
+            <div class="sub">01:00:48:04 · 2.34s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="15_vitao_noite_holofote">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/15_vitao_noite_holofote.jpg" alt="Vitão sob Holofote Noturno na Pista" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/15_vitao_noite_holofote.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#15</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#15" value="#15 | 15_vitao_noite_holofote | Vitão sob Holofote Noturno na Pista" checked>
+              <span class="title"><span class="num-inline">#15</span> Vitão sob Holofote Noturno na Pista</span>
+            </div>
+            <div class="sub">01:00:50:12 · 2.04s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="16_trio_skatepark_pordosol">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/16_trio_skatepark_pordosol.jpg" alt="Trio na Skatepark ao Pôr do Sol" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/16_trio_skatepark_pordosol.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#16</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#16" value="#16 | 16_trio_skatepark_pordosol | Trio na Skatepark ao Pôr do Sol">
+              <span class="title"><span class="num-inline">#16</span> Trio na Skatepark ao Pôr do Sol</span>
+            </div>
+            <div class="sub">01:00:52:13 · 1.55s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="17_vitao_inclinado_sol">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/17_vitao_inclinado_sol.jpg" alt="Vitão Inclinado para a Câmera — Sol Dourado" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/17_vitao_inclinado_sol.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#17</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#17" value="#17 | 17_vitao_inclinado_sol | Vitão Inclinado para a Câmera — Sol Dourado">
+              <span class="title"><span class="num-inline">#17</span> Vitão Inclinado para a Câmera — Sol Dourado</span>
+            </div>
+            <div class="sub">01:00:54:02 · 2.37s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="18_vitao_grito_luz_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/18_vitao_grito_luz_azul.jpg" alt="Vitão Cantando Intenso sob Luz Azul" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/18_vitao_grito_luz_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#18</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#18" value="#18 | 18_vitao_grito_luz_azul | Vitão Cantando Intenso sob Luz Azul">
+              <span class="title"><span class="num-inline">#18</span> Vitão Cantando Intenso sob Luz Azul</span>
+            </div>
+            <div class="sub">01:00:56:11 · 2.26s · Close-up · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="19_skatepark_palmeiras_noite">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/19_skatepark_palmeiras_noite.jpg" alt="Skatepark com Palmeiras à Noite" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/19_skatepark_palmeiras_noite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#19</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#19" value="#19 | 19_skatepark_palmeiras_noite | Skatepark com Palmeiras à Noite" checked>
+              <span class="title"><span class="num-inline">#19</span> Skatepark com Palmeiras à Noite</span>
+            </div>
+            <div class="sub">01:00:58:18 · 2.21s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="20_rampa_movimento_pordosol">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/20_rampa_movimento_pordosol.jpg" alt="Rampa em Movimento ao Pôr do Sol" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/20_rampa_movimento_pordosol.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#20</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#20" value="#20 | 20_rampa_movimento_pordosol | Rampa em Movimento ao Pôr do Sol" checked>
+              <span class="title"><span class="num-inline">#20</span> Rampa em Movimento ao Pôr do Sol</span>
+            </div>
+            <div class="sub">01:01:00:23 · 0.96s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="21_vitao_flare_laranja">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/21_vitao_flare_laranja.jpg" alt="Vitão com Flare Laranja Intenso" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/21_vitao_flare_laranja.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#21</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#21" value="#21 | 21_vitao_flare_laranja | Vitão com Flare Laranja Intenso" checked>
+              <span class="title"><span class="num-inline">#21</span> Vitão com Flare Laranja Intenso</span>
+            </div>
+            <div class="sub">01:01:05:01 · 2.55s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="22_mao_braco_guitarra">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/22_mao_braco_guitarra.jpg" alt="Detalhe do Braço da Guitarra em Movimento" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/22_mao_braco_guitarra.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#22</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#22" value="#22 | 22_mao_braco_guitarra | Detalhe do Braço da Guitarra em Movimento" checked>
+              <span class="title"><span class="num-inline">#22</span> Detalhe do Braço da Guitarra em Movimento</span>
+            </div>
+            <div class="sub">01:01:13:12 · 2.50s · Plano Detalhe · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="23_skatista_aereo_laranja">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/23_skatista_aereo_laranja.jpg" alt="Manobra Aérea na Borda — Céu Laranja" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/23_skatista_aereo_laranja.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#23</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#23" value="#23 | 23_skatista_aereo_laranja | Manobra Aérea na Borda — Céu Laranja" checked>
+              <span class="title"><span class="num-inline">#23</span> Manobra Aérea na Borda — Céu Laranja</span>
+            </div>
+            <div class="sub">01:01:21:21 · 2.17s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="24_vitao_sentado_guitarra_sol">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/24_vitao_sentado_guitarra_sol.jpg" alt="Vitão Sentado com Guitarra ao Pôr do Sol" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/24_vitao_sentado_guitarra_sol.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#24</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#24" value="#24 | 24_vitao_sentado_guitarra_sol | Vitão Sentado com Guitarra ao Pôr do Sol" checked>
+              <span class="title"><span class="num-inline">#24</span> Vitão Sentado com Guitarra ao Pôr do Sol</span>
+            </div>
+            <div class="sub">01:02:22:12 · 0.71s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="25_guitarra_invertida_sol">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/25_guitarra_invertida_sol.jpg" alt="Guitarra no Chão — Luz Dourada" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/25_guitarra_invertida_sol.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#25</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#25" value="#25 | 25_guitarra_invertida_sol | Guitarra no Chão — Luz Dourada">
+              <span class="title"><span class="num-inline">#25</span> Guitarra no Chão — Luz Dourada</span>
+            </div>
+            <div class="sub">01:03:47:00 · 0.92s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="26_vitao_deitado_guitarra">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/26_vitao_deitado_guitarra.jpg" alt="Vitão Deitado com Guitarra" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/26_vitao_deitado_guitarra.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#26</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#26" value="#26 | 26_vitao_deitado_guitarra | Vitão Deitado com Guitarra" checked>
+              <span class="title"><span class="num-inline">#26</span> Vitão Deitado com Guitarra</span>
+            </div>
+            <div class="sub">01:03:50:21 · 1.45s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="27_flare_laranja_pista">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/27_flare_laranja_pista.jpg" alt="Flare Laranja Sobre a Pista" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/27_flare_laranja_pista.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#27</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#27" value="#27 | 27_flare_laranja_pista | Flare Laranja Sobre a Pista">
+              <span class="title"><span class="num-inline">#27</span> Flare Laranja Sobre a Pista</span>
+            </div>
+            <div class="sub">01:03:52:07 · 1.22s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group">
+      <h2>Show com Banda (Palco Azul & P&B) <span class="count">(18 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="28_banda_bateria_palco_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/28_banda_bateria_palco_azul.jpg" alt="Banda e Bateria no Palco Azul" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/28_banda_bateria_palco_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#28</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#28" value="#28 | 28_banda_bateria_palco_azul | Banda e Bateria no Palco Azul" checked>
+              <span class="title"><span class="num-inline">#28</span> Banda e Bateria no Palco Azul</span>
+            </div>
+            <div class="sub">01:01:01:22 · 3.16s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="29_vitao_olhar_intenso_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/29_vitao_olhar_intenso_azul.jpg" alt="Vitão Close Inclinado sob Luz Azul" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/29_vitao_olhar_intenso_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#29</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#29" value="#29 | 29_vitao_olhar_intenso_azul | Vitão Close Inclinado sob Luz Azul">
+              <span class="title"><span class="num-inline">#29</span> Vitão Close Inclinado sob Luz Azul</span>
+            </div>
+            <div class="sub">01:01:07:15 · 5.88s · Close-up · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="30_vitao_guitarra_bateria">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/30_vitao_guitarra_bateria.jpg" alt="Vitão Tocando Guitarra Diante da Bateria" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/30_vitao_guitarra_bateria.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#30</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#30" value="#30 | 30_vitao_guitarra_bateria | Vitão Tocando Guitarra Diante da Bateria" checked>
+              <span class="title"><span class="num-inline">#30</span> Vitão Tocando Guitarra Diante da Bateria</span>
+            </div>
+            <div class="sub">01:01:24:22 · 2.17s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="31_baixo_primeiro_plano">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/31_baixo_primeiro_plano.jpg" alt="Braço do Baixo em Primeiro Plano" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/31_baixo_primeiro_plano.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#31</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#31" value="#31 | 31_baixo_primeiro_plano | Braço do Baixo em Primeiro Plano">
+              <span class="title"><span class="num-inline">#31</span> Braço do Baixo em Primeiro Plano</span>
+            </div>
+            <div class="sub">01:01:29:11 · 2.13s · Over-the-Shoulder · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="32_pb_vitao_guitarra_centro">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/32_pb_vitao_guitarra_centro.jpg" alt="P&B — Vitão com Guitarra no Centro da Pista" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/32_pb_vitao_guitarra_centro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#32</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#32" value="#32 | 32_pb_vitao_guitarra_centro | P&B — Vitão com Guitarra no Centro da Pista">
+              <span class="title"><span class="num-inline">#32</span> P&B — Vitão com Guitarra no Centro da Pista</span>
+            </div>
+            <div class="sub">01:01:36:06 · 2.63s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="33_baixo_e_vitao_palco">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/33_baixo_e_vitao_palco.jpg" alt="Baixista e Vitão no Palco Azul" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/33_baixo_e_vitao_palco.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#33</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#33" value="#33 | 33_baixo_e_vitao_palco | Baixista e Vitão no Palco Azul">
+              <span class="title"><span class="num-inline">#33</span> Baixista e Vitão no Palco Azul</span>
+            </div>
+            <div class="sub">01:01:49:09 · 1.00s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="34_pb_vitao_inclinado_guitarra">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/34_pb_vitao_inclinado_guitarra.jpg" alt="P&B — Vitão Inclinado com Guitarra" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/34_pb_vitao_inclinado_guitarra.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#34</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#34" value="#34 | 34_pb_vitao_inclinado_guitarra | P&B — Vitão Inclinado com Guitarra" checked>
+              <span class="title"><span class="num-inline">#34</span> P&B — Vitão Inclinado com Guitarra</span>
+            </div>
+            <div class="sub">01:01:50:09 · 2.00s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="35_baterista_costas_palco">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/35_baterista_costas_palco.jpg" alt="Baterista de Costas e Vitão no Palco" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/35_baterista_costas_palco.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#35</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#35" value="#35 | 35_baterista_costas_palco | Baterista de Costas e Vitão no Palco">
+              <span class="title"><span class="num-inline">#35</span> Baterista de Costas e Vitão no Palco</span>
+            </div>
+            <div class="sub">01:01:52:09 · 0.42s · Over-the-Shoulder · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="36_pb_perfil_guitarra_pista">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/36_pb_perfil_guitarra_pista.jpg" alt="P&B — Perfil de Vitão na Pista" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/36_pb_perfil_guitarra_pista.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#36</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#36" value="#36 | 36_pb_perfil_guitarra_pista | P&B — Perfil de Vitão na Pista">
+              <span class="title"><span class="num-inline">#36</span> P&B — Perfil de Vitão na Pista</span>
+            </div>
+            <div class="sub">01:01:52:19 · 1.38s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="37_banda_contraluz_frio">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/37_banda_contraluz_frio.jpg" alt="Banda Completa em Contraluz Frio" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/37_banda_contraluz_frio.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#37</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#37" value="#37 | 37_banda_contraluz_frio | Banda Completa em Contraluz Frio" checked>
+              <span class="title"><span class="num-inline">#37</span> Banda Completa em Contraluz Frio</span>
+            </div>
+            <div class="sub">01:01:58:09 · 1.63s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="38_vitao_sentado_holofotes">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/38_vitao_sentado_holofotes.jpg" alt="Vitão Sentado na Pista sob Holofotes" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/38_vitao_sentado_holofotes.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#38</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#38" value="#38 | 38_vitao_sentado_holofotes | Vitão Sentado na Pista sob Holofotes">
+              <span class="title"><span class="num-inline">#38</span> Vitão Sentado na Pista sob Holofotes</span>
+            </div>
+            <div class="sub">01:02:11:10 · 2.96s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="39_baixo_e_guitarrista_palco">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/39_baixo_e_guitarrista_palco.jpg" alt="Baixo e Guitarra — Show Azul" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/39_baixo_e_guitarrista_palco.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#39</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#39" value="#39 | 39_baixo_e_guitarrista_palco | Baixo e Guitarra — Show Azul" checked>
+              <span class="title"><span class="num-inline">#39</span> Baixo e Guitarra — Show Azul</span>
+            </div>
+            <div class="sub">01:02:17:17 · 2.13s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="40_vitao_tenis_branco_pista">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/40_vitao_tenis_branco_pista.jpg" alt="Grande Angular — Vitão Sentado na Pista" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/40_vitao_tenis_branco_pista.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#40</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#40" value="#40 | 40_vitao_tenis_branco_pista | Grande Angular — Vitão Sentado na Pista" checked>
+              <span class="title"><span class="num-inline">#40</span> Grande Angular — Vitão Sentado na Pista</span>
+            </div>
+            <div class="sub">01:02:19:20 · 2.67s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="41_ruiva_baixo_movimento">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/41_ruiva_baixo_movimento.jpg" alt="Baixista em Movimento — Luz Azul" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/41_ruiva_baixo_movimento.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#41</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#41" value="#41 | 41_ruiva_baixo_movimento | Baixista em Movimento — Luz Azul">
+              <span class="title"><span class="num-inline">#41</span> Baixista em Movimento — Luz Azul</span>
+            </div>
+            <div class="sub">01:02:24:18 · 0.46s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="42_ruiva_baixo_grito_holofote">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/42_ruiva_baixo_grito_holofote.jpg" alt="Baixista Cantando sob Holofote Azul" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/42_ruiva_baixo_grito_holofote.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#42</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#42" value="#42 | 42_ruiva_baixo_grito_holofote | Baixista Cantando sob Holofote Azul">
+              <span class="title"><span class="num-inline">#42</span> Baixista Cantando sob Holofote Azul</span>
+            </div>
+            <div class="sub">01:02:25:06 · 0.46s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="43_trio_banda_bateria_energia">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/43_trio_banda_bateria_energia.jpg" alt="Banda em Energia Máxima no Palco" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/43_trio_banda_bateria_energia.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#43</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#43" value="#43 | 43_trio_banda_bateria_energia | Banda em Energia Máxima no Palco" checked>
+              <span class="title"><span class="num-inline">#43</span> Banda em Energia Máxima no Palco</span>
+            </div>
+            <div class="sub">01:02:25:17 · 2.00s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="44_grande_angular_tenis_palco">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/44_grande_angular_tenis_palco.jpg" alt="Grande Angular — Tênis em Primeiro Plano" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/44_grande_angular_tenis_palco.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#44</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#44" value="#44 | 44_grande_angular_tenis_palco | Grande Angular — Tênis em Primeiro Plano">
+              <span class="title"><span class="num-inline">#44</span> Grande Angular — Tênis em Primeiro Plano</span>
+            </div>
+            <div class="sub">01:02:27:17 · 1.38s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="45_braco_baixo_show_noite">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/45_braco_baixo_show_noite.jpg" alt="Detalhe do Baixo — Show Noturno" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/45_braco_baixo_show_noite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#45</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#45" value="#45 | 45_braco_baixo_show_noite | Detalhe do Baixo — Show Noturno">
+              <span class="title"><span class="num-inline">#45</span> Detalhe do Baixo — Show Noturno</span>
+            </div>
+            <div class="sub">01:02:29:02 · 2.16s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group">
+      <h2>Sala Quente / Microfone <span class="count">(14 takes)</span></h2>
+      <div class="grid">
+        <label class="card" data-slug="46_sala_microfone_abajur">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/46_sala_microfone_abajur.jpg" alt="Vitão no Microfone — Sala com Abajur" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/46_sala_microfone_abajur.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#46</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#46" value="#46 | 46_sala_microfone_abajur | Vitão no Microfone — Sala com Abajur">
+              <span class="title"><span class="num-inline">#46</span> Vitão no Microfone — Sala com Abajur</span>
+            </div>
+            <div class="sub">01:01:16:00 · 5.88s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="47_sala_microfone_vermelho">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/47_sala_microfone_vermelho.jpg" alt="Vitão Cantando — Luz Vermelha Lateral" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/47_sala_microfone_vermelho.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#47</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#47" value="#47 | 47_sala_microfone_vermelho | Vitão Cantando — Luz Vermelha Lateral">
+              <span class="title"><span class="num-inline">#47</span> Vitão Cantando — Luz Vermelha Lateral</span>
+            </div>
+            <div class="sub">01:01:24:01 · 0.88s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="48_sala_microfone_gesto">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/48_sala_microfone_gesto.jpg" alt="Vitão no Microfone — Gesto com a Mão" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/48_sala_microfone_gesto.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#48</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#48" value="#48 | 48_sala_microfone_gesto | Vitão no Microfone — Gesto com a Mão">
+              <span class="title"><span class="num-inline">#48</span> Vitão no Microfone — Gesto com a Mão</span>
+            </div>
+            <div class="sub">01:01:27:02 · 2.37s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="49_sala_angulo_invertido">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/49_sala_angulo_invertido.jpg" alt="Ângulo Invertido — Vitão no Microfone" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/49_sala_angulo_invertido.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#49</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#49" value="#49 | 49_sala_angulo_invertido | Ângulo Invertido — Vitão no Microfone" checked>
+              <span class="title"><span class="num-inline">#49</span> Ângulo Invertido — Vitão no Microfone</span>
+            </div>
+            <div class="sub">01:01:31:14 · 4.67s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="50_sala_plano_geral_espelho">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/50_sala_plano_geral_espelho.jpg" alt="Plano Geral da Sala — Grupo e Espelho" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/50_sala_plano_geral_espelho.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#50</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#50" value="#50 | 50_sala_plano_geral_espelho | Plano Geral da Sala — Grupo e Espelho">
+              <span class="title"><span class="num-inline">#50</span> Plano Geral da Sala — Grupo e Espelho</span>
+            </div>
+            <div class="sub">01:01:38:21 · 4.42s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="51_sala_dupla_sombra_quente">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/51_sala_dupla_sombra_quente.jpg" alt="Vitão e Companheiro — Luz Quente" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/51_sala_dupla_sombra_quente.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#51</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#51" value="#51 | 51_sala_dupla_sombra_quente | Vitão e Companheiro — Luz Quente">
+              <span class="title"><span class="num-inline">#51</span> Vitão e Companheiro — Luz Quente</span>
+            </div>
+            <div class="sub">01:01:43:07 · 2.75s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="52_sala_microfone_espelho">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/52_sala_microfone_espelho.jpg" alt="Vitão Cantando Diante do Espelho" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/52_sala_microfone_espelho.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#52</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#52" value="#52 | 52_sala_microfone_espelho | Vitão Cantando Diante do Espelho">
+              <span class="title"><span class="num-inline">#52</span> Vitão Cantando Diante do Espelho</span>
+            </div>
+            <div class="sub">01:01:46:01 · 3.30s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="53_sala_microfone_lateral">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/53_sala_microfone_lateral.jpg" alt="Vitão no Microfone — Enquadramento Lateral" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/53_sala_microfone_lateral.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#53</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#53" value="#53 | 53_sala_microfone_lateral | Vitão no Microfone — Enquadramento Lateral">
+              <span class="title"><span class="num-inline">#53</span> Vitão no Microfone — Enquadramento Lateral</span>
+            </div>
+            <div class="sub">01:01:54:04 · 4.21s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="54_sala_agachado_microfone">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/54_sala_agachado_microfone.jpg" alt="Vitão Agachado com Microfone" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/54_sala_agachado_microfone.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#54</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#54" value="#54 | 54_sala_agachado_microfone | Vitão Agachado com Microfone">
+              <span class="title"><span class="num-inline">#54</span> Vitão Agachado com Microfone</span>
+            </div>
+            <div class="sub">01:02:14:09 · 3.34s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="55_sala_grupo_canto_quente">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/55_sala_grupo_canto_quente.jpg" alt="Grupo Reunido na Sala Quente" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/55_sala_grupo_canto_quente.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#55</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#55" value="#55 | 55_sala_grupo_canto_quente | Grupo Reunido na Sala Quente">
+              <span class="title"><span class="num-inline">#55</span> Grupo Reunido na Sala Quente</span>
+            </div>
+            <div class="sub">01:02:23:06 · 1.54s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="56_sala_dueto_microfone">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/56_sala_dueto_microfone.jpg" alt="Dueto no Microfone — Luz Vermelha" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/56_sala_dueto_microfone.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#56</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#56" value="#56 | 56_sala_dueto_microfone | Dueto no Microfone — Luz Vermelha" checked>
+              <span class="title"><span class="num-inline">#56</span> Dueto no Microfone — Luz Vermelha</span>
+            </div>
+            <div class="sub">01:02:31:06 · 3.34s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="57_sala_silhueta_caminhando">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/57_sala_silhueta_caminhando.jpg" alt="Silhueta Caminhando na Sala Escura" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/57_sala_silhueta_caminhando.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#57</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#57" value="#57 | 57_sala_silhueta_caminhando | Silhueta Caminhando na Sala Escura" checked>
+              <span class="title"><span class="num-inline">#57</span> Silhueta Caminhando na Sala Escura</span>
+            </div>
+            <div class="sub">01:03:47:23 · 2.92s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="58_sala_vitão_sorrindo_mic">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/58_sala_vitão_sorrindo_mic.jpg" alt="Vitão Sorrindo no Microfone — Sala Quente" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/58_sala_vitão_sorrindo_mic.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#58</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#58" value="#58 | 58_sala_vitão_sorrindo_mic | Vitão Sorrindo no Microfone — Sala Quente">
+              <span class="title"><span class="num-inline">#58</span> Vitão Sorrindo no Microfone — Sala Quente</span>
+            </div>
+            <div class="sub">01:03:56:12 · 3.08s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="59_sala_close_microfone_escuro">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/59_sala_close_microfone_escuro.jpg" alt="Close-up no Microfone em Penumbra" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/59_sala_close_microfone_escuro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#59</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#59" value="#59 | 59_sala_close_microfone_escuro | Close-up no Microfone em Penumbra" checked>
+              <span class="title"><span class="num-inline">#59</span> Close-up no Microfone em Penumbra</span>
+            </div>
+            <div class="sub">01:04:02:07 · 5.47s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group">
+      <h2>Lagoa, Praia & Areia (Túnica Branca) <span class="count">(36 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="60_mao_na_agua_rasa">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/60_mao_na_agua_rasa.jpg" alt="Detalhe da Mão na Água Rasa" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/60_mao_na_agua_rasa.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#60</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#60" value="#60 | 60_mao_na_agua_rasa | Detalhe da Mão na Água Rasa" checked>
+              <span class="title"><span class="num-inline">#60</span> Detalhe da Mão na Água Rasa</span>
+            </div>
+            <div class="sub">01:02:00:00 · 8.09s · Plano Detalhe · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="61_vitao_perfil_ceu_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/61_vitao_perfil_ceu_azul.jpg" alt="Vitão de Perfil sob Céu Azul" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/61_vitao_perfil_ceu_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#61</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#61" value="#61 | 61_vitao_perfil_ceu_azul | Vitão de Perfil sob Céu Azul">
+              <span class="title"><span class="num-inline">#61</span> Vitão de Perfil sob Céu Azul</span>
+            </div>
+            <div class="sub">01:02:08:02 · 1.96s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="62_mao_desenhando_areia">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/62_mao_desenhando_areia.jpg" alt="Mão Tocando a Areia — Luz Baixa" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/62_mao_desenhando_areia.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#62</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#62" value="#62 | 62_mao_desenhando_areia | Mão Tocando a Areia — Luz Baixa" checked>
+              <span class="title"><span class="num-inline">#62</span> Mão Tocando a Areia — Luz Baixa</span>
+            </div>
+            <div class="sub">01:02:10:01 · 1.37s · Plano Detalhe · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="63_vitao_agua_reflexo_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/63_vitao_agua_reflexo_azul.jpg" alt="Vitão na Água — Reflexo Azul" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/63_vitao_agua_reflexo_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#63</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#63" value="#63 | 63_vitao_agua_reflexo_azul | Vitão na Água — Reflexo Azul">
+              <span class="title"><span class="num-inline">#63</span> Vitão na Água — Reflexo Azul</span>
+            </div>
+            <div class="sub">01:02:34:14 · 2.38s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="64_lagoa_caminhada_horizonte">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/64_lagoa_caminhada_horizonte.jpg" alt="Caminhada no Horizonte da Lagoa Espelhada" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/64_lagoa_caminhada_horizonte.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#64</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#64" value="#64 | 64_lagoa_caminhada_horizonte | Caminhada no Horizonte da Lagoa Espelhada" checked>
+              <span class="title"><span class="num-inline">#64</span> Caminhada no Horizonte da Lagoa Espelhada</span>
+            </div>
+            <div class="sub">01:02:36:23 · 3.25s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="65_vitao_deitado_agua_rasa">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/65_vitao_deitado_agua_rasa.jpg" alt="Vitão Deitado na Água Rasa" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/65_vitao_deitado_agua_rasa.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#65</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#65" value="#65 | 65_vitao_deitado_agua_rasa | Vitão Deitado na Água Rasa">
+              <span class="title"><span class="num-inline">#65</span> Vitão Deitado na Água Rasa</span>
+            </div>
+            <div class="sub">01:02:40:05 · 4.38s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="66_lagoa_perfil_caminhada">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/66_lagoa_perfil_caminhada.jpg" alt="Perfil Caminhando sobre o Espelho d'Água" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/66_lagoa_perfil_caminhada.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#66</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#66" value="#66 | 66_lagoa_perfil_caminhada | Perfil Caminhando sobre o Espelho d'Água" checked>
+              <span class="title"><span class="num-inline">#66</span> Perfil Caminhando sobre o Espelho d'Água</span>
+            </div>
+            <div class="sub">01:02:44:14 · 0.63s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="67_lagoa_bananeira_reflexo">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/67_lagoa_bananeira_reflexo.jpg" alt="Parada de Mãos na Lagoa Espelhada" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/67_lagoa_bananeira_reflexo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#67</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#67" value="#67 | 67_lagoa_bananeira_reflexo | Parada de Mãos na Lagoa Espelhada" checked>
+              <span class="title"><span class="num-inline">#67</span> Parada de Mãos na Lagoa Espelhada</span>
+            </div>
+            <div class="sub">01:02:45:05 · 2.33s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="68_vitao_boiando_ceu_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/68_vitao_boiando_ceu_azul.jpg" alt="Vitão Boiando — Contraluz Azul" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/68_vitao_boiando_ceu_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#68</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#68" value="#68 | 68_vitao_boiando_ceu_azul | Vitão Boiando — Contraluz Azul">
+              <span class="title"><span class="num-inline">#68</span> Vitão Boiando — Contraluz Azul</span>
+            </div>
+            <div class="sub">01:02:47:13 · 2.75s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="69_lagoa_pose_bracos_abertos">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/69_lagoa_pose_bracos_abertos.jpg" alt="Pose de Braços Abertos na Lagoa" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/69_lagoa_pose_bracos_abertos.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#69</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#69" value="#69 | 69_lagoa_pose_bracos_abertos | Pose de Braços Abertos na Lagoa" checked>
+              <span class="title"><span class="num-inline">#69</span> Pose de Braços Abertos na Lagoa</span>
+            </div>
+            <div class="sub">01:02:50:07 · 1.88s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="70_vitao_sem_camisa_contraluz">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/70_vitao_sem_camisa_contraluz.jpg" alt="Retrato Sem Camisa em Contraluz" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/70_vitao_sem_camisa_contraluz.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#70</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#70" value="#70 | 70_vitao_sem_camisa_contraluz | Retrato Sem Camisa em Contraluz">
+              <span class="title"><span class="num-inline">#70</span> Retrato Sem Camisa em Contraluz</span>
+            </div>
+            <div class="sub">01:02:52:04 · 4.13s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="71_vitao_deitado_olhos_fechados">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/71_vitao_deitado_olhos_fechados.jpg" alt="Vitão Deitado na Beira da Água" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/71_vitao_deitado_olhos_fechados.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#71</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#71" value="#71 | 71_vitao_deitado_olhos_fechados | Vitão Deitado na Beira da Água">
+              <span class="title"><span class="num-inline">#71</span> Vitão Deitado na Beira da Água</span>
+            </div>
+            <div class="sub">01:02:56:07 · 2.29s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="72_vitao_agachado_pedras_01">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/72_vitao_agachado_pedras_01.jpg" alt="Vitão Agachado nas Pedras — Lagoa" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/72_vitao_agachado_pedras_01.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#72</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#72" value="#72 | 72_vitao_agachado_pedras_01 | Vitão Agachado nas Pedras — Lagoa">
+              <span class="title"><span class="num-inline">#72</span> Vitão Agachado nas Pedras — Lagoa</span>
+            </div>
+            <div class="sub">01:02:58:14 · 2.72s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="73_vitao_olhar_lateral_ceu">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/73_vitao_olhar_lateral_ceu.jpg" alt="Vitão Olhando para o Lado — Céu Azul" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/73_vitao_olhar_lateral_ceu.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#73</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#73" value="#73 | 73_vitao_olhar_lateral_ceu | Vitão Olhando para o Lado — Céu Azul" checked>
+              <span class="title"><span class="num-inline">#73</span> Vitão Olhando para o Lado — Céu Azul</span>
+            </div>
+            <div class="sub">01:03:01:07 · 3.50s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="74_vitao_agachado_pedras_02">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/74_vitao_agachado_pedras_02.jpg" alt="Vitão Agachado nas Pedras — Sorriso" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/74_vitao_agachado_pedras_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#74</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#74" value="#74 | 74_vitao_agachado_pedras_02 | Vitão Agachado nas Pedras — Sorriso">
+              <span class="title"><span class="num-inline">#74</span> Vitão Agachado nas Pedras — Sorriso</span>
+            </div>
+            <div class="sub">01:03:04:19 · 2.84s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="75_lagoa_frontal_tunicabranca">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/75_lagoa_frontal_tunicabranca.jpg" alt="Plano Geral Frontal de Túnica Branca" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/75_lagoa_frontal_tunicabranca.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#75</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#75" value="#75 | 75_lagoa_frontal_tunicabranca | Plano Geral Frontal de Túnica Branca" checked>
+              <span class="title"><span class="num-inline">#75</span> Plano Geral Frontal de Túnica Branca</span>
+            </div>
+            <div class="sub">01:03:07:16 · 2.54s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="76_vitao_agachado_pedras_03">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/76_vitao_agachado_pedras_03.jpg" alt="Vitão Agachado — Gesto com a Mão" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/76_vitao_agachado_pedras_03.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#76</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#76" value="#76 | 76_vitao_agachado_pedras_03 | Vitão Agachado — Gesto com a Mão" checked>
+              <span class="title"><span class="num-inline">#76</span> Vitão Agachado — Gesto com a Mão</span>
+            </div>
+            <div class="sub">01:03:10:05 · 2.46s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="77_vitao_vegetacao_sol_01">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/77_vitao_vegetacao_sol_01.jpg" alt="Vitão Entre Folhagens ao Sol" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/77_vitao_vegetacao_sol_01.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#77</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#77" value="#77 | 77_vitao_vegetacao_sol_01 | Vitão Entre Folhagens ao Sol" checked>
+              <span class="title"><span class="num-inline">#77</span> Vitão Entre Folhagens ao Sol</span>
+            </div>
+            <div class="sub">01:03:12:16 · 8.84s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="78_vitao_tunicabranca_arvores">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/78_vitao_tunicabranca_arvores.jpg" alt="Vitão de Túnica Branca Diante da Mata" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/78_vitao_tunicabranca_arvores.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#78</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#78" value="#78 | 78_vitao_tunicabranca_arvores | Vitão de Túnica Branca Diante da Mata">
+              <span class="title"><span class="num-inline">#78</span> Vitão de Túnica Branca Diante da Mata</span>
+            </div>
+            <div class="sub">01:03:21:12 · 3.30s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="79_vitao_maos_agua_rasa">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/79_vitao_maos_agua_rasa.jpg" alt="Vitão Apoiado na Água Rasa" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/79_vitao_maos_agua_rasa.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#79</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#79" value="#79 | 79_vitao_maos_agua_rasa | Vitão Apoiado na Água Rasa" checked>
+              <span class="title"><span class="num-inline">#79</span> Vitão Apoiado na Água Rasa</span>
+            </div>
+            <div class="sub">01:03:24:19 · 3.08s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="80_vitao_sombra_mata">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/80_vitao_sombra_mata.jpg" alt="Vitão na Sombra da Mata" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/80_vitao_sombra_mata.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#80</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#80" value="#80 | 80_vitao_sombra_mata | Vitão na Sombra da Mata">
+              <span class="title"><span class="num-inline">#80</span> Vitão na Sombra da Mata</span>
+            </div>
+            <div class="sub">01:03:27:21 · 1.97s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="81_vitao_agachado_pedras_04">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/81_vitao_agachado_pedras_04.jpg" alt="Vitão Agachado nas Pedras — Olhar Fixo" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/81_vitao_agachado_pedras_04.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#81</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#81" value="#81 | 81_vitao_agachado_pedras_04 | Vitão Agachado nas Pedras — Olhar Fixo">
+              <span class="title"><span class="num-inline">#81</span> Vitão Agachado nas Pedras — Olhar Fixo</span>
+            </div>
+            <div class="sub">01:03:29:20 · 2.25s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="82_vitao_perfil_luz_dura">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/82_vitao_perfil_luz_dura.jpg" alt="Perfil Recortado pelo Sol" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/82_vitao_perfil_luz_dura.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#82</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#82" value="#82 | 82_vitao_perfil_luz_dura | Perfil Recortado pelo Sol" checked>
+              <span class="title"><span class="num-inline">#82</span> Perfil Recortado pelo Sol</span>
+            </div>
+            <div class="sub">01:03:32:02 · 3.71s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="83_vitao_agachado_pedras_05">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/83_vitao_agachado_pedras_05.jpg" alt="Vitão Agachado — Braço Estendido" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/83_vitao_agachado_pedras_05.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#83</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#83" value="#83 | 83_vitao_agachado_pedras_05 | Vitão Agachado — Braço Estendido">
+              <span class="title"><span class="num-inline">#83</span> Vitão Agachado — Braço Estendido</span>
+            </div>
+            <div class="sub">01:03:35:19 · 1.58s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="84_vitao_sorriso_agua_rasa">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/84_vitao_sorriso_agua_rasa.jpg" alt="Vitão Sorrindo na Água Rasa" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/84_vitao_sorriso_agua_rasa.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#84</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#84" value="#84 | 84_vitao_sorriso_agua_rasa | Vitão Sorrindo na Água Rasa">
+              <span class="title"><span class="num-inline">#84</span> Vitão Sorrindo na Água Rasa</span>
+            </div>
+            <div class="sub">01:03:37:09 · 1.88s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="85_close_vitao_areia_sombra">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/85_close_vitao_areia_sombra.jpg" alt="Close-up de Vitão na Areia" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/85_close_vitao_areia_sombra.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#85</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#85" value="#85 | 85_close_vitao_areia_sombra | Close-up de Vitão na Areia">
+              <span class="title"><span class="num-inline">#85</span> Close-up de Vitão na Areia</span>
+            </div>
+            <div class="sub">01:03:39:06 · 1.67s · Close-up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="86_vitao_perfil_mata_contraluz">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/86_vitao_perfil_mata_contraluz.jpg" alt="Perfil Diante da Mata em Contraluz" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/86_vitao_perfil_mata_contraluz.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#86</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#86" value="#86 | 86_vitao_perfil_mata_contraluz | Perfil Diante da Mata em Contraluz">
+              <span class="title"><span class="num-inline">#86</span> Perfil Diante da Mata em Contraluz</span>
+            </div>
+            <div class="sub">01:03:40:22 · 2.67s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="87_close_vitao_grito_areia">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/87_close_vitao_grito_areia.jpg" alt="Close-up de Vitão Cantando na Areia" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/87_close_vitao_grito_areia.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#87</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#87" value="#87 | 87_close_vitao_grito_areia | Close-up de Vitão Cantando na Areia" checked>
+              <span class="title"><span class="num-inline">#87</span> Close-up de Vitão Cantando na Areia</span>
+            </div>
+            <div class="sub">01:03:43:14 · 0.79s · Close-up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="88_lagoa_corrida_tunicabranca">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/88_lagoa_corrida_tunicabranca.jpg" alt="Movimento na Lagoa — Túnica Branca" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/88_lagoa_corrida_tunicabranca.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#88</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#88" value="#88 | 88_lagoa_corrida_tunicabranca | Movimento na Lagoa — Túnica Branca">
+              <span class="title"><span class="num-inline">#88</span> Movimento na Lagoa — Túnica Branca</span>
+            </div>
+            <div class="sub">01:03:48:12 · 2.36s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="89_close_vitao_olhar_camera">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/89_close_vitao_olhar_camera.jpg" alt="Close-up Frontal Olhando para a Câmera" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/89_close_vitao_olhar_camera.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#89</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#89" value="#89 | 89_close_vitao_olhar_camera | Close-up Frontal Olhando para a Câmera" checked>
+              <span class="title"><span class="num-inline">#89</span> Close-up Frontal Olhando para a Câmera</span>
+            </div>
+            <div class="sub">01:03:53:13 · 2.96s · Close-up · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="90_lagoa_simetria_tunicabranca">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/90_lagoa_simetria_tunicabranca.jpg" alt="Simetria Perfeita na Lagoa Espelhada" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/90_lagoa_simetria_tunicabranca.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#90</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#90" value="#90 | 90_lagoa_simetria_tunicabranca | Simetria Perfeita na Lagoa Espelhada" checked>
+              <span class="title"><span class="num-inline">#90</span> Simetria Perfeita na Lagoa Espelhada</span>
+            </div>
+            <div class="sub">01:03:59:14 · 2.71s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="91_lagoa_costas_caminhando">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/91_lagoa_costas_caminhando.jpg" alt="Caminhando de Costas na Lagoa" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/91_lagoa_costas_caminhando.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#91</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#91" value="#91 | 91_lagoa_costas_caminhando | Caminhando de Costas na Lagoa" checked>
+              <span class="title"><span class="num-inline">#91</span> Caminhando de Costas na Lagoa</span>
+            </div>
+            <div class="sub">01:04:07:18 · 11.34s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="92_close_sorriso_luz_baixa">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/92_close_sorriso_luz_baixa.jpg" alt="Close-up Sorrindo na Luz Baixa" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/92_close_sorriso_luz_baixa.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#92</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#92" value="#92 | 92_close_sorriso_luz_baixa | Close-up Sorrindo na Luz Baixa" checked>
+              <span class="title"><span class="num-inline">#92</span> Close-up Sorrindo na Luz Baixa</span>
+            </div>
+            <div class="sub">01:04:19:02 · 3.30s · Close-up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="93_vitao_olhando_baixo_tunicabranca">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/93_vitao_olhando_baixo_tunicabranca.jpg" alt="Vitão Olhando para Baixo — Túnica Branca" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/93_vitao_olhando_baixo_tunicabranca.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#93</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#93" value="#93 | 93_vitao_olhando_baixo_tunicabranca | Vitão Olhando para Baixo — Túnica Branca">
+              <span class="title"><span class="num-inline">#93</span> Vitão Olhando para Baixo — Túnica Branca</span>
+            </div>
+            <div class="sub">01:04:22:09 · 0.50s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="94_perfil_vitao_ceu_rosa">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/94_perfil_vitao_ceu_rosa.jpg" alt="Perfil de Vitão — Céu Azul e Cabelo Rosa" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/94_perfil_vitao_ceu_rosa.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#94</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#94" value="#94 | 94_perfil_vitao_ceu_rosa | Perfil de Vitão — Céu Azul e Cabelo Rosa">
+              <span class="title"><span class="num-inline">#94</span> Perfil de Vitão — Céu Azul e Cabelo Rosa</span>
+            </div>
+            <div class="sub">01:04:22:21 · 2.25s · Close-up · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="95_vitao_vegetacao_sorrindo">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/95_vitao_vegetacao_sorrindo.jpg" alt="Vitão Sorrindo Entre Folhagens" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/95_vitao_vegetacao_sorrindo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#95</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#95" value="#95 | 95_vitao_vegetacao_sorrindo | Vitão Sorrindo Entre Folhagens" checked>
+              <span class="title"><span class="num-inline">#95</span> Vitão Sorrindo Entre Folhagens</span>
+            </div>
+            <div class="sub">01:04:27:18 · 3.50s · Primeiro Plano · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group">
+      <h2>Créditos Finais <span class="count">(1 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="96_creditos_finais_olhar_pro_lado">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_olhar_pro_lado/96_creditos_finais_olhar_pro_lado.jpg" alt="Créditos Finais — Um Filme de Caio Luigi & Vitão" loading="lazy">
+            <video src="assets/videos/vitao_olhar_pro_lado/96_creditos_finais_olhar_pro_lado.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#96</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#96" value="#96 | 96_creditos_finais_olhar_pro_lado | Créditos Finais — Um Filme de Caio Luigi & Vitão" checked>
+              <span class="title"><span class="num-inline">#96</span> Créditos Finais — Um Filme de Caio Luigi & Vitão</span>
+            </div>
+            <div class="sub">01:04:31:06 · 4.25s · Cartela de Créditos · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+  </main>
+  <div id="toast">Seleção copiada para a área de transferência!</div>
+  <script>
+    const STORAGE_KEY = 'awa_guide_olhar_pro_lado_v2';
+    const picks = [...document.querySelectorAll('.pick')];
+    const countEl = document.getElementById('selectedCount');
+    function updateCount() {
+      countEl.textContent = picks.filter(el => el.checked).length;
+    }
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+      if (saved && typeof saved === 'object') {
+        picks.forEach(el => {
+          if (el.dataset.num in saved) el.checked = saved[el.dataset.num];
+        });
+      }
+    } catch (e) {}
+    updateCount();
+    function saveState() {
+      const state = {};
+      picks.forEach(el => state[el.dataset.num] = el.checked);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      updateCount();
+    }
+    picks.forEach(el => el.addEventListener('change', saveState));
+    document.getElementById('selectAllBtn').addEventListener('click', () => {
+      picks.forEach(el => el.checked = true);
+      saveState();
+    });
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      picks.forEach(el => el.checked = false);
+      localStorage.removeItem(STORAGE_KEY);
+      updateCount();
+    });
+    document.querySelectorAll('.card').forEach(card => {
+      const vid = card.querySelector('video');
+      card.addEventListener('mouseenter', () => { vid.play().catch(() => {}); });
+      card.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+    });
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const picked = picks.filter(el => el.checked).map(el => el.value);
+      navigator.clipboard.writeText(picked.join('\n')).then(() => {
+        const t = document.getElementById('toast');
+        t.style.display = 'block';
+        setTimeout(() => t.style.display = 'none', 2500);
+      });
+    });
+  </script>
+</body>
+</html>
