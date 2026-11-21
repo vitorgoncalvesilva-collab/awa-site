@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÀWA — Guia Visual Numerado · Assucena ao vivo no Casa de Francisca</title>
+  <style>
+    :root { --bg: #050505; --card: #111; --border: #242424; --fg: #f4f4f4; --dim: #8f8f8f; --accent: #ffffff; --green: #4ade80; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; padding: 20px clamp(14px, 2vw, 32px) 84px; }
+    header { max-width: 2200px; margin: 0 auto 14px; border-bottom: 1px solid var(--border); padding-bottom: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; align-items: flex-end; }
+    h1 { margin: 0 0 4px; font-size: 1.35rem; letter-spacing: -0.02em; }
+    p.lead { margin: 0; color: var(--dim); font-size: 0.86rem; max-width: 860px; line-height: 1.4; }
+    .actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #000; border: 0; padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.82rem; }
+    .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    .btn.active { border-color: var(--green); color: var(--green); }
+    .toolbar { max-width: 2200px; margin: 0 auto 18px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; background: rgba(5,5,5,0.94); backdrop-filter: blur(8px); padding: 8px 0; border-bottom: 1px solid #181818; }
+    .chapters { display: flex; flex-wrap: wrap; gap: 5px; }
+    .chap-pill { color: var(--dim); text-decoration: none; font-size: 0.72rem; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--border); transition: all 0.15s; }
+    .chap-pill:hover { color: var(--fg); border-color: #555; }
+    .search-box { display: flex; gap: 8px; align-items: center; }
+    .search-input { background: #111; color: var(--fg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 0.8rem; width: 220px; outline: none; }
+    .search-input:focus { border-color: #666; }
+    main { max-width: 2200px; margin: 0 auto; }
+    .group { margin-bottom: 30px; scroll-margin-top: 64px; }
+    .group h2 { font-size: 0.98rem; font-weight: 600; margin: 0 0 12px; border-left: 3px solid var(--accent); padding-left: 10px; }
+    .group h2 .count { color: var(--dim); font-weight: 400; font-size: 0.8rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+    .card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: 7px; overflow: hidden; cursor: pointer; transition: border-color 0.15s; }
+    .card.hidden { display: none; }
+    .card:has(.pick:checked) { border-color: var(--green); }
+    .card:has(.pick:checked) .badge.alt { background: rgba(74, 222, 128, 0.92); color: #052e16; border-color: transparent; opacity: 1; }
+    .media-wrap { position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+    .media-wrap img, .media-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .media-wrap video { position: absolute; inset: 0; opacity: 0; transition: opacity 0.18s; }
+    .card:hover .media-wrap video { opacity: 1; }
+    .num-badge { position: absolute; top: 6px; left: 6px; background: rgba(0,0,0,0.86); color: #fff; border: 1px solid rgba(255,255,255,0.24); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.72rem; font-weight: 700; padding: 2px 7px; border-radius: 4px; }
+    .badge { position: absolute; top: 6px; right: 6px; font-size: 0.62rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.04em; }
+    .badge.live { background: rgba(74, 222, 128, 0.92); color: #052e16; }
+    .badge.alt { background: rgba(20, 20, 20, 0.85); color: #d4d4d4; border: 1px solid #404040; opacity: 0.85; }
+    .meta { padding: 9px 10px; }
+    .row-top { display: flex; align-items: flex-start; gap: 7px; }
+    .pick { margin: 2px 0 0; flex-shrink: 0; }
+    .title { font-size: 0.8rem; font-weight: 600; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .num-inline { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--green); margin-right: 3px; }
+    .sub { margin-top: 4px; font-size: 0.68rem; color: var(--dim); font-family: ui-monospace, SFMono-Regular, monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    #toast { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: #052e16; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; display: none; z-index: 30; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Guia Visual Numerado — Assucena ao vivo no Casa de Francisca</h1>
+      <p class="lead">Sincronizado com os <strong>12 takes/sequências</strong> ativos no site (incluindo as sequências unificadas <strong>#02+#03</strong> e <strong>#48+#49</strong>, de <strong>69</strong> cortes decupados · “Valerie - Amy Winehouse” · 3840×2160 · 16:9 · 04min 41s). Passe o mouse para ver o loop MP4 e clique em <strong>Copiar Seleção</strong> (<span id="selectedCount">16</span> selecionados).</p>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" href="projeto.html?id=assucena-casa-de-francisca" target="_blank">Abrir Projeto no Site ↗</a>
+      <a class="btn ghost" href="portfolio.html?q=Assucena" target="_blank">Abrir Portfólio ↗</a>
+      <button class="btn ghost" id="onlySelectedBtn">Só Selecionados</button>
+      <button class="btn ghost" id="selectAllBtn">Marcar Todos</button>
+      <button class="btn ghost" id="resetBtn">Limpar Seleção</button>
+      <button class="btn" id="copyBtn">Copiar Seleção (<span id="copyCount">16</span>)</button>
+    </div>
+  </header>
+  <div class="toolbar">
+    <nav class="chapters">
+      
+<a class="chap-pill" href="#abertura">Abertura &amp; Cartelas (3)</a>      <a class="chap-pill" href="#geral">Plano Geral — Palco Casa de Francisca (4)</a>      <a class="chap-pill" href="#conjunto">Plano Conjunto Lateral Esquerda (Assucena + Rafael) (18)</a>      <a class="chap-pill" href="#medio_frontal">Plano Médio Frontal (Assucena, Piano &amp; Guitarra) (9)</a>      <a class="chap-pill" href="#contraplongee">Contra-Plongée à Direita com Lens Flare (18)</a>      <a class="chap-pill" href="#closeup">Close-Up — Assucena no Microfone (11)</a>      <a class="chap-pill" href="#guitarra">Plano Médio — Rafael Acerbi (Telecaster) (6)</a>
+    </nav>
+    <div class="search-box">
+      <input type="search" class="search-input" id="searchInput" placeholder="Filtrar por plano, flare, close...">
+    </div>
+  </div>
+  <main>
+    <section class="group" id="abertura">
+      <h2>Abertura, Cartelas &amp; Sequências Unificadas <span class="count">(5 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="02_03_cartela_assucena_e_palco_valerie" data-search="#02+#03 sequência unificada — cartela assucena (telecaster) + valerie (palco geral) plano médio / plano geral 02_03_cartela_assucena_e_palco_valerie">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/02_03_cartela_assucena_e_palco_valerie.jpg" alt="Sequência Unificada — Cartela ASSUCENA (Telecaster) + Valerie (Palco Geral)" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/02_03_cartela_assucena_e_palco_valerie.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#02+#03</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#02+#03" value="#02+#03 | 01:00:02:15 | 02_03_cartela_assucena_e_palco_valerie | Sequência Unificada — Cartela ASSUCENA (Telecaster) + Valerie (Palco Geral)" checked>
+              <span class="title"><span class="num-inline">#02+#03</span> Sequência Unificada — Cartela ASSUCENA (Telecaster) + Valerie (Palco Geral)</span>
+            </div>
+            <div class="sub">01:00:02:15 · 7.40s · Plano Médio / Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="48_49_contraplongee_e_closeup_maos" data-search="#48+#49 sequência unificada — contra-plongée perfil + close-up mãos no rosto contra-plongée / close-up 48_49_contraplongee_e_closeup_maos">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/48_49_contraplongee_e_closeup_maos.jpg" alt="Sequência Unificada — Contra-Plongée Perfil + Close-Up Mãos no Rosto" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/48_49_contraplongee_e_closeup_maos.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#48+#49</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#48+#49" value="#48+#49 | 01:03:22:23 | 48_49_contraplongee_e_closeup_maos | Sequência Unificada — Contra-Plongée Perfil + Close-Up Mãos no Rosto" checked>
+              <span class="title"><span class="num-inline">#48+#49</span> Sequência Unificada — Contra-Plongée Perfil + Close-Up Mãos no Rosto</span>
+            </div>
+            <div class="sub">01:03:22:23 · 4.42s · Contra-Plongée / Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="01_abertura_tangaroa_palco" data-search="#01 abertura — palco casa de francisca (logo tangaroa) plano geral estático / master palco azul noturno &amp; cortina magenta azul &amp; magenta 01_abertura_tangaroa_palco">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/01_abertura_tangaroa_palco.jpg" alt="Abertura — Palco Casa de Francisca (Logo Tangaroa)" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/01_abertura_tangaroa_palco.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#01</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#01" value="#01 | 01:00:00:00 | 01_abertura_tangaroa_palco | Abertura — Palco Casa de Francisca (Logo Tangaroa)">
+              <span class="title"><span class="num-inline">#01</span> Abertura — Palco Casa de Francisca (Logo Tangaroa)</span>
+            </div>
+            <div class="sub">01:00:00:00 · 2.63s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="02_cartela_assucena_telecaster" data-search="#02 cartela oficial — assucena (telecaster) plano médio estático / cartela luz suave azul &amp; magenta azul, creme &amp; magenta 02_cartela_assucena_telecaster">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/02_cartela_assucena_telecaster.jpg" alt="Cartela Oficial — ASSUCENA (Telecaster)" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/02_cartela_assucena_telecaster.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#02</span>
+            <span class="badge live">NO SITE (#02+#03)</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#02" value="#02 | 01:00:02:15 | 02_cartela_assucena_telecaster | Cartela Oficial — ASSUCENA (Telecaster)" checked>
+              <span class="title"><span class="num-inline">#02</span> Cartela Oficial — ASSUCENA (Telecaster)</span>
+            </div>
+            <div class="sub">01:00:02:15 · 8.13s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="69_creditos_finais_valerie" data-search="#69 créditos finais — assucena: valerie (amy winehouse) cartela de créditos estático / créditos azul noturno &amp; cortina magenta azul &amp; magenta 69_creditos_finais_valerie">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/69_creditos_finais_valerie.jpg" alt="Créditos Finais — Assucena: Valerie (Amy Winehouse)" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/69_creditos_finais_valerie.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#69</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#69" value="#69 | 01:04:36:00 | 69_creditos_finais_valerie | Créditos Finais — Assucena: Valerie (Amy Winehouse)" checked>
+              <span class="title"><span class="num-inline">#69</span> Créditos Finais — Assucena: Valerie (Amy Winehouse)</span>
+            </div>
+            <div class="sub">01:04:36:00 · 5.03s · Cartela de Créditos · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group" id="geral">
+      <h2>Plano Geral — Palco Casa de Francisca <span class="count">(4 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="03_plano_geral_palco_inicio" data-search="#03 plano geral — palco da casa de francisca (início) plano geral estático / master palco janelas azuis &amp; cortina magenta azul cobalto &amp; magenta 03_plano_geral_palco_inicio">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/03_plano_geral_palco_inicio.jpg" alt="Plano Geral — Palco da Casa de Francisca (Início)" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/03_plano_geral_palco_inicio.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#03</span>
+            <span class="badge live">NO SITE (#02+#03)</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#03" value="#03 | 01:00:10:18 | 03_plano_geral_palco_inicio | Plano Geral — Palco da Casa de Francisca (Início)" checked>
+              <span class="title"><span class="num-inline">#03</span> Plano Geral — Palco da Casa de Francisca (Início)</span>
+            </div>
+            <div class="sub">01:00:10:18 · 10.84s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="07_plano_geral_palco_canto" data-search="#07 plano geral — assucena cantando sob cortina magenta plano geral estático / master palco janelas azuis &amp; cortina magenta azul cobalto &amp; magenta 07_plano_geral_palco_canto">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/07_plano_geral_palco_canto.jpg" alt="Plano Geral — Assucena Cantando sob Cortina Magenta" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/07_plano_geral_palco_canto.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#07</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#07" value="#07 | 01:00:41:11 | 07_plano_geral_palco_canto | Plano Geral — Assucena Cantando sob Cortina Magenta">
+              <span class="title"><span class="num-inline">#07</span> Plano Geral — Assucena Cantando sob Cortina Magenta</span>
+            </div>
+            <div class="sub">01:00:41:11 · 8.43s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="10_plano_geral_palco_bracos" data-search="#10 plano geral — gestual aberto no banco plano geral estático / master palco janelas azuis &amp; cortina magenta azul cobalto &amp; magenta 10_plano_geral_palco_bracos">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/10_plano_geral_palco_bracos.jpg" alt="Plano Geral — Gestual Aberto no Banco" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/10_plano_geral_palco_bracos.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#10</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#10" value="#10 | 01:00:56:20 | 10_plano_geral_palco_bracos | Plano Geral — Gestual Aberto no Banco" checked>
+              <span class="title"><span class="num-inline">#10</span> Plano Geral — Gestual Aberto no Banco</span>
+            </div>
+            <div class="sub">01:00:56:20 · 3.46s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="68_plano_geral_encerramento" data-search="#68 plano geral — acorde final antes dos créditos plano geral estático / master palco janelas azuis &amp; cortina magenta azul cobalto &amp; magenta 68_plano_geral_encerramento">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/68_plano_geral_encerramento.jpg" alt="Plano Geral — Acorde Final Antes dos Créditos" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/68_plano_geral_encerramento.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#68</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#68" value="#68 | 01:04:28:18 | 68_plano_geral_encerramento | Plano Geral — Acorde Final Antes dos Créditos">
+              <span class="title"><span class="num-inline">#68</span> Plano Geral — Acorde Final Antes dos Créditos</span>
+            </div>
+            <div class="sub">01:04:28:18 · 7.23s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group" id="conjunto">
+      <h2>Plano Conjunto Lateral Esquerda (Assucena + Rafael) <span class="count">(18 takes)</span></h2>
+      <div class="grid">
+        <label class="card" data-slug="05_conjunto_lateral_intro_voz" data-search="#05 plano conjunto — entrada vocal sentada plano conjunto lateral esquerda luz quente de palco &amp; azul âmbar &amp; magenta 05_conjunto_lateral_intro_voz">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/05_conjunto_lateral_intro_voz.jpg" alt="Plano Conjunto — Entrada Vocal Sentada" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/05_conjunto_lateral_intro_voz.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#05</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#05" value="#05 | 01:00:32:13 | 05_conjunto_lateral_intro_voz | Plano Conjunto — Entrada Vocal Sentada">
+              <span class="title"><span class="num-inline">#05</span> Plano Conjunto — Entrada Vocal Sentada</span>
+            </div>
+            <div class="sub">01:00:32:13 · 2.67s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="08_conjunto_lateral_olhar_alto" data-search="#08 plano conjunto — olhar para o alto plano conjunto lateral esquerda luz quente &amp; cortina magenta âmbar &amp; magenta 08_conjunto_lateral_olhar_alto">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/08_conjunto_lateral_olhar_alto.jpg" alt="Plano Conjunto — Olhar para o Alto" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/08_conjunto_lateral_olhar_alto.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#08</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#08" value="#08 | 01:00:49:21 | 08_conjunto_lateral_olhar_alto | Plano Conjunto — Olhar para o Alto">
+              <span class="title"><span class="num-inline">#08</span> Plano Conjunto — Olhar para o Alto</span>
+            </div>
+            <div class="sub">01:00:49:21 · 4.05s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="12_conjunto_lateral_mao_gesto" data-search="#12 plano conjunto — gesto lateral com mão aberta plano conjunto lateral esquerda luz quente &amp; azul fundo âmbar &amp; azul 12_conjunto_lateral_mao_gesto">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/12_conjunto_lateral_mao_gesto.jpg" alt="Plano Conjunto — Gesto Lateral com Mão Aberta" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/12_conjunto_lateral_mao_gesto.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#12</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#12" value="#12 | 01:01:02:22 | 12_conjunto_lateral_mao_gesto | Plano Conjunto — Gesto Lateral com Mão Aberta">
+              <span class="title"><span class="num-inline">#12</span> Plano Conjunto — Gesto Lateral com Mão Aberta</span>
+            </div>
+            <div class="sub">01:01:02:22 · 5.71s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="16_conjunto_lateral_interpretacao" data-search="#16 plano conjunto — interpretação íntima plano conjunto lateral esquerda luz quente &amp; cortina magenta âmbar &amp; magenta 16_conjunto_lateral_interpretacao">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/16_conjunto_lateral_interpretacao.jpg" alt="Plano Conjunto — Interpretação Íntima" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/16_conjunto_lateral_interpretacao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#16</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#16" value="#16 | 01:01:19:02 | 16_conjunto_lateral_interpretacao | Plano Conjunto — Interpretação Íntima">
+              <span class="title"><span class="num-inline">#16</span> Plano Conjunto — Interpretação Íntima</span>
+            </div>
+            <div class="sub">01:01:19:02 · 2.46s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="18_conjunto_lateral_inclinada" data-search="#18 plano conjunto — inclinada ao microfone plano conjunto lateral esquerda luz quente &amp; azul fundo âmbar &amp; magenta 18_conjunto_lateral_inclinada">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/18_conjunto_lateral_inclinada.jpg" alt="Plano Conjunto — Inclinada ao Microfone" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/18_conjunto_lateral_inclinada.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#18</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#18" value="#18 | 01:01:22:16 | 18_conjunto_lateral_inclinada | Plano Conjunto — Inclinada ao Microfone">
+              <span class="title"><span class="num-inline">#18</span> Plano Conjunto — Inclinada ao Microfone</span>
+            </div>
+            <div class="sub">01:01:22:16 · 5.84s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="21_conjunto_lateral_perfil_duo" data-search="#21 plano conjunto — perfil em sintonia com guitarra plano conjunto lateral esquerda luz quente &amp; cortina magenta âmbar &amp; magenta 21_conjunto_lateral_perfil_duo">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/21_conjunto_lateral_perfil_duo.jpg" alt="Plano Conjunto — Perfil em Sintonia com Guitarra" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/21_conjunto_lateral_perfil_duo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#21</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#21" value="#21 | 01:01:37:12 | 21_conjunto_lateral_perfil_duo | Plano Conjunto — Perfil em Sintonia com Guitarra">
+              <span class="title"><span class="num-inline">#21</span> Plano Conjunto — Perfil em Sintonia com Guitarra</span>
+            </div>
+            <div class="sub">01:01:37:12 · 3.21s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="23_conjunto_lateral_mao_erguida" data-search="#23 plano conjunto — ênfase vocal com mão erguida plano conjunto lateral esquerda luz quente &amp; cortina magenta âmbar &amp; magenta 23_conjunto_lateral_mao_erguida">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/23_conjunto_lateral_mao_erguida.jpg" alt="Plano Conjunto — Ênfase Vocal com Mão Erguida" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/23_conjunto_lateral_mao_erguida.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#23</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#23" value="#23 | 01:01:47:10 | 23_conjunto_lateral_mao_erguida | Plano Conjunto — Ênfase Vocal com Mão Erguida">
+              <span class="title"><span class="num-inline">#23</span> Plano Conjunto — Ênfase Vocal com Mão Erguida</span>
+            </div>
+            <div class="sub">01:01:47:10 · 1.50s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="25_conjunto_lateral_canto_firme" data-search="#25 plano conjunto — canto firme no refrão plano conjunto lateral esquerda luz quente &amp; azul fundo âmbar &amp; magenta 25_conjunto_lateral_canto_firme">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/25_conjunto_lateral_canto_firme.jpg" alt="Plano Conjunto — Canto Firme no Refrão" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/25_conjunto_lateral_canto_firme.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#25</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#25" value="#25 | 01:01:50:07 | 25_conjunto_lateral_canto_firme | Plano Conjunto — Canto Firme no Refrão">
+              <span class="title"><span class="num-inline">#25</span> Plano Conjunto — Canto Firme no Refrão</span>
+            </div>
+            <div class="sub">01:01:50:07 · 4.55s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="32_conjunto_lateral_bracejo" data-search="#32 plano conjunto — movimentação de braços plano conjunto lateral esquerda luz quente &amp; azul fundo âmbar &amp; magenta 32_conjunto_lateral_bracejo">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/32_conjunto_lateral_bracejo.jpg" alt="Plano Conjunto — Movimentação de Braços" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/32_conjunto_lateral_bracejo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#32</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#32" value="#32 | 01:02:21:22 | 32_conjunto_lateral_bracejo | Plano Conjunto — Movimentação de Braços">
+              <span class="title"><span class="num-inline">#32</span> Plano Conjunto — Movimentação de Braços</span>
+            </div>
+            <div class="sub">01:02:21:22 · 3.17s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="37_conjunto_lateral_maos_peito" data-search="#37 plano conjunto — mãos juntas ao peito plano conjunto lateral esquerda luz quente &amp; cortina magenta âmbar &amp; magenta 37_conjunto_lateral_maos_peito">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/37_conjunto_lateral_maos_peito.jpg" alt="Plano Conjunto — Mãos Juntas ao Peito" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/37_conjunto_lateral_maos_peito.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#37</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#37" value="#37 | 01:02:36:09 | 37_conjunto_lateral_maos_peito | Plano Conjunto — Mãos Juntas ao Peito">
+              <span class="title"><span class="num-inline">#37</span> Plano Conjunto — Mãos Juntas ao Peito</span>
+            </div>
+            <div class="sub">01:02:36:09 · 3.79s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="43_conjunto_lateral_dialogo_palco" data-search="#43 plano conjunto — diálogo musical com rafael acerbi plano conjunto lateral esquerda luz quente &amp; azul fundo âmbar &amp; magenta 43_conjunto_lateral_dialogo_palco">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/43_conjunto_lateral_dialogo_palco.jpg" alt="Plano Conjunto — Diálogo Musical com Rafael Acerbi" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/43_conjunto_lateral_dialogo_palco.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#43</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#43" value="#43 | 01:03:01:20 | 43_conjunto_lateral_dialogo_palco | Plano Conjunto — Diálogo Musical com Rafael Acerbi">
+              <span class="title"><span class="num-inline">#43</span> Plano Conjunto — Diálogo Musical com Rafael Acerbi</span>
+            </div>
+            <div class="sub">01:03:01:20 · 7.05s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="47_conjunto_lateral_climax_mao" data-search="#47 plano conjunto — clímax vocal com braço aberto plano conjunto lateral esquerda luz quente &amp; cortina magenta âmbar &amp; magenta 47_conjunto_lateral_climax_mao">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/47_conjunto_lateral_climax_mao.jpg" alt="Plano Conjunto — Clímax Vocal com Braço Aberto" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/47_conjunto_lateral_climax_mao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#47</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#47" value="#47 | 01:03:20:12 | 47_conjunto_lateral_climax_mao | Plano Conjunto — Clímax Vocal com Braço Aberto">
+              <span class="title"><span class="num-inline">#47</span> Plano Conjunto — Clímax Vocal com Braço Aberto</span>
+            </div>
+            <div class="sub">01:03:20:12 · 2.46s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="50_conjunto_lateral_bracos_abertos" data-search="#50 plano conjunto — braços abertos em expansão plano conjunto lateral esquerda luz quente &amp; cortina magenta âmbar &amp; magenta 50_conjunto_lateral_bracos_abertos">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/50_conjunto_lateral_bracos_abertos.jpg" alt="Plano Conjunto — Braços Abertos em Expansão" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/50_conjunto_lateral_bracos_abertos.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#50</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#50" value="#50 | 01:03:27:11 | 50_conjunto_lateral_bracos_abertos | Plano Conjunto — Braços Abertos em Expansão">
+              <span class="title"><span class="num-inline">#50</span> Plano Conjunto — Braços Abertos em Expansão</span>
+            </div>
+            <div class="sub">01:03:27:11 · 4.34s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="56_conjunto_lateral_olhar_rafael" data-search="#56 plano conjunto — olhar para o guitarrista plano conjunto lateral esquerda luz quente &amp; azul fundo âmbar &amp; magenta 56_conjunto_lateral_olhar_rafael">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/56_conjunto_lateral_olhar_rafael.jpg" alt="Plano Conjunto — Olhar para o Guitarrista" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/56_conjunto_lateral_olhar_rafael.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#56</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#56" value="#56 | 01:03:58:04 | 56_conjunto_lateral_olhar_rafael | Plano Conjunto — Olhar para o Guitarrista">
+              <span class="title"><span class="num-inline">#56</span> Plano Conjunto — Olhar para o Guitarrista</span>
+            </div>
+            <div class="sub">01:03:58:04 · 2.71s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="58_conjunto_lateral_duas_maos" data-search="#58 plano conjunto — duas mãos erguidas plano conjunto lateral esquerda luz quente &amp; cortina magenta âmbar &amp; magenta 58_conjunto_lateral_duas_maos">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/58_conjunto_lateral_duas_maos.jpg" alt="Plano Conjunto — Duas Mãos Erguidas" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/58_conjunto_lateral_duas_maos.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#58</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#58" value="#58 | 01:04:04:09 | 58_conjunto_lateral_duas_maos | Plano Conjunto — Duas Mãos Erguidas">
+              <span class="title"><span class="num-inline">#58</span> Plano Conjunto — Duas Mãos Erguidas</span>
+            </div>
+            <div class="sub">01:04:04:09 · 1.29s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="61_conjunto_lateral_gesto_final" data-search="#61 plano conjunto — gesto amplo na reta final plano conjunto lateral esquerda luz quente &amp; azul fundo âmbar &amp; magenta 61_conjunto_lateral_gesto_final">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/61_conjunto_lateral_gesto_final.jpg" alt="Plano Conjunto — Gesto Amplo na Reta Final" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/61_conjunto_lateral_gesto_final.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#61</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#61" value="#61 | 01:04:10:02 | 61_conjunto_lateral_gesto_final | Plano Conjunto — Gesto Amplo na Reta Final" checked>
+              <span class="title"><span class="num-inline">#61</span> Plano Conjunto — Gesto Amplo na Reta Final</span>
+            </div>
+            <div class="sub">01:04:10:02 · 3.96s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="63_conjunto_lateral_entrega" data-search="#63 plano conjunto — entrega final sentada plano conjunto lateral esquerda luz quente &amp; cortina magenta âmbar &amp; magenta 63_conjunto_lateral_entrega">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/63_conjunto_lateral_entrega.jpg" alt="Plano Conjunto — Entrega Final Sentada" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/63_conjunto_lateral_entrega.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#63</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#63" value="#63 | 01:04:14:21 | 63_conjunto_lateral_entrega | Plano Conjunto — Entrega Final Sentada">
+              <span class="title"><span class="num-inline">#63</span> Plano Conjunto — Entrega Final Sentada</span>
+            </div>
+            <div class="sub">01:04:14:21 · 2.21s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="66_conjunto_lateral_nota_aguda" data-search="#66 plano conjunto — nota final sustentada plano conjunto lateral esquerda luz quente &amp; cortina magenta âmbar &amp; magenta 66_conjunto_lateral_nota_aguda">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/66_conjunto_lateral_nota_aguda.jpg" alt="Plano Conjunto — Nota Final Sustentada" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/66_conjunto_lateral_nota_aguda.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#66</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#66" value="#66 | 01:04:20:09 | 66_conjunto_lateral_nota_aguda | Plano Conjunto — Nota Final Sustentada">
+              <span class="title"><span class="num-inline">#66</span> Plano Conjunto — Nota Final Sustentada</span>
+            </div>
+            <div class="sub">01:04:20:09 · 1.29s · Plano Conjunto · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group" id="medio_frontal">
+      <h2>Plano Médio Frontal (Assucena, Piano &amp; Guitarra) <span class="count">(9 takes)</span></h2>
+      <div class="grid">
+        <label class="card" data-slug="29_medio_frontal_maos_expressao" data-search="#29 plano médio frontal — expressão e mãos plano médio frontal / diagonal azul &amp; magenta de palco azul &amp; magenta 29_medio_frontal_maos_expressao">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/29_medio_frontal_maos_expressao.jpg" alt="Plano Médio Frontal — Expressão e Mãos" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/29_medio_frontal_maos_expressao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#29</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#29" value="#29 | 01:02:05:20 | 29_medio_frontal_maos_expressao | Plano Médio Frontal — Expressão e Mãos">
+              <span class="title"><span class="num-inline">#29</span> Plano Médio Frontal — Expressão e Mãos</span>
+            </div>
+            <div class="sub">01:02:05:20 · 2.13s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="31_medio_frontal_piano_duo" data-search="#31 plano médio frontal — assucena, piano e telecaster plano médio frontal / diagonal azul &amp; magenta de palco azul &amp; magenta 31_medio_frontal_piano_duo">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/31_medio_frontal_piano_duo.jpg" alt="Plano Médio Frontal — Assucena, Piano e Telecaster" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/31_medio_frontal_piano_duo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#31</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#31" value="#31 | 01:02:13:06 | 31_medio_frontal_piano_duo | Plano Médio Frontal — Assucena, Piano e Telecaster">
+              <span class="title"><span class="num-inline">#31</span> Plano Médio Frontal — Assucena, Piano e Telecaster</span>
+            </div>
+            <div class="sub">01:02:13:06 · 8.67s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="34_medio_frontal_gesto_simetrico" data-search="#34 plano médio frontal — gesto simétrico plano médio frontal / diagonal azul &amp; magenta de palco azul &amp; magenta 34_medio_frontal_gesto_simetrico">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/34_medio_frontal_gesto_simetrico.jpg" alt="Plano Médio Frontal — Gesto Simétrico" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/34_medio_frontal_gesto_simetrico.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#34</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#34" value="#34 | 01:02:29:15 | 34_medio_frontal_gesto_simetrico | Plano Médio Frontal — Gesto Simétrico">
+              <span class="title"><span class="num-inline">#34</span> Plano Médio Frontal — Gesto Simétrico</span>
+            </div>
+            <div class="sub">01:02:29:15 · 1.21s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="36_medio_frontal_enfase_ritmica" data-search="#36 plano médio frontal — ênfase rítmica plano médio frontal / diagonal azul &amp; magenta de palco azul &amp; magenta 36_medio_frontal_enfase_ritmica">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/36_medio_frontal_enfase_ritmica.jpg" alt="Plano Médio Frontal — Ênfase Rítmica" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/36_medio_frontal_enfase_ritmica.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#36</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#36" value="#36 | 01:02:34:03 | 36_medio_frontal_enfase_ritmica | Plano Médio Frontal — Ênfase Rítmica">
+              <span class="title"><span class="num-inline">#36</span> Plano Médio Frontal — Ênfase Rítmica</span>
+            </div>
+            <div class="sub">01:02:34:03 · 2.25s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="38_medio_frontal_ataque_vocal" data-search="#38 plano médio frontal — ataque vocal plano médio frontal / diagonal azul &amp; magenta de palco azul &amp; magenta 38_medio_frontal_ataque_vocal">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/38_medio_frontal_ataque_vocal.jpg" alt="Plano Médio Frontal — Ataque Vocal" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/38_medio_frontal_ataque_vocal.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#38</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#38" value="#38 | 01:02:40:04 | 38_medio_frontal_ataque_vocal | Plano Médio Frontal — Ataque Vocal">
+              <span class="title"><span class="num-inline">#38</span> Plano Médio Frontal — Ataque Vocal</span>
+            </div>
+            <div class="sub">01:02:40:04 · 1.13s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="40_medio_frontal_pausa_respiracao" data-search="#40 plano médio frontal — pausa e respiração plano médio frontal / diagonal azul &amp; magenta de palco azul &amp; magenta 40_medio_frontal_pausa_respiracao">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/40_medio_frontal_pausa_respiracao.jpg" alt="Plano Médio Frontal — Pausa e Respiração" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/40_medio_frontal_pausa_respiracao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#40</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#40" value="#40 | 01:02:46:22 | 40_medio_frontal_pausa_respiracao | Plano Médio Frontal — Pausa e Respiração" checked>
+              <span class="title"><span class="num-inline">#40</span> Plano Médio Frontal — Pausa e Respiração</span>
+            </div>
+            <div class="sub">01:02:46:22 · 5.25s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="53_medio_frontal_sorriso_cena" data-search="#53 plano médio frontal — sorriso em cena plano médio frontal / diagonal azul &amp; magenta de palco azul &amp; magenta 53_medio_frontal_sorriso_cena">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/53_medio_frontal_sorriso_cena.jpg" alt="Plano Médio Frontal — Sorriso em Cena" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/53_medio_frontal_sorriso_cena.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#53</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#53" value="#53 | 01:03:43:02 | 53_medio_frontal_sorriso_cena | Plano Médio Frontal — Sorriso em Cena">
+              <span class="title"><span class="num-inline">#53</span> Plano Médio Frontal — Sorriso em Cena</span>
+            </div>
+            <div class="sub">01:03:43:02 · 4.38s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="55_medio_frontal_swing_guitarra" data-search="#55 plano médio frontal — swing com guitarra plano médio frontal / diagonal azul &amp; magenta de palco azul &amp; magenta 55_medio_frontal_swing_guitarra">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/55_medio_frontal_swing_guitarra.jpg" alt="Plano Médio Frontal — Swing com Guitarra" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/55_medio_frontal_swing_guitarra.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#55</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#55" value="#55 | 01:03:51:03 | 55_medio_frontal_swing_guitarra | Plano Médio Frontal — Swing com Guitarra">
+              <span class="title"><span class="num-inline">#55</span> Plano Médio Frontal — Swing com Guitarra</span>
+            </div>
+            <div class="sub">01:03:51:03 · 7.05s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="67_medio_frontal_desfecho" data-search="#67 plano médio frontal — desfecho suave da canção plano médio frontal / diagonal azul &amp; magenta de palco azul &amp; magenta 67_medio_frontal_desfecho">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/67_medio_frontal_desfecho.jpg" alt="Plano Médio Frontal — Desfecho Suave da Canção" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/67_medio_frontal_desfecho.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#67</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#67" value="#67 | 01:04:21:16 | 67_medio_frontal_desfecho | Plano Médio Frontal — Desfecho Suave da Canção" checked>
+              <span class="title"><span class="num-inline">#67</span> Plano Médio Frontal — Desfecho Suave da Canção</span>
+            </div>
+            <div class="sub">01:04:21:16 · 7.09s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group" id="contraplongee">
+      <h2>Contra-Plongée à Direita com Lens Flare <span class="count">(18 takes)</span></h2>
+      <div class="grid">
+        <label class="card" data-slug="14_contraplongee_flare_sorriso" data-search="#14 contra-plongée — sorriso com flare de palco contra-plongée câmera baixa à direita contraluz com lens flare azul, violeta &amp; dourado 14_contraplongee_flare_sorriso">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/14_contraplongee_flare_sorriso.jpg" alt="Contra-Plongée — Sorriso com Flare de Palco" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/14_contraplongee_flare_sorriso.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#14</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#14" value="#14 | 01:01:12:00 | 14_contraplongee_flare_sorriso | Contra-Plongée — Sorriso com Flare de Palco">
+              <span class="title"><span class="num-inline">#14</span> Contra-Plongée — Sorriso com Flare de Palco</span>
+            </div>
+            <div class="sub">01:01:12:00 · 5.05s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="20_contraplongee_flare_intenso" data-search="#20 contra-plongée — contraluz e flare sobre o microfone contra-plongée câmera baixa à direita lens flare intenso dourado, azul &amp; magenta 20_contraplongee_flare_intenso">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/20_contraplongee_flare_intenso.jpg" alt="Contra-Plongée — Contraluz e Flare sobre o Microfone" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/20_contraplongee_flare_intenso.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#20</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#20" value="#20 | 01:01:30:09 | 20_contraplongee_flare_intenso | Contra-Plongée — Contraluz e Flare sobre o Microfone">
+              <span class="title"><span class="num-inline">#20</span> Contra-Plongée — Contraluz e Flare sobre o Microfone</span>
+            </div>
+            <div class="sub">01:01:30:09 · 7.13s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="24_contraplongee_olhar_alto" data-search="#24 contra-plongée — olhar alto no refrão contra-plongée câmera baixa à direita contraluz violeta &amp; azul violeta &amp; azul 24_contraplongee_olhar_alto">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/24_contraplongee_olhar_alto.jpg" alt="Contra-Plongée — Olhar Alto no Refrão" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/24_contraplongee_olhar_alto.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#24</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#24" value="#24 | 01:01:48:22 | 24_contraplongee_olhar_alto | Contra-Plongée — Olhar Alto no Refrão">
+              <span class="title"><span class="num-inline">#24</span> Contra-Plongée — Olhar Alto no Refrão</span>
+            </div>
+            <div class="sub">01:01:48:22 · 1.38s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="26_contraplongee_entrega_total" data-search="#26 contra-plongée — entrega vocal intensa contra-plongée câmera baixa à direita contraluz com lens flare violeta &amp; dourado 26_contraplongee_entrega_total">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/26_contraplongee_entrega_total.jpg" alt="Contra-Plongée — Entrega Vocal Intensa" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/26_contraplongee_entrega_total.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#26</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#26" value="#26 | 01:01:54:20 | 26_contraplongee_entrega_total | Contra-Plongée — Entrega Vocal Intensa" checked>
+              <span class="title"><span class="num-inline">#26</span> Contra-Plongée — Entrega Vocal Intensa</span>
+            </div>
+            <div class="sub">01:01:54:20 · 5.51s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="28_contraplongee_recorte_violeta" data-search="#28 contra-plongée — recorte em luz violeta contra-plongée câmera baixa à direita contraluz violeta &amp; azul violeta &amp; azul 28_contraplongee_recorte_violeta">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/28_contraplongee_recorte_violeta.jpg" alt="Contra-Plongée — Recorte em Luz Violeta" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/28_contraplongee_recorte_violeta.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#28</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#28" value="#28 | 01:02:03:01 | 28_contraplongee_recorte_violeta | Contra-Plongée — Recorte em Luz Violeta">
+              <span class="title"><span class="num-inline">#28</span> Contra-Plongée — Recorte em Luz Violeta</span>
+            </div>
+            <div class="sub">01:02:03:01 · 2.79s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="30_contraplongee_sorriso_dourado" data-search="#30 contra-plongée — sorriso na luz dourada contra-plongée câmera baixa à direita luz quente &amp; azul dourado &amp; violeta 30_contraplongee_sorriso_dourado">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/30_contraplongee_sorriso_dourado.jpg" alt="Contra-Plongée — Sorriso na Luz Dourada" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/30_contraplongee_sorriso_dourado.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#30</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#30" value="#30 | 01:02:07:23 | 30_contraplongee_sorriso_dourado | Contra-Plongée — Sorriso na Luz Dourada">
+              <span class="title"><span class="num-inline">#30</span> Contra-Plongée — Sorriso na Luz Dourada</span>
+            </div>
+            <div class="sub">01:02:07:23 · 5.30s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="33_contraplongee_maos_abertas" data-search="#33 contra-plongée — mãos abertas e olhos fechados contra-plongée câmera baixa à direita contraluz azul &amp; magenta azul &amp; magenta 33_contraplongee_maos_abertas">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/33_contraplongee_maos_abertas.jpg" alt="Contra-Plongée — Mãos Abertas e Olhos Fechados" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/33_contraplongee_maos_abertas.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#33</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#33" value="#33 | 01:02:25:02 | 33_contraplongee_maos_abertas | Contra-Plongée — Mãos Abertas e Olhos Fechados">
+              <span class="title"><span class="num-inline">#33</span> Contra-Plongée — Mãos Abertas e Olhos Fechados</span>
+            </div>
+            <div class="sub">01:02:25:02 · 4.50s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="35_contraplongee_climax_refrao" data-search="#35 contra-plongée — expressão máxima no refrão contra-plongée câmera baixa à direita lens flare intenso dourado &amp; violeta 35_contraplongee_climax_refrao">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/35_contraplongee_climax_refrao.jpg" alt="Contra-Plongée — Expressão Máxima no Refrão" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/35_contraplongee_climax_refrao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#35</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#35" value="#35 | 01:02:30:20 | 35_contraplongee_climax_refrao | Contra-Plongée — Expressão Máxima no Refrão">
+              <span class="title"><span class="num-inline">#35</span> Contra-Plongée — Expressão Máxima no Refrão</span>
+            </div>
+            <div class="sub">01:02:30:20 · 3.29s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="39_contraplongee_recolhimento" data-search="#39 contra-plongée — recolhimento no banco contra-plongée câmera baixa à direita contraluz violeta &amp; azul azul &amp; magenta 39_contraplongee_recolhimento">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/39_contraplongee_recolhimento.jpg" alt="Contra-Plongée — Recolhimento no Banco" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/39_contraplongee_recolhimento.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#39</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#39" value="#39 | 01:02:41:07 | 39_contraplongee_recolhimento | Contra-Plongée — Recolhimento no Banco">
+              <span class="title"><span class="num-inline">#39</span> Contra-Plongée — Recolhimento no Banco</span>
+            </div>
+            <div class="sub">01:02:41:07 · 5.63s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="41_contraplongee_banho_azul" data-search="#41 contra-plongée — banho azul das janelas contra-plongée câmera baixa à direita luz azul das janelas azul &amp; magenta 41_contraplongee_banho_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/41_contraplongee_banho_azul.jpg" alt="Contra-Plongée — Banho Azul das Janelas" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/41_contraplongee_banho_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#41</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#41" value="#41 | 01:02:52:04 | 41_contraplongee_banho_azul | Contra-Plongée — Banho Azul das Janelas">
+              <span class="title"><span class="num-inline">#41</span> Contra-Plongée — Banho Azul das Janelas</span>
+            </div>
+            <div class="sub">01:02:52:04 · 4.38s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="45_contraplongee_halo_luz" data-search="#45 contra-plongée — halo de luz atrás do rosto contra-plongée câmera baixa à direita lens flare intenso dourado &amp; violeta 45_contraplongee_halo_luz">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/45_contraplongee_halo_luz.jpg" alt="Contra-Plongée — Halo de Luz Atrás do Rosto" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/45_contraplongee_halo_luz.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#45</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#45" value="#45 | 01:03:14:02 | 45_contraplongee_halo_luz | Contra-Plongée — Halo de Luz Atrás do Rosto">
+              <span class="title"><span class="num-inline">#45</span> Contra-Plongée — Halo de Luz Atrás do Rosto</span>
+            </div>
+            <div class="sub">01:03:14:02 · 4.92s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="48_contraplongee_perfil_iluminado" data-search="#48 contra-plongée — perfil iluminado contra-plongée câmera baixa à direita contraluz quente &amp; azul violeta &amp; dourado 48_contraplongee_perfil_iluminado">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/48_contraplongee_perfil_iluminado.jpg" alt="Contra-Plongée — Perfil Iluminado" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/48_contraplongee_perfil_iluminado.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#48</span>
+            <span class="badge live">NO SITE (#48+#49)</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#48" value="#48 | 01:03:22:23 | 48_contraplongee_perfil_iluminado | Contra-Plongée — Perfil Iluminado" checked>
+              <span class="title"><span class="num-inline">#48</span> Contra-Plongée — Perfil Iluminado</span>
+            </div>
+            <div class="sub">01:03:22:23 · 2.96s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="51_contraplongee_bracos_largos" data-search="#51 contra-plongée — braços largos para a câmera contra-plongée câmera baixa à direita contraluz azul &amp; magenta azul &amp; magenta 51_contraplongee_bracos_largos">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/51_contraplongee_bracos_largos.jpg" alt="Contra-Plongée — Braços Largos para a Câmera" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/51_contraplongee_bracos_largos.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#51</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#51" value="#51 | 01:03:31:19 | 51_contraplongee_bracos_largos | Contra-Plongée — Braços Largos para a Câmera" checked>
+              <span class="title"><span class="num-inline">#51</span> Contra-Plongée — Braços Largos para a Câmera</span>
+            </div>
+            <div class="sub">01:03:31:19 · 2.88s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="52_contraplongee_climax_flare" data-search="#52 contra-plongée — clímax vocal com flare contra-plongée câmera baixa à direita lens flare intenso dourado &amp; azul 52_contraplongee_climax_flare">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/52_contraplongee_climax_flare.jpg" alt="Contra-Plongée — Clímax Vocal com Flare" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/52_contraplongee_climax_flare.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#52</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#52" value="#52 | 01:03:34:16 | 52_contraplongee_climax_flare | Contra-Plongée — Clímax Vocal com Flare">
+              <span class="title"><span class="num-inline">#52</span> Contra-Plongée — Clímax Vocal com Flare</span>
+            </div>
+            <div class="sub">01:03:34:16 · 8.43s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="54_contraplongee_inflexao" data-search="#54 contra-plongée — inflexão vocal suave contra-plongée câmera baixa à direita contraluz com lens flare violeta &amp; dourado 54_contraplongee_inflexao">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/54_contraplongee_inflexao.jpg" alt="Contra-Plongée — Inflexão Vocal Suave" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/54_contraplongee_inflexao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#54</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#54" value="#54 | 01:03:47:11 | 54_contraplongee_inflexao | Contra-Plongée — Inflexão Vocal Suave">
+              <span class="title"><span class="num-inline">#54</span> Contra-Plongée — Inflexão Vocal Suave</span>
+            </div>
+            <div class="sub">01:03:47:11 · 3.63s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="57_contraplongee_extase" data-search="#57 contra-plongée — êxtase na reta final contra-plongée câmera baixa à direita contraluz violeta &amp; azul azul &amp; violeta 57_contraplongee_extase">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/57_contraplongee_extase.jpg" alt="Contra-Plongée — Êxtase na Reta Final" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/57_contraplongee_extase.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#57</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#57" value="#57 | 01:04:00:21 | 57_contraplongee_extase | Contra-Plongée — Êxtase na Reta Final">
+              <span class="title"><span class="num-inline">#57</span> Contra-Plongée — Êxtase na Reta Final</span>
+            </div>
+            <div class="sub">01:04:00:21 · 3.50s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="59_contraplongee_contraluz_magenta" data-search="#59 contra-plongée — contraluz magenta &amp; azul contra-plongée câmera baixa à direita contraluz intenso magenta &amp; azul 59_contraplongee_contraluz_magenta">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/59_contraplongee_contraluz_magenta.jpg" alt="Contra-Plongée — Contraluz Magenta &amp; Azul" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/59_contraplongee_contraluz_magenta.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#59</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#59" value="#59 | 01:04:05:16 | 59_contraplongee_contraluz_magenta | Contra-Plongée — Contraluz Magenta &amp; Azul">
+              <span class="title"><span class="num-inline">#59</span> Contra-Plongée — Contraluz Magenta &amp; Azul</span>
+            </div>
+            <div class="sub">01:04:05:16 · 3.34s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="65_contraplongee_fecho" data-search="#65 contra-plongée — gesto de fechamento contra-plongée câmera baixa à direita contraluz azul &amp; magenta azul &amp; magenta 65_contraplongee_fecho">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/65_contraplongee_fecho.jpg" alt="Contra-Plongée — Gesto de Fechamento" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/65_contraplongee_fecho.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#65</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#65" value="#65 | 01:04:19:01 | 65_contraplongee_fecho | Contra-Plongée — Gesto de Fechamento">
+              <span class="title"><span class="num-inline">#65</span> Contra-Plongée — Gesto de Fechamento</span>
+            </div>
+            <div class="sub">01:04:19:01 · 1.33s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group" id="closeup">
+      <h2>Close-Up — Assucena no Microfone <span class="count">(11 takes)</span></h2>
+      <div class="grid">
+        <label class="card" data-slug="04_closeup_assucena_abertura" data-search="#04 close-up — primeiro verso no microfone close-up câmera na mão / frontal luz suave &amp; fundo azul azul &amp; tons de pele 04_closeup_assucena_abertura">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/04_closeup_assucena_abertura.jpg" alt="Close-Up — Primeiro Verso no Microfone" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/04_closeup_assucena_abertura.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#04</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#04" value="#04 | 01:00:21:15 | 04_closeup_assucena_abertura | Close-Up — Primeiro Verso no Microfone">
+              <span class="title"><span class="num-inline">#04</span> Close-Up — Primeiro Verso no Microfone</span>
+            </div>
+            <div class="sub">01:00:21:15 · 10.93s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="06_closeup_assucena_olhar_firme" data-search="#06 close-up — olhar direto e presença close-up câmera na mão / frontal luz suave &amp; fundo azul azul &amp; magenta 06_closeup_assucena_olhar_firme">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/06_closeup_assucena_olhar_firme.jpg" alt="Close-Up — Olhar Direto e Presença" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/06_closeup_assucena_olhar_firme.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#06</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#06" value="#06 | 01:00:35:05 | 06_closeup_assucena_olhar_firme | Close-Up — Olhar Direto e Presença" checked>
+              <span class="title"><span class="num-inline">#06</span> Close-Up — Olhar Direto e Presença</span>
+            </div>
+            <div class="sub">01:00:35:05 · 6.26s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="09_closeup_assucena_inclinacao" data-search="#09 close-up — inclinação expressiva close-up câmera na mão / frontal luz suave &amp; fundo azul azul &amp; magenta 09_closeup_assucena_inclinacao">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/09_closeup_assucena_inclinacao.jpg" alt="Close-Up — Inclinação Expressiva" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/09_closeup_assucena_inclinacao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#09</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#09" value="#09 | 01:00:53:22 | 09_closeup_assucena_inclinacao | Close-Up — Inclinação Expressiva">
+              <span class="title"><span class="num-inline">#09</span> Close-Up — Inclinação Expressiva</span>
+            </div>
+            <div class="sub">01:00:53:22 · 2.92s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="11_closeup_assucena_sorriso" data-search="#11 close-up — sorriso cantando close-up câmera na mão / frontal luz suave &amp; fundo azul azul &amp; magenta 11_closeup_assucena_sorriso">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/11_closeup_assucena_sorriso.jpg" alt="Close-Up — Sorriso Cantando" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/11_closeup_assucena_sorriso.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#11</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#11" value="#11 | 01:01:00:07 | 11_closeup_assucena_sorriso | Close-Up — Sorriso Cantando">
+              <span class="title"><span class="num-inline">#11</span> Close-Up — Sorriso Cantando</span>
+            </div>
+            <div class="sub">01:01:00:07 · 2.59s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="13_closeup_assucena_maos_quadro" data-search="#13 close-up — mãos em quadro no microfone close-up câmera na mão / frontal luz suave &amp; fundo azul azul &amp; tons de pele 13_closeup_assucena_maos_quadro">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/13_closeup_assucena_maos_quadro.jpg" alt="Close-Up — Mãos em Quadro no Microfone" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/13_closeup_assucena_maos_quadro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#13</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#13" value="#13 | 01:01:08:15 | 13_closeup_assucena_maos_quadro | Close-Up — Mãos em Quadro no Microfone">
+              <span class="title"><span class="num-inline">#13</span> Close-Up — Mãos em Quadro no Microfone</span>
+            </div>
+            <div class="sub">01:01:08:15 · 3.38s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="22_closeup_assucena_olhos_fechados" data-search="#22 close-up — olhos fechados em sentimento close-up câmera na mão / frontal luz suave &amp; fundo azul azul &amp; magenta 22_closeup_assucena_olhos_fechados">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/22_closeup_assucena_olhos_fechados.jpg" alt="Close-Up — Olhos Fechados em Sentimento" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/22_closeup_assucena_olhos_fechados.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#22</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#22" value="#22 | 01:01:40:17 | 22_closeup_assucena_olhos_fechados | Close-Up — Olhos Fechados em Sentimento">
+              <span class="title"><span class="num-inline">#22</span> Close-Up — Olhos Fechados em Sentimento</span>
+            </div>
+            <div class="sub">01:01:40:17 · 6.67s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="27_closeup_assucena_meia_luz" data-search="#27 close-up — perfil em meia-luz close-up câmera na mão / frontal meia-luz contrastada azul &amp; sombra 27_closeup_assucena_meia_luz">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/27_closeup_assucena_meia_luz.jpg" alt="Close-Up — Perfil em Meia-Luz" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/27_closeup_assucena_meia_luz.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#27</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#27" value="#27 | 01:02:00:08 | 27_closeup_assucena_meia_luz | Close-Up — Perfil em Meia-Luz">
+              <span class="title"><span class="num-inline">#27</span> Close-Up — Perfil em Meia-Luz</span>
+            </div>
+            <div class="sub">01:02:00:08 · 2.71s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="42_closeup_assucena_pausa" data-search="#42 close-up — pausa dramática no microfone close-up câmera na mão / frontal luz suave &amp; fundo azul azul &amp; tons de pele 42_closeup_assucena_pausa">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/42_closeup_assucena_pausa.jpg" alt="Close-Up — Pausa Dramática no Microfone" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/42_closeup_assucena_pausa.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#42</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#42" value="#42 | 01:02:56:13 | 42_closeup_assucena_pausa | Close-Up — Pausa Dramática no Microfone">
+              <span class="title"><span class="num-inline">#42</span> Close-Up — Pausa Dramática no Microfone</span>
+            </div>
+            <div class="sub">01:02:56:13 · 5.30s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="44_closeup_assucena_intimista" data-search="#44 close-up — canto intimista close-up câmera na mão / frontal luz suave &amp; fundo azul azul &amp; magenta 44_closeup_assucena_intimista">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/44_closeup_assucena_intimista.jpg" alt="Close-Up — Canto Intimista" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/44_closeup_assucena_intimista.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#44</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#44" value="#44 | 01:03:08:22 | 44_closeup_assucena_intimista | Close-Up — Canto Intimista">
+              <span class="title"><span class="num-inline">#44</span> Close-Up — Canto Intimista</span>
+            </div>
+            <div class="sub">01:03:08:22 · 5.17s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="46_closeup_assucena_ataque" data-search="#46 close-up — ataque intenso close-up câmera na mão / frontal luz suave &amp; fundo azul azul &amp; sombra 46_closeup_assucena_ataque">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/46_closeup_assucena_ataque.jpg" alt="Close-Up — Ataque Intenso" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/46_closeup_assucena_ataque.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#46</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#46" value="#46 | 01:03:19:00 | 46_closeup_assucena_ataque | Close-Up — Ataque Intenso" checked>
+              <span class="title"><span class="num-inline">#46</span> Close-Up — Ataque Intenso</span>
+            </div>
+            <div class="sub">01:03:19:00 · 1.50s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="49_closeup_assucena_maos_rosto" data-search="#49 close-up — mãos diante do rosto close-up câmera na mão / frontal luz suave &amp; fundo azul azul &amp; tons de pele 49_closeup_assucena_maos_rosto">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/49_closeup_assucena_maos_rosto.jpg" alt="Close-Up — Mãos Diante do Rosto" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/49_closeup_assucena_maos_rosto.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#49</span>
+            <span class="badge live">NO SITE (#48+#49)</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#49" value="#49 | 01:03:25:22 | 49_closeup_assucena_maos_rosto | Close-Up — Mãos Diante do Rosto" checked>
+              <span class="title"><span class="num-inline">#49</span> Close-Up — Mãos Diante do Rosto</span>
+            </div>
+            <div class="sub">01:03:25:22 · 1.54s · Close-Up · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group" id="guitarra">
+      <h2>Plano Médio — Rafael Acerbi (Telecaster) <span class="count">(6 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="15_guitarra_rafael_groove" data-search="#15 plano médio — rafael acerbi na telecaster plano médio câmera dedicada luz fria &amp; cortina magenta magenta &amp; creme 15_guitarra_rafael_groove">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/15_guitarra_rafael_groove.jpg" alt="Plano Médio — Rafael Acerbi na Telecaster" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/15_guitarra_rafael_groove.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#15</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#15" value="#15 | 01:01:17:01 | 15_guitarra_rafael_groove | Plano Médio — Rafael Acerbi na Telecaster" checked>
+              <span class="title"><span class="num-inline">#15</span> Plano Médio — Rafael Acerbi na Telecaster</span>
+            </div>
+            <div class="sub">01:01:17:01 · 2.04s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="17_guitarra_rafael_acorde" data-search="#17 plano médio — acorde marcado na guitarra plano médio câmera dedicada luz fria &amp; cortina magenta magenta &amp; creme 17_guitarra_rafael_acorde">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/17_guitarra_rafael_acorde.jpg" alt="Plano Médio — Acorde Marcado na Guitarra" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/17_guitarra_rafael_acorde.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#17</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#17" value="#17 | 01:01:21:13 | 17_guitarra_rafael_acorde | Plano Médio — Acorde Marcado na Guitarra">
+              <span class="title"><span class="num-inline">#17</span> Plano Médio — Acorde Marcado na Guitarra</span>
+            </div>
+            <div class="sub">01:01:21:13 · 1.13s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="19_guitarra_rafael_aberto" data-search="#19 plano médio — rafael acerbi (enquadramento aberto) plano médio câmera dedicada luz fria &amp; janela azul creme, azul &amp; magenta 19_guitarra_rafael_aberto">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/19_guitarra_rafael_aberto.jpg" alt="Plano Médio — Rafael Acerbi (Enquadramento Aberto)" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/19_guitarra_rafael_aberto.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#19</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#19" value="#19 | 01:01:28:12 | 19_guitarra_rafael_aberto | Plano Médio — Rafael Acerbi (Enquadramento Aberto)">
+              <span class="title"><span class="num-inline">#19</span> Plano Médio — Rafael Acerbi (Enquadramento Aberto)</span>
+            </div>
+            <div class="sub">01:01:28:12 · 1.88s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="60_guitarra_rafael_levada" data-search="#60 plano médio — levada rítmica final plano médio câmera dedicada luz fria &amp; cortina magenta magenta &amp; creme 60_guitarra_rafael_levada">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/60_guitarra_rafael_levada.jpg" alt="Plano Médio — Levada Rítmica Final" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/60_guitarra_rafael_levada.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#60</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#60" value="#60 | 01:04:09:00 | 60_guitarra_rafael_levada | Plano Médio — Levada Rítmica Final">
+              <span class="title"><span class="num-inline">#60</span> Plano Médio — Levada Rítmica Final</span>
+            </div>
+            <div class="sub">01:04:09:00 · 1.08s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="62_guitarra_rafael_riff" data-search="#62 plano médio — corte rápido na guitarra plano médio câmera dedicada luz fria &amp; cortina magenta magenta &amp; creme 62_guitarra_rafael_riff">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/62_guitarra_rafael_riff.jpg" alt="Plano Médio — Corte Rápido na Guitarra" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/62_guitarra_rafael_riff.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#62</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#62" value="#62 | 01:04:14:01 | 62_guitarra_rafael_riff | Plano Médio — Corte Rápido na Guitarra">
+              <span class="title"><span class="num-inline">#62</span> Plano Médio — Corte Rápido na Guitarra</span>
+            </div>
+            <div class="sub">01:04:14:01 · 0.84s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="64_guitarra_rafael_fecho" data-search="#64 plano médio — base final na telecaster plano médio câmera dedicada luz fria &amp; cortina magenta magenta &amp; creme 64_guitarra_rafael_fecho">
+          <div class="media-wrap">
+            <img src="assets/shots/assucena_casa_de_francisca/64_guitarra_rafael_fecho.jpg" alt="Plano Médio — Base Final na Telecaster" loading="lazy">
+            <video src="assets/videos/assucena_casa_de_francisca/64_guitarra_rafael_fecho.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#64</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#64" value="#64 | 01:04:17:02 | 64_guitarra_rafael_fecho | Plano Médio — Base Final na Telecaster">
+              <span class="title"><span class="num-inline">#64</span> Plano Médio — Base Final na Telecaster</span>
+            </div>
+            <div class="sub">01:04:17:02 · 1.96s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+  </main>
+  <div id="toast">Seleção copiada para a área de transferência!</div>
+  <script>
+    const STORAGE_KEY = 'awa_guide_assucena_cdf_v3';
+    const picks = [...document.querySelectorAll('.pick')];
+    const cards = [...document.querySelectorAll('.card')];
+    const countEl = document.getElementById('selectedCount');
+    const copyCountEl = document.getElementById('copyCount');
+    const onlySelectedBtn = document.getElementById('onlySelectedBtn');
+    const searchInput = document.getElementById('searchInput');
+    let onlySelected = false;
+
+    function updateCount() {
+      const n = picks.filter(el => el.checked).length;
+      countEl.textContent = n;
+      copyCountEl.textContent = n;
+    }
+
+    function applyFilters() {
+      const q = searchInput.value.trim().toLowerCase();
+      cards.forEach(card => {
+        const pick = card.querySelector('.pick');
+        const matchesSelected = !onlySelected || pick.checked;
+        const matchesQuery = !q || card.dataset.search.includes(q);
+        card.classList.toggle('hidden', !(matchesSelected && matchesQuery));
+      });
+      document.querySelectorAll('.group').forEach(sec => {
+        const visible = sec.querySelectorAll('.card:not(.hidden)').length;
+        sec.style.display = visible > 0 ? '' : 'none';
+      });
+    }
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+      if (saved && typeof saved === 'object') {
+        picks.forEach(el => {
+          if (el.dataset.num in saved) el.checked = saved[el.dataset.num];
+        });
+      }
+    } catch (e) {}
+    updateCount();
+
+    function saveState() {
+      const state = {};
+      picks.forEach(el => state[el.dataset.num] = el.checked);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      updateCount();
+      if (onlySelected) applyFilters();
+    }
+
+    picks.forEach(el => el.addEventListener('change', saveState));
+    searchInput.addEventListener('input', applyFilters);
+    onlySelectedBtn.addEventListener('click', () => {
+      onlySelected = !onlySelected;
+      onlySelectedBtn.classList.toggle('active', onlySelected);
+      applyFilters();
+    });
+
+    document.getElementById('selectAllBtn').addEventListener('click', () => {
+      cards.filter(c => !c.classList.contains('hidden')).forEach(c => c.querySelector('.pick').checked = true);
+      saveState();
+    });
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      picks.forEach(el => el.checked = false);
+      localStorage.removeItem(STORAGE_KEY);
+      updateCount();
+      if (onlySelected) applyFilters();
+    });
+    cards.forEach(card => {
+      const vid = card.querySelector('video');
+      card.addEventListener('mouseenter', () => { vid.play().catch(() => {}); });
+      card.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+    });
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const picked = picks.filter(el => el.checked).map(el => el.value);
+      navigator.clipboard.writeText(picked.join('\n')).then(() => {
+        const t = document.getElementById('toast');
+        t.style.display = 'block';
+        setTimeout(() => t.style.display = 'none', 2500);
+      });
+    });
+  </script>
+</body>
+</html>

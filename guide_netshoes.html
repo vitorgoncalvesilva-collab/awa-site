@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÀWA — Guia Visual Numerado · Netshoes - Vai no Seu Ritmo</title>
+  <style>
+    :root { --bg: #050505; --card: #111; --border: #242424; --fg: #f4f4f4; --dim: #8f8f8f; --accent: #ffffff; --green: #4ade80; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; padding: 32px 24px 96px; }
+    header { max-width: 1360px; margin: 0 auto 32px; border-bottom: 1px solid var(--border); padding-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: flex-end; }
+    h1 { margin: 0 0 6px; font-size: 1.5rem; letter-spacing: -0.02em; }
+    p.lead { margin: 0; color: var(--dim); font-size: 0.92rem; max-width: 780px; }
+    .actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #000; border: 0; padding: 10px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.85rem; }
+    .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    main { max-width: 1360px; margin: 0 auto; }
+    .group { margin-bottom: 40px; }
+    .group h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 14px; border-left: 3px solid var(--accent); padding-left: 10px; }
+    .group h2 .count { color: var(--dim); font-weight: 400; font-size: 0.85rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    .card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; cursor: pointer; transition: border-color 0.15s; }
+    .card:has(.pick:checked) { border-color: var(--green); }
+    .card:has(.pick:checked) .badge.alt { background: rgba(74, 222, 128, 0.92); color: #052e16; border-color: transparent; }
+    .media-wrap { position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+    .media-wrap img, .media-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .media-wrap video { position: absolute; inset: 0; opacity: 0; transition: opacity 0.18s; }
+    .card:hover .media-wrap video { opacity: 1; }
+    .num-badge { position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.88); color: #fff; border: 1px solid rgba(255,255,255,0.28); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.78rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+    .badge { position: absolute; top: 8px; right: 8px; font-size: 0.68rem; font-weight: 700; padding: 3px 7px; border-radius: 4px; letter-spacing: 0.04em; }
+    .badge.live { background: rgba(74, 222, 128, 0.92); color: #052e16; }
+    .badge.alt { background: rgba(20, 20, 20, 0.85); color: #d4d4d4; border: 1px solid #404040; }
+    .meta { padding: 12px; }
+    .row-top { display: flex; align-items: flex-start; gap: 8px; }
+    .title { font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
+    .num-inline { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--green); margin-right: 4px; }
+    .sub { margin-top: 6px; font-size: 0.75rem; color: var(--dim); font-family: ui-monospace, SFMono-Regular, monospace; }
+    #toast { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: #052e16; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Guia Visual Numerado — Netshoes: Vai no Seu Ritmo</h1>
+      <p class="lead">Todos os <strong>39 takes decupados</strong> da campanha (14 takes/sequências ativos (22 planos) marcados como <strong>NO SITE</strong>). Passe o mouse para ver o vídeo, marque ou desmarque os planos desejados e clique em <strong>Copiar Seleção</strong> (<span id="selectedCount">0</span> selecionados).</p>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" href="projeto.html?id=netshoes-vai-no-seu-ritmo" target="_blank">Abrir Projeto no Site ↗</a>
+      <a class="btn ghost" href="portfolio.html" target="_blank">Abrir Portfólio ↗</a>
+      <button class="btn ghost" id="selectAllBtn">Marcar Todos</button>
+      <button class="btn ghost" id="resetBtn">Limpar Seleção</button>
+      <button class="btn" id="copyBtn">Copiar Seleção</button>
+    </div>
+  </header>
+  <main>
+    <section class="group">
+      <h2>Todos os Takes da Campanha <span class="count">(39 takes · 01 a 39)</span></h2>
+      <div class="grid">
+        <label class="card" data-slug="shot_01">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_01.jpg" alt="Rua Congestionada — Abertura Aérea" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_01.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#01</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#01" value="#01 | Rua Congestionada — Abertura Aérea (01:00:00:00)">
+              <span class="title"><span class="num-inline">#01</span> Rua Congestionada — Abertura Aérea</span>
+            </div>
+            <div class="sub">01:00:00:00 · 5.46s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_02">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_02.jpg" alt="Interior do Carro — Retrato Noturno" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#02</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#02" value="#02 | Interior do Carro — Retrato Noturno (01:00:05:11)">
+              <span class="title"><span class="num-inline">#02</span> Interior do Carro — Retrato Noturno</span>
+            </div>
+            <div class="sub">01:00:05:11 · 1.50s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_03">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_03.jpg" alt="Escritório — Pausa com Xícara" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_03.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#03</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#03" value="#03 | Escritório — Pausa com Xícara (01:00:06:23)" checked>
+              <span class="title"><span class="num-inline">#03</span> Escritório — Pausa com Xícara</span>
+            </div>
+            <div class="sub">01:00:06:23 · 2.42s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_04">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_04.jpg" alt="Academia — Plano Conjunto Azul &amp; Âmbar" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_04.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#04</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#04" value="#04 | Academia — Plano Conjunto Azul &amp; Âmbar (01:00:09:09)" checked>
+              <span class="title"><span class="num-inline">#04</span> Academia — Plano Conjunto Azul &amp; Âmbar</span>
+            </div>
+            <div class="sub">01:00:09:09 · 2.67s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_05">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_05.jpg" alt="Close Academia — Foco em Azul Ciano" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_05.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#05</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#05" value="#05 | Close Academia — Foco em Azul Ciano (01:00:12:01)">
+              <span class="title"><span class="num-inline">#05</span> Close Academia — Foco em Azul Ciano</span>
+            </div>
+            <div class="sub">01:00:12:01 · 0.92s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_06">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_06.jpg" alt="Detalhe Tênis — Grande Angular Baixa" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_06.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#06</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#06" value="#06 | Detalhe Tênis — Grande Angular Baixa (01:00:12:23)" checked>
+              <span class="title"><span class="num-inline">#06</span> Detalhe Tênis — Grande Angular Baixa</span>
+            </div>
+            <div class="sub">01:00:12:23 · 0.83s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_07">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_07.jpg" alt="Letreiro Neon — VAI VAI VAI" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_07.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#07</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#07" value="#07 | Letreiro Neon — VAI VAI VAI (01:00:13:19)" checked>
+              <span class="title"><span class="num-inline">#07</span> Letreiro Neon — VAI VAI VAI</span>
+            </div>
+            <div class="sub">01:00:13:19 · 2.25s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_08">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_08.jpg" alt="Guarda de Trânsito — Contra-Plongée na Rua" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_08.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#08</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#08" value="#08 | Guarda de Trânsito — Contra-Plongée na Rua (01:00:16:01)">
+              <span class="title"><span class="num-inline">#08</span> Guarda de Trânsito — Contra-Plongée na Rua</span>
+            </div>
+            <div class="sub">01:00:16:01 · 0.67s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_09">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_09.jpg" alt="Guarda de Trânsito — Sinalização (Cont.)" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_09.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#09</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#09" value="#09 | Guarda de Trânsito — Sinalização (Cont.) (01:00:16:17)">
+              <span class="title"><span class="num-inline">#09</span> Guarda de Trânsito — Sinalização (Cont.)</span>
+            </div>
+            <div class="sub">01:00:16:17 · 1.08s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_10">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_10.jpg" alt="Carro Laranja — Porta Aberta no Trânsito" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_10.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#10</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#10" value="#10 | Carro Laranja — Porta Aberta no Trânsito (01:00:17:19)">
+              <span class="title"><span class="num-inline">#10</span> Carro Laranja — Porta Aberta no Trânsito</span>
+            </div>
+            <div class="sub">01:00:17:19 · 1.79s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_11">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_11.jpg" alt="Academia — Close Lateral em Movimento" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_11.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#11</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#11" value="#11 | Academia — Close Lateral em Movimento (01:00:19:14)">
+              <span class="title"><span class="num-inline">#11</span> Academia — Close Lateral em Movimento</span>
+            </div>
+            <div class="sub">01:00:19:14 · 0.75s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_12">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_12.jpg" alt="Salto sobre as Mesas — Escritório" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_12.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#12</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#12" value="#12 | Salto sobre as Mesas — Escritório (01:00:20:08)">
+              <span class="title"><span class="num-inline">#12</span> Salto sobre as Mesas — Escritório</span>
+            </div>
+            <div class="sub">01:00:20:08 · 0.79s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_13">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_13.jpg" alt="Mesa de Escritório — Computador &amp; Luminária" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_13.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#13</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#13" value="#13 | Mesa de Escritório — Computador &amp; Luminária (01:00:21:04)" checked>
+              <span class="title"><span class="num-inline">#13</span> Mesa de Escritório — Computador &amp; Luminária</span>
+            </div>
+            <div class="sub">01:00:21:04 · 1.63s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_14">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_14.jpg" alt="Corrida na Calçada — Calça Magenta" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_14.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#14</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#14" value="#14 | Corrida na Calçada — Calça Magenta (01:00:22:19)" checked>
+              <span class="title"><span class="num-inline">#14</span> Corrida na Calçada — Calça Magenta</span>
+            </div>
+            <div class="sub">01:00:22:19 · 1.04s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_15">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_15.jpg" alt="Corrida na Calçada — Placa COMPRO OURO" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_15.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#15</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#15" value="#15 | Corrida na Calçada — Placa COMPRO OURO (01:00:23:20)" checked>
+              <span class="title"><span class="num-inline">#15</span> Corrida na Calçada — Placa COMPRO OURO</span>
+            </div>
+            <div class="sub">01:00:23:20 · 2.38s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_16">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_16.jpg" alt="Close Escritório — Olhar para Cima" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_16.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#16</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#16" value="#16 | Close Escritório — Olhar para Cima (01:00:26:05)" checked>
+              <span class="title"><span class="num-inline">#16</span> Close Escritório — Olhar para Cima</span>
+            </div>
+            <div class="sub">01:00:26:05 · 2.25s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_17">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_17.jpg" alt="Passada no Asfalto — Tênis Neon" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_17.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#17</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#17" value="#17 | Passada no Asfalto — Tênis Neon (01:00:28:11)">
+              <span class="title"><span class="num-inline">#17</span> Passada no Asfalto — Tênis Neon</span>
+            </div>
+            <div class="sub">01:00:28:11 · 0.75s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_18">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_18.jpg" alt="Sala de Reunião — Quadro Tático" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_18.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#18</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#18" value="#18 | Sala de Reunião — Quadro Tático (01:00:29:05)" checked>
+              <span class="title"><span class="num-inline">#18</span> Sala de Reunião — Quadro Tático</span>
+            </div>
+            <div class="sub">01:00:29:05 · 1.42s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_19">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_19.jpg" alt="Salto na Rua — Entre os Carros" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_19.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#19</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#19" value="#19 | Salto na Rua — Entre os Carros (01:00:30:15)">
+              <span class="title"><span class="num-inline">#19</span> Salto na Rua — Entre os Carros</span>
+            </div>
+            <div class="sub">01:00:30:15 · 3.67s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_20">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_20.jpg" alt="Basquete — Tabela e Fumaça" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_20.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#20</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#20" value="#20 | Basquete — Tabela e Fumaça (01:00:34:07)">
+              <span class="title"><span class="num-inline">#20</span> Basquete — Tabela e Fumaça</span>
+            </div>
+            <div class="sub">01:00:34:07 · 1.08s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_21">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_21.jpg" alt="Bola de Futebol — Impacto no Vidro" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_21.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#21</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#21" value="#21 | Bola de Futebol — Impacto no Vidro (01:00:35:09)" checked>
+              <span class="title"><span class="num-inline">#21</span> Bola de Futebol — Impacto no Vidro</span>
+            </div>
+            <div class="sub">01:00:35:09 · 1.17s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_22">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_22.jpg" alt="Academia — Tríptico de Espelhos" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_22.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#22</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#22" value="#22 | Academia — Tríptico de Espelhos (01:00:36:13)">
+              <span class="title"><span class="num-inline">#22</span> Academia — Tríptico de Espelhos</span>
+            </div>
+            <div class="sub">01:00:36:13 · 4.38s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_23">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_23.jpg" alt="Escritório — Papéis para o Alto" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_23.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#23</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#23" value="#23 | Escritório — Papéis para o Alto (01:00:40:22)">
+              <span class="title"><span class="num-inline">#23</span> Escritório — Papéis para o Alto</span>
+            </div>
+            <div class="sub">01:00:40:22 · 1.29s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_24">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_24.jpg" alt="Perfil no Carro — Janela Aberta" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_24.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#24</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#24" value="#24 | Perfil no Carro — Janela Aberta (01:00:42:05)" checked>
+              <span class="title"><span class="num-inline">#24</span> Perfil no Carro — Janela Aberta</span>
+            </div>
+            <div class="sub">01:00:42:05 · 1.79s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_25">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_25.jpg" alt="Corrida entre Carros — Avenida" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_25.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#25</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#25" value="#25 | Corrida entre Carros — Avenida (01:00:44:00)" checked>
+              <span class="title"><span class="num-inline">#25</span> Corrida entre Carros — Avenida</span>
+            </div>
+            <div class="sub">01:00:44:00 · 1.96s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_26">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_26.jpg" alt="Salto no Corredor — Contra-Plongée" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_26.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#26</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#26" value="#26 | Salto no Corredor — Contra-Plongée (01:00:45:23)">
+              <span class="title"><span class="num-inline">#26</span> Salto no Corredor — Contra-Plongée</span>
+            </div>
+            <div class="sub">01:00:45:23 · 1.00s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_27">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_27.jpg" alt="Entregador na Kombi — Reação" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_27.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#27</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#27" value="#27 | Entregador na Kombi — Reação (01:00:46:23)" checked>
+              <span class="title"><span class="num-inline">#27</span> Entregador na Kombi — Reação</span>
+            </div>
+            <div class="sub">01:00:46:23 · 0.67s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_28">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_28.jpg" alt="Salto sobre o Capô — Calça Magenta" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_28.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#28</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#28" value="#28 | Salto sobre o Capô — Calça Magenta (01:00:47:15)" checked>
+              <span class="title"><span class="num-inline">#28</span> Salto sobre o Capô — Calça Magenta</span>
+            </div>
+            <div class="sub">01:00:47:15 · 1.33s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_29">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_29.jpg" alt="Salto Aéreo entre Prédios — Centro SP" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_29.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#29</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#29" value="#29 | Salto Aéreo entre Prédios — Centro SP (01:00:48:23)" checked>
+              <span class="title"><span class="num-inline">#29</span> Salto Aéreo entre Prédios — Centro SP</span>
+            </div>
+            <div class="sub">01:00:48:23 · 1.38s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_30">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_30.jpg" alt="Salto Aéreo — Continuação entre Edifícios" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_30.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#30</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#30" value="#30 | Salto Aéreo — Continuação entre Edifícios (01:00:50:08)" checked>
+              <span class="title"><span class="num-inline">#30</span> Salto Aéreo — Continuação entre Edifícios</span>
+            </div>
+            <div class="sub">01:00:50:08 · 1.13s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_31">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_31.jpg" alt="Senhora no Carro — Jaqueta Kappa" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_31.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#31</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#31" value="#31 | Senhora no Carro — Jaqueta Kappa (01:00:51:11)" checked>
+              <span class="title"><span class="num-inline">#31</span> Senhora no Carro — Jaqueta Kappa</span>
+            </div>
+            <div class="sub">01:00:51:11 · 0.79s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_32">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_32.jpg" alt="Corrida no Escritório — Movimento" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_32.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#32</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#32" value="#32 | Corrida no Escritório — Movimento (01:00:52:06)" checked>
+              <span class="title"><span class="num-inline">#32</span> Corrida no Escritório — Movimento</span>
+            </div>
+            <div class="sub">01:00:52:06 · 1.54s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_33">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_33.jpg" alt="Escritório — Executiva com Bola de Futebol" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_33.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#33</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#33" value="#33 | Escritório — Executiva com Bola de Futebol (01:00:53:19)">
+              <span class="title"><span class="num-inline">#33</span> Escritório — Executiva com Bola de Futebol</span>
+            </div>
+            <div class="sub">01:00:53:19 · 1.67s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_34">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_34.jpg" alt="Escritório — Mesa de Trabalho" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_34.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#34</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#34" value="#34 | Escritório — Mesa de Trabalho (01:00:55:11)" checked>
+              <span class="title"><span class="num-inline">#34</span> Escritório — Mesa de Trabalho</span>
+            </div>
+            <div class="sub">01:00:55:11 · 0.83s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_35">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_35.jpg" alt="Escritório — Movimento em Direção à Janela" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_35.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#35</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#35" value="#35 | Escritório — Movimento em Direção à Janela (01:00:56:07)" checked>
+              <span class="title"><span class="num-inline">#35</span> Escritório — Movimento em Direção à Janela</span>
+            </div>
+            <div class="sub">01:00:56:07 · 1.04s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_36">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_36.jpg" alt="Salto sobre o Sofá — Sala" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_36.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#36</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#36" value="#36 | Salto sobre o Sofá — Sala (01:00:57:08)">
+              <span class="title"><span class="num-inline">#36</span> Salto sobre o Sofá — Sala</span>
+            </div>
+            <div class="sub">01:00:57:08 · 2.75s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_37">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_37.jpg" alt="Escritório — Salto para o Alto" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_37.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#37</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#37" value="#37 | Escritório — Salto para o Alto (01:01:00:02)" checked>
+              <span class="title"><span class="num-inline">#37</span> Escritório — Salto para o Alto</span>
+            </div>
+            <div class="sub">01:01:00:02 · 1.38s · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="shot_38">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_38.jpg" alt="Voleio no Ar — Bicicleta" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_38.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#38</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#38" value="#38 | Voleio no Ar — Bicicleta (01:01:01:11)" checked>
+              <span class="title"><span class="num-inline">#38</span> Voleio no Ar — Bicicleta</span>
+            </div>
+            <div class="sub">01:01:01:11 · 0.88s · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="shot_39">
+          <div class="media-wrap">
+            <img src="assets/shots/netshoes_guide_all/shot_39.jpg" alt="Cartela Oficial — Netshoes Vai no Seu Ritmo" loading="lazy">
+            <video src="assets/videos/netshoes_guide_all/shot_39.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#39</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#39" value="#39 | Cartela Oficial — Netshoes Vai no Seu Ritmo (01:01:02:08)">
+              <span class="title"><span class="num-inline">#39</span> Cartela Oficial — Netshoes Vai no Seu Ritmo</span>
+            </div>
+            <div class="sub">01:01:02:08 · 6.55s · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+  </main>
+  <div id="toast">Seleção copiada para a área de transferência!</div>
+  <script>
+    const STORAGE_KEY = "awa_guide_netshoes_v2";
+    const picks = [...document.querySelectorAll(".pick")];
+    const countEl = document.getElementById("selectedCount");
+    function updateCount() {
+      countEl.textContent = picks.filter(el => el.checked).length;
+    }
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+      if (saved && typeof saved === "object") {
+        picks.forEach(el => {
+          if (el.dataset.num in saved) el.checked = saved[el.dataset.num];
+        });
+      }
+    } catch (e) {}
+    updateCount();
+    function saveState() {
+      const state = {};
+      picks.forEach(el => state[el.dataset.num] = el.checked);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      updateCount();
+    }
+    picks.forEach(el => el.addEventListener("change", saveState));
+    document.getElementById("selectAllBtn").addEventListener("click", () => {
+      picks.forEach(el => el.checked = true);
+      saveState();
+    });
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      picks.forEach(el => el.checked = false);
+      localStorage.removeItem(STORAGE_KEY);
+      updateCount();
+    });
+    document.querySelectorAll(".card").forEach(card => {
+      const vid = card.querySelector("video");
+      card.addEventListener("mouseenter", () => { vid.play().catch(() => {}); });
+      card.addEventListener("mouseleave", () => { vid.pause(); vid.currentTime = 0; });
+    });
+    document.getElementById("copyBtn").addEventListener("click", () => {
+      const picked = picks.filter(el => el.checked).map(el => el.value);
+      navigator.clipboard.writeText(picked.join("\n")).then(() => {
+        const t = document.getElementById("toast");
+        t.style.display = "block";
+        setTimeout(() => t.style.display = "none", 2500);
+      });
+    });
+  </script>
+</body>
+</html>

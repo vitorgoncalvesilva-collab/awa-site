@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÀWA — Guia Visual Numerado · Vizzela + As Brabas (Lip Oil Frozen Grape)</title>
+  <style>
+    :root { --bg: #050505; --card: #111; --border: #242424; --fg: #f4f4f4; --dim: #8f8f8f; --accent: #ffffff; --green: #4ade80; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; padding: 20px clamp(14px, 2vw, 32px) 84px; }
+    header { max-width: 2200px; margin: 0 auto 14px; border-bottom: 1px solid var(--border); padding-bottom: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; align-items: flex-end; }
+    h1 { margin: 0 0 4px; font-size: 1.35rem; letter-spacing: -0.02em; }
+    p.lead { margin: 0; color: var(--dim); font-size: 0.86rem; max-width: 860px; line-height: 1.4; }
+    .actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #000; border: 0; padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.82rem; }
+    .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    .btn.active { border-color: var(--green); color: var(--green); }
+    .toolbar { max-width: 2200px; margin: 0 auto 18px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; background: rgba(5,5,5,0.94); backdrop-filter: blur(8px); padding: 8px 0; border-bottom: 1px solid #181818; }
+    .chapters { display: flex; flex-wrap: wrap; gap: 5px; }
+    .chap-pill { color: var(--dim); text-decoration: none; font-size: 0.72rem; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--border); transition: all 0.15s; }
+    .chap-pill:hover { color: var(--fg); border-color: #555; }
+    .search-box { display: flex; gap: 8px; align-items: center; }
+    .search-input { background: #111; color: var(--fg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 0.8rem; width: 220px; outline: none; }
+    .search-input:focus { border-color: #666; }
+    main { max-width: 2200px; margin: 0 auto; }
+    .group { margin-bottom: 30px; scroll-margin-top: 64px; }
+    .group h2 { font-size: 0.98rem; font-weight: 600; margin: 0 0 12px; border-left: 3px solid var(--accent); padding-left: 10px; }
+    .group h2 .count { color: var(--dim); font-weight: 400; font-size: 0.8rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+    .card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: 7px; overflow: hidden; cursor: pointer; transition: border-color 0.15s; }
+    .card.hidden { display: none; }
+    .card:has(.pick:checked) { border-color: var(--green); }
+    .card:has(.pick:checked) .badge.alt { background: rgba(74, 222, 128, 0.92); color: #052e16; border-color: transparent; opacity: 1; }
+    .media-wrap { position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+    .media-wrap img, .media-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .media-wrap video { position: absolute; inset: 0; opacity: 0; transition: opacity 0.18s; }
+    .card:hover .media-wrap video { opacity: 1; }
+    .num-badge { position: absolute; top: 6px; left: 6px; background: rgba(0,0,0,0.86); color: #fff; border: 1px solid rgba(255,255,255,0.24); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.72rem; font-weight: 700; padding: 2px 7px; border-radius: 4px; }
+    .badge { position: absolute; top: 6px; right: 6px; font-size: 0.62rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.04em; }
+    .badge.live { background: rgba(74, 222, 128, 0.92); color: #052e16; }
+    .badge.alt { background: rgba(20, 20, 20, 0.85); color: #d4d4d4; border: 1px solid #404040; opacity: 0.85; }
+    .meta { padding: 9px 10px; }
+    .row-top { display: flex; align-items: flex-start; gap: 7px; }
+    .pick { margin: 2px 0 0; flex-shrink: 0; }
+    .title { font-size: 0.8rem; font-weight: 600; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .num-inline { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--green); margin-right: 3px; }
+    .sub { margin-top: 4px; font-size: 0.68rem; color: var(--dim); font-family: ui-monospace, SFMono-Regular, monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    #toast { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: #052e16; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; display: none; z-index: 30; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Guia Visual Numerado — Vizzela + As Brabas (Lip Oil Frozen Grape)</h1>
+      <p class="lead">Sincronizado com os <strong>8 takes/sequências finais</strong> ativos no site (unificando <strong>#01+#02</strong>, <strong>#03+#04+#05</strong>, <strong>#06+#07</strong>, <strong>#08+#12+#13</strong>, <strong>#10+#11</strong>, <strong>#14</strong>, <strong>#16+#17</strong> e <strong>#19+#20</strong>, de <strong>21</strong> cortes decupados · “Vizzela + As Brabas — Lip Oil Frozen Grape” · 1920×1080 · 16:9 · 24fps · 00min 42s). Passe o mouse para ver o loop MP4 e clique em <strong>Copiar Seleção</strong> (<span id="selectedCount">25</span> selecionados).</p>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" href="projeto.html?id=vizzela-as-brabas" target="_blank">Abrir Projeto no Site ↗</a>
+      <a class="btn ghost" href="portfolio.html?q=Vizzela" target="_blank">Abrir Portfólio ↗</a>
+      <button class="btn ghost" id="onlySelectedBtn">Só Selecionados</button>
+      <button class="btn ghost" id="selectAllBtn">Marcar Todos</button>
+      <button class="btn ghost" id="resetBtn">Limpar Seleção</button>
+      <button class="btn" id="copyBtn">Copiar Seleção (<span id="copyCount">25</span>)</button>
+    </div>
+  </header>
+  <div class="toolbar">
+    <nav class="chapters">
+      <a class="chap-pill" href="#sequencias">Sequências &amp; Takes no Site (8)</a>
+      <a class="chap-pill" href="#abertura">Abertura, Apresentação &amp; Assinatura Final (Cortes Individuais) (3)</a>
+      <a class="chap-pill" href="#campo_chuteira">Campo &amp; Quadra — Condução de Bola, Chuteira Rosa &amp; Collage (5)</a>
+      <a class="chap-pill" href="#goleira_cooling">Goleira — Luvas, Packshot &amp; Efeito Cooling Refrescante (6)</a>
+      <a class="chap-pill" href="#arquibancada_chaveiro">Arquibancada — Embaixadinha de Cabeça &amp; Chaveiro Exclusivo (7)</a>
+    </nav>
+    <div class="search-box">
+      <input type="search" class="search-input" id="searchInput" placeholder="Filtrar por plano, packshot, goleira...">
+    </div>
+  </div>
+  <main>
+    <section class="group" id="sequencias">
+      <h2>Sequências &amp; Takes Ativos no Site (Curadoria Final) <span class="count">(8 itens no Shotdeck)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="01_02_abertura_vizzela_asbrabas_apresentam" data-search="#01+#02 abertura &amp; apresentação — jogadora amarrando a chuteira (“&amp; vizzela / as brabas apresentam”) plano geral câmera baixa frontal + tilt down até a bola verde gramado, rosa &amp; azul 01_02_abertura_vizzela_asbrabas_apresentam">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/01_02_abertura_vizzela_asbrabas_apresentam.jpg" alt="Abertura &amp; Apresentação — Jogadora Amarrando a Chuteira (“&amp; VIZZELA / AS BRABAS APRESENTAM”)" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/01_02_abertura_vizzela_asbrabas_apresentam.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#01+#02</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#01+#02" value="#01+#02 | 01:00:00:00 | 01_02_abertura_vizzela_asbrabas_apresentam | Abertura &amp; Apresentação — Jogadora Amarrando a Chuteira (“&amp; VIZZELA / AS BRABAS APRESENTAM”)" checked>
+              <span class="title"><span class="num-inline">#01+#02</span> Abertura &amp; Apresentação — Jogadora Amarrando a Chuteira (“&amp; VIZZELA / AS BRABAS APRESENTAM”)</span>
+            </div>
+            <div class="sub">01:00:00:00 · 9.33s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="03_04_05_conducao_bola_gol_e_tracking_chuteira" data-search="#03+#04+#05 sequência de campo — contra-plongée no gol &amp; tracking baixo com chuteira rosa contra-plongée recuo frontal + tracking rente ao gramado verde gramado, branco &amp; rosa 03_04_05_conducao_bola_gol_e_tracking_chuteira">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/03_04_05_conducao_bola_gol_e_tracking_chuteira.jpg" alt="Sequência de Campo — Contra-Plongée no Gol &amp; Tracking Baixo com Chuteira Rosa" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/03_04_05_conducao_bola_gol_e_tracking_chuteira.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#03+#04+#05</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#03+#04+#05" value="#03+#04+#05 | 01:00:09:08 | 03_04_05_conducao_bola_gol_e_tracking_chuteira | Sequência de Campo — Contra-Plongée no Gol &amp; Tracking Baixo com Chuteira Rosa" checked>
+              <span class="title"><span class="num-inline">#03+#04+#05</span> Sequência de Campo — Contra-Plongée no Gol &amp; Tracking Baixo com Chuteira Rosa</span>
+            </div>
+            <div class="sub">01:00:09:08 · 4.21s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="06_07_closeup_chuteira_e_quadra_frozen_grape" data-search="#06+#07 chuteira rosa na bola &amp; embaixadinhas na quadra (“lip oil frozen grape”) plano geral close-up de impacto + master lateral com motion collage verde, cinza, roxo &amp; rosa 06_07_closeup_chuteira_e_quadra_frozen_grape">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/06_07_closeup_chuteira_e_quadra_frozen_grape.jpg" alt="Chuteira Rosa na Bola &amp; Embaixadinhas na Quadra (“Lip Oil Frozen Grape”)" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/06_07_closeup_chuteira_e_quadra_frozen_grape.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#06+#07</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#06+#07" value="#06+#07 | 01:00:13:13 | 06_07_closeup_chuteira_e_quadra_frozen_grape | Chuteira Rosa na Bola &amp; Embaixadinhas na Quadra (“Lip Oil Frozen Grape”)" checked>
+              <span class="title"><span class="num-inline">#06+#07</span> Chuteira Rosa na Bola &amp; Embaixadinhas na Quadra (“Lip Oil Frozen Grape”)</span>
+            </div>
+            <div class="sub">01:00:13:13 · 3.79s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="08_12_13_goleira_luva_packshot_e_efeito_cooling" data-search="#08+#12+#13 goleira calçando a luva, packshot da embalagem &amp; “efeito cooling refrescante” plano médio plongée detalhe + rack focus do packshot para a goleira verde, roxo violeta &amp; laranja 08_12_13_goleira_luva_packshot_e_efeito_cooling">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/08_12_13_goleira_luva_packshot_e_efeito_cooling.jpg" alt="Goleira Calçando a Luva, Packshot da Embalagem &amp; “Efeito Cooling Refrescante”" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/08_12_13_goleira_luva_packshot_e_efeito_cooling.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#08+#12+#13</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#08+#12+#13" value="#08+#12+#13 | 01:00:17:08 | 08_12_13_goleira_luva_packshot_e_efeito_cooling | Goleira Calçando a Luva, Packshot da Embalagem &amp; “Efeito Cooling Refrescante”" checked>
+              <span class="title"><span class="num-inline">#08+#12+#13</span> Goleira Calçando a Luva, Packshot da Embalagem &amp; “Efeito Cooling Refrescante”</span>
+            </div>
+            <div class="sub">01:00:17:08 · 6.54s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="10_11_closeup_luvas_corinthians_e_edicao_especial" data-search="#10+#11 batida de luvas na camisa do corinthians &amp; goleira erguendo as mãos (“edição especial”) plano médio close-up frontal + push-in com lettering branco, preto, verde &amp; rosa 10_11_closeup_luvas_corinthians_e_edicao_especial">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/10_11_closeup_luvas_corinthians_e_edicao_especial.jpg" alt="Batida de Luvas na Camisa do Corinthians &amp; Goleira Erguendo as Mãos (“Edição Especial”)" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/10_11_closeup_luvas_corinthians_e_edicao_especial.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#10+#11</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#10+#11" value="#10+#11 | 01:00:20:14 | 10_11_closeup_luvas_corinthians_e_edicao_especial | Batida de Luvas na Camisa do Corinthians &amp; Goleira Erguendo as Mãos (“Edição Especial”)" checked>
+              <span class="title"><span class="num-inline">#10+#11</span> Batida de Luvas na Camisa do Corinthians &amp; Goleira Erguendo as Mãos (“Edição Especial”)</span>
+            </div>
+            <div class="sub">01:00:20:14 · 3.75s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="14_contraplongee_embaixadinha_cabeca_collage" data-search="#14 contra-plongée arquibancada — embaixadinha de cabeça com collage roxo contra-plongée câmera baixa + recorte collage cinza, roxo &amp; rosa 14_contraplongee_embaixadinha_cabeca_collage">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/14_contraplongee_embaixadinha_cabeca_collage.jpg" alt="Contra-Plongée Arquibancada — Embaixadinha de Cabeça com Collage Roxo" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/14_contraplongee_embaixadinha_cabeca_collage.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#14</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#14" value="#14 | 01:00:28:19 | 14_contraplongee_embaixadinha_cabeca_collage | Contra-Plongée Arquibancada — Embaixadinha de Cabeça com Collage Roxo" checked>
+              <span class="title"><span class="num-inline">#14</span> Contra-Plongée Arquibancada — Embaixadinha de Cabeça com Collage Roxo</span>
+            </div>
+            <div class="sub">01:00:28:19 · 2.63s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="16_17_contraplongee_bola_e_packshot_chaveiro_exclusivo" data-search="#16+#17 jogadora dominando a bola &amp; still life chuteira, bola penalty e lip oil (“chaveiro exclusivo”) plano detalhe contra-plongée + slider frontal rente ao banco branco, laranja, cinza &amp; roxo 16_17_contraplongee_bola_e_packshot_chaveiro_exclusivo">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/16_17_contraplongee_bola_e_packshot_chaveiro_exclusivo.jpg" alt="Jogadora Dominando a Bola &amp; Still Life Chuteira, Bola Penalty e Lip Oil (“Chaveiro Exclusivo”)" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/16_17_contraplongee_bola_e_packshot_chaveiro_exclusivo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#16+#17</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#16+#17" value="#16+#17 | 01:00:33:02 | 16_17_contraplongee_bola_e_packshot_chaveiro_exclusivo | Jogadora Dominando a Bola &amp; Still Life Chuteira, Bola Penalty e Lip Oil (“Chaveiro Exclusivo”)" checked>
+              <span class="title"><span class="num-inline">#16+#17</span> Jogadora Dominando a Bola &amp; Still Life Chuteira, Bola Penalty e Lip Oil (“Chaveiro Exclusivo”)</span>
+            </div>
+            <div class="sub">01:00:33:02 · 4.17s · Plano Detalhe · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="19_20_jogadora_abrindo_e_exibindo_lip_oil_chaveiro" data-search="#19+#20 contra-plongée abrindo o frasco &amp; close-up exibindo o lip oil e chaveiro as brabas close-up contra-plongée lateral + foco seletivo frontal roxo, prata &amp; branco 19_20_jogadora_abrindo_e_exibindo_lip_oil_chaveiro">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/19_20_jogadora_abrindo_e_exibindo_lip_oil_chaveiro.jpg" alt="Contra-Plongée Abrindo o Frasco &amp; Close-Up Exibindo o Lip Oil e Chaveiro As Brabas" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/19_20_jogadora_abrindo_e_exibindo_lip_oil_chaveiro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#19+#20</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#19+#20" value="#19+#20 | 01:00:38:03 | 19_20_jogadora_abrindo_e_exibindo_lip_oil_chaveiro | Contra-Plongée Abrindo o Frasco &amp; Close-Up Exibindo o Lip Oil e Chaveiro As Brabas" checked>
+              <span class="title"><span class="num-inline">#19+#20</span> Contra-Plongée Abrindo o Frasco &amp; Close-Up Exibindo o Lip Oil e Chaveiro As Brabas</span>
+            </div>
+            <div class="sub">01:00:38:03 · 2.17s · Close-Up · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group" id="abertura">
+      <h2>Abertura, Apresentação &amp; Assinatura Final (Cortes Individuais) <span class="count">(3 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="01_abertura_cadeira_vizzela_asbrabas" data-search="#01 abertura — jogadora amarrando a chuteira (“&amp; vizzela / as brabas”) plano geral câmera baixa frontal luz natural difusa de campo verde gramado, rosa &amp; azul 01_abertura_cadeira_vizzela_asbrabas">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/01_abertura_cadeira_vizzela_asbrabas.jpg" alt="Abertura — Jogadora Amarrando a Chuteira (“&amp; VIZZELA / AS BRABAS”)" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/01_abertura_cadeira_vizzela_asbrabas.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#01</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#01" value="#01 | 01:00:00:00 | 01_abertura_cadeira_vizzela_asbrabas | Abertura — Jogadora Amarrando a Chuteira (“&amp; VIZZELA / AS BRABAS”)" checked>
+              <span class="title"><span class="num-inline">#01</span> Abertura — Jogadora Amarrando a Chuteira (“&amp; VIZZELA / AS BRABAS”)</span>
+            </div>
+            <div class="sub">01:00:00:00 · 6.25s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="02_cartela_apresentam_tilt_bola" data-search="#02 cartela “+ apresentam +” — tilt até a bola nos pés plano médio tilt down até o gramado luz natural difusa de campo verde gramado, rosa &amp; branco 02_cartela_apresentam_tilt_bola">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/02_cartela_apresentam_tilt_bola.jpg" alt="Cartela “+ APRESENTAM +” — Tilt até a Bola nos Pés" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/02_cartela_apresentam_tilt_bola.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#02</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#02" value="#02 | 01:00:06:06 | 02_cartela_apresentam_tilt_bola | Cartela “+ APRESENTAM +” — Tilt até a Bola nos Pés" checked>
+              <span class="title"><span class="num-inline">#02</span> Cartela “+ APRESENTAM +” — Tilt até a Bola nos Pés</span>
+            </div>
+            <div class="sub">01:00:06:06 · 3.08s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="21_assinatura_final_vzla_as_brabas" data-search="#21 assinatura final — logos vzla + as brabas cartela gráfica motion graphics / glitch fundo preto &amp; glitch rgb preto, branco &amp; verde/roxo 21_assinatura_final_vzla_as_brabas">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/21_assinatura_final_vzla_as_brabas.jpg" alt="Assinatura Final — Logos VZLA + As Brabas" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/21_assinatura_final_vzla_as_brabas.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#21</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#21" value="#21 | 01:00:40:07 | 21_assinatura_final_vzla_as_brabas | Assinatura Final — Logos VZLA + As Brabas">
+              <span class="title"><span class="num-inline">#21</span> Assinatura Final — Logos VZLA + As Brabas</span>
+            </div>
+            <div class="sub">01:00:40:07 · 1.71s · Cartela Gráfica · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group" id="campo_chuteira">
+      <h2>Campo &amp; Quadra — Condução de Bola, Chuteira Rosa &amp; Collage <span class="count">(5 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="03_contraplongee_gol_conducao_bola" data-search="#03 contra-plongée no gol — jogadora conduzindo a bola até a câmera contra-plongée recuo frontal no gramado luz natural difusa verde, branco &amp; céu cinza 03_contraplongee_gol_conducao_bola">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/03_contraplongee_gol_conducao_bola.jpg" alt="Contra-Plongée no Gol — Jogadora Conduzindo a Bola até a Câmera" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/03_contraplongee_gol_conducao_bola.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#03</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#03" value="#03 | 01:00:09:08 | 03_contraplongee_gol_conducao_bola | Contra-Plongée no Gol — Jogadora Conduzindo a Bola até a Câmera" checked>
+              <span class="title"><span class="num-inline">#03</span> Contra-Plongée no Gol — Jogadora Conduzindo a Bola até a Câmera</span>
+            </div>
+            <div class="sub">01:00:09:08 · 2.00s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="04_detalhe_lateral_chuteira_rosa_gramado" data-search="#04 plano detalhe lateral — chuteira rosa conduzindo a bola plano detalhe tracking lateral baixo luz natural de campo verde gramado &amp; rosa 04_detalhe_lateral_chuteira_rosa_gramado">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/04_detalhe_lateral_chuteira_rosa_gramado.jpg" alt="Plano Detalhe Lateral — Chuteira Rosa Conduzindo a Bola" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/04_detalhe_lateral_chuteira_rosa_gramado.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#04</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#04" value="#04 | 01:00:11:08 | 04_detalhe_lateral_chuteira_rosa_gramado | Plano Detalhe Lateral — Chuteira Rosa Conduzindo a Bola" checked>
+              <span class="title"><span class="num-inline">#04</span> Plano Detalhe Lateral — Chuteira Rosa Conduzindo a Bola</span>
+            </div>
+            <div class="sub">01:00:11:08 · 0.92s · Plano Detalhe · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="05_tracking_baixo_pes_velocidade" data-search="#05 tracking baixo — pés e bola em velocidade pelo campo plano detalhe tracking frontal rente ao chão luz natural de campo verde gramado, azul &amp; rosa 05_tracking_baixo_pes_velocidade">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/05_tracking_baixo_pes_velocidade.jpg" alt="Tracking Baixo — Pés e Bola em Velocidade pelo Campo" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/05_tracking_baixo_pes_velocidade.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#05</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#05" value="#05 | 01:00:12:06 | 05_tracking_baixo_pes_velocidade | Tracking Baixo — Pés e Bola em Velocidade pelo Campo" checked>
+              <span class="title"><span class="num-inline">#05</span> Tracking Baixo — Pés e Bola em Velocidade pelo Campo</span>
+            </div>
+            <div class="sub">01:00:12:06 · 1.29s · Plano Detalhe · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="06_closeup_chuteira_pisando_bola" data-search="#06 close-up detalhe — chuteira rosa pisando na bola penalty close-up câmera baixa rente à bola luz natural de campo verde, branco, azul &amp; rosa 06_closeup_chuteira_pisando_bola">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/06_closeup_chuteira_pisando_bola.jpg" alt="Close-Up Detalhe — Chuteira Rosa Pisando na Bola Penalty" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/06_closeup_chuteira_pisando_bola.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#06</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#06" value="#06 | 01:00:13:13 | 06_closeup_chuteira_pisando_bola | Close-Up Detalhe — Chuteira Rosa Pisando na Bola Penalty" checked>
+              <span class="title"><span class="num-inline">#06</span> Close-Up Detalhe — Chuteira Rosa Pisando na Bola Penalty</span>
+            </div>
+            <div class="sub">01:00:13:13 · 0.75s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="07_geral_quadra_embaixadinhas_frozen_grape" data-search="#07 plano geral na quadra — embaixadinhas &amp; collage “lip oil frozen grape” plano geral estático lateral + motion collage luz natural nublada cinza, roxo &amp; branco 07_geral_quadra_embaixadinhas_frozen_grape">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/07_geral_quadra_embaixadinhas_frozen_grape.jpg" alt="Plano Geral na Quadra — Embaixadinhas &amp; Collage “Lip Oil Frozen Grape”" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/07_geral_quadra_embaixadinhas_frozen_grape.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#07</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#07" value="#07 | 01:00:14:07 | 07_geral_quadra_embaixadinhas_frozen_grape | Plano Geral na Quadra — Embaixadinhas &amp; Collage “Lip Oil Frozen Grape”" checked>
+              <span class="title"><span class="num-inline">#07</span> Plano Geral na Quadra — Embaixadinhas &amp; Collage “Lip Oil Frozen Grape”</span>
+            </div>
+            <div class="sub">01:00:14:07 · 3.04s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group" id="goleira_cooling">
+      <h2>Goleira — Luvas, Packshot &amp; Efeito Cooling Refrescante <span class="count">(6 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="08_plongee_goleira_calcando_luva" data-search="#08 plongée detalhe — goleira calçando a luva no gramado plongée câmera alta sobre as mãos luz natural no gramado verde, preto &amp; branco 08_plongee_goleira_calcando_luva">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/08_plongee_goleira_calcando_luva.jpg" alt="Plongée Detalhe — Goleira Calçando a Luva no Gramado" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/08_plongee_goleira_calcando_luva.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#08</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#08" value="#08 | 01:00:17:08 | 08_plongee_goleira_calcando_luva | Plongée Detalhe — Goleira Calçando a Luva no Gramado" checked>
+              <span class="title"><span class="num-inline">#08</span> Plongée Detalhe — Goleira Calçando a Luva no Gramado</span>
+            </div>
+            <div class="sub">01:00:17:08 · 2.08s · Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="09_detalhe_velcro_luva_goleira" data-search="#09 plano detalhe lateral — ajuste do velcro da luva de goleira plano detalhe câmera na mão / pov luz natural de campo verde, preto &amp; branco 09_detalhe_velcro_luva_goleira">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/09_detalhe_velcro_luva_goleira.jpg" alt="Plano Detalhe Lateral — Ajuste do Velcro da Luva de Goleira" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/09_detalhe_velcro_luva_goleira.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#09</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#09" value="#09 | 01:00:19:10 | 09_detalhe_velcro_luva_goleira | Plano Detalhe Lateral — Ajuste do Velcro da Luva de Goleira">
+              <span class="title"><span class="num-inline">#09</span> Plano Detalhe Lateral — Ajuste do Velcro da Luva de Goleira</span>
+            </div>
+            <div class="sub">01:00:19:10 · 1.17s · Plano Detalhe · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="10_closeup_luvas_camisa_corinthians" data-search="#10 close-up frontal — batida de luvas diante da camisa do corinthians close-up frontal fechado no peito luz natural suave branco, preto &amp; azul 10_closeup_luvas_camisa_corinthians">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/10_closeup_luvas_camisa_corinthians.jpg" alt="Close-Up Frontal — Batida de Luvas Diante da Camisa do Corinthians" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/10_closeup_luvas_camisa_corinthians.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#10</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#10" value="#10 | 01:00:20:14 | 10_closeup_luvas_camisa_corinthians | Close-Up Frontal — Batida de Luvas Diante da Camisa do Corinthians" checked>
+              <span class="title"><span class="num-inline">#10</span> Close-Up Frontal — Batida de Luvas Diante da Camisa do Corinthians</span>
+            </div>
+            <div class="sub">01:00:20:14 · 1.46s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="11_medio_goleira_luvas_edicao_especial" data-search="#11 plano médio frontal — goleira erguendo as luvas (“edição especial”) plano médio push-in frontal + lettering contraluz suave de campo branco, verde &amp; rosa 11_medio_goleira_luvas_edicao_especial">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/11_medio_goleira_luvas_edicao_especial.jpg" alt="Plano Médio Frontal — Goleira Erguendo as Luvas (“Edição Especial”)" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/11_medio_goleira_luvas_edicao_especial.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#11</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#11" value="#11 | 01:00:22:01 | 11_medio_goleira_luvas_edicao_especial | Plano Médio Frontal — Goleira Erguendo as Luvas (“Edição Especial”)" checked>
+              <span class="title"><span class="num-inline">#11</span> Plano Médio Frontal — Goleira Erguendo as Luvas (“Edição Especial”)</span>
+            </div>
+            <div class="sub">01:00:22:01 · 2.29s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="12_packshot_caixa_vizzela_as_brabas" data-search="#12 packshot detalhe — embalagem vizzela + as brabas (lip oil frozen grape) plano detalhe foco seletivo em primeiro plano luz natural + bokeh do campo roxo violeta &amp; verde 12_packshot_caixa_vizzela_as_brabas">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/12_packshot_caixa_vizzela_as_brabas.jpg" alt="Packshot Detalhe — Embalagem Vizzela + As Brabas (Lip Oil Frozen Grape)" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/12_packshot_caixa_vizzela_as_brabas.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#12</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#12" value="#12 | 01:00:24:08 | 12_packshot_caixa_vizzela_as_brabas | Packshot Detalhe — Embalagem Vizzela + As Brabas (Lip Oil Frozen Grape)" checked>
+              <span class="title"><span class="num-inline">#12</span> Packshot Detalhe — Embalagem Vizzela + As Brabas (Lip Oil Frozen Grape)</span>
+            </div>
+            <div class="sub">01:00:24:08 · 1.33s · Plano Detalhe · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="13_medio_goleira_efeito_cooling_refrescante" data-search="#13 plano médio — goleira com embalagem (“efeito cooling refrescante”) plano médio rack focus + lettering luz natural no gol verde, roxo &amp; laranja 13_medio_goleira_efeito_cooling_refrescante">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/13_medio_goleira_efeito_cooling_refrescante.jpg" alt="Plano Médio — Goleira com Embalagem (“Efeito Cooling Refrescante”)" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/13_medio_goleira_efeito_cooling_refrescante.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#13</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#13" value="#13 | 01:00:25:16 | 13_medio_goleira_efeito_cooling_refrescante | Plano Médio — Goleira com Embalagem (“Efeito Cooling Refrescante”)" checked>
+              <span class="title"><span class="num-inline">#13</span> Plano Médio — Goleira com Embalagem (“Efeito Cooling Refrescante”)</span>
+            </div>
+            <div class="sub">01:00:25:16 · 3.12s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group" id="arquibancada_chaveiro">
+      <h2>Arquibancada — Embaixadinha de Cabeça &amp; Chaveiro Exclusivo <span class="count">(7 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="14_contraplongee_embaixadinha_cabeca_collage" data-search="#14 contra-plongée arquibancada — embaixadinha de cabeça com collage roxo contra-plongée câmera baixa + recorte collage luz difusa sob cobertura cinza, roxo &amp; rosa 14_contraplongee_embaixadinha_cabeca_collage">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/14_contraplongee_embaixadinha_cabeca_collage.jpg" alt="Contra-Plongée Arquibancada — Embaixadinha de Cabeça com Collage Roxo" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/14_contraplongee_embaixadinha_cabeca_collage.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#14</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#14" value="#14 | 01:00:28:19 | 14_contraplongee_embaixadinha_cabeca_collage | Contra-Plongée Arquibancada — Embaixadinha de Cabeça com Collage Roxo" checked>
+              <span class="title"><span class="num-inline">#14</span> Contra-Plongée Arquibancada — Embaixadinha de Cabeça com Collage Roxo</span>
+            </div>
+            <div class="sub">01:00:28:19 · 2.62s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="15_detalhe_chaveiro_lip_oil_shorts" data-search="#15 plano detalhe — chaveiro lip oil vizzela + as brabas preso no shorts plano detalhe câmera baixa em movimento luz natural lateral preto, branco &amp; roxo 15_detalhe_chaveiro_lip_oil_shorts">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/15_detalhe_chaveiro_lip_oil_shorts.jpg" alt="Plano Detalhe — Chaveiro Lip Oil Vizzela + As Brabas Preso no Shorts" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/15_detalhe_chaveiro_lip_oil_shorts.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#15</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#15" value="#15 | 01:00:31:10 | 15_detalhe_chaveiro_lip_oil_shorts | Plano Detalhe — Chaveiro Lip Oil Vizzela + As Brabas Preso no Shorts">
+              <span class="title"><span class="num-inline">#15</span> Plano Detalhe — Chaveiro Lip Oil Vizzela + As Brabas Preso no Shorts</span>
+            </div>
+            <div class="sub">01:00:31:10 · 1.67s · Plano Detalhe · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="16_contraplongee_jogadora_segurando_bola" data-search="#16 contra-plongée — jogadora equilibrando e segurando a bola sob a cobertura contra-plongée câmera baixa na arquibancada luz difusa sob cobertura branco, cinza &amp; azul 16_contraplongee_jogadora_segurando_bola">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/16_contraplongee_jogadora_segurando_bola.jpg" alt="Contra-Plongée — Jogadora Equilibrando e Segurando a Bola sob a Cobertura" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/16_contraplongee_jogadora_segurando_bola.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#16</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#16" value="#16 | 01:00:33:02 | 16_contraplongee_jogadora_segurando_bola | Contra-Plongée — Jogadora Equilibrando e Segurando a Bola sob a Cobertura" checked>
+              <span class="title"><span class="num-inline">#16</span> Contra-Plongée — Jogadora Equilibrando e Segurando a Bola sob a Cobertura</span>
+            </div>
+            <div class="sub">01:00:33:02 · 2.04s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="17_packshot_chuteira_bola_chaveiro_exclusivo" data-search="#17 still life / packshot — chuteira, bola penalty &amp; lip oil (“chaveiro exclusivo”) plano detalhe slider / frontal rente ao banco luz natural de arquibancada branco, laranja &amp; roxo 17_packshot_chuteira_bola_chaveiro_exclusivo">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/17_packshot_chuteira_bola_chaveiro_exclusivo.jpg" alt="Still Life / Packshot — Chuteira, Bola Penalty &amp; Lip Oil (“Chaveiro Exclusivo”)" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/17_packshot_chuteira_bola_chaveiro_exclusivo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#17</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#17" value="#17 | 01:00:35:03 | 17_packshot_chuteira_bola_chaveiro_exclusivo | Still Life / Packshot — Chuteira, Bola Penalty &amp; Lip Oil (“Chaveiro Exclusivo”)" checked>
+              <span class="title"><span class="num-inline">#17</span> Still Life / Packshot — Chuteira, Bola Penalty &amp; Lip Oil (“Chaveiro Exclusivo”)</span>
+            </div>
+            <div class="sub">01:00:35:03 · 2.12s · Plano Detalhe · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="18_plongee_mao_lip_oil_chaveiro" data-search="#18 plongée detalhe — mão segurando o lip oil com chaveiro do corinthians plongée câmera alta sobre o colo luz natural suave branco, roxo &amp; cinza 18_plongee_mao_lip_oil_chaveiro">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/18_plongee_mao_lip_oil_chaveiro.jpg" alt="Plongée Detalhe — Mão Segurando o Lip Oil com Chaveiro do Corinthians" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/18_plongee_mao_lip_oil_chaveiro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#18</span>
+            <span class="badge alt">SELECIONAR</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#18" value="#18 | 01:00:37:06 | 18_plongee_mao_lip_oil_chaveiro | Plongée Detalhe — Mão Segurando o Lip Oil com Chaveiro do Corinthians">
+              <span class="title"><span class="num-inline">#18</span> Plongée Detalhe — Mão Segurando o Lip Oil com Chaveiro do Corinthians</span>
+            </div>
+            <div class="sub">01:00:37:06 · 0.88s · Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="19_contraplongee_jogadora_abrindo_lip_oil" data-search="#19 contra-plongée médio — jogadora com a bola na cintura abrindo o lip oil contra-plongée câmera baixa lateral luz difusa sob cobertura branco, cinza &amp; roxo 19_contraplongee_jogadora_abrindo_lip_oil">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/19_contraplongee_jogadora_abrindo_lip_oil.jpg" alt="Contra-Plongée Médio — Jogadora com a Bola na Cintura Abrindo o Lip Oil" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/19_contraplongee_jogadora_abrindo_lip_oil.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#19</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#19" value="#19 | 01:00:38:03 | 19_contraplongee_jogadora_abrindo_lip_oil | Contra-Plongée Médio — Jogadora com a Bola na Cintura Abrindo o Lip Oil" checked>
+              <span class="title"><span class="num-inline">#19</span> Contra-Plongée Médio — Jogadora com a Bola na Cintura Abrindo o Lip Oil</span>
+            </div>
+            <div class="sub">01:00:38:03 · 0.96s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="20_closeup_frontal_lip_oil_chaveiro" data-search="#20 close-up frontal — jogadora exibindo o lip oil e chaveiro as brabas close-up foco seletivo no produto luz natural suave roxo, prata &amp; branco 20_closeup_frontal_lip_oil_chaveiro">
+          <div class="media-wrap">
+            <img src="assets/shots/vizzela_asbrabas/20_closeup_frontal_lip_oil_chaveiro.jpg" alt="Close-Up Frontal — Jogadora Exibindo o Lip Oil e Chaveiro As Brabas" loading="lazy">
+            <video src="assets/videos/vizzela_asbrabas/20_closeup_frontal_lip_oil_chaveiro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#20</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#20" value="#20 | 01:00:39:02 | 20_closeup_frontal_lip_oil_chaveiro | Close-Up Frontal — Jogadora Exibindo o Lip Oil e Chaveiro As Brabas" checked>
+              <span class="title"><span class="num-inline">#20</span> Close-Up Frontal — Jogadora Exibindo o Lip Oil e Chaveiro As Brabas</span>
+            </div>
+            <div class="sub">01:00:39:02 · 1.21s · Close-Up · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+  </main>
+  <div id="toast">Seleção copiada para a área de transferência!</div>
+  <script>
+    const STORAGE_KEY = 'awa_guide_vizzela_asbrabas_v2';
+    const picks = [...document.querySelectorAll('.pick')];
+    const cards = [...document.querySelectorAll('.card')];
+    const countEl = document.getElementById('selectedCount');
+    const copyCountEl = document.getElementById('copyCount');
+    const onlySelectedBtn = document.getElementById('onlySelectedBtn');
+    const searchInput = document.getElementById('searchInput');
+    let onlySelected = false;
+
+    function updateCount() {
+      const n = picks.filter(el => el.checked).length;
+      countEl.textContent = n;
+      copyCountEl.textContent = n;
+    }
+
+    function applyFilters() {
+      const q = searchInput.value.trim().toLowerCase();
+      cards.forEach(card => {
+        const pick = card.querySelector('.pick');
+        const matchesSelected = !onlySelected || pick.checked;
+        const matchesQuery = !q || card.dataset.search.includes(q);
+        card.classList.toggle('hidden', !(matchesSelected && matchesQuery));
+      });
+      document.querySelectorAll('.group').forEach(sec => {
+        const visible = sec.querySelectorAll('.card:not(.hidden)').length;
+        sec.style.display = visible > 0 ? '' : 'none';
+      });
+    }
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+      if (saved && typeof saved === 'object') {
+        picks.forEach(el => {
+          if (el.dataset.num in saved) el.checked = saved[el.dataset.num];
+        });
+      }
+    } catch (e) {}
+    updateCount();
+
+    function saveState() {
+      const state = {};
+      picks.forEach(el => state[el.dataset.num] = el.checked);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      updateCount();
+      if (onlySelected) applyFilters();
+    }
+
+    picks.forEach(el => el.addEventListener('change', saveState));
+    searchInput.addEventListener('input', applyFilters);
+    onlySelectedBtn.addEventListener('click', () => {
+      onlySelected = !onlySelected;
+      onlySelectedBtn.classList.toggle('active', onlySelected);
+      applyFilters();
+    });
+
+    document.getElementById('selectAllBtn').addEventListener('click', () => {
+      cards.filter(c => !c.classList.contains('hidden')).forEach(c => c.querySelector('.pick').checked = true);
+      saveState();
+    });
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      picks.forEach(el => el.checked = false);
+      localStorage.removeItem(STORAGE_KEY);
+      updateCount();
+      if (onlySelected) applyFilters();
+    });
+    cards.forEach(card => {
+      const vid = card.querySelector('video');
+      card.addEventListener('mouseenter', () => { vid.play().catch(() => {}); });
+      card.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+    });
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const picked = picks.filter(el => el.checked).map(el => el.value);
+      navigator.clipboard.writeText(picked.join('\n')).then(() => {
+        const t = document.getElementById('toast');
+        t.style.display = 'block';
+        setTimeout(() => t.style.display = 'none', 2500);
+      });
+    });
+  </script>
+</body>
+</html>

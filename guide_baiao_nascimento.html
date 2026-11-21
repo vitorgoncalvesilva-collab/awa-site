@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÀWA — Guia Visual Numerado · Baião Nascimento</title>
+  <style>
+    :root { --bg: #050505; --card: #111; --border: #242424; --fg: #f4f4f4; --dim: #8f8f8f; --accent: #ffffff; --green: #4ade80; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; padding: 32px 24px 96px; }
+    header { max-width: 1360px; margin: 0 auto 32px; border-bottom: 1px solid var(--border); padding-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: flex-end; }
+    h1 { margin: 0 0 6px; font-size: 1.5rem; letter-spacing: -0.02em; }
+    p.lead { margin: 0; color: var(--dim); font-size: 0.92rem; max-width: 780px; }
+    .actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #000; border: 0; padding: 10px 16px; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.85rem; }
+    .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    main { max-width: 1360px; margin: 0 auto; }
+    .group { margin-bottom: 40px; }
+    .group h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 14px; border-left: 3px solid var(--accent); padding-left: 10px; }
+    .group h2 .count { color: var(--dim); font-weight: 400; font-size: 0.85rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    .card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; cursor: pointer; transition: border-color 0.15s; }
+    .card:has(.pick:checked) { border-color: var(--green); }
+    .media-wrap { position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+    .media-wrap img, .media-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .media-wrap video { position: absolute; inset: 0; opacity: 0; transition: opacity 0.18s; }
+    .card:hover .media-wrap video { opacity: 1; }
+    .num-badge { position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.88); color: #fff; border: 1px solid rgba(255,255,255,0.28); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.78rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+    .badge { position: absolute; top: 8px; right: 8px; font-size: 0.68rem; font-weight: 700; padding: 3px 7px; border-radius: 4px; letter-spacing: 0.04em; }
+    .badge.live { background: rgba(74, 222, 128, 0.92); color: #052e16; }
+    .badge.alt { background: rgba(20, 20, 20, 0.85); color: #d4d4d4; border: 1px solid #404040; }
+    .meta { padding: 12px; }
+    .row-top { display: flex; align-items: flex-start; gap: 8px; }
+    .title { font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
+    .num-inline { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--green); margin-right: 4px; }
+    .sub { margin-top: 6px; font-size: 0.75rem; color: var(--dim); font-family: ui-monospace, SFMono-Regular, monospace; }
+    #toast { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: #052e16; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Guia Visual Numerado — Vitão, Mariana Nolasco: Baião Nascimento</h1>
+      <p class="lead">Decupagem completa com <strong>88 takes</strong> (33 takes / 24 sequências marcados como <strong>NO SITE</strong>). Passe o mouse para ver o vídeo, ajuste a seleção e clique em <strong>Copiar Seleção</strong> (<span id="selectedCount">0</span> selecionados).</p>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" href="projeto.html?id=vitao-baiao-nascimento" target="_blank">Abrir Projeto no Site ↗</a>
+      <a class="btn ghost" href="portfolio.html" target="_blank">Abrir Portfólio ↗</a>
+      <button class="btn ghost" id="resetBtn">Resetar Padrão</button>
+      <button class="btn" id="copyBtn">Copiar Seleção</button>
+    </div>
+  </header>
+  <main>
+    <section class="group">
+      <h2>Cama de Feno & Flores <span class="count">(25 takes)</span></h2>
+      <div class="grid">
+        <label class=\"card is-live\" data-slug="01_zenital_flores_01">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/01_zenital_flores_01.jpg" alt="Zenital — Cama de Feno & Flores (Abertura)" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/01_zenital_flores_01.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#01</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#01" value="#01 | 01_zenital_flores_01 | Zenital — Cama de Feno & Flores (Abertura)">
+              <span class="title"><span class="num-inline">#01</span> Zenital — Cama de Feno & Flores (Abertura)</span>
+            </div>
+            <div class="sub">01:00:01:01 · 3.01s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="02_close_gerbera_01">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/02_close_gerbera_01.jpg" alt="Close-up — Vitão Entre Flores (Gérbera)" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/02_close_gerbera_01.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#02</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#02" value="#02 | 02_close_gerbera_01 | Close-up — Vitão Entre Flores (Gérbera)">
+              <span class="title"><span class="num-inline">#02</span> Close-up — Vitão Entre Flores (Gérbera)</span>
+            </div>
+            <div class="sub">01:00:17:18 · 2.50s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="03_zenital_flores_02">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/03_zenital_flores_02.jpg" alt="Zenital — Cama de Feno & Flores II" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/03_zenital_flores_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#03</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#03" value="#03 | 03_zenital_flores_02 | Zenital — Cama de Feno & Flores II">
+              <span class="title"><span class="num-inline">#03</span> Zenital — Cama de Feno & Flores II</span>
+            </div>
+            <div class="sub">01:00:20:06 · 1.54s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="04_close_gerbera_02">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/04_close_gerbera_02.jpg" alt="Close-up — Gérbera em Primeiro Plano" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/04_close_gerbera_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#04</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#04" value="#04 | 04_close_gerbera_02 | Close-up — Gérbera em Primeiro Plano">
+              <span class="title"><span class="num-inline">#04</span> Close-up — Gérbera em Primeiro Plano</span>
+            </div>
+            <div class="sub">01:00:23:06 · 2.21s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="05_zenital_vitao_flores">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/05_zenital_vitao_flores.jpg" alt="Zenital — Cama de Feno & Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/05_zenital_vitao_flores.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#05</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#05" value="#05 | 05_zenital_vitao_flores | Zenital — Cama de Feno & Flores">
+              <span class="title"><span class="num-inline">#05</span> Zenital — Cama de Feno & Flores</span>
+            </div>
+            <div class="sub">01:00:31:05 · 2.75s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="06_close_gerbera_03">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/06_close_gerbera_03.jpg" alt="Close-up — Vitão Olhando Acima (Flores)" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/06_close_gerbera_03.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#06</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#06" value="#06 | 06_close_gerbera_03 | Close-up — Vitão Olhando Acima (Flores)">
+              <span class="title"><span class="num-inline">#06</span> Close-up — Vitão Olhando Acima (Flores)</span>
+            </div>
+            <div class="sub">01:00:33:23 · 1.08s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="07_zenital_maos_peito">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/07_zenital_maos_peito.jpg" alt="Zenital — Mãos no Peito Entre Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/07_zenital_maos_peito.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#07</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#07" value="#07 | 07_zenital_maos_peito | Zenital — Mãos no Peito Entre Flores">
+              <span class="title"><span class="num-inline">#07</span> Zenital — Mãos no Peito Entre Flores</span>
+            </div>
+            <div class="sub">01:00:39:06 · 1.21s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="08_close_gerbera_04">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/08_close_gerbera_04.jpg" alt="Close-up — Flores Douradas" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/08_close_gerbera_04.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#08</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#08" value="#08 | 08_close_gerbera_04 | Close-up — Flores Douradas">
+              <span class="title"><span class="num-inline">#08</span> Close-up — Flores Douradas</span>
+            </div>
+            <div class="sub">01:00:42:09 · 2.46s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="09_zenital_flores_03">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/09_zenital_flores_03.jpg" alt="Zenital — Olhar Lateral nas Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/09_zenital_flores_03.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#09</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#09" value="#09 | 09_zenital_flores_03 | Zenital — Olhar Lateral nas Flores">
+              <span class="title"><span class="num-inline">#09</span> Zenital — Olhar Lateral nas Flores</span>
+            </div>
+            <div class="sub">01:01:01:19 · 1.54s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="10_close_gerbera_05">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/10_close_gerbera_05.jpg" alt="Close-up — Vitão Sorrindo nas Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/10_close_gerbera_05.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#10</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#10" value="#10 | 10_close_gerbera_05 | Close-up — Vitão Sorrindo nas Flores">
+              <span class="title"><span class="num-inline">#10</span> Close-up — Vitão Sorrindo nas Flores</span>
+            </div>
+            <div class="sub">01:01:17:05 · 1.04s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="11_zenital_flores_04">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/11_zenital_flores_04.jpg" alt="Zenital — Cama de Flores IV" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/11_zenital_flores_04.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#11</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#11" value="#11 | 11_zenital_flores_04 | Zenital — Cama de Flores IV">
+              <span class="title"><span class="num-inline">#11</span> Zenital — Cama de Flores IV</span>
+            </div>
+            <div class="sub">01:01:18:06 · 3.01s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="12_zenital_flores_05">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/12_zenital_flores_05.jpg" alt="Zenital — Movimento nos Braços" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/12_zenital_flores_05.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#12</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#12" value="#12 | 12_zenital_flores_05 | Zenital — Movimento nos Braços">
+              <span class="title"><span class="num-inline">#12</span> Zenital — Movimento nos Braços</span>
+            </div>
+            <div class="sub">01:01:24:15 · 0.91s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="13_zenital_flores_06">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/13_zenital_flores_06.jpg" alt="Zenital — Vitão Cantando nas Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/13_zenital_flores_06.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#13</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#13" value="#13 | 13_zenital_flores_06 | Zenital — Vitão Cantando nas Flores">
+              <span class="title"><span class="num-inline">#13</span> Zenital — Vitão Cantando nas Flores</span>
+            </div>
+            <div class="sub">01:01:31:20 · 0.71s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="14_zenital_flores_07">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/14_zenital_flores_07.jpg" alt="Zenital — Cama de Flores VII" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/14_zenital_flores_07.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#14</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#14" value="#14 | 14_zenital_flores_07 | Zenital — Cama de Flores VII">
+              <span class="title"><span class="num-inline">#14</span> Zenital — Cama de Flores VII</span>
+            </div>
+            <div class="sub">01:01:33:07 · 0.75s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="15_zenital_flores_08">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/15_zenital_flores_08.jpg" alt="Zenital — Cama de Flores VIII" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/15_zenital_flores_08.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#15</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#15" value="#15 | 15_zenital_flores_08 | Zenital — Cama de Flores VIII">
+              <span class="title"><span class="num-inline">#15</span> Zenital — Cama de Flores VIII</span>
+            </div>
+            <div class="sub">01:01:34:19 · 0.75s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="16_zenital_flores_09">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/16_zenital_flores_09.jpg" alt="Zenital — Cama de Flores IX" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/16_zenital_flores_09.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#16</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#16" value="#16 | 16_zenital_flores_09 | Zenital — Cama de Flores IX">
+              <span class="title"><span class="num-inline">#16</span> Zenital — Cama de Flores IX</span>
+            </div>
+            <div class="sub">01:01:38:14 · 2.58s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="17_close_gerbera_06">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/17_close_gerbera_06.jpg" alt="Close-up — Perfil na Cama de Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/17_close_gerbera_06.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#17</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#17" value="#17 | 17_close_gerbera_06 | Close-up — Perfil na Cama de Flores">
+              <span class="title"><span class="num-inline">#17</span> Close-up — Perfil na Cama de Flores</span>
+            </div>
+            <div class="sub">01:01:42:09 · 1.46s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="18_close_perfil_flores">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/18_close_perfil_flores.jpg" alt="Close-up — Cabeça Inclinada nas Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/18_close_perfil_flores.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#18</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#18" value="#18 | 18_close_perfil_flores | Close-up — Cabeça Inclinada nas Flores" checked>
+              <span class="title"><span class="num-inline">#18</span> Close-up — Cabeça Inclinada nas Flores</span>
+            </div>
+            <div class="sub">01:01:47:18 · 1.21s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="19_close_gerbera_riso">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/19_close_gerbera_riso.jpg" alt="Close-up — Riso nas Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/19_close_gerbera_riso.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#19</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#19" value="#19 | 19_close_gerbera_riso | Close-up — Riso nas Flores">
+              <span class="title"><span class="num-inline">#19</span> Close-up — Riso nas Flores</span>
+            </div>
+            <div class="sub">01:01:50:12 · 0.76s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="20_zenital_flores_10">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/20_zenital_flores_10.jpg" alt="Zenital — Cama de Flores X" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/20_zenital_flores_10.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#20</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#20" value="#20 | 20_zenital_flores_10 | Zenital — Cama de Flores X">
+              <span class="title"><span class="num-inline">#20</span> Zenital — Cama de Flores X</span>
+            </div>
+            <div class="sub">01:01:53:06 · 1.25s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="21_zenital_flores_11">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/21_zenital_flores_11.jpg" alt="Zenital — Cama de Flores XI" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/21_zenital_flores_11.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#21</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#21" value="#21 | 21_zenital_flores_11 | Zenital — Cama de Flores XI">
+              <span class="title"><span class="num-inline">#21</span> Zenital — Cama de Flores XI</span>
+            </div>
+            <div class="sub">01:02:08:13 · 3.30s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="22_zenital_flores_12">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/22_zenital_flores_12.jpg" alt="Zenital — Cama de Flores XII" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/22_zenital_flores_12.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#22</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#22" value="#22 | 22_zenital_flores_12 | Zenital — Cama de Flores XII">
+              <span class="title"><span class="num-inline">#22</span> Zenital — Cama de Flores XII</span>
+            </div>
+            <div class="sub">01:02:28:04 · 2.29s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="23_zenital_flores_13">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/23_zenital_flores_13.jpg" alt="Zenital — Cama de Flores XIII" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/23_zenital_flores_13.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#23</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#23" value="#23 | 23_zenital_flores_13 | Zenital — Cama de Flores XIII">
+              <span class="title"><span class="num-inline">#23</span> Zenital — Cama de Flores XIII</span>
+            </div>
+            <div class="sub">01:02:32:12 · 2.21s · Zenital · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="24_close_gerbera_final">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/24_close_gerbera_final.jpg" alt="Close-up — Gérbera Final" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/24_close_gerbera_final.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#24</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#24" value="#24 | 24_close_gerbera_final | Close-up — Gérbera Final">
+              <span class="title"><span class="num-inline">#24</span> Close-up — Gérbera Final</span>
+            </div>
+            <div class="sub">01:02:34:17 · 2.67s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="25_zenital_flores_final">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/25_zenital_flores_final.jpg" alt="Zenital — Encerramento nas Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/25_zenital_flores_final.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#25</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#25" value="#25 | 25_zenital_flores_final | Zenital — Encerramento nas Flores">
+              <span class="title"><span class="num-inline">#25</span> Zenital — Encerramento nas Flores</span>
+            </div>
+            <div class="sub">01:02:48:09 · 3.29s · Zenital · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group">
+      <h2>Fundo Azul & Chapéu de Palha <span class="count">(21 takes)</span></h2>
+      <div class="grid">
+        <label class=\"card is-live\" data-slug="26_chapeu_feno_azul_01">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/26_chapeu_feno_azul_01.jpg" alt="Contra-Plongée — Chapéu de Palha no Feno" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/26_chapeu_feno_azul_01.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#26</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#26" value="#26 | 26_chapeu_feno_azul_01 | Contra-Plongée — Chapéu de Palha no Feno" checked>
+              <span class="title"><span class="num-inline">#26</span> Contra-Plongée — Chapéu de Palha no Feno</span>
+            </div>
+            <div class="sub">01:00:04:01 · 2.41s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="27_silhueta_megafone_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/27_silhueta_megafone_azul.jpg" alt="Silhueta — Chapéu & Megafone Azul" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/27_silhueta_megafone_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#27</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#27" value="#27 | 27_silhueta_megafone_azul | Silhueta — Chapéu & Megafone Azul" checked>
+              <span class="title"><span class="num-inline">#27</span> Silhueta — Chapéu & Megafone Azul</span>
+            </div>
+            <div class="sub">01:00:06:11 · 4.43s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class=\"card is-live\" data-slug="28_chapeu_gesto_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/28_chapeu_gesto_azul.jpg" alt="Vitão de Chapéu — Gesto no Feno" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/28_chapeu_gesto_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#28</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#28" value="#28 | 28_chapeu_gesto_azul | Vitão de Chapéu — Gesto no Feno">
+              <span class="title"><span class="num-inline">#28</span> Vitão de Chapéu — Gesto no Feno</span>
+            </div>
+            <div class="sub">01:00:10:21 · 4.17s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="29_silhueta_megafone_02">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/29_silhueta_megafone_02.jpg" alt="Silhueta — Megafone Azul II" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/29_silhueta_megafone_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#29</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#29" value="#29 | 29_silhueta_megafone_02 | Silhueta — Megafone Azul II">
+              <span class="title"><span class="num-inline">#29</span> Silhueta — Megafone Azul II</span>
+            </div>
+            <div class="sub">01:00:15:01 · 0.96s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="30_chapeu_feno_azul_02">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/30_chapeu_feno_azul_02.jpg" alt="Chapéu de Palha — Movimento no Feno" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/30_chapeu_feno_azul_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#30</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#30" value="#30 | 30_chapeu_feno_azul_02 | Chapéu de Palha — Movimento no Feno" checked>
+              <span class="title"><span class="num-inline">#30</span> Chapéu de Palha — Movimento no Feno</span>
+            </div>
+            <div class="sub">01:00:16:00 · 1.75s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="31_silhueta_megafone_03">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/31_silhueta_megafone_03.jpg" alt="Silhueta — Megafone Azul III" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/31_silhueta_megafone_03.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#31</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#31" value="#31 | 31_silhueta_megafone_03 | Silhueta — Megafone Azul III">
+              <span class="title"><span class="num-inline">#31</span> Silhueta — Megafone Azul III</span>
+            </div>
+            <div class="sub">01:00:21:19 · 1.46s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="32_contra_plongee_chapeu_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/32_contra_plongee_chapeu_azul.jpg" alt="Contra-Plongée — Chapéu & Céu Azul" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/32_contra_plongee_chapeu_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#32</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#32" value="#32 | 32_contra_plongee_chapeu_azul | Contra-Plongée — Chapéu & Céu Azul">
+              <span class="title"><span class="num-inline">#32</span> Contra-Plongée — Chapéu & Céu Azul</span>
+            </div>
+            <div class="sub">01:00:28:06 · 2.96s · Contra-Plongée · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="33_silhueta_vitao_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/33_silhueta_vitao_azul.jpg" alt="Silhueta — Perfil em Azul" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/33_silhueta_vitao_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#33</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#33" value="#33 | 33_silhueta_vitao_azul | Silhueta — Perfil em Azul" checked>
+              <span class="title"><span class="num-inline">#33</span> Silhueta — Perfil em Azul</span>
+            </div>
+            <div class="sub">01:00:50:05 · 3.46s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="34_silhueta_maos_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/34_silhueta_maos_azul.jpg" alt="Silhueta — Mãos Juntas em Azul" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/34_silhueta_maos_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#34</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#34" value="#34 | 34_silhueta_maos_azul | Silhueta — Mãos Juntas em Azul">
+              <span class="title"><span class="num-inline">#34</span> Silhueta — Mãos Juntas em Azul</span>
+            </div>
+            <div class="sub">01:00:55:07 · 2.96s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="35_chapeu_feno_azul_03">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/35_chapeu_feno_azul_03.jpg" alt="Vitão de Chapéu — Braço Estendido" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/35_chapeu_feno_azul_03.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#35</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#35" value="#35 | 35_chapeu_feno_azul_03 | Vitão de Chapéu — Braço Estendido">
+              <span class="title"><span class="num-inline">#35</span> Vitão de Chapéu — Braço Estendido</span>
+            </div>
+            <div class="sub">01:01:15:10 · 1.79s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="36_chapeu_feno_azul_04">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/36_chapeu_feno_azul_04.jpg" alt="Vitão Girando o Chapéu no Feno" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/36_chapeu_feno_azul_04.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#36</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#36" value="#36 | 36_chapeu_feno_azul_04 | Vitão Girando o Chapéu no Feno">
+              <span class="title"><span class="num-inline">#36</span> Vitão Girando o Chapéu no Feno</span>
+            </div>
+            <div class="sub">01:01:21:06 · 3.38s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="37_chapeu_feno_azul_05">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/37_chapeu_feno_azul_05.jpg" alt="Vitão Jogando o Chapéu para o Alto" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/37_chapeu_feno_azul_05.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#37</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#37" value="#37 | 37_chapeu_feno_azul_05 | Vitão Jogando o Chapéu para o Alto">
+              <span class="title"><span class="num-inline">#37</span> Vitão Jogando o Chapéu para o Alto</span>
+            </div>
+            <div class="sub">01:01:26:18 · 1.71s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="38_perfil_sem_chapeu_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/38_perfil_sem_chapeu_azul.jpg" alt="Perfil Sem Chapéu — Fundo Azul" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/38_perfil_sem_chapeu_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#38</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#38" value="#38 | 38_perfil_sem_chapeu_azul | Perfil Sem Chapéu — Fundo Azul">
+              <span class="title"><span class="num-inline">#38</span> Perfil Sem Chapéu — Fundo Azul</span>
+            </div>
+            <div class="sub">01:01:30:19 · 1.04s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="39_chapeu_feno_azul_06">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/39_chapeu_feno_azul_06.jpg" alt="Vitão Olhando para Baixo — Feno e Azul" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/39_chapeu_feno_azul_06.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#39</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#39" value="#39 | 39_chapeu_feno_azul_06 | Vitão Olhando para Baixo — Feno e Azul">
+              <span class="title"><span class="num-inline">#39</span> Vitão Olhando para Baixo — Feno e Azul</span>
+            </div>
+            <div class="sub">01:01:32:13 · 0.75s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="40_chapeu_feno_azul_07">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/40_chapeu_feno_azul_07.jpg" alt="Movimento Rápido — Fundo Azul" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/40_chapeu_feno_azul_07.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#40</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#40" value="#40 | 40_chapeu_feno_azul_07 | Movimento Rápido — Fundo Azul">
+              <span class="title"><span class="num-inline">#40</span> Movimento Rápido — Fundo Azul</span>
+            </div>
+            <div class="sub">01:01:34:01 · 0.75s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="41_chapeu_feno_azul_08">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/41_chapeu_feno_azul_08.jpg" alt="Chapéu de Palha — Sorriso no Feno" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/41_chapeu_feno_azul_08.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#41</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#41" value="#41 | 41_chapeu_feno_azul_08 | Chapéu de Palha — Sorriso no Feno">
+              <span class="title"><span class="num-inline">#41</span> Chapéu de Palha — Sorriso no Feno</span>
+            </div>
+            <div class="sub">01:01:45:22 · 1.87s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="42_chapeu_feno_azul_09">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/42_chapeu_feno_azul_09.jpg" alt="Chapéu de Palha — Expressão Intensa" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/42_chapeu_feno_azul_09.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#42</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#42" value="#42 | 42_chapeu_feno_azul_09 | Chapéu de Palha — Expressão Intensa">
+              <span class="title"><span class="num-inline">#42</span> Chapéu de Palha — Expressão Intensa</span>
+            </div>
+            <div class="sub">01:01:49:00 · 1.50s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="43_chapeu_feno_azul_10">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/43_chapeu_feno_azul_10.jpg" alt="Perfil Cantando — Chapéu no Feno" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/43_chapeu_feno_azul_10.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#43</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#43" value="#43 | 43_chapeu_feno_azul_10 | Perfil Cantando — Chapéu no Feno">
+              <span class="title"><span class="num-inline">#43</span> Perfil Cantando — Chapéu no Feno</span>
+            </div>
+            <div class="sub">01:01:51:06 · 0.70s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="44_sem_chapeu_canto_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/44_sem_chapeu_canto_azul.jpg" alt="Vitão Cantando Olhando para Cima — Azul" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/44_sem_chapeu_canto_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#44</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#44" value="#44 | 44_sem_chapeu_canto_azul | Vitão Cantando Olhando para Cima — Azul">
+              <span class="title"><span class="num-inline">#44</span> Vitão Cantando Olhando para Cima — Azul</span>
+            </div>
+            <div class="sub">01:01:57:13 · 1.09s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="45_sem_chapeu_triste_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/45_sem_chapeu_triste_azul.jpg" alt="Vitão no Feno — Expressão Contida" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/45_sem_chapeu_triste_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#45</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#45" value="#45 | 45_sem_chapeu_triste_azul | Vitão no Feno — Expressão Contida">
+              <span class="title"><span class="num-inline">#45</span> Vitão no Feno — Expressão Contida</span>
+            </div>
+            <div class="sub">01:01:59:09 · 1.13s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="46_chapeu_feno_azul_11">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/46_chapeu_feno_azul_11.jpg" alt="Movimento no Feno — Fundo Azul" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/46_chapeu_feno_azul_11.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#46</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#46" value="#46 | 46_chapeu_feno_azul_11 | Movimento no Feno — Fundo Azul">
+              <span class="title"><span class="num-inline">#46</span> Movimento no Feno — Fundo Azul</span>
+            </div>
+            <div class="sub">01:02:16:18 · 1.63s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group">
+      <h2>Mariana Nolasco & Fundo Magenta / Flores <span class="count">(21 takes)</span></h2>
+      <div class="grid">
+        <label class="card" data-slug="47_mariana_flores_contraluz">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/47_mariana_flores_contraluz.jpg" alt="Mariana Entre Flores em Contraluz" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/47_mariana_flores_contraluz.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#47</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#47" value="#47 | 47_mariana_flores_contraluz | Mariana Entre Flores em Contraluz" checked>
+              <span class="title"><span class="num-inline">#47</span> Mariana Entre Flores em Contraluz</span>
+            </div>
+            <div class="sub">01:00:26:15 · 1.63s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="48_mariana_olhar_flores">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/48_mariana_olhar_flores.jpg" alt="Close-up — Mariana Atrás das Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/48_mariana_olhar_flores.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#48</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#48" value="#48 | 48_mariana_olhar_flores | Close-up — Mariana Atrás das Flores" checked>
+              <span class="title"><span class="num-inline">#48</span> Close-up — Mariana Atrás das Flores</span>
+            </div>
+            <div class="sub">01:00:40:11 · 1.92s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="49_silhueta_mariana_flores">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/49_silhueta_mariana_flores.jpg" alt="Silhueta — Mariana Entre Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/49_silhueta_mariana_flores.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#49</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#49" value="#49 | 49_silhueta_mariana_flores | Silhueta — Mariana Entre Flores" checked>
+              <span class="title"><span class="num-inline">#49</span> Silhueta — Mariana Entre Flores</span>
+            </div>
+            <div class="sub">01:00:53:16 · 1.63s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="50_mariana_solo_flores">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/50_mariana_solo_flores.jpg" alt="Mariana Solo Entre Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/50_mariana_solo_flores.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#50</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#50" value="#50 | 50_mariana_solo_flores | Mariana Solo Entre Flores" checked>
+              <span class="title"><span class="num-inline">#50</span> Mariana Solo Entre Flores</span>
+            </div>
+            <div class="sub">01:00:58:06 · 3.54s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="51_mariana_magenta_canto">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/51_mariana_magenta_canto.jpg" alt="Mariana Cantando — Fundo Magenta" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/51_mariana_magenta_canto.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#51</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#51" value="#51 | 51_mariana_magenta_canto | Mariana Cantando — Fundo Magenta">
+              <span class="title"><span class="num-inline">#51</span> Mariana Cantando — Fundo Magenta</span>
+            </div>
+            <div class="sub">01:01:03:08 · 1.67s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="52_mariana_perfil_magenta">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/52_mariana_perfil_magenta.jpg" alt="Perfil de Mariana Entre Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/52_mariana_perfil_magenta.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#52</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#52" value="#52 | 52_mariana_perfil_magenta | Perfil de Mariana Entre Flores">
+              <span class="title"><span class="num-inline">#52</span> Perfil de Mariana Entre Flores</span>
+            </div>
+            <div class="sub">01:01:07:22 · 2.30s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="53_mariana_cheirando_flor">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/53_mariana_cheirando_flor.jpg" alt="Mariana Cheirando Flor — Primeiro Plano" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/53_mariana_cheirando_flor.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#53</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#53" value="#53 | 53_mariana_cheirando_flor | Mariana Cheirando Flor — Primeiro Plano" checked>
+              <span class="title"><span class="num-inline">#53</span> Mariana Cheirando Flor — Primeiro Plano</span>
+            </div>
+            <div class="sub">01:01:25:13 · 1.21s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="54_mariana_sorriso_flores">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/54_mariana_sorriso_flores.jpg" alt="Mariana Sorrindo Entre Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/54_mariana_sorriso_flores.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#54</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#54" value="#54 | 54_mariana_sorriso_flores | Mariana Sorrindo Entre Flores">
+              <span class="title"><span class="num-inline">#54</span> Mariana Sorrindo Entre Flores</span>
+            </div>
+            <div class="sub">01:01:29:18 · 1.04s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="55_casal_chapeu_peito_01">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/55_casal_chapeu_peito_01.jpg" alt="Casal — Chapéu no Peito (Frente)" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/55_casal_chapeu_peito_01.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#55</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#55" value="#55 | 55_casal_chapeu_peito_01 | Casal — Chapéu no Peito (Frente)">
+              <span class="title"><span class="num-inline">#55</span> Casal — Chapéu no Peito (Frente)</span>
+            </div>
+            <div class="sub">01:01:51:23 · 1.30s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="56_casal_chapeu_magenta">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/56_casal_chapeu_magenta.jpg" alt="Casal — Chapéu no Peito (Magenta)" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/56_casal_chapeu_magenta.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#56</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#56" value="#56 | 56_casal_chapeu_magenta | Casal — Chapéu no Peito (Magenta)" checked>
+              <span class="title"><span class="num-inline">#56</span> Casal — Chapéu no Peito (Magenta)</span>
+            </div>
+            <div class="sub">01:01:54:12 · 1.38s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="57_casal_maca_magenta">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/57_casal_maca_magenta.jpg" alt="Dividindo a Maçã — Fundo Magenta" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/57_casal_maca_magenta.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#57</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#57" value="#57 | 57_casal_maca_magenta | Dividindo a Maçã — Fundo Magenta">
+              <span class="title"><span class="num-inline">#57</span> Dividindo a Maçã — Fundo Magenta</span>
+            </div>
+            <div class="sub">01:02:05:03 · 1.88s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="58_mariana_flores_02">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/58_mariana_flores_02.jpg" alt="Mariana Entre Flores Douradas" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/58_mariana_flores_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#58</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#58" value="#58 | 58_mariana_flores_02 | Mariana Entre Flores Douradas" checked>
+              <span class="title"><span class="num-inline">#58</span> Mariana Entre Flores Douradas</span>
+            </div>
+            <div class="sub">01:02:07:00 · 1.54s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="59_casal_olhar_magenta">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/59_casal_olhar_magenta.jpg" alt="Casal Entre Flores — Fundo Magenta" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/59_casal_olhar_magenta.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#59</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#59" value="#59 | 59_casal_olhar_magenta | Casal Entre Flores — Fundo Magenta">
+              <span class="title"><span class="num-inline">#59</span> Casal Entre Flores — Fundo Magenta</span>
+            </div>
+            <div class="sub">01:02:08:13 · 3.30s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="60_detalhe_mordida_maca">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/60_detalhe_mordida_maca.jpg" alt="Detalhe — Mordida na Maçã do Amor" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/60_detalhe_mordida_maca.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#60</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#60" value="#60 | 60_detalhe_mordida_maca | Detalhe — Mordida na Maçã do Amor">
+              <span class="title"><span class="num-inline">#60</span> Detalhe — Mordida na Maçã do Amor</span>
+            </div>
+            <div class="sub">01:02:11:20 · 2.50s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="61_casal_magenta_02">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/61_casal_magenta_02.jpg" alt="Casal — Olhar Cumplicidade (Magenta)" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/61_casal_magenta_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#61</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#61" value="#61 | 61_casal_magenta_02 | Casal — Olhar Cumplicidade (Magenta)" checked>
+              <span class="title"><span class="num-inline">#61</span> Casal — Olhar Cumplicidade (Magenta)</span>
+            </div>
+            <div class="sub">01:02:14:08 · 2.42s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="62_detalhe_mordida_02">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/62_detalhe_mordida_02.jpg" alt="Detalhe — Maçã do Amor II" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/62_detalhe_mordida_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#62</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#62" value="#62 | 62_detalhe_mordida_02 | Detalhe — Maçã do Amor II" checked>
+              <span class="title"><span class="num-inline">#62</span> Detalhe — Maçã do Amor II</span>
+            </div>
+            <div class="sub">01:02:18:09 · 1.92s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="63_mariana_perfil_02">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/63_mariana_perfil_02.jpg" alt="Perfil de Mariana — Fundo Magenta" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/63_mariana_perfil_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#63</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#63" value="#63 | 63_mariana_perfil_02 | Perfil de Mariana — Fundo Magenta" checked>
+              <span class="title"><span class="num-inline">#63</span> Perfil de Mariana — Fundo Magenta</span>
+            </div>
+            <div class="sub">01:02:25:14 · 1.50s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="64_perfil_vitao_maca_01">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/64_perfil_vitao_maca_01.jpg" alt="Detalhe — Perfil com Maçã do Amor" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/64_perfil_vitao_maca_01.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#64</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#64" value="#64 | 64_perfil_vitao_maca_01 | Detalhe — Perfil com Maçã do Amor">
+              <span class="title"><span class="num-inline">#64</span> Detalhe — Perfil com Maçã do Amor</span>
+            </div>
+            <div class="sub">01:02:27:02 · 1.05s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="65_perfil_vitao_maca_02">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/65_perfil_vitao_maca_02.jpg" alt="Detalhe — Olhar e Maçã do Amor" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/65_perfil_vitao_maca_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#65</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#65" value="#65 | 65_perfil_vitao_maca_02 | Detalhe — Olhar e Maçã do Amor" checked>
+              <span class="title"><span class="num-inline">#65</span> Detalhe — Olhar e Maçã do Amor</span>
+            </div>
+            <div class="sub">01:02:30:11 · 2.05s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="66_detalhe_maos_dadas">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/66_detalhe_maos_dadas.jpg" alt="Detalhe — Mãos Dadas Entre Flores" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/66_detalhe_maos_dadas.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#66</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#66" value="#66 | 66_detalhe_maos_dadas | Detalhe — Mãos Dadas Entre Flores" checked>
+              <span class="title"><span class="num-inline">#66</span> Detalhe — Mãos Dadas Entre Flores</span>
+            </div>
+            <div class="sub">01:02:45:01 · 3.34s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="67_casal_frente_a_frente">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/67_casal_frente_a_frente.jpg" alt="Frente a Frente — Flores Douradas" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/67_casal_frente_a_frente.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#67</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#67" value="#67 | 67_casal_frente_a_frente | Frente a Frente — Flores Douradas">
+              <span class="title"><span class="num-inline">#67</span> Frente a Frente — Flores Douradas</span>
+            </div>
+            <div class="sub">01:02:56:16 · 5.54s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group">
+      <h2>Barraca do Beijo & Luz Âmbar <span class="count">(19 takes)</span></h2>
+      <div class="grid">
+        <label class="card" data-slug="68_vitao_barraca_ambar">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/68_vitao_barraca_ambar.jpg" alt="Barraca do Beijo — Luz Âmbar" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/68_vitao_barraca_ambar.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#68</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#68" value="#68 | 68_vitao_barraca_ambar | Barraca do Beijo — Luz Âmbar" checked>
+              <span class="title"><span class="num-inline">#68</span> Barraca do Beijo — Luz Âmbar</span>
+            </div>
+            <div class="sub">01:00:35:01 · 4.22s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="69_geral_barraca_do_beijo">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/69_geral_barraca_do_beijo.jpg" alt="Plano Geral — Barraca do Beijo" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/69_geral_barraca_do_beijo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#69</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#69" value="#69 | 69_geral_barraca_do_beijo | Plano Geral — Barraca do Beijo" checked>
+              <span class="title"><span class="num-inline">#69</span> Plano Geral — Barraca do Beijo</span>
+            </div>
+            <div class="sub">01:00:44:20 · 3.79s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="70_casal_barraca_sentados">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/70_casal_barraca_sentados.jpg" alt="Vitão e Mariana na Barraca do Beijo" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/70_casal_barraca_sentados.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#70</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#70" value="#70 | 70_casal_barraca_sentados | Vitão e Mariana na Barraca do Beijo" checked>
+              <span class="title"><span class="num-inline">#70</span> Vitão e Mariana na Barraca do Beijo</span>
+            </div>
+            <div class="sub">01:00:48:15 · 1.59s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="71_casal_barraca_sorriso">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/71_casal_barraca_sorriso.jpg" alt="Casal Sorrindo na Barraca do Beijo" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/71_casal_barraca_sorriso.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#71</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#71" value="#71 | 71_casal_barraca_sorriso | Casal Sorrindo na Barraca do Beijo">
+              <span class="title"><span class="num-inline">#71</span> Casal Sorrindo na Barraca do Beijo</span>
+            </div>
+            <div class="sub">01:01:05:00 · 2.88s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="72_mariana_maca_do_amor">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/72_mariana_maca_do_amor.jpg" alt="Mariana & Maçã do Amor" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/72_mariana_maca_do_amor.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#72</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#72" value="#72 | 72_mariana_maca_do_amor | Mariana & Maçã do Amor" checked>
+              <span class="title"><span class="num-inline">#72</span> Mariana & Maçã do Amor</span>
+            </div>
+            <div class="sub">01:01:10:05 · 5.21s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="73_vitao_barraca_ambar_02">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/73_vitao_barraca_ambar_02.jpg" alt="Vitão na Barraca — Chapéu e Luz Âmbar" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/73_vitao_barraca_ambar_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#73</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#73" value="#73 | 73_vitao_barraca_ambar_02 | Vitão na Barraca — Chapéu e Luz Âmbar" checked>
+              <span class="title"><span class="num-inline">#73</span> Vitão na Barraca — Chapéu e Luz Âmbar</span>
+            </div>
+            <div class="sub">01:01:28:11 · 1.30s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="74_casal_barraca_maca_01">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/74_casal_barraca_maca_01.jpg" alt="Casal na Barraca — Maçã do Amor" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/74_casal_barraca_maca_01.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#74</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#74" value="#74 | 74_casal_barraca_maca_01 | Casal na Barraca — Maçã do Amor" checked>
+              <span class="title"><span class="num-inline">#74</span> Casal na Barraca — Maçã do Amor</span>
+            </div>
+            <div class="sub">01:01:35:13 · 3.05s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="75_casal_barraca_maca_02">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/75_casal_barraca_maca_02.jpg" alt="Casal na Barraca — Maçã do Amor II" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/75_casal_barraca_maca_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#75</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#75" value="#75 | 75_casal_barraca_maca_02 | Casal na Barraca — Maçã do Amor II">
+              <span class="title"><span class="num-inline">#75</span> Casal na Barraca — Maçã do Amor II</span>
+            </div>
+            <div class="sub">01:01:41:04 · 1.21s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="76_vitao_barraca_sorrindo">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/76_vitao_barraca_sorrindo.jpg" alt="Close-up — Vitão Sorrindo na Barraca" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/76_vitao_barraca_sorrindo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#76</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#76" value="#76 | 76_vitao_barraca_sorrindo | Close-up — Vitão Sorrindo na Barraca">
+              <span class="title"><span class="num-inline">#76</span> Close-up — Vitão Sorrindo na Barraca</span>
+            </div>
+            <div class="sub">01:01:43:20 · 2.05s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="77_casal_barraca_03">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/77_casal_barraca_03.jpg" alt="Casal na Barraca do Beijo III" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/77_casal_barraca_03.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#77</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#77" value="#77 | 77_casal_barraca_03 | Casal na Barraca do Beijo III">
+              <span class="title"><span class="num-inline">#77</span> Casal na Barraca do Beijo III</span>
+            </div>
+            <div class="sub">01:01:58:15 · 0.75s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="78_silhueta_barraca_ambar">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/78_silhueta_barraca_ambar.jpg" alt="Silhueta na Barraca do Beijo — Âmbar" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/78_silhueta_barraca_ambar.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#78</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#78" value="#78 | 78_silhueta_barraca_ambar | Silhueta na Barraca do Beijo — Âmbar" checked>
+              <span class="title"><span class="num-inline">#78</span> Silhueta na Barraca do Beijo — Âmbar</span>
+            </div>
+            <div class="sub">01:02:00:12 · 4.62s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="79_casal_barraca_04">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/79_casal_barraca_04.jpg" alt="Mariana e Vitão na Barraca IV" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/79_casal_barraca_04.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#79</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#79" value="#79 | 79_casal_barraca_04 | Mariana e Vitão na Barraca IV">
+              <span class="title"><span class="num-inline">#79</span> Mariana e Vitão na Barraca IV</span>
+            </div>
+            <div class="sub">01:02:20:07 · 4.04s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="80_geral_barraca_bandeirinhas">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/80_geral_barraca_bandeirinhas.jpg" alt="Plano Geral — Barraca com Bandeirinhas" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/80_geral_barraca_bandeirinhas.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#80</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#80" value="#80 | 80_geral_barraca_bandeirinhas | Plano Geral — Barraca com Bandeirinhas" checked>
+              <span class="title"><span class="num-inline">#80</span> Plano Geral — Barraca com Bandeirinhas</span>
+            </div>
+            <div class="sub">01:02:24:08 · 1.25s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="81_silhueta_barraca_02">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/81_silhueta_barraca_02.jpg" alt="Silhueta de Vitão na Barraca II" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/81_silhueta_barraca_02.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#81</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#81" value="#81 | 81_silhueta_barraca_02 | Silhueta de Vitão na Barraca II">
+              <span class="title"><span class="num-inline">#81</span> Silhueta de Vitão na Barraca II</span>
+            </div>
+            <div class="sub">01:02:37:09 · 2.29s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="82_mariana_perfil_barraca">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/82_mariana_perfil_barraca.jpg" alt="Perfil de Mariana na Barraca" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/82_mariana_perfil_barraca.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#82</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#82" value="#82 | 82_mariana_perfil_barraca | Perfil de Mariana na Barraca">
+              <span class="title"><span class="num-inline">#82</span> Perfil de Mariana na Barraca</span>
+            </div>
+            <div class="sub">01:02:39:16 · 0.71s · Close-Up · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="83_geral_barraca_festa">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/83_geral_barraca_festa.jpg" alt="Plano Geral — Barraca do Beijo Iluminada" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/83_geral_barraca_festa.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#83</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#83" value="#83 | 83_geral_barraca_festa | Plano Geral — Barraca do Beijo Iluminada" checked>
+              <span class="title"><span class="num-inline">#83</span> Plano Geral — Barraca do Beijo Iluminada</span>
+            </div>
+            <div class="sub">01:02:40:09 · 2.84s · Plano Geral · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="84_silhueta_barraca_03">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/84_silhueta_barraca_03.jpg" alt="Silhueta com Braço Erguido na Barraca" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/84_silhueta_barraca_03.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#84</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#84" value="#84 | 84_silhueta_barraca_03 | Silhueta com Braço Erguido na Barraca" checked>
+              <span class="title"><span class="num-inline">#84</span> Silhueta com Braço Erguido na Barraca</span>
+            </div>
+            <div class="sub">01:02:43:05 · 1.83s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="85_casal_barraca_05">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/85_casal_barraca_05.jpg" alt="Casal na Barraca do Beijo V" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/85_casal_barraca_05.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#85</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#85" value="#85 | 85_casal_barraca_05 | Casal na Barraca do Beijo V">
+              <span class="title"><span class="num-inline">#85</span> Casal na Barraca do Beijo V</span>
+            </div>
+            <div class="sub">01:02:51:16 · 1.75s · Plano Médio · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="86_casal_barraca_close">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/86_casal_barraca_close.jpg" alt="Close — Mariana e Vitão na Barraca" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/86_casal_barraca_close.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#86</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#86" value="#86 | 86_casal_barraca_close | Close — Mariana e Vitão na Barraca">
+              <span class="title"><span class="num-inline">#86</span> Close — Mariana e Vitão na Barraca</span>
+            </div>
+            <div class="sub">01:02:53:10 · 3.26s · Close-Up · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+    <section class="group">
+      <h2>Cartela & Créditos Finais <span class="count">(2 takes)</span></h2>
+      <div class="grid">
+        <label class="card" data-slug="87_cartela_baiao_nascimento">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/87_cartela_baiao_nascimento.jpg" alt="Cartela Oficial — Baião Nascimento" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/87_cartela_baiao_nascimento.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#87</span>
+            <span class="badge alt">ALTERNATIVA</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#87" value="#87 | 87_cartela_baiao_nascimento | Cartela Oficial — Baião Nascimento">
+              <span class="title"><span class="num-inline">#87</span> Cartela Oficial — Baião Nascimento</span>
+            </div>
+            <div class="sub">01:00:25:12 · 1.13s · Cartela Gráfica · 16:9</div>
+          </div>
+        </label>
+        <label class="card" data-slug="88_creditos_finais_baiao">
+          <div class="media-wrap">
+            <img src="assets/shots/vitao_baiao_nascimento_guide/88_creditos_finais_baiao.jpg" alt="Créditos Finais — Um Filme de Caio Luigi & Vitão" loading="lazy">
+            <video src="assets/videos/vitao_baiao_nascimento_guide/88_creditos_finais_baiao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#88</span>
+            <span class="badge live\">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#88" value="#88 | 88_creditos_finais_baiao | Créditos Finais — Um Filme de Caio Luigi & Vitão" checked>
+              <span class="title"><span class="num-inline">#88</span> Créditos Finais — Um Filme de Caio Luigi & Vitão</span>
+            </div>
+            <div class="sub">01:03:02:05 · 11.28s · Cartela de Créditos · 16:9</div>
+          </div>
+        </label>
+      </div>
+    </section>
+  </main>
+  <div id="toast">Seleção copiada para a área de transferência!</div>
+  <script>
+    const STORAGE_KEY = 'awa_guide_baiao_nascimento_v2';
+    const picks = [...document.querySelectorAll('.pick')];
+    const countEl = document.getElementById('selectedCount');
+    function updateCount() {
+      countEl.textContent = picks.filter(el => el.checked).length;
+    }
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+      if (saved && typeof saved === 'object') {
+        picks.forEach(el => {
+          if (el.dataset.num in saved) el.checked = saved[el.dataset.num];
+        });
+      }
+    } catch (e) {}
+    updateCount();
+    function saveState() {
+      const state = {};
+      picks.forEach(el => state[el.dataset.num] = el.checked);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      updateCount();
+    }
+    picks.forEach(el => el.addEventListener('change', saveState));
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      localStorage.removeItem(STORAGE_KEY);
+      location.reload();
+    });
+    document.querySelectorAll('.card').forEach(card => {
+      const vid = card.querySelector('video');
+      card.addEventListener('mouseenter', () => { vid.play().catch(() => {}); });
+      card.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+    });
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const picked = picks.filter(el => el.checked).map(el => el.value);
+      navigator.clipboard.writeText(picked.join('\n')).then(() => {
+        const t = document.getElementById('toast');
+        t.style.display = 'block';
+        setTimeout(() => t.style.display = 'none', 2500);
+      });
+    });
+  </script>
+</body>
+</html>
