@@ -27,8 +27,8 @@ window.AWA_NEWS = [
     "date": "2022",
     "tag": "DOCUMENTÁRIO / URBANISMO",
     "title": "Rio dos Horizontes — Parque Ecológico, Rio Tietê & Serra do Itapeti",
-    "excerpt": "Documentário com produção audiovisual da Rolo B - AWA Cinematografia e direção geral, direção de fotografia, imagens aéreas e edição de Vitor Gonçalves.",
-    "fullText": "Filme documental sobre o projeto urbano e ambiental Rio dos Horizontes em Mogi das Cruzes, articulando a recuperação e integração da várzea do Rio Tietê e da Serra do Itapeti por meio do olhar de arquitetos, biólogos e gestores públicos. Com produção audiovisual da Rolo B - AWA Cinematografia, direção geral, direção de fotografia, operação de câmera, imagens aéreas, captação de áudio e edição de Vitor Gonçalves, operação de câmera e áudio de Alexandre Becker Klein e colorização de Gustavo Cardoso de Brito. Todos os 20 takes e sequências selecionados (de 156 planos decupados em 4K 2.40:1) já estão indexados no Shotdeck.",
+    "excerpt": "Documentário com produção audiovisual da Rolo B - AWA e direção geral, direção de fotografia, imagens aéreas e edição de Vitor Gonc.",
+    "fullText": "Filme documental sobre o projeto urbano e ambiental Rio dos Horizontes em Mogi das Cruzes, com o arquiteto Ciro Pirondi, biólogos e gestores articulando a recuperação e integração da várzea do Rio Tietê e da Serra do Itapeti. Produção audiovisual da Rolo B - AWA, direção geral, direção de fotografia, imagens aéreas e edição de Vitor Gonc, operação de câmera de Xand Klein e Vitor Gonc e color de Gustavo Cardoso de Brito. Captado em 2.40:1 Cinemascope com BMCC 2.5k, Sony a6500 e Mavic Mini, utilizando lentes Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8 e Makinon 135mm f2.8. Todos os 20 takes e sequências selecionados já estão indexados no Shotdeck.",
     "image": "assets/shots/rio_dos_horizontes/seq_001_002_serra_itapeti_revelacao_mogi.jpg",
     "projectId": "rio-dos-horizontes"
   },
@@ -68,7 +68,7 @@ window.AWA_NEWS = [
     "tag": "LONGA DOCUMENTÁRIO",
     "title": "Rito — Passos para Quem Partiu (Longa-Metragem)",
     "excerpt": "Longa-metragem documental acompanhando a travessia ritual de Mogi das Cruzes à Nascente do Rio Tietê, em Salesópolis.",
-    "fullText": "Realização do Grupo Contadores de Mentira com produção audiovisual da Rolo B - AWA Cinematografia e captação de imagem, som, imagens aéreas e edição com participação de Vitor Gonçalves (Vitor Gonc), Nando Rodrigues, Nelson Mortol, Emerson Leles e Gabriela Stano. Captado em 2.40:1 Cinemascope (3828×1596), o filme registra uma caminhada memorial de 80 minutos até o olho d'água da Nascente do Tietê. Captado com BMMC 2.5k, Sony a6500, iPhone 11 e Mavic Mini 1, utilizando lentes Canon STM 24mm f2.8, Raynette 28mm f2.8, Sony FE 50mm f1.8 e Makinon 135mm f2.8. Todos os 43 planos e sequências selecionados já estão indexados no Shotdeck.",
+    "fullText": "Realização do Grupo Contadores de Mentira com produção audiovisual da Rolo B - AWA e captação de imagem, som, imagens aéreas e edição com participação de Vitor Gonc, Nando Rodrigues, Nelson Mortol, Emerson Leles e Gabriela Stano. Captado em 2.40:1 Cinemascope (3828×1596), o filme registra uma caminhada memorial de 80 minutos até o olho d'água da Nascente do Tietê. Captado com BMMC 2.5k, Sony a6500, iPhone 11 e Mavic Mini 1, utilizando lentes Canon STM 24mm f2.8, Raynette 28mm f2.8, Sony FE 50mm f1.8 e Makinon 135mm f2.8. Todos os 43 planos e sequências selecionados já estão indexados no Shotdeck.",
     "image": "assets/shots/rito_passos_para_quem_partiu/seq_012_013_silhueta_aurora_campo.jpg",
     "projectId": "rito-passos-para-quem-partiu"
   },
@@ -120,33 +120,42 @@ window.AWA_PROJECTS = [
     "title": "Rio dos Horizontes",
     "category": "Documentário",
     "year": "2022",
-    "client": "Prefeitura de Mogi das Cruzes / Rolo B - AWA Cinematografia",
+    "client": "Ciro Pirondi",
     "duration": "24 min 07s",
     "format": "2.40:1 Cinemascope 4K · Cor",
     "aspectRatio": "2.40:1 (3840×1600)",
-    "camera": "Cinema Digital 4K & Drone",
-    "lenses": "Conjunto Óptico Cinematográfico & Drone Aéreo",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
+    "lenses": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
     "status": "Documentário Oficial · Urbanismo & Meio Ambiente",
+    "youtubeUrl": "https://www.youtube.com/watch?v=KVxOWWuZT0E",
     "logline": "Da Serra do Itapeti à várzea do Rio Tietê: arquitetos, biólogos e gestores desenham a reconexão ambiental e urbana de Mogi das Cruzes.",
-    "synopsis": "Documentário institucional e autoral sobre o plano urbano-ambiental Rio dos Horizontes, em Mogi das Cruzes. A obra costura voos rasantes sobre a Mata Atlântica da Serra do Itapeti, o curso e as lagoas do Rio Tietê, detalhes sensoriais de nascentes e fauna, memória histórica e depoimentos de arquitetos (Ciro Pirondi, Pedro Zappa), biólogos (Eliseu Pereira Piacentin, Pedro Luis Batista Tomasulo) e gestores públicos.",
-    "directorNote": "Fotografia em formato 2.40:1 Cinemascope (3840×1600) que contrapõe planos aéreos e zenitais da hidrografia do Rio Tietê e do dossel da Serra do Itapeti a micro-detalhes de águas cristalinas em slow motion e retratos em luz natural.",
+    "synopsis": "Documentário sobre o plano urbano-ambiental Rio dos Horizontes, em Mogi das Cruzes, conduzido pelo arquiteto Ciro Pirondi e equipe multidisciplinar. A obra costura voos rasantes sobre a Mata Atlântica da Serra do Itapeti, o curso e as lagoas do Rio Tietê, detalhes sensoriais de nascentes e fauna, memória histórica e depoimentos de arquitetos (Ciro Pirondi, Pedro Zappa), biólogos (Eliseu Pereira Piacentin, Pedro Luis Batista Tomasulo) e gestores públicos.",
+    "directorNote": "Fotografia em formato 2.40:1 Cinemascope (3840×1600) captada com BMCC 2.5k, Sony a6500 e Mavic Mini e lentes Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8 e Makinon 135mm f2.8 — contrapondo planos aéreos e zenitais da hidrografia do Rio Tietê e do dossel da Serra do Itapeti a micro-detalhes de águas cristalinas em slow motion e retratos em luz natural.",
     "coverImage": "assets/shots/rio_dos_horizontes/seq_001_002_serra_itapeti_revelacao_mogi.jpg",
     "coverVideo": "assets/videos/rio_dos_horizontes/seq_001_002_serra_itapeti_revelacao_mogi.mp4",
     "credits": [
       {
+        "role": "Cliente",
+        "name": "Ciro Pirondi"
+      },
+      {
         "role": "Produção Audiovisual",
-        "name": "Rolo B - AWA Cinematografia"
+        "name": "Rolo B - AWA"
       },
       {
-        "role": "Direção Geral, Direção de Fotografia, Operação de Câmera, Imagens Aéreas, Captação de Áudio e Edição",
-        "name": "Vitor Gonçalves"
+        "role": "Direção Geral, Direção de Fotografia, Imagens Aéreas, Captação de Áudio e Edição",
+        "name": "Vitor Gonc"
       },
       {
-        "role": "Operação de Câmera, Microfonista, Assistente de Produção, Captação e Tratamento de Áudio",
-        "name": "Alexandre Becker Klein"
+        "role": "Operação de Câmera",
+        "name": "Xand Klein, Vitor Gonc"
       },
       {
-        "role": "Colorização",
+        "role": "Microfonista, Assistente de Produção, Captação e Tratamento de Áudio",
+        "name": "Xand Klein"
+      },
+      {
+        "role": "Color",
         "name": "Gustavo Cardoso de Brito"
       },
       {
@@ -156,10 +165,6 @@ window.AWA_PROJECTS = [
       {
         "role": "Biólogos",
         "name": "Eliseu Pereira Piacentin, Pedro Luis Batista Tomasulo"
-      },
-      {
-        "role": "Gestão Pública (Mogi das Cruzes)",
-        "name": "Caio Cunha, Priscila Yamagomi Kahler, Michele de Sá Vieira, Claudio de Faria Rodrigues, Kelen Chacon, Lucas Porto"
       }
     ]
   },
@@ -444,7 +449,7 @@ window.AWA_PROJECTS = [
     "lenses": "Canon STM 24mm f2.8, Makinon 135mm f2.8, Raynette 28mm f2.8, Sony FE 50mm f1.8",
     "status": "Longa-Metragem Documental · ProAC LAB",
     "logline": "Travessia ritual e caminhada memorial de Mogi das Cruzes à Nascente do Rio Tietê, em Salesópolis.",
-    "synopsis": "Realizado pelo Grupo Contadores de Mentira com apoio do ProAC LAB e produção audiovisual da Rolo B - AWA Cinematografia, “Rito — Passos para Quem Partiu” acompanha um cortejo de atuadores e músicos em peregrinação a pé pela madrugada, rodovias, estradas de terra, cachoeiras e serra até alcançar o olho d'água da Nascente do Rio Tietê, plantando cruzes e gestos de memória ao longo do caminho.",
+    "synopsis": "Realizado pelo Grupo Contadores de Mentira com apoio do ProAC LAB e produção audiovisual da Rolo B - AWA, “Rito — Passos para Quem Partiu” acompanha um cortejo de atuadores e músicos em peregrinação a pé pela madrugada, rodovias, estradas de terra, cachoeiras e serra até alcançar o olho d'água da Nascente do Rio Tietê, plantando cruzes e gestos de memória ao longo do caminho.",
     "directorNote": "Fotografia em formato 2.40:1 Cinemascope combinando BMMC 2.5k, Sony a6500, iPhone 11 e Mavic Mini 1 — contrapondo a escala humana solitária diante de várzeas, rodovias e queimadas aéreas à intimidade tátil de retratos em 135mm/50mm e grandes-angulares de 24mm/28mm na luz natural do trajeto.",
     "coverImage": "assets/shots/rito_passos_para_quem_partiu/seq_012_013_silhueta_aurora_campo.jpg",
     "coverVideo": "assets/videos/rito_passos_para_quem_partiu/seq_012_013_silhueta_aurora_campo.mp4",
@@ -455,15 +460,15 @@ window.AWA_PROJECTS = [
       },
       {
         "role": "Produção Audiovisual",
-        "name": "Rolo B - AWA Cinematografia"
+        "name": "Rolo B - AWA"
       },
       {
         "role": "Captação de Imagem e Som",
-        "name": "Nando Rodrigues, Vitor Gonçalves"
+        "name": "Nando Rodrigues, Vitor Gonc"
       },
       {
         "role": "Imagens Aéreas",
-        "name": "Vitor Gonçalves"
+        "name": "Vitor Gonc"
       },
       {
         "role": "Captação e Edição de Voice-Over",
@@ -471,7 +476,7 @@ window.AWA_PROJECTS = [
       },
       {
         "role": "Edição",
-        "name": "Gabriela Stano, Vitor Gonçalves"
+        "name": "Gabriela Stano, Vitor Gonc"
       },
       {
         "role": "Atuadoras e Atuadores",
@@ -495,8 +500,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plano Geral",
     "movimento": "Voo Rasante & Revelação Aérea de Drone",
     "iluminacao": "Luz Natural Diurna",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Verde Floresta, Azul Céu & Urbano",
     "image": "assets/shots/rio_dos_horizontes/seq_001_002_serra_itapeti_revelacao_mogi.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_001_002_serra_itapeti_revelacao_mogi.mp4",
@@ -529,8 +534,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plano Geral",
     "movimento": "Travelling Aéreo Frontal sob Vigas e Pérgola",
     "iluminacao": "Luz Natural Nublada",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Cinza Concreto, Verde & Azul Serra",
     "image": "assets/shots/rio_dos_horizontes/seq_003_004_005_travessia_aerea_avenida_civica.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_003_004_005_travessia_aerea_avenida_civica.mp4",
@@ -563,8 +568,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plongée",
     "movimento": "Drone Plongée Oblíquo sobre Avenidas",
     "iluminacao": "Luz Natural Difusa",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Cinza Asfalto, Laranja & Verde",
     "image": "assets/shots/rio_dos_horizontes/006_plongee_aereo_cruzamento_urbano_edificio.jpg",
     "video": "assets/videos/rio_dos_horizontes/006_plongee_aereo_cruzamento_urbano_edificio.mp4",
@@ -597,8 +602,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plano Médio",
     "movimento": "Estático em Duas Câmeras (Médio & Close-Up)",
     "iluminacao": "Luz Natural de Jardim & Interior Quente",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Verde Folhagem, Âmbar & Azul Marinho",
     "image": "assets/shots/rio_dos_horizontes/seq_008_009_ciro_pirondi_arquiteto.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_008_009_ciro_pirondi_arquiteto.mp4",
@@ -632,8 +637,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plano Médio",
     "movimento": "Estático em Duas Câmeras (Médio & Close-Up)",
     "iluminacao": "Luz Natural Filtrada na Mata",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Verde Mata & Branco",
     "image": "assets/shots/rio_dos_horizontes/seq_013_031_eliseu_piacentin_biologo.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_013_031_eliseu_piacentin_biologo.mp4",
@@ -667,8 +672,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plano Geral",
     "movimento": "Voo Rasante sobre a Água + Enquadramento na Margem",
     "iluminacao": "Luz Natural Diurna",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Azul Água, Verde Mata & Céu",
     "image": "assets/shots/rio_dos_horizontes/seq_014_015_lagoa_parque_centenario_espelho_agua.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_014_015_lagoa_parque_centenario_espelho_agua.mp4",
@@ -701,8 +706,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plano Médio",
     "movimento": "Estático / Entrevista Institucional",
     "iluminacao": "Luz Suave Interna",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Verde, Amarelo Geométrico & Azul Escuro",
     "image": "assets/shots/rio_dos_horizontes/seq_017_060_caio_cunha_prefeito.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_017_060_caio_cunha_prefeito.mp4",
@@ -734,8 +739,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plano Médio",
     "movimento": "Estático com Croquis Arquitetônicos ao Fundo",
     "iluminacao": "Luz Quente de Estúdio & Contraluz",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Preto Lousa, Giz Branco & Âmbar",
     "image": "assets/shots/rio_dos_horizontes/022_pedro_zappa_arquiteto_diante_lousa.jpg",
     "video": "assets/videos/rio_dos_horizontes/022_pedro_zappa_arquiteto_diante_lousa.mp4",
@@ -769,8 +774,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Zenital",
     "movimento": "Voo Aéreo pelo Canal + Top-Down Zenital",
     "iluminacao": "Luz Solar sobre o Rio",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Terracota Argila, Verde Mata & Branco",
     "image": "assets/shots/rio_dos_horizontes/seq_023_024_curso_rio_tiete_e_zenital_garca.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_023_024_curso_rio_tiete_e_zenital_garca.mp4",
@@ -803,8 +808,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Close-Up",
     "movimento": "Detalhe Óptico de Foco Raso",
     "iluminacao": "Luz Natural Refratada na Água",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Verde Musgo, Ocre & Água Cristalina",
     "image": "assets/shots/rio_dos_horizontes/seq_025_032_fonte_musgo_e_folha_correnteza.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_025_032_fonte_musgo_e_folha_correnteza.mp4",
@@ -838,8 +843,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plano Médio",
     "movimento": "Estático com Fonte d'Água em Segundo Plano",
     "iluminacao": "Luz Natural Difusa na Floresta",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Verde Musgo, Terra & Azul Claro",
     "image": "assets/shots/rio_dos_horizontes/026_pedro_luis_batista_tomasulo_biologo.jpg",
     "video": "assets/videos/rio_dos_horizontes/026_pedro_luis_batista_tomasulo_biologo.mp4",
@@ -872,8 +877,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plano Geral",
     "movimento": "Panorâmica Aérea em Drone sobre as Lagoas",
     "iluminacao": "Luz Diurna com Nuvens",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Azul Lagoa, Verde Mata & Serra",
     "image": "assets/shots/rio_dos_horizontes/seq_027_075_parque_centenario_lagoas_e_ilhas.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_027_075_parque_centenario_lagoas_e_ilhas.mp4",
@@ -907,8 +912,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plano Geral",
     "movimento": "Travelling Aéreo Rasante pelo Leito do Rio",
     "iluminacao": "Luz Solar Plena",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Verde Mata Ciliar, Azul Céu & Reflexo Dourado",
     "image": "assets/shots/rio_dos_horizontes/043_voo_rasante_espelho_d_agua.jpg",
     "video": "assets/videos/rio_dos_horizontes/043_voo_rasante_espelho_d_agua.mp4",
@@ -941,8 +946,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plano Geral",
     "movimento": "Travelling Aéreo Suave sobre Água Espelhada",
     "iluminacao": "Luz Solar Limpa de Manhã",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Azul Cobalto, Verde Esmeralda & Branco",
     "image": "assets/shots/rio_dos_horizontes/055_reflexo_simetrico_arvores_ceu_azul.jpg",
     "video": "assets/videos/rio_dos_horizontes/055_reflexo_simetrico_arvores_ceu_azul.mp4",
@@ -975,8 +980,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plano Geral",
     "movimento": "Drone Aéreo Alto sobre a Fronteira Cidade-Serra",
     "iluminacao": "Luz Solar entre Nuvens",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Verde Serra, Azul Céu & Telhados Urbanos",
     "image": "assets/shots/rio_dos_horizontes/seq_069_070_panorama_urbano_encosta_serra_itapeti.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_069_070_panorama_urbano_encosta_serra_itapeti.mp4",
@@ -1008,8 +1013,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plongée",
     "movimento": "Subida Aérea pela Trilha + Plongée sobre a Clareira",
     "iluminacao": "Luz Solar de Floresta",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Verde Intenso, Terracota & Sombra",
     "image": "assets/shots/rio_dos_horizontes/seq_087_088_trilha_mata_e_clareira_parque_itapeti.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_087_088_trilha_mata_e_clareira_parque_itapeti.mp4",
@@ -1043,8 +1048,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Close-Up",
     "movimento": "Câmera Lenta (Slow Motion) em Contraluz",
     "iluminacao": "Contraluz Solar cintilando na Água",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Prata Cristalino, Azul Frio & Verde Musgo",
     "image": "assets/shots/rio_dos_horizontes/seq_089_090_jato_agua_fonte_e_fio_slow_motion.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_089_090_jato_agua_fonte_e_fio_slow_motion.mp4",
@@ -1078,8 +1083,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Contra-Plongée",
     "movimento": "Tilt Ascendente pelo Tronco até a Copa",
     "iluminacao": "Luz Solar Filtrada pelo Dossel",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Verde Folhagem, Azul Céu & Branco Nuvem",
     "image": "assets/shots/rio_dos_horizontes/099_embauba_dossel_florestal_contra_ceu.jpg",
     "video": "assets/videos/rio_dos_horizontes/099_embauba_dossel_florestal_contra_ceu.mp4",
@@ -1111,8 +1116,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Plano Geral",
     "movimento": "Travelling Lateral de Revelação da Lagoa",
     "iluminacao": "Luz Diurna Suave com Nuvens",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Verde Várzea, Azul Céu & Silhueta de Troncos",
     "image": "assets/shots/rio_dos_horizontes/seq_148_149_travessia_troncos_e_horizonte_varzea.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_148_149_travessia_troncos_e_horizonte_varzea.mp4",
@@ -1145,8 +1150,8 @@ window.AWA_SHOTS = [
     "enquadramento": "Close-Up",
     "movimento": "Estático Contemplativo & Foco Seletivo",
     "iluminacao": "Luz Solar Lateral na Mata",
-    "lente": "Conjunto Óptico Cinematográfico & Drone",
-    "camera": "Cinema Digital 4K & Drone (2.40:1)",
+    "lente": "Sigma EX 17-35mm f2.8, Canon STM 24mm f2.8, Makinon 135mm f2.8",
+    "camera": "BMCC 2.5k, Sony a6500, Mavic Mini",
     "cor": "Verde Folha, Oliva & Reflexo Prateado",
     "image": "assets/shots/rio_dos_horizontes/seq_151_152_reflexo_galhos_espelho_agua_e_folhas_trilha.jpg",
     "video": "assets/videos/rio_dos_horizontes/seq_151_152_reflexo_galhos_espelho_agua_e_folhas_trilha.mp4",
@@ -6999,8 +7004,8 @@ window.AWA_PARTNERS = [];
 
 window.AWA_CLIENTS = [
   {
-    "name": "Mogi das Cruzes / Rolo B",
-    "sector": "Documentário & Urbanismo Ambiental",
+    "name": "Ciro Pirondi",
+    "sector": "Arquitetura, Urbanismo & Documentário",
     "projectsCount": "1 filme · 20 takes",
     "highlight": "Rio dos Horizontes",
     "projectId": "rio-dos-horizontes"
