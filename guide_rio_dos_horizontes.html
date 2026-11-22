@@ -30,13 +30,15 @@
     .card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: 7px; overflow: hidden; cursor: pointer; transition: border-color 0.15s; }
     .card.hidden { display: none; }
     .card:has(.pick:checked) { border-color: var(--green); }
-    .card:has(.pick:checked) .badge.alt { background: rgba(74, 222, 128, 0.92); color: #052e16; border-color: transparent; opacity: 1; }
+    .card:has(.pick:checked) .badge.live { background: rgba(74, 222, 128, 0.92); color: #052e16; }
+    .badge.alt { background: rgba(74, 222, 128, 0.92); color: #052e16; border-color: transparent; opacity: 1; }
     .media-wrap { position: relative; aspect-ratio: 854 / 356; background: #000; overflow: hidden; }
     .media-wrap img, .media-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .media-wrap video { position: absolute; inset: 0; opacity: 0; transition: opacity 0.18s; }
     .card:hover .media-wrap video { opacity: 1; }
     .num-badge { position: absolute; top: 6px; left: 6px; background: rgba(0,0,0,0.86); color: #fff; border: 1px solid rgba(255,255,255,0.24); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.72rem; font-weight: 700; padding: 2px 7px; border-radius: 4px; }
     .badge { position: absolute; top: 6px; right: 6px; font-size: 0.62rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.04em; }
+    .badge.live { background: rgba(74, 222, 128, 0.92); color: #052e16; }
     .badge.alt { background: rgba(20, 20, 20, 0.85); color: #d4d4d4; border: 1px solid #404040; opacity: 0.85; }
     .meta { padding: 9px 10px; }
     .row-top { display: flex; align-items: flex-start; gap: 7px; }
@@ -51,18 +53,20 @@
   <header>
     <div>
       <h1>Guia Visual Numerado — Rio dos Horizontes</h1>
-      <p class="lead">Decupagem curada e deduplicada com <strong>156 takes</strong> distintos (3840×1600 · 2.40:1 Cinemascope em 4K UHD · 24min 07s · Produção Rolo B Cinematografia · Direção Geral, Fotografia, Drone e Edição: Vitor Gonçalves). Agrupado por categoria visual e entrevistado para comparação direta. Passe o mouse para reproduzir o loop MP4, marque os takes escolhidos e clique em <strong>Copiar Seleção</strong> (<span id="selectedCount">0</span> selecionados).</p>
+      <p class="lead">Sincronizado com os <strong>20 takes e sequências finais</strong> ativos no site (unificando <strong>#001+#002</strong>, <strong>#003+#004+#005</strong>, <strong>#008+#009</strong>, <strong>#013+#031</strong>, <strong>#014+#015</strong>, <strong>#017+#060</strong>, <strong>#023+#024</strong>, <strong>#025+#032</strong>, <strong>#027+#075</strong>, <strong>#069+#070</strong>, <strong>#087+#088</strong>, <strong>#089+#090</strong>, <strong>#148+#149</strong> e <strong>#151+#152</strong> + 6 takes individuais, de <strong>156</strong> planos distintos · 3840×1600 · 2.40:1 Cinemascope · 24min 07s). Passe o mouse para ver o loop MP4 e clique em <strong>Copiar Seleção</strong> (<span id="selectedCount">55</span> selecionados).</p>
     </div>
     <div class="actions">
-      <a class="btn ghost" href="portfolio.html" target="_blank">Abrir Portfólio ↗</a>
+      <a class="btn ghost" href="projeto.html?id=rio-dos-horizontes" target="_blank">Abrir Projeto no Site ↗</a>
+      <a class="btn ghost" href="portfolio.html?q=Horizontes" target="_blank">Abrir Portfólio ↗</a>
       <button class="btn ghost" id="onlySelectedBtn">Só Selecionados</button>
       <button class="btn ghost" id="selectAllBtn">Marcar Todos</button>
       <button class="btn ghost" id="resetBtn">Limpar Seleção</button>
-      <button class="btn" id="copyBtn">Copiar Seleção (<span id="copyCount">0</span>)</button>
+      <button class="btn" id="copyBtn">Copiar Seleção (<span id="copyCount">55</span>)</button>
     </div>
   </header>
   <div class="toolbar">
     <nav class="chapters">
+      <a class="chap-pill" href="#sequencias">Sequências &amp; Takes no Site (20)</a>
       <a class="chap-pill" href="#drones_serra">Drones (17)</a>
       <a class="chap-pill" href="#drones_rio">Drones (19)</a>
       <a class="chap-pill" href="#natureza_fauna">B-Roll Natureza (29)</a>
@@ -77,94 +81,399 @@
     </div>
   </div>
   <main>
+    <section class="group" id="sequencias">
+      <h2>Sequências &amp; Takes Ativos no Site (Curadoria Final) <span class="count">(20 itens no Shotdeck · 14 sequências + 6 takes)</span></h2>
+      <div class="grid">
+        <label class="card is-live" data-slug="seq_001_002_serra_itapeti_revelacao_mogi" data-search="#001+#002 copa da mata atlântica na serra do itapeti &amp; revelação de mogi das cruzes plano geral seq_001_002_serra_itapeti_revelacao_mogi 01:00:01:22">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_001_002_serra_itapeti_revelacao_mogi.jpg" alt="Copa da Mata Atlântica na Serra do Itapeti &amp; Revelação de Mogi das Cruzes" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_001_002_serra_itapeti_revelacao_mogi.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#001+#002</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#001+#002" value="#001+#002 | 01:00:01:22 | seq_001_002_serra_itapeti_revelacao_mogi | Copa da Mata Atlântica na Serra do Itapeti &amp; Revelação de Mogi das Cruzes" checked>
+              <span class="title"><span class="num-inline">#001+#002</span> Copa da Mata Atlântica na Serra do Itapeti &amp; Revelação de Mogi das Cruzes</span>
+            </div>
+            <div class="sub">01:00:01:22 · 21.52s · Plano Geral · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="seq_003_004_005_travessia_aerea_avenida_civica" data-search="#003+#004+#005 travessia aérea — avenida cívica, pérgola de concreto &amp; eixo urbano com a serra plano geral seq_003_004_005_travessia_aerea_avenida_civica 01:00:23:11">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_003_004_005_travessia_aerea_avenida_civica.jpg" alt="Travessia Aérea — Avenida Cívica, Pérgola de Concreto &amp; Eixo Urbano com a Serra" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_003_004_005_travessia_aerea_avenida_civica.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#003+#004+#005</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#003+#004+#005" value="#003+#004+#005 | 01:00:23:11 | seq_003_004_005_travessia_aerea_avenida_civica | Travessia Aérea — Avenida Cívica, Pérgola de Concreto &amp; Eixo Urbano com a Serra" checked>
+              <span class="title"><span class="num-inline">#003+#004+#005</span> Travessia Aérea — Avenida Cívica, Pérgola de Concreto &amp; Eixo Urbano com a Serra</span>
+            </div>
+            <div class="sub">01:00:23:11 · 6.09s · Plano Geral · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="006_plongee_aereo_cruzamento_urbano_edificio" data-search="#006 plongée aéreo — cruzamento urbano e edifício laranja plongée 006_plongee_aereo_cruzamento_urbano_edificio 01:00:30:12">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/006_plongee_aereo_cruzamento_urbano_edificio.jpg" alt="Plongée Aéreo — Cruzamento Urbano e Edifício Laranja" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/006_plongee_aereo_cruzamento_urbano_edificio.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#006</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#006" value="#006 | 01:00:30:12 | 006_plongee_aereo_cruzamento_urbano_edificio | Plongée Aéreo — Cruzamento Urbano e Edifício Laranja" checked>
+              <span class="title"><span class="num-inline">#006</span> Plongée Aéreo — Cruzamento Urbano e Edifício Laranja</span>
+            </div>
+            <div class="sub">01:00:30:12 · 10.34s · Plongée · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="seq_008_009_ciro_pirondi_arquiteto" data-search="#008+#009 ciro pirondi (arquiteto) — depoimento no jardim &amp; close-up lateral plano médio seq_008_009_ciro_pirondi_arquiteto 01:00:47:12">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_008_009_ciro_pirondi_arquiteto.jpg" alt="Ciro Pirondi (Arquiteto) — Depoimento no Jardim &amp; Close-Up Lateral" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_008_009_ciro_pirondi_arquiteto.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#008+#009</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#008+#009" value="#008+#009 | 01:00:47:12 | seq_008_009_ciro_pirondi_arquiteto | Ciro Pirondi (Arquiteto) — Depoimento no Jardim &amp; Close-Up Lateral" checked>
+              <span class="title"><span class="num-inline">#008+#009</span> Ciro Pirondi (Arquiteto) — Depoimento no Jardim &amp; Close-Up Lateral</span>
+            </div>
+            <div class="sub">01:00:47:12 · 29.24s · Plano Médio · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="seq_013_031_eliseu_piacentin_biologo" data-search="#013+#031 eliseu pereira piacentin (biólogo) — plano médio &amp; close-up no parque plano médio seq_013_031_eliseu_piacentin_biologo 01:01:31:06">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_013_031_eliseu_piacentin_biologo.jpg" alt="Eliseu Pereira Piacentin (Biólogo) — Plano Médio &amp; Close-Up no Parque" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_013_031_eliseu_piacentin_biologo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#013+#031</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#013+#031" value="#013+#031 | 01:01:31:06 | seq_013_031_eliseu_piacentin_biologo | Eliseu Pereira Piacentin (Biólogo) — Plano Médio &amp; Close-Up no Parque" checked>
+              <span class="title"><span class="num-inline">#013+#031</span> Eliseu Pereira Piacentin (Biólogo) — Plano Médio &amp; Close-Up no Parque</span>
+            </div>
+            <div class="sub">01:01:31:06 · 9.55s · Plano Médio · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="seq_014_015_lagoa_parque_centenario_espelho_agua" data-search="#014+#015 lagoa do parque centenário em voo baixo &amp; espelho d&#x27;água entre galhos plano geral seq_014_015_lagoa_parque_centenario_espelho_agua 01:02:02:19">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_014_015_lagoa_parque_centenario_espelho_agua.jpg" alt="Lagoa do Parque Centenário em Voo Baixo &amp; Espelho d&#x27;Água Entre Galhos" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_014_015_lagoa_parque_centenario_espelho_agua.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#014+#015</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#014+#015" value="#014+#015 | 01:02:02:19 | seq_014_015_lagoa_parque_centenario_espelho_agua | Lagoa do Parque Centenário em Voo Baixo &amp; Espelho d&#x27;Água Entre Galhos" checked>
+              <span class="title"><span class="num-inline">#014+#015</span> Lagoa do Parque Centenário em Voo Baixo &amp; Espelho d&#x27;Água Entre Galhos</span>
+            </div>
+            <div class="sub">01:02:02:19 · 10.67s · Plano Geral · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="seq_017_060_caio_cunha_prefeito" data-search="#017+#060 caio cunha (prefeito) — depoimento diante de painel geométrico plano médio seq_017_060_caio_cunha_prefeito 01:02:43:00">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_017_060_caio_cunha_prefeito.jpg" alt="Caio Cunha (Prefeito) — Depoimento Diante de Painel Geométrico" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_017_060_caio_cunha_prefeito.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#017+#060</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#017+#060" value="#017+#060 | 01:02:43:00 | seq_017_060_caio_cunha_prefeito | Caio Cunha (Prefeito) — Depoimento Diante de Painel Geométrico" checked>
+              <span class="title"><span class="num-inline">#017+#060</span> Caio Cunha (Prefeito) — Depoimento Diante de Painel Geométrico</span>
+            </div>
+            <div class="sub">01:02:43:00 · 21.02s · Plano Médio · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="022_pedro_zappa_arquiteto_diante_lousa" data-search="#022 pedro zappa (arquiteto) — diante de lousa com croquis plano médio 022_pedro_zappa_arquiteto_diante_lousa 01:04:09:22">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/022_pedro_zappa_arquiteto_diante_lousa.jpg" alt="Pedro Zappa (Arquiteto) — Diante de Lousa com Croquis" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/022_pedro_zappa_arquiteto_diante_lousa.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#022</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#022" value="#022 | 01:04:09:22 | 022_pedro_zappa_arquiteto_diante_lousa | Pedro Zappa (Arquiteto) — Diante de Lousa com Croquis" checked>
+              <span class="title"><span class="num-inline">#022</span> Pedro Zappa (Arquiteto) — Diante de Lousa com Croquis</span>
+            </div>
+            <div class="sub">01:04:09:22 · 11.72s · Plano Médio · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="seq_023_024_curso_rio_tiete_e_zenital_garca" data-search="#023+#024 curso do rio tietê entre mata ciliar &amp; zenital do leito com garça branca zenital seq_023_024_curso_rio_tiete_e_zenital_garca 01:04:21:15">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_023_024_curso_rio_tiete_e_zenital_garca.jpg" alt="Curso do Rio Tietê Entre Mata Ciliar &amp; Zenital do Leito com Garça Branca" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_023_024_curso_rio_tiete_e_zenital_garca.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#023+#024</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#023+#024" value="#023+#024 | 01:04:21:15 | seq_023_024_curso_rio_tiete_e_zenital_garca | Curso do Rio Tietê Entre Mata Ciliar &amp; Zenital do Leito com Garça Branca" checked>
+              <span class="title"><span class="num-inline">#023+#024</span> Curso do Rio Tietê Entre Mata Ciliar &amp; Zenital do Leito com Garça Branca</span>
+            </div>
+            <div class="sub">01:04:21:15 · 8.43s · Zenital · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="seq_025_032_fonte_musgo_e_folha_correnteza" data-search="#025+#032 borda de fonte coberta de musgo &amp; folha submersa na correnteza cristalina close-up seq_025_032_fonte_musgo_e_folha_correnteza 01:04:31:01">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_025_032_fonte_musgo_e_folha_correnteza.jpg" alt="Borda de Fonte Coberta de Musgo &amp; Folha Submersa na Correnteza Cristalina" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_025_032_fonte_musgo_e_folha_correnteza.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#025+#032</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#025+#032" value="#025+#032 | 01:04:31:01 | seq_025_032_fonte_musgo_e_folha_correnteza | Borda de Fonte Coberta de Musgo &amp; Folha Submersa na Correnteza Cristalina" checked>
+              <span class="title"><span class="num-inline">#025+#032</span> Borda de Fonte Coberta de Musgo &amp; Folha Submersa na Correnteza Cristalina</span>
+            </div>
+            <div class="sub">01:04:31:01 · 4.04s · Close-Up · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="026_pedro_luis_batista_tomasulo_biologo" data-search="#026 pedro luis batista tomasulo (biólogo) — junto à fonte na mata plano médio 026_pedro_luis_batista_tomasulo_biologo 01:04:33:13">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/026_pedro_luis_batista_tomasulo_biologo.jpg" alt="Pedro Luis Batista Tomasulo (Biólogo) — Junto à Fonte na Mata" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/026_pedro_luis_batista_tomasulo_biologo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#026</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#026" value="#026 | 01:04:33:13 | 026_pedro_luis_batista_tomasulo_biologo | Pedro Luis Batista Tomasulo (Biólogo) — Junto à Fonte na Mata" checked>
+              <span class="title"><span class="num-inline">#026</span> Pedro Luis Batista Tomasulo (Biólogo) — Junto à Fonte na Mata</span>
+            </div>
+            <div class="sub">01:04:33:13 · 13.22s · Plano Médio · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="seq_027_075_parque_centenario_lagoas_e_ilhas" data-search="#027+#075 parque centenário aéreo — passarela sobre as lagoas &amp; ilhas com a serra ao fundo plano geral seq_027_075_parque_centenario_lagoas_e_ilhas 01:04:46:18">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_027_075_parque_centenario_lagoas_e_ilhas.jpg" alt="Parque Centenário Aéreo — Passarela sobre as Lagoas &amp; Ilhas com a Serra ao Fundo" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_027_075_parque_centenario_lagoas_e_ilhas.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#027+#075</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#027+#075" value="#027+#075 | 01:04:46:18 | seq_027_075_parque_centenario_lagoas_e_ilhas | Parque Centenário Aéreo — Passarela sobre as Lagoas &amp; Ilhas com a Serra ao Fundo" checked>
+              <span class="title"><span class="num-inline">#027+#075</span> Parque Centenário Aéreo — Passarela sobre as Lagoas &amp; Ilhas com a Serra ao Fundo</span>
+            </div>
+            <div class="sub">01:04:46:18 · 15.52s · Plano Geral · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="043_voo_rasante_espelho_d_agua" data-search="#043 voo rasante sobre o espelho d&#x27;água do rio tietê plano geral 043_voo_rasante_espelho_d_agua 01:12:05:22">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/043_voo_rasante_espelho_d_agua.jpg" alt="Voo Rasante Sobre o Espelho d&#x27;Água do Rio Tietê" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/043_voo_rasante_espelho_d_agua.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#043</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#043" value="#043 | 01:12:05:22 | 043_voo_rasante_espelho_d_agua | Voo Rasante Sobre o Espelho d&#x27;Água do Rio Tietê" checked>
+              <span class="title"><span class="num-inline">#043</span> Voo Rasante Sobre o Espelho d&#x27;Água do Rio Tietê</span>
+            </div>
+            <div class="sub">01:12:05:22 · 10.76s · Plano Geral · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="055_reflexo_simetrico_arvores_ceu_azul" data-search="#055 reflexo simétrico das árvores e céu azul no rio tietê plano geral 055_reflexo_simetrico_arvores_ceu_azul 01:14:17:15">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/055_reflexo_simetrico_arvores_ceu_azul.jpg" alt="Reflexo Simétrico das Árvores e Céu Azul no Rio Tietê" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/055_reflexo_simetrico_arvores_ceu_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#055</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#055" value="#055 | 01:14:17:15 | 055_reflexo_simetrico_arvores_ceu_azul | Reflexo Simétrico das Árvores e Céu Azul no Rio Tietê" checked>
+              <span class="title"><span class="num-inline">#055</span> Reflexo Simétrico das Árvores e Céu Azul no Rio Tietê</span>
+            </div>
+            <div class="sub">01:14:17:15 · 9.59s · Plano Geral · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="seq_069_070_panorama_urbano_encosta_serra_itapeti" data-search="#069+#070 panorama urbano no pé da serra do itapeti &amp; bairros na encosta verde plano geral seq_069_070_panorama_urbano_encosta_serra_itapeti 01:15:16:16">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_069_070_panorama_urbano_encosta_serra_itapeti.jpg" alt="Panorama Urbano no Pé da Serra do Itapeti &amp; Bairros na Encosta Verde" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_069_070_panorama_urbano_encosta_serra_itapeti.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#069+#070</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#069+#070" value="#069+#070 | 01:15:16:16 | seq_069_070_panorama_urbano_encosta_serra_itapeti | Panorama Urbano no Pé da Serra do Itapeti &amp; Bairros na Encosta Verde" checked>
+              <span class="title"><span class="num-inline">#069+#070</span> Panorama Urbano no Pé da Serra do Itapeti &amp; Bairros na Encosta Verde</span>
+            </div>
+            <div class="sub">01:15:16:16 · 3.13s · Plano Geral · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="seq_087_088_trilha_mata_e_clareira_parque_itapeti" data-search="#087+#088 trilha íngreme na mata &amp; clareira no parque municipal do itapeti plongée seq_087_088_trilha_mata_e_clareira_parque_itapeti 01:16:23:14">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_087_088_trilha_mata_e_clareira_parque_itapeti.jpg" alt="Trilha Íngreme na Mata &amp; Clareira no Parque Municipal do Itapeti" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_087_088_trilha_mata_e_clareira_parque_itapeti.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#087+#088</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#087+#088" value="#087+#088 | 01:16:23:14 | seq_087_088_trilha_mata_e_clareira_parque_itapeti | Trilha Íngreme na Mata &amp; Clareira no Parque Municipal do Itapeti" checked>
+              <span class="title"><span class="num-inline">#087+#088</span> Trilha Íngreme na Mata &amp; Clareira no Parque Municipal do Itapeti</span>
+            </div>
+            <div class="sub">01:16:23:14 · 10.56s · Plongée · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="seq_089_090_jato_agua_fonte_e_fio_slow_motion" data-search="#089+#090 jato de água cristalina na fonte &amp; fio d&#x27;água em slow motion na mata close-up seq_089_090_jato_agua_fonte_e_fio_slow_motion 01:16:35:20">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_089_090_jato_agua_fonte_e_fio_slow_motion.jpg" alt="Jato de Água Cristalina na Fonte &amp; Fio d&#x27;Água em Slow Motion na Mata" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_089_090_jato_agua_fonte_e_fio_slow_motion.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#089+#090</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#089+#090" value="#089+#090 | 01:16:35:20 | seq_089_090_jato_agua_fonte_e_fio_slow_motion | Jato de Água Cristalina na Fonte &amp; Fio d&#x27;Água em Slow Motion na Mata" checked>
+              <span class="title"><span class="num-inline">#089+#090</span> Jato de Água Cristalina na Fonte &amp; Fio d&#x27;Água em Slow Motion na Mata</span>
+            </div>
+            <div class="sub">01:16:35:20 · 4.46s · Close-Up · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="099_embauba_dossel_florestal_contra_ceu" data-search="#099 embaúba e dossel florestal contra o céu azul contra-plongée 099_embauba_dossel_florestal_contra_ceu 01:17:25:16">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/099_embauba_dossel_florestal_contra_ceu.jpg" alt="Embaúba e Dossel Florestal Contra o Céu Azul" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/099_embauba_dossel_florestal_contra_ceu.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#099</span>
+            <span class="badge live">NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#099" value="#099 | 01:17:25:16 | 099_embauba_dossel_florestal_contra_ceu | Embaúba e Dossel Florestal Contra o Céu Azul" checked>
+              <span class="title"><span class="num-inline">#099</span> Embaúba e Dossel Florestal Contra o Céu Azul</span>
+            </div>
+            <div class="sub">01:17:25:16 · 3.00s · Contra-Plongée · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="seq_148_149_travessia_troncos_e_horizonte_varzea" data-search="#148+#149 travessia lateral entre troncos &amp; horizonte verde da várzea do tietê plano geral seq_148_149_travessia_troncos_e_horizonte_varzea 01:22:21:15">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_148_149_travessia_troncos_e_horizonte_varzea.jpg" alt="Travessia Lateral Entre Troncos &amp; Horizonte Verde da Várzea do Tietê" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_148_149_travessia_troncos_e_horizonte_varzea.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#148+#149</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#148+#149" value="#148+#149 | 01:22:21:15 | seq_148_149_travessia_troncos_e_horizonte_varzea | Travessia Lateral Entre Troncos &amp; Horizonte Verde da Várzea do Tietê" checked>
+              <span class="title"><span class="num-inline">#148+#149</span> Travessia Lateral Entre Troncos &amp; Horizonte Verde da Várzea do Tietê</span>
+            </div>
+            <div class="sub">01:22:21:15 · 4.92s · Plano Geral · 2.40:1</div>
+          </div>
+        </label>
+        <label class="card is-live" data-slug="seq_151_152_reflexo_galhos_espelho_agua_e_folhas_trilha" data-search="#151+#152 galhos refletidos no espelho d&#x27;água &amp; foco seletivo em folhas na trilha close-up seq_151_152_reflexo_galhos_espelho_agua_e_folhas_trilha 01:22:30:19">
+          <div class="media-wrap">
+            <img src="assets/shots/rio_dos_horizontes/seq_151_152_reflexo_galhos_espelho_agua_e_folhas_trilha.jpg" alt="Galhos Refletidos no Espelho d&#x27;Água &amp; Foco Seletivo em Folhas na Trilha" loading="lazy">
+            <video src="assets/videos/rio_dos_horizontes/seq_151_152_reflexo_galhos_espelho_agua_e_folhas_trilha.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge">#151+#152</span>
+            <span class="badge live">SEQUÊNCIA NO SITE</span>
+          </div>
+          <div class="meta">
+            <div class="row-top">
+              <input type="checkbox" class="pick" data-num="#151+#152" value="#151+#152 | 01:22:30:19 | seq_151_152_reflexo_galhos_espelho_agua_e_folhas_trilha | Galhos Refletidos no Espelho d&#x27;Água &amp; Foco Seletivo em Folhas na Trilha" checked>
+              <span class="title"><span class="num-inline">#151+#152</span> Galhos Refletidos no Espelho d&#x27;Água &amp; Foco Seletivo em Folhas na Trilha</span>
+            </div>
+            <div class="sub">01:22:30:19 · 6.34s · Close-Up · 2.40:1</div>
+          </div>
+        </label>
+      </div>
+    </section>
     <section class="group" id="drones_serra">
       <h2>Drones — Serra do Itapeti, Mata Atlântica &amp; Panorâmica de Mogi <span class="count">(17 takes)</span></h2>
       <div class="grid">
-        <label class="card" data-slug="001_copa_mata_atlantica_serra_itapeti" data-search="#001 copa da mata atlântica na serra do itapeti — voo rasante drone aéreo 001_copa_mata_atlantica_serra_itapeti 01:00:01:22">
+        <label class="card is-live" data-slug="001_copa_mata_atlantica_serra_itapeti" data-search="#001 copa da mata atlântica na serra do itapeti — voo rasante drone aéreo 001_copa_mata_atlantica_serra_itapeti 01:00:01:22">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/001_copa_mata_atlantica_serra_itapeti.jpg" alt="Copa da Mata Atlântica na Serra do Itapeti — Voo Rasante" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/001_copa_mata_atlantica_serra_itapeti.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#001</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#001+#002)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#001" value="#001 | 01:00:01:22 | 001_copa_mata_atlantica_serra_itapeti | Copa da Mata Atlântica na Serra do Itapeti — Voo Rasante">
+              <input type="checkbox" class="pick" data-num="#001" value="#001 | 01:00:01:22 | 001_copa_mata_atlantica_serra_itapeti | Copa da Mata Atlântica na Serra do Itapeti — Voo Rasante" checked>
               <span class="title"><span class="num-inline">#001</span> Copa da Mata Atlântica na Serra do Itapeti — Voo Rasante</span>
             </div>
             <div class="sub">01:00:01:22 · 10.59s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="002_revelacao_mogi_cruzes_partir_serra" data-search="#002 revelação de mogi das cruzes a partir da serra do itapeti drone aéreo 002_revelacao_mogi_cruzes_partir_serra 01:00:12:12">
+        <label class="card is-live" data-slug="002_revelacao_mogi_cruzes_partir_serra" data-search="#002 revelação de mogi das cruzes a partir da serra do itapeti drone aéreo 002_revelacao_mogi_cruzes_partir_serra 01:00:12:12">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/002_revelacao_mogi_cruzes_partir_serra.jpg" alt="Revelação de Mogi das Cruzes a partir da Serra do Itapeti" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/002_revelacao_mogi_cruzes_partir_serra.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#002</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#001+#002)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#002" value="#002 | 01:00:12:12 | 002_revelacao_mogi_cruzes_partir_serra | Revelação de Mogi das Cruzes a partir da Serra do Itapeti">
+              <input type="checkbox" class="pick" data-num="#002" value="#002 | 01:00:12:12 | 002_revelacao_mogi_cruzes_partir_serra | Revelação de Mogi das Cruzes a partir da Serra do Itapeti" checked>
               <span class="title"><span class="num-inline">#002</span> Revelação de Mogi das Cruzes a partir da Serra do Itapeti</span>
             </div>
             <div class="sub">01:00:12:12 · 10.93s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="003_avenida_civica_predios_vigas_concreto" data-search="#003 avenida cívica e prédios sob vigas de concreto — aéreo drone aéreo 003_avenida_civica_predios_vigas_concreto 01:00:23:11">
+        <label class="card is-live" data-slug="003_avenida_civica_predios_vigas_concreto" data-search="#003 avenida cívica e prédios sob vigas de concreto — aéreo drone aéreo 003_avenida_civica_predios_vigas_concreto 01:00:23:11">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/003_avenida_civica_predios_vigas_concreto.jpg" alt="Avenida Cívica e Prédios sob Vigas de Concreto — Aéreo" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/003_avenida_civica_predios_vigas_concreto.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#003</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#003+#004+#005)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#003" value="#003 | 01:00:23:11 | 003_avenida_civica_predios_vigas_concreto | Avenida Cívica e Prédios sob Vigas de Concreto — Aéreo">
+              <input type="checkbox" class="pick" data-num="#003" value="#003 | 01:00:23:11 | 003_avenida_civica_predios_vigas_concreto | Avenida Cívica e Prédios sob Vigas de Concreto — Aéreo" checked>
               <span class="title"><span class="num-inline">#003</span> Avenida Cívica e Prédios sob Vigas de Concreto — Aéreo</span>
             </div>
             <div class="sub">01:00:23:11 · 1.92s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="004_travessia_aerea_pergola_ginasio_municipal" data-search="#004 travessia aérea sobre pérgola e ginásio municipal drone aéreo 004_travessia_aerea_pergola_ginasio_municipal 01:00:25:09">
+        <label class="card is-live" data-slug="004_travessia_aerea_pergola_ginasio_municipal" data-search="#004 travessia aérea sobre pérgola e ginásio municipal drone aéreo 004_travessia_aerea_pergola_ginasio_municipal 01:00:25:09">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/004_travessia_aerea_pergola_ginasio_municipal.jpg" alt="Travessia Aérea Sobre Pérgola e Ginásio Municipal" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/004_travessia_aerea_pergola_ginasio_municipal.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#004</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#003+#004+#005)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#004" value="#004 | 01:00:25:09 | 004_travessia_aerea_pergola_ginasio_municipal | Travessia Aérea Sobre Pérgola e Ginásio Municipal">
+              <input type="checkbox" class="pick" data-num="#004" value="#004 | 01:00:25:09 | 004_travessia_aerea_pergola_ginasio_municipal | Travessia Aérea Sobre Pérgola e Ginásio Municipal" checked>
               <span class="title"><span class="num-inline">#004</span> Travessia Aérea Sobre Pérgola e Ginásio Municipal</span>
             </div>
             <div class="sub">01:00:25:09 · 0.96s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="005_eixo_urbano_mogi_cruzes_serra" data-search="#005 eixo urbano de mogi das cruzes com serra ao fundo drone aéreo 005_eixo_urbano_mogi_cruzes_serra 01:00:27:07">
+        <label class="card is-live" data-slug="005_eixo_urbano_mogi_cruzes_serra" data-search="#005 eixo urbano de mogi das cruzes com serra ao fundo drone aéreo 005_eixo_urbano_mogi_cruzes_serra 01:00:27:07">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/005_eixo_urbano_mogi_cruzes_serra.jpg" alt="Eixo Urbano de Mogi das Cruzes com Serra ao Fundo" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/005_eixo_urbano_mogi_cruzes_serra.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#005</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#003+#004+#005)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#005" value="#005 | 01:00:27:07 | 005_eixo_urbano_mogi_cruzes_serra | Eixo Urbano de Mogi das Cruzes com Serra ao Fundo">
+              <input type="checkbox" class="pick" data-num="#005" value="#005 | 01:00:27:07 | 005_eixo_urbano_mogi_cruzes_serra | Eixo Urbano de Mogi das Cruzes com Serra ao Fundo" checked>
               <span class="title"><span class="num-inline">#005</span> Eixo Urbano de Mogi das Cruzes com Serra ao Fundo</span>
             </div>
             <div class="sub">01:00:27:07 · 3.21s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="006_plongee_aereo_cruzamento_urbano_edificio" data-search="#006 plongée aéreo — cruzamento urbano e edifício laranja drone plongée 006_plongee_aereo_cruzamento_urbano_edificio 01:00:30:12">
+        <label class="card is-live" data-slug="006_plongee_aereo_cruzamento_urbano_edificio" data-search="#006 plongée aéreo — cruzamento urbano e edifício laranja drone plongée 006_plongee_aereo_cruzamento_urbano_edificio 01:00:30:12">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/006_plongee_aereo_cruzamento_urbano_edificio.jpg" alt="Plongée Aéreo — Cruzamento Urbano e Edifício Laranja" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/006_plongee_aereo_cruzamento_urbano_edificio.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#006</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#006" value="#006 | 01:00:30:12 | 006_plongee_aereo_cruzamento_urbano_edificio | Plongée Aéreo — Cruzamento Urbano e Edifício Laranja">
+              <input type="checkbox" class="pick" data-num="#006" value="#006 | 01:00:30:12 | 006_plongee_aereo_cruzamento_urbano_edificio | Plongée Aéreo — Cruzamento Urbano e Edifício Laranja" checked>
               <span class="title"><span class="num-inline">#006</span> Plongée Aéreo — Cruzamento Urbano e Edifício Laranja</span>
             </div>
             <div class="sub">01:00:30:12 · 10.34s · Drone Plongée · 2.40:1</div>
@@ -200,31 +509,31 @@
             <div class="sub">01:05:17:21 · 10.39s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="069_panorama_urbano_pe_serra_itapeti" data-search="#069 panorama urbano no pé da serra do itapeti sob nuvens drone aéreo 069_panorama_urbano_pe_serra_itapeti 01:15:16:16">
+        <label class="card is-live" data-slug="069_panorama_urbano_pe_serra_itapeti" data-search="#069 panorama urbano no pé da serra do itapeti sob nuvens drone aéreo 069_panorama_urbano_pe_serra_itapeti 01:15:16:16">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/069_panorama_urbano_pe_serra_itapeti.jpg" alt="Panorama Urbano no Pé da Serra do Itapeti sob Nuvens" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/069_panorama_urbano_pe_serra_itapeti.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#069</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#069+#070)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#069" value="#069 | 01:15:16:16 | 069_panorama_urbano_pe_serra_itapeti | Panorama Urbano no Pé da Serra do Itapeti sob Nuvens">
+              <input type="checkbox" class="pick" data-num="#069" value="#069 | 01:15:16:16 | 069_panorama_urbano_pe_serra_itapeti | Panorama Urbano no Pé da Serra do Itapeti sob Nuvens" checked>
               <span class="title"><span class="num-inline">#069</span> Panorama Urbano no Pé da Serra do Itapeti sob Nuvens</span>
             </div>
             <div class="sub">01:15:16:16 · 1.92s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="070_bairros_encosta_verde_serra_itapeti" data-search="#070 bairros e encosta verde da serra do itapeti — aéreo drone aéreo 070_bairros_encosta_verde_serra_itapeti 01:15:18:14">
+        <label class="card is-live" data-slug="070_bairros_encosta_verde_serra_itapeti" data-search="#070 bairros e encosta verde da serra do itapeti — aéreo drone aéreo 070_bairros_encosta_verde_serra_itapeti 01:15:18:14">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/070_bairros_encosta_verde_serra_itapeti.jpg" alt="Bairros e Encosta Verde da Serra do Itapeti — Aéreo" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/070_bairros_encosta_verde_serra_itapeti.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#070</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#069+#070)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#070" value="#070 | 01:15:18:14 | 070_bairros_encosta_verde_serra_itapeti | Bairros e Encosta Verde da Serra do Itapeti — Aéreo">
+              <input type="checkbox" class="pick" data-num="#070" value="#070 | 01:15:18:14 | 070_bairros_encosta_verde_serra_itapeti | Bairros e Encosta Verde da Serra do Itapeti — Aéreo" checked>
               <span class="title"><span class="num-inline">#070</span> Bairros e Encosta Verde da Serra do Itapeti — Aéreo</span>
             </div>
             <div class="sub">01:15:18:14 · 1.21s · Drone Aéreo · 2.40:1</div>
@@ -260,31 +569,31 @@
             <div class="sub">01:15:58:16 · 1.88s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="087_trilha_ingreme_cortando_mata_serra" data-search="#087 trilha íngreme cortando a mata da serra do itapeti drone aéreo 087_trilha_ingreme_cortando_mata_serra 01:16:23:14">
+        <label class="card is-live" data-slug="087_trilha_ingreme_cortando_mata_serra" data-search="#087 trilha íngreme cortando a mata da serra do itapeti drone aéreo 087_trilha_ingreme_cortando_mata_serra 01:16:23:14">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/087_trilha_ingreme_cortando_mata_serra.jpg" alt="Trilha Íngreme Cortando a Mata da Serra do Itapeti" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/087_trilha_ingreme_cortando_mata_serra.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#087</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#087+#088)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#087" value="#087 | 01:16:23:14 | 087_trilha_ingreme_cortando_mata_serra | Trilha Íngreme Cortando a Mata da Serra do Itapeti">
+              <input type="checkbox" class="pick" data-num="#087" value="#087 | 01:16:23:14 | 087_trilha_ingreme_cortando_mata_serra | Trilha Íngreme Cortando a Mata da Serra do Itapeti" checked>
               <span class="title"><span class="num-inline">#087</span> Trilha Íngreme Cortando a Mata da Serra do Itapeti</span>
             </div>
             <div class="sub">01:16:23:14 · 5.51s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="088_clareira_casa_apoio_parque_itapeti" data-search="#088 clareira e casa de apoio no parque do itapeti — plongée drone plongée 088_clareira_casa_apoio_parque_itapeti 01:16:29:02">
+        <label class="card is-live" data-slug="088_clareira_casa_apoio_parque_itapeti" data-search="#088 clareira e casa de apoio no parque do itapeti — plongée drone plongée 088_clareira_casa_apoio_parque_itapeti 01:16:29:02">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/088_clareira_casa_apoio_parque_itapeti.jpg" alt="Clareira e Casa de Apoio no Parque do Itapeti — Plongée" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/088_clareira_casa_apoio_parque_itapeti.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#088</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#087+#088)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#088" value="#088 | 01:16:29:02 | 088_clareira_casa_apoio_parque_itapeti | Clareira e Casa de Apoio no Parque do Itapeti — Plongée">
+              <input type="checkbox" class="pick" data-num="#088" value="#088 | 01:16:29:02 | 088_clareira_casa_apoio_parque_itapeti | Clareira e Casa de Apoio no Parque do Itapeti — Plongée" checked>
               <span class="title"><span class="num-inline">#088</span> Clareira e Casa de Apoio no Parque do Itapeti — Plongée</span>
             </div>
             <div class="sub">01:16:29:02 · 5.05s · Drone Plongée · 2.40:1</div>
@@ -305,16 +614,16 @@
             <div class="sub">01:17:21:20 · 3.84s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="099_embauba_dossel_florestal_contra_ceu" data-search="#099 embaúba e dossel florestal contra o céu azul contra-plongée 099_embauba_dossel_florestal_contra_ceu 01:17:25:16">
+        <label class="card is-live" data-slug="099_embauba_dossel_florestal_contra_ceu" data-search="#099 embaúba e dossel florestal contra o céu azul contra-plongée 099_embauba_dossel_florestal_contra_ceu 01:17:25:16">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/099_embauba_dossel_florestal_contra_ceu.jpg" alt="Embaúba e Dossel Florestal Contra o Céu Azul" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/099_embauba_dossel_florestal_contra_ceu.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#099</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#099" value="#099 | 01:17:25:16 | 099_embauba_dossel_florestal_contra_ceu | Embaúba e Dossel Florestal Contra o Céu Azul">
+              <input type="checkbox" class="pick" data-num="#099" value="#099 | 01:17:25:16 | 099_embauba_dossel_florestal_contra_ceu | Embaúba e Dossel Florestal Contra o Céu Azul" checked>
               <span class="title"><span class="num-inline">#099</span> Embaúba e Dossel Florestal Contra o Céu Azul</span>
             </div>
             <div class="sub">01:17:25:16 · 3.00s · Contra-Plongée · 2.40:1</div>
@@ -340,31 +649,31 @@
     <section class="group" id="drones_rio">
       <h2>Drones — Rio Tietê, Lagoas do Parque Centenário &amp; Várzea <span class="count">(19 takes)</span></h2>
       <div class="grid">
-        <label class="card" data-slug="014_lagoa_parque_centenario_ilha_arborizada" data-search="#014 lagoa do parque centenário e ilha arborizada — voo baixo drone aéreo 014_lagoa_parque_centenario_ilha_arborizada 01:02:02:19">
+        <label class="card is-live" data-slug="014_lagoa_parque_centenario_ilha_arborizada" data-search="#014 lagoa do parque centenário e ilha arborizada — voo baixo drone aéreo 014_lagoa_parque_centenario_ilha_arborizada 01:02:02:19">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/014_lagoa_parque_centenario_ilha_arborizada.jpg" alt="Lagoa do Parque Centenário e Ilha Arborizada — Voo Baixo" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/014_lagoa_parque_centenario_ilha_arborizada.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#014</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#014+#015)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#014" value="#014 | 01:02:02:19 | 014_lagoa_parque_centenario_ilha_arborizada | Lagoa do Parque Centenário e Ilha Arborizada — Voo Baixo">
+              <input type="checkbox" class="pick" data-num="#014" value="#014 | 01:02:02:19 | 014_lagoa_parque_centenario_ilha_arborizada | Lagoa do Parque Centenário e Ilha Arborizada — Voo Baixo" checked>
               <span class="title"><span class="num-inline">#014</span> Lagoa do Parque Centenário e Ilha Arborizada — Voo Baixo</span>
             </div>
             <div class="sub">01:02:02:19 · 8.63s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="015_espelho_d_agua_emoldurado_galhos" data-search="#015 espelho d&#x27;água emoldurado por galhos na margem plano geral 015_espelho_d_agua_emoldurado_galhos 01:02:12:09">
+        <label class="card is-live" data-slug="015_espelho_d_agua_emoldurado_galhos" data-search="#015 espelho d&#x27;água emoldurado por galhos na margem plano geral 015_espelho_d_agua_emoldurado_galhos 01:02:12:09">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/015_espelho_d_agua_emoldurado_galhos.jpg" alt="Espelho d&#x27;Água emoldurado por Galhos na Margem" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/015_espelho_d_agua_emoldurado_galhos.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#015</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#014+#015)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#015" value="#015 | 01:02:12:09 | 015_espelho_d_agua_emoldurado_galhos | Espelho d&#x27;Água emoldurado por Galhos na Margem">
+              <input type="checkbox" class="pick" data-num="#015" value="#015 | 01:02:12:09 | 015_espelho_d_agua_emoldurado_galhos | Espelho d&#x27;Água emoldurado por Galhos na Margem" checked>
               <span class="title"><span class="num-inline">#015</span> Espelho d&#x27;Água emoldurado por Galhos na Margem</span>
             </div>
             <div class="sub">01:02:12:09 · 2.04s · Plano Geral · 2.40:1</div>
@@ -400,61 +709,61 @@
             <div class="sub">01:03:21:16 · 6.92s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="023_curso_rio_tiete_mata_ciliar" data-search="#023 curso do rio tietê entre mata ciliar fechada — cartela drone aéreo 023_curso_rio_tiete_mata_ciliar 01:04:21:15">
+        <label class="card is-live" data-slug="023_curso_rio_tiete_mata_ciliar" data-search="#023 curso do rio tietê entre mata ciliar fechada — cartela drone aéreo 023_curso_rio_tiete_mata_ciliar 01:04:21:15">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/023_curso_rio_tiete_mata_ciliar.jpg" alt="Curso do Rio Tietê Entre Mata Ciliar Fechada — Cartela" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/023_curso_rio_tiete_mata_ciliar.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#023</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#023+#024)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#023" value="#023 | 01:04:21:15 | 023_curso_rio_tiete_mata_ciliar | Curso do Rio Tietê Entre Mata Ciliar Fechada — Cartela">
+              <input type="checkbox" class="pick" data-num="#023" value="#023 | 01:04:21:15 | 023_curso_rio_tiete_mata_ciliar | Curso do Rio Tietê Entre Mata Ciliar Fechada — Cartela" checked>
               <span class="title"><span class="num-inline">#023</span> Curso do Rio Tietê Entre Mata Ciliar Fechada — Cartela</span>
             </div>
             <div class="sub">01:04:21:15 · 5.76s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="024_zenital_leito_argiloso_rio_garca" data-search="#024 zenital do leito argiloso do rio com garça branca drone zenital 024_zenital_leito_argiloso_rio_garca 01:04:28:08">
+        <label class="card is-live" data-slug="024_zenital_leito_argiloso_rio_garca" data-search="#024 zenital do leito argiloso do rio com garça branca drone zenital 024_zenital_leito_argiloso_rio_garca 01:04:28:08">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/024_zenital_leito_argiloso_rio_garca.jpg" alt="Zenital do Leito Argiloso do Rio com Garça Branca" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/024_zenital_leito_argiloso_rio_garca.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#024</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#023+#024)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#024" value="#024 | 01:04:28:08 | 024_zenital_leito_argiloso_rio_garca | Zenital do Leito Argiloso do Rio com Garça Branca">
+              <input type="checkbox" class="pick" data-num="#024" value="#024 | 01:04:28:08 | 024_zenital_leito_argiloso_rio_garca | Zenital do Leito Argiloso do Rio com Garça Branca" checked>
               <span class="title"><span class="num-inline">#024</span> Zenital do Leito Argiloso do Rio com Garça Branca</span>
             </div>
             <div class="sub">01:04:28:08 · 2.67s · Drone Zenital · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="027_parque_centenario_passarela_lagoas_aereo" data-search="#027 parque centenário e passarela sobre as lagoas — aéreo drone aéreo 027_parque_centenario_passarela_lagoas_aereo 01:04:46:18">
+        <label class="card is-live" data-slug="027_parque_centenario_passarela_lagoas_aereo" data-search="#027 parque centenário e passarela sobre as lagoas — aéreo drone aéreo 027_parque_centenario_passarela_lagoas_aereo 01:04:46:18">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/027_parque_centenario_passarela_lagoas_aereo.jpg" alt="Parque Centenário e Passarela sobre as Lagoas — Aéreo" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/027_parque_centenario_passarela_lagoas_aereo.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#027</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#027+#075)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#027" value="#027 | 01:04:46:18 | 027_parque_centenario_passarela_lagoas_aereo | Parque Centenário e Passarela sobre as Lagoas — Aéreo">
+              <input type="checkbox" class="pick" data-num="#027" value="#027 | 01:04:46:18 | 027_parque_centenario_passarela_lagoas_aereo | Parque Centenário e Passarela sobre as Lagoas — Aéreo" checked>
               <span class="title"><span class="num-inline">#027</span> Parque Centenário e Passarela sobre as Lagoas — Aéreo</span>
             </div>
             <div class="sub">01:04:46:18 · 10.43s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="043_voo_rasante_espelho_d_agua" data-search="#043 voo rasante sobre o espelho d&#x27;água do rio tietê drone aéreo 043_voo_rasante_espelho_d_agua 01:12:05:22">
+        <label class="card is-live" data-slug="043_voo_rasante_espelho_d_agua" data-search="#043 voo rasante sobre o espelho d&#x27;água do rio tietê drone aéreo 043_voo_rasante_espelho_d_agua 01:12:05:22">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/043_voo_rasante_espelho_d_agua.jpg" alt="Voo Rasante Sobre o Espelho d&#x27;Água do Rio Tietê" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/043_voo_rasante_espelho_d_agua.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#043</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#043" value="#043 | 01:12:05:22 | 043_voo_rasante_espelho_d_agua | Voo Rasante Sobre o Espelho d&#x27;Água do Rio Tietê">
+              <input type="checkbox" class="pick" data-num="#043" value="#043 | 01:12:05:22 | 043_voo_rasante_espelho_d_agua | Voo Rasante Sobre o Espelho d&#x27;Água do Rio Tietê" checked>
               <span class="title"><span class="num-inline">#043</span> Voo Rasante Sobre o Espelho d&#x27;Água do Rio Tietê</span>
             </div>
             <div class="sub">01:12:05:22 · 10.76s · Drone Aéreo · 2.40:1</div>
@@ -490,16 +799,16 @@
             <div class="sub">01:13:34:03 · 6.92s · Drone Zenital · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="055_reflexo_simetrico_arvores_ceu_azul" data-search="#055 reflexo simétrico das árvores e céu azul no rio tietê drone aéreo 055_reflexo_simetrico_arvores_ceu_azul 01:14:17:15">
+        <label class="card is-live" data-slug="055_reflexo_simetrico_arvores_ceu_azul" data-search="#055 reflexo simétrico das árvores e céu azul no rio tietê drone aéreo 055_reflexo_simetrico_arvores_ceu_azul 01:14:17:15">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/055_reflexo_simetrico_arvores_ceu_azul.jpg" alt="Reflexo Simétrico das Árvores e Céu Azul no Rio Tietê" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/055_reflexo_simetrico_arvores_ceu_azul.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#055</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#055" value="#055 | 01:14:17:15 | 055_reflexo_simetrico_arvores_ceu_azul | Reflexo Simétrico das Árvores e Céu Azul no Rio Tietê">
+              <input type="checkbox" class="pick" data-num="#055" value="#055 | 01:14:17:15 | 055_reflexo_simetrico_arvores_ceu_azul | Reflexo Simétrico das Árvores e Céu Azul no Rio Tietê" checked>
               <span class="title"><span class="num-inline">#055</span> Reflexo Simétrico das Árvores e Céu Azul no Rio Tietê</span>
             </div>
             <div class="sub">01:14:17:15 · 9.59s · Drone Aéreo · 2.40:1</div>
@@ -550,16 +859,16 @@
             <div class="sub">01:14:55:09 · 1.92s · Drone Aéreo · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="075_ilhas_parque_centenario_serra_fundo" data-search="#075 ilhas do parque centenário e serra ao fundo — aéreo drone aéreo 075_ilhas_parque_centenario_serra_fundo 01:15:45:06">
+        <label class="card is-live" data-slug="075_ilhas_parque_centenario_serra_fundo" data-search="#075 ilhas do parque centenário e serra ao fundo — aéreo drone aéreo 075_ilhas_parque_centenario_serra_fundo 01:15:45:06">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/075_ilhas_parque_centenario_serra_fundo.jpg" alt="Ilhas do Parque Centenário e Serra ao Fundo — Aéreo" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/075_ilhas_parque_centenario_serra_fundo.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#075</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#027+#075)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#075" value="#075 | 01:15:45:06 | 075_ilhas_parque_centenario_serra_fundo | Ilhas do Parque Centenário e Serra ao Fundo — Aéreo">
+              <input type="checkbox" class="pick" data-num="#075" value="#075 | 01:15:45:06 | 075_ilhas_parque_centenario_serra_fundo | Ilhas do Parque Centenário e Serra ao Fundo — Aéreo" checked>
               <span class="title"><span class="num-inline">#075</span> Ilhas do Parque Centenário e Serra ao Fundo — Aéreo</span>
             </div>
             <div class="sub">01:15:45:06 · 5.09s · Drone Aéreo · 2.40:1</div>
@@ -580,31 +889,31 @@
             <div class="sub">01:15:50:08 · 5.05s · Plano Geral · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="148_travessia_lateral_troncos_vista_lagoa" data-search="#148 travessia lateral entre troncos com vista para a lagoa plano geral 148_travessia_lateral_troncos_vista_lagoa 01:22:21:15">
+        <label class="card is-live" data-slug="148_travessia_lateral_troncos_vista_lagoa" data-search="#148 travessia lateral entre troncos com vista para a lagoa plano geral 148_travessia_lateral_troncos_vista_lagoa 01:22:21:15">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/148_travessia_lateral_troncos_vista_lagoa.jpg" alt="Travessia Lateral Entre Troncos com Vista para a Lagoa" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/148_travessia_lateral_troncos_vista_lagoa.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#148</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#148+#149)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#148" value="#148 | 01:22:21:15 | 148_travessia_lateral_troncos_vista_lagoa | Travessia Lateral Entre Troncos com Vista para a Lagoa">
+              <input type="checkbox" class="pick" data-num="#148" value="#148 | 01:22:21:15 | 148_travessia_lateral_troncos_vista_lagoa | Travessia Lateral Entre Troncos com Vista para a Lagoa" checked>
               <span class="title"><span class="num-inline">#148</span> Travessia Lateral Entre Troncos com Vista para a Lagoa</span>
             </div>
             <div class="sub">01:22:21:15 · 1.92s · Plano Geral · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="149_horizonte_verde_varzea_tiete_ceu" data-search="#149 horizonte verde da várzea do tietê e céu com nuvens plano geral 149_horizonte_verde_varzea_tiete_ceu 01:22:25:11">
+        <label class="card is-live" data-slug="149_horizonte_verde_varzea_tiete_ceu" data-search="#149 horizonte verde da várzea do tietê e céu com nuvens plano geral 149_horizonte_verde_varzea_tiete_ceu 01:22:25:11">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/149_horizonte_verde_varzea_tiete_ceu.jpg" alt="Horizonte Verde da Várzea do Tietê e Céu com Nuvens" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/149_horizonte_verde_varzea_tiete_ceu.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#149</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#148+#149)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#149" value="#149 | 01:22:25:11 | 149_horizonte_verde_varzea_tiete_ceu | Horizonte Verde da Várzea do Tietê e Céu com Nuvens">
+              <input type="checkbox" class="pick" data-num="#149" value="#149 | 01:22:25:11 | 149_horizonte_verde_varzea_tiete_ceu | Horizonte Verde da Várzea do Tietê e Céu com Nuvens" checked>
               <span class="title"><span class="num-inline">#149</span> Horizonte Verde da Várzea do Tietê e Céu com Nuvens</span>
             </div>
             <div class="sub">01:22:25:11 · 3.00s · Plano Geral · 2.40:1</div>
@@ -690,31 +999,31 @@
             <div class="sub">01:03:11:06 · 6.13s · Plano Detalhe · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="025_borda_fonte_pedra_coberta_musgo" data-search="#025 borda de fonte de pedra coberta de musgo e água close-up 025_borda_fonte_pedra_coberta_musgo 01:04:31:01">
+        <label class="card is-live" data-slug="025_borda_fonte_pedra_coberta_musgo" data-search="#025 borda de fonte de pedra coberta de musgo e água close-up 025_borda_fonte_pedra_coberta_musgo 01:04:31:01">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/025_borda_fonte_pedra_coberta_musgo.jpg" alt="Borda de Fonte de Pedra Coberta de Musgo e Água" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/025_borda_fonte_pedra_coberta_musgo.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#025</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#025+#032)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#025" value="#025 | 01:04:31:01 | 025_borda_fonte_pedra_coberta_musgo | Borda de Fonte de Pedra Coberta de Musgo e Água">
+              <input type="checkbox" class="pick" data-num="#025" value="#025 | 01:04:31:01 | 025_borda_fonte_pedra_coberta_musgo | Borda de Fonte de Pedra Coberta de Musgo e Água" checked>
               <span class="title"><span class="num-inline">#025</span> Borda de Fonte de Pedra Coberta de Musgo e Água</span>
             </div>
             <div class="sub">01:04:31:01 · 2.50s · Close-Up · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="032_folha_submersa_correnteza_cristalina_riacho" data-search="#032 folha submersa sob a correnteza cristalina do riacho close-up 032_folha_submersa_correnteza_cristalina_riacho 01:05:58:21">
+        <label class="card is-live" data-slug="032_folha_submersa_correnteza_cristalina_riacho" data-search="#032 folha submersa sob a correnteza cristalina do riacho close-up 032_folha_submersa_correnteza_cristalina_riacho 01:05:58:21">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/032_folha_submersa_correnteza_cristalina_riacho.jpg" alt="Folha Submersa sob a Correnteza Cristalina do Riacho" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/032_folha_submersa_correnteza_cristalina_riacho.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#032</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#025+#032)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#032" value="#032 | 01:05:58:21 | 032_folha_submersa_correnteza_cristalina_riacho | Folha Submersa sob a Correnteza Cristalina do Riacho">
+              <input type="checkbox" class="pick" data-num="#032" value="#032 | 01:05:58:21 | 032_folha_submersa_correnteza_cristalina_riacho | Folha Submersa sob a Correnteza Cristalina do Riacho" checked>
               <span class="title"><span class="num-inline">#032</span> Folha Submersa sob a Correnteza Cristalina do Riacho</span>
             </div>
             <div class="sub">01:05:58:21 · 1.54s · Close-Up · 2.40:1</div>
@@ -870,31 +1179,31 @@
             <div class="sub">01:16:04:21 · 4.21s · Plano Geral · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="089_jato_agua_cristalina_caindo_fonte" data-search="#089 jato de água cristalina caindo na fonte do parque close-up 089_jato_agua_cristalina_caindo_fonte 01:16:35:20">
+        <label class="card is-live" data-slug="089_jato_agua_cristalina_caindo_fonte" data-search="#089 jato de água cristalina caindo na fonte do parque close-up 089_jato_agua_cristalina_caindo_fonte 01:16:35:20">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/089_jato_agua_cristalina_caindo_fonte.jpg" alt="Jato de Água Cristalina Caindo na Fonte do Parque" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/089_jato_agua_cristalina_caindo_fonte.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#089</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#089+#090)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#089" value="#089 | 01:16:35:20 | 089_jato_agua_cristalina_caindo_fonte | Jato de Água Cristalina Caindo na Fonte do Parque">
+              <input type="checkbox" class="pick" data-num="#089" value="#089 | 01:16:35:20 | 089_jato_agua_cristalina_caindo_fonte | Jato de Água Cristalina Caindo na Fonte do Parque" checked>
               <span class="title"><span class="num-inline">#089</span> Jato de Água Cristalina Caindo na Fonte do Parque</span>
             </div>
             <div class="sub">01:16:35:20 · 2.54s · Close-Up · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="090_fio_d_agua_slow_motion" data-search="#090 fio d&#x27;água em slow motion brilhando contra a mata big close-up 090_fio_d_agua_slow_motion 01:16:38:09">
+        <label class="card is-live" data-slug="090_fio_d_agua_slow_motion" data-search="#090 fio d&#x27;água em slow motion brilhando contra a mata big close-up 090_fio_d_agua_slow_motion 01:16:38:09">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/090_fio_d_agua_slow_motion.jpg" alt="Fio d&#x27;Água em Slow Motion Brilhando Contra a Mata" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/090_fio_d_agua_slow_motion.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#090</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#089+#090)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#090" value="#090 | 01:16:38:09 | 090_fio_d_agua_slow_motion | Fio d&#x27;Água em Slow Motion Brilhando Contra a Mata">
+              <input type="checkbox" class="pick" data-num="#090" value="#090 | 01:16:38:09 | 090_fio_d_agua_slow_motion | Fio d&#x27;Água em Slow Motion Brilhando Contra a Mata" checked>
               <span class="title"><span class="num-inline">#090</span> Fio d&#x27;Água em Slow Motion Brilhando Contra a Mata</span>
             </div>
             <div class="sub">01:16:38:09 · 1.92s · Big Close-Up · 2.40:1</div>
@@ -1035,31 +1344,31 @@
             <div class="sub">01:22:28:11 · 2.34s · Close-Up · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="151_galhos_secos_refletidos_espelho_d" data-search="#151 galhos secos refletidos no espelho d&#x27;água calmo plano médio 151_galhos_secos_refletidos_espelho_d 01:22:30:19">
+        <label class="card is-live" data-slug="151_galhos_secos_refletidos_espelho_d" data-search="#151 galhos secos refletidos no espelho d&#x27;água calmo plano médio 151_galhos_secos_refletidos_espelho_d 01:22:30:19">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/151_galhos_secos_refletidos_espelho_d.jpg" alt="Galhos Secos Refletidos no Espelho d&#x27;Água Calmo" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/151_galhos_secos_refletidos_espelho_d.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#151</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#151+#152)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#151" value="#151 | 01:22:30:19 | 151_galhos_secos_refletidos_espelho_d | Galhos Secos Refletidos no Espelho d&#x27;Água Calmo">
+              <input type="checkbox" class="pick" data-num="#151" value="#151 | 01:22:30:19 | 151_galhos_secos_refletidos_espelho_d | Galhos Secos Refletidos no Espelho d&#x27;Água Calmo" checked>
               <span class="title"><span class="num-inline">#151</span> Galhos Secos Refletidos no Espelho d&#x27;Água Calmo</span>
             </div>
             <div class="sub">01:22:30:19 · 2.50s · Plano Médio · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="152_foco_seletivo_folhas_verdes_trilha" data-search="#152 foco seletivo em folhas verdes com trilha ao fundo close-up 152_foco_seletivo_folhas_verdes_trilha 01:22:33:07">
+        <label class="card is-live" data-slug="152_foco_seletivo_folhas_verdes_trilha" data-search="#152 foco seletivo em folhas verdes com trilha ao fundo close-up 152_foco_seletivo_folhas_verdes_trilha 01:22:33:07">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/152_foco_seletivo_folhas_verdes_trilha.jpg" alt="Foco Seletivo em Folhas Verdes com Trilha ao Fundo" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/152_foco_seletivo_folhas_verdes_trilha.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#152</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#151+#152)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#152" value="#152 | 01:22:33:07 | 152_foco_seletivo_folhas_verdes_trilha | Foco Seletivo em Folhas Verdes com Trilha ao Fundo">
+              <input type="checkbox" class="pick" data-num="#152" value="#152 | 01:22:33:07 | 152_foco_seletivo_folhas_verdes_trilha | Foco Seletivo em Folhas Verdes com Trilha ao Fundo" checked>
               <span class="title"><span class="num-inline">#152</span> Foco Seletivo em Folhas Verdes com Trilha ao Fundo</span>
             </div>
             <div class="sub">01:22:33:07 · 3.84s · Close-Up · 2.40:1</div>
@@ -1270,61 +1579,61 @@
     <section class="group" id="entrevistas">
       <h2>Depoimentos — Arquitetos, Biólogos &amp; Gestores (Variações) <span class="count">(28 takes)</span></h2>
       <div class="grid">
-        <label class="card" data-slug="008_ciro_pirondi_arquiteto_plano_medio" data-search="#008 ciro pirondi (arquiteto) — plano médio com mão erguida plano médio 008_ciro_pirondi_arquiteto_plano_medio 01:00:47:12">
+        <label class="card is-live" data-slug="008_ciro_pirondi_arquiteto_plano_medio" data-search="#008 ciro pirondi (arquiteto) — plano médio com mão erguida plano médio 008_ciro_pirondi_arquiteto_plano_medio 01:00:47:12">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/008_ciro_pirondi_arquiteto_plano_medio.jpg" alt="Ciro Pirondi (Arquiteto) — Plano Médio com Mão Erguida" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/008_ciro_pirondi_arquiteto_plano_medio.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#008</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#008+#009)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#008" value="#008 | 01:00:47:12 | 008_ciro_pirondi_arquiteto_plano_medio | Ciro Pirondi (Arquiteto) — Plano Médio com Mão Erguida">
+              <input type="checkbox" class="pick" data-num="#008" value="#008 | 01:00:47:12 | 008_ciro_pirondi_arquiteto_plano_medio | Ciro Pirondi (Arquiteto) — Plano Médio com Mão Erguida" checked>
               <span class="title"><span class="num-inline">#008</span> Ciro Pirondi (Arquiteto) — Plano Médio com Mão Erguida</span>
             </div>
             <div class="sub">01:00:47:12 · 25.53s · Plano Médio · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="009_ciro_pirondi_arquiteto_close_up" data-search="#009 ciro pirondi (arquiteto) — close-up lateral com óculos close-up 009_ciro_pirondi_arquiteto_close_up 01:01:13:01">
+        <label class="card is-live" data-slug="009_ciro_pirondi_arquiteto_close_up" data-search="#009 ciro pirondi (arquiteto) — close-up lateral com óculos close-up 009_ciro_pirondi_arquiteto_close_up 01:01:13:01">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/009_ciro_pirondi_arquiteto_close_up.jpg" alt="Ciro Pirondi (Arquiteto) — Close-Up Lateral com Óculos" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/009_ciro_pirondi_arquiteto_close_up.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#009</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#008+#009)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#009" value="#009 | 01:01:13:01 | 009_ciro_pirondi_arquiteto_close_up | Ciro Pirondi (Arquiteto) — Close-Up Lateral com Óculos">
+              <input type="checkbox" class="pick" data-num="#009" value="#009 | 01:01:13:01 | 009_ciro_pirondi_arquiteto_close_up | Ciro Pirondi (Arquiteto) — Close-Up Lateral com Óculos" checked>
               <span class="title"><span class="num-inline">#009</span> Ciro Pirondi (Arquiteto) — Close-Up Lateral com Óculos</span>
             </div>
             <div class="sub">01:01:13:01 · 3.71s · Close-Up · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="013_eliseu_pereira_piacentin_biologo_plano" data-search="#013 eliseu pereira piacentin (biólogo) — plano médio no parque plano médio 013_eliseu_pereira_piacentin_biologo_plano 01:01:31:06">
+        <label class="card is-live" data-slug="013_eliseu_pereira_piacentin_biologo_plano" data-search="#013 eliseu pereira piacentin (biólogo) — plano médio no parque plano médio 013_eliseu_pereira_piacentin_biologo_plano 01:01:31:06">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/013_eliseu_pereira_piacentin_biologo_plano.jpg" alt="Eliseu Pereira Piacentin (Biólogo) — Plano Médio no Parque" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/013_eliseu_pereira_piacentin_biologo_plano.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#013</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#013+#031)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#013" value="#013 | 01:01:31:06 | 013_eliseu_pereira_piacentin_biologo_plano | Eliseu Pereira Piacentin (Biólogo) — Plano Médio no Parque">
+              <input type="checkbox" class="pick" data-num="#013" value="#013 | 01:01:31:06 | 013_eliseu_pereira_piacentin_biologo_plano | Eliseu Pereira Piacentin (Biólogo) — Plano Médio no Parque" checked>
               <span class="title"><span class="num-inline">#013</span> Eliseu Pereira Piacentin (Biólogo) — Plano Médio no Parque</span>
             </div>
             <div class="sub">01:01:31:06 · 5.67s · Plano Médio · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="017_caio_cunha_prefeito_plano_medio" data-search="#017 caio cunha (prefeito) — plano médio diante de painel geométrico plano médio 017_caio_cunha_prefeito_plano_medio 01:02:43:00">
+        <label class="card is-live" data-slug="017_caio_cunha_prefeito_plano_medio" data-search="#017 caio cunha (prefeito) — plano médio diante de painel geométrico plano médio 017_caio_cunha_prefeito_plano_medio 01:02:43:00">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/017_caio_cunha_prefeito_plano_medio.jpg" alt="Caio Cunha (Prefeito) — Plano Médio Diante de Painel Geométrico" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/017_caio_cunha_prefeito_plano_medio.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#017</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#017+#060)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#017" value="#017 | 01:02:43:00 | 017_caio_cunha_prefeito_plano_medio | Caio Cunha (Prefeito) — Plano Médio Diante de Painel Geométrico">
+              <input type="checkbox" class="pick" data-num="#017" value="#017 | 01:02:43:00 | 017_caio_cunha_prefeito_plano_medio | Caio Cunha (Prefeito) — Plano Médio Diante de Painel Geométrico" checked>
               <span class="title"><span class="num-inline">#017</span> Caio Cunha (Prefeito) — Plano Médio Diante de Painel Geométrico</span>
             </div>
             <div class="sub">01:02:43:00 · 11.55s · Plano Médio · 2.40:1</div>
@@ -1360,31 +1669,31 @@
             <div class="sub">01:03:39:10 · 10.51s · Plano Médio · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="022_pedro_zappa_arquiteto_diante_lousa" data-search="#022 pedro zappa (arquiteto) — diante de lousa com croquis plano médio 022_pedro_zappa_arquiteto_diante_lousa 01:04:09:22">
+        <label class="card is-live" data-slug="022_pedro_zappa_arquiteto_diante_lousa" data-search="#022 pedro zappa (arquiteto) — diante de lousa com croquis plano médio 022_pedro_zappa_arquiteto_diante_lousa 01:04:09:22">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/022_pedro_zappa_arquiteto_diante_lousa.jpg" alt="Pedro Zappa (Arquiteto) — Diante de Lousa com Croquis" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/022_pedro_zappa_arquiteto_diante_lousa.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#022</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#022" value="#022 | 01:04:09:22 | 022_pedro_zappa_arquiteto_diante_lousa | Pedro Zappa (Arquiteto) — Diante de Lousa com Croquis">
+              <input type="checkbox" class="pick" data-num="#022" value="#022 | 01:04:09:22 | 022_pedro_zappa_arquiteto_diante_lousa | Pedro Zappa (Arquiteto) — Diante de Lousa com Croquis" checked>
               <span class="title"><span class="num-inline">#022</span> Pedro Zappa (Arquiteto) — Diante de Lousa com Croquis</span>
             </div>
             <div class="sub">01:04:09:22 · 11.72s · Plano Médio · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="026_pedro_luis_batista_tomasulo_biologo" data-search="#026 pedro luis batista tomasulo (biólogo) — junto à fonte plano médio 026_pedro_luis_batista_tomasulo_biologo 01:04:33:13">
+        <label class="card is-live" data-slug="026_pedro_luis_batista_tomasulo_biologo" data-search="#026 pedro luis batista tomasulo (biólogo) — junto à fonte plano médio 026_pedro_luis_batista_tomasulo_biologo 01:04:33:13">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/026_pedro_luis_batista_tomasulo_biologo.jpg" alt="Pedro Luis Batista Tomasulo (Biólogo) — Junto à Fonte" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/026_pedro_luis_batista_tomasulo_biologo.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#026</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#026" value="#026 | 01:04:33:13 | 026_pedro_luis_batista_tomasulo_biologo | Pedro Luis Batista Tomasulo (Biólogo) — Junto à Fonte">
+              <input type="checkbox" class="pick" data-num="#026" value="#026 | 01:04:33:13 | 026_pedro_luis_batista_tomasulo_biologo | Pedro Luis Batista Tomasulo (Biólogo) — Junto à Fonte" checked>
               <span class="title"><span class="num-inline">#026</span> Pedro Luis Batista Tomasulo (Biólogo) — Junto à Fonte</span>
             </div>
             <div class="sub">01:04:33:13 · 13.22s · Plano Médio · 2.40:1</div>
@@ -1420,16 +1729,16 @@
             <div class="sub">01:05:39:14 · 15.39s · Plano Médio · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="031_eliseu_pereira_piacentin_biologo_close" data-search="#031 eliseu pereira piacentin (biólogo) — close-up frontal close-up 031_eliseu_pereira_piacentin_biologo_close 01:05:55:00">
+        <label class="card is-live" data-slug="031_eliseu_pereira_piacentin_biologo_close" data-search="#031 eliseu pereira piacentin (biólogo) — close-up frontal close-up 031_eliseu_pereira_piacentin_biologo_close 01:05:55:00">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/031_eliseu_pereira_piacentin_biologo_close.jpg" alt="Eliseu Pereira Piacentin (Biólogo) — Close-Up Frontal" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/031_eliseu_pereira_piacentin_biologo_close.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#031</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#013+#031)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#031" value="#031 | 01:05:55:00 | 031_eliseu_pereira_piacentin_biologo_close | Eliseu Pereira Piacentin (Biólogo) — Close-Up Frontal">
+              <input type="checkbox" class="pick" data-num="#031" value="#031 | 01:05:55:00 | 031_eliseu_pereira_piacentin_biologo_close | Eliseu Pereira Piacentin (Biólogo) — Close-Up Frontal" checked>
               <span class="title"><span class="num-inline">#031</span> Eliseu Pereira Piacentin (Biólogo) — Close-Up Frontal</span>
             </div>
             <div class="sub">01:05:55:00 · 3.88s · Close-Up · 2.40:1</div>
@@ -1585,16 +1894,16 @@
             <div class="sub">01:14:37:23 · 1.38s · Close-Up · 2.40:1</div>
           </div>
         </label>
-        <label class="card" data-slug="060_caio_cunha_prefeito_plano_medio" data-search="#060 caio cunha (prefeito) — plano médio com mãos abertas plano médio 060_caio_cunha_prefeito_plano_medio 01:14:39:08">
+        <label class="card is-live" data-slug="060_caio_cunha_prefeito_plano_medio" data-search="#060 caio cunha (prefeito) — plano médio com mãos abertas plano médio 060_caio_cunha_prefeito_plano_medio 01:14:39:08">
           <div class="media-wrap">
             <img src="assets/shots/rio_dos_horizontes/060_caio_cunha_prefeito_plano_medio.jpg" alt="Caio Cunha (Prefeito) — Plano Médio com Mãos Abertas" loading="lazy">
             <video src="assets/videos/rio_dos_horizontes/060_caio_cunha_prefeito_plano_medio.mp4" muted loop playsinline preload="none"></video>
             <span class="num-badge">#060</span>
-            <span class="badge alt">SELECIONAR</span>
+            <span class="badge live">NO SITE (#017+#060)</span>
           </div>
           <div class="meta">
             <div class="row-top">
-              <input type="checkbox" class="pick" data-num="#060" value="#060 | 01:14:39:08 | 060_caio_cunha_prefeito_plano_medio | Caio Cunha (Prefeito) — Plano Médio com Mãos Abertas">
+              <input type="checkbox" class="pick" data-num="#060" value="#060 | 01:14:39:08 | 060_caio_cunha_prefeito_plano_medio | Caio Cunha (Prefeito) — Plano Médio com Mãos Abertas" checked>
               <span class="title"><span class="num-inline">#060</span> Caio Cunha (Prefeito) — Plano Médio com Mãos Abertas</span>
             </div>
             <div class="sub">01:14:39:08 · 9.47s · Plano Médio · 2.40:1</div>
@@ -2460,7 +2769,7 @@
   </main>
   <div id="toast">Seleção copiada para a área de transferência!</div>
   <script>
-    const STORAGE_KEY = 'awa_guide_rio_dos_horizontes_v1';
+    const STORAGE_KEY = 'awa_guide_rio_dos_horizontes_v2';
     const picks = [...document.querySelectorAll('.pick')];
     const cards = [...document.querySelectorAll('.card')];
     const countEl = document.getElementById('selectedCount');
