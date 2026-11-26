@@ -684,7 +684,7 @@
           <div class="hero-featured-body" style="justify-content:center;align-items:flex-start;min-height:280px;">
             <span class="news-tag">EM BREVE</span>
             <h2 style="font-family:var(--font-display);font-size:1.35rem;font-weight:500;">Novo acervo ÀWA em ingestão</h2>
-            <p style="color:var(--fg-muted);font-size:0.92rem;">Os primeiros trabalhos e despachos oficiais estão sendo catalogados direto do DaVinci Resolve Studio.</p>
+            <p style="color:var(--fg-muted);font-size:0.92rem;">Os primeiros trabalhos e projetos oficiais estão sendo catalogados direto do DaVinci Resolve Studio.</p>
           </div>
         `;
       }
@@ -704,7 +704,7 @@
             <p class="news-card-excerpt" style="margin-top:10px;">${n.excerpt}</p>
           </div>
           <div class="news-card-foot">
-            <span>Abrir despacho</span>
+            <span>Abrir projeto</span>
             <span>→</span>
           </div>
         </article>`
