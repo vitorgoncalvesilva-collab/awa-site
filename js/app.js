@@ -1382,64 +1382,32 @@
 
     const projectShots = window.AWA_SHOTS.filter((s) => s.projectId === project.id);
     const ytId = extractYouTubeId(project.youtubeId || project.youtubeUrl);
-    const ytDirectUrl = ytId ? `https://www.youtube.com/watch?v=${ytId}` : "";
 
     container.innerHTML = `
       <section class="project-hero">
         <div class="container">
-          <div class="breadcrumb">
-            <a href="index.html">Início</a>
-            <span>/</span>
-            <a href="portfolio.html">Portfólio & Shotdeck</a>
-            <span>/</span>
-            <span style="color:var(--fg);">${project.title}</span>
-          </div>
-
-          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;">
-            <div>
-              <div class="eyebrow" style="margin-bottom:14px;">${project.category} · ${project.year} · ${project.status}</div>
-              <h1 class="project-title-xl">${project.title}</h1>
-              <p style="color:var(--fg-soft);font-size:1.15rem;max-width:60ch;">${project.logline}</p>
-            </div>
-            <div style="display:flex;gap:10px;flex-wrap:wrap;">
-              ${
-                ytId
-                  ? `<a href="#filme-completo" class="btn btn-primary btn-sm">Assistir</a>`
-                  : ""
-              }
-              <a href="portfolio.html" class="btn btn-ghost btn-sm">Galeria</a>
-              <a href="contato.html?assunto=${encodeURIComponent("Projeto: " + project.title)}" class="btn btn-ghost btn-sm">Orçamento</a>
-            </div>
-          </div>
+          <div class="eyebrow" style="margin-bottom:14px;">${project.category} · ${project.year} · ${project.status}</div>
+          <h1 class="project-title-xl">${project.title}</h1>
+          <p style="color:var(--fg-soft);font-size:1.15rem;max-width:60ch;">${project.logline}</p>
         </div>
       </section>
 
-      ${
-        ytId
-          ? `
-      <section id="filme-completo" style="padding:52px 0;border-bottom:1px solid var(--border);background:var(--surface-1);">
+      <section id="filme-completo" style="padding:36px 0 52px;border-bottom:1px solid var(--border);background:var(--surface-1);">
         <div class="container">
-          <div class="section-header-bar" style="margin-bottom:24px;">
-            <div>
-              <div class="eyebrow" style="margin-bottom:8px;">Projeção Completa · YouTube</div>
-              <h2 class="section-heading">Filme Completo</h2>
-            </div>
-            <a href="${ytDirectUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
-              YouTube ↗
-            </a>
-          </div>
-          <div class="youtube-player-wrap">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/${ytId}?rel=0&modestbranding=1"
-              title="${project.title} — Filme Completo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
+          ${
+            ytId
+              ? `<div class="youtube-player-wrap">
+                  <iframe
+                    src="https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1"
+                    title="${project.title}"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>`
+              : `<div class="youtube-player-wrap" id="project-hero-reel"></div>`
+          }
         </div>
-      </section>`
-          : ""
-      }
+      </section>
 
       <section>
         <div class="container project-details-grid">
@@ -1531,6 +1499,15 @@
         </div>
       </section>
     `;
+
+    if (!ytId) {
+      mountProjectTakeReel(
+        document.getElementById("project-hero-reel"),
+        project.id,
+        project.coverImage,
+        project.title
+      );
+    }
 
     container.querySelectorAll("[data-shot-id]").forEach((card) => {
       card.addEventListener("click", () => openShotModal(card.dataset.shotId, projectShots));
