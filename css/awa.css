@@ -481,15 +481,47 @@ main {
   background: #050505;
 }
 
-.hero-featured-media img {
+.hero-featured-media img,
+.hero-featured-media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.8s var(--ease-cinema), filter 0.5s ease;
 }
 
-.hero-featured-card:hover .hero-featured-media img {
+.hero-featured-card:hover .hero-featured-media img,
+.hero-featured-card:hover .hero-featured-media video {
   transform: scale(1.03);
+}
+
+.project-reel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #050505;
+  overflow: hidden;
+}
+
+.modal-media .project-reel {
+  aspect-ratio: 16 / 9;
+  max-height: 62vh;
+  height: auto;
+}
+
+.project-reel-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.8s var(--ease-cinema);
+  pointer-events: none;
+}
+
+.project-reel-video.is-active {
+  opacity: 1;
+  z-index: 1;
 }
 
 .hero-featured-body {

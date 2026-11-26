@@ -60,12 +60,16 @@
     vid.muted = true;
     vid.defaultMuted = true;
     vid.playsInline = true;
-    vid.loop = true;
+    const allowLoop = vid.dataset.noLoop !== "1";
+    vid.loop = allowLoop;
     vid.autoplay = true;
     vid.setAttribute("muted", "");
     vid.setAttribute("playsinline", "");
     vid.setAttribute("webkit-playsinline", "");
     vid.setAttribute("autoplay", "");
+    if (!allowLoop) {
+      vid.removeAttribute("loop");
+    }
   }
 
   function safePlayVideo(vid) {
@@ -281,7 +285,192 @@
     return modal;
   }
 
+  let stopActiveNewsReel = null;
+
+  function mountProjectTakeReel(containerEl, projectId, fallbackImage, altText) {
+    if (!containerEl) return null;
+    const rawTakes = (window.AWA_SHOTS || []).filter((s) => s.projectId === projectId && s.video);
+    if (!rawTakes.length) {
+      containerEl.innerHTML = `<img src="${fallbackImage}" alt="${altText || ""}" />`;
+      return null;
+    }
+
+    let queue = shuffleArray(rawTakes);
+    let idx = 0;
+    let activeSlot = 0;
+    let cutTimer = null;
+    let stopped = false;
+
+    containerEl.innerHTML = `
+      <div class="project-reel" aria-label="${altText || "Compilado aleatório de takes"}">
+        <video class="project-reel-video is-active" muted playsinline webkit-playsinline autoplay preload="auto"></video>
+        <video class="project-reel-video" muted playsinline webkit-playsinline autoplay preload="auto"></video>
+      </div>
+    `;
+
+    const slots = Array.from(containerEl.querySelectorAll("video"));
+    slots.forEach((vid) => {
+      if (queue.length > 1) vid.dataset.noLoop = "1";
+      prepareMobileVideoAttrs(vid);
+    });
+
+    function clearTimers() {
+      if (cutTimer) {
+        clearTimeout(cutTimer);
+        cutTimer = null;
+      }
+    }
+
+    function stopAll() {
+      stopped = true;
+      clearTimers();
+      slots.forEach((v) => {
+        _visibleVideos.delete(v);
+        v.onended = null;
+        v.onerror = null;
+        try {
+          v.pause();
+        } catch (_) {}
+      });
+    }
+
+    function loadSlot(slot, shot) {
+      if (!slot || !shot) return;
+      slot.dataset.shotId = shot.id;
+      slot.poster = shot.image || fallbackImage || "";
+      if (slot.getAttribute("src") !== shot.video) {
+        slot.setAttribute("src", shot.video);
+        slot.load();
+      }
+      if (queue.length > 1) slot.dataset.noLoop = "1";
+      prepareMobileVideoAttrs(slot);
+    }
+
+    function nextShotIndex() {
+      idx += 1;
+      if (idx >= queue.length) {
+        const lastId = queue[queue.length - 1]?.id;
+        queue = shuffleArray(rawTakes);
+        if (queue.length > 1 && queue[0]?.id === lastId) {
+          [queue[0], queue[1]] = [queue[1], queue[0]];
+        }
+        idx = 0;
+      }
+      return idx;
+    }
+
+    function scheduleNextCut() {
+      clearTimers();
+      if (stopped || queue.length <= 1) return;
+      const currentVid = slots[activeSlot];
+      const CLIP_WINDOW_MS = 2800;
+
+      const triggerAdvance = () => {
+        if (stopped || !document.body.contains(containerEl)) {
+          stopAll();
+          return;
+        }
+        if (document.hidden) {
+          cutTimer = setTimeout(triggerAdvance, 1000);
+          return;
+        }
+        advanceTake();
+      };
+
+      cutTimer = setTimeout(triggerAdvance, CLIP_WINDOW_MS);
+      currentVid.onended = () => {
+        clearTimers();
+        triggerAdvance();
+      };
+      currentVid.onerror = () => {
+        clearTimers();
+        cutTimer = setTimeout(triggerAdvance, 350);
+      };
+    }
+
+    function advanceTake() {
+      if (stopped || !document.body.contains(containerEl)) {
+        stopAll();
+        return;
+      }
+      const nextIdx = nextShotIndex();
+      const nextShot = queue[nextIdx];
+      const nextSlotIdx = activeSlot === 0 ? 1 : 0;
+      const currVid = slots[activeSlot];
+      const nextVid = slots[nextSlotIdx];
+
+      const commitSwap = () => {
+        if (stopped) return;
+        nextVid.currentTime = 0;
+        nextVid.classList.add("is-active");
+        currVid.classList.remove("is-active");
+        _visibleVideos.delete(currVid);
+        _visibleVideos.add(nextVid);
+        try {
+          currVid.pause();
+        } catch (_) {}
+        const playPromise = nextVid.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(() => {});
+        }
+        activeSlot = nextSlotIdx;
+
+        const peekIdx = (nextIdx + 1) % queue.length;
+        loadSlot(currVid, queue[peekIdx]);
+        scheduleNextCut();
+      };
+
+      if (nextVid.getAttribute("src") !== nextShot.video) {
+        loadSlot(nextVid, nextShot);
+      }
+
+      if (nextVid.readyState >= 2) {
+        commitSwap();
+      } else {
+        let settled = false;
+        const onReady = () => {
+          if (settled) return;
+          settled = true;
+          commitSwap();
+        };
+        nextVid.addEventListener("canplay", onReady, { once: true });
+        nextVid.addEventListener("loadeddata", onReady, { once: true });
+        setTimeout(() => {
+          if (!settled) {
+            settled = true;
+            commitSwap();
+          }
+        }, 1200);
+      }
+    }
+
+    loadSlot(slots[0], queue[0]);
+    _visibleVideos.add(slots[0]);
+    slots[0].addEventListener(
+      "loadeddata",
+      () => {
+        if (!stopped && activeSlot === 0 && slots[0].paused) {
+          slots[0].play().catch(() => {});
+        }
+      },
+      { once: true }
+    );
+    const p0 = slots[0].play();
+    if (p0 && typeof p0.catch === "function") p0.catch(() => {});
+
+    if (queue.length > 1) {
+      loadSlot(slots[1], queue[1]);
+      scheduleNextCut();
+    }
+
+    return stopAll;
+  }
+
   function closeModal() {
+    if (typeof stopActiveNewsReel === "function") {
+      stopActiveNewsReel();
+      stopActiveNewsReel = null;
+    }
     const modal = document.getElementById("awa-modal");
     if (modal) {
       modal.classList.remove("open");
@@ -395,6 +584,10 @@
   function openNewsModal(newsId) {
     const item = (window.AWA_NEWS || []).find((n) => n.id === newsId);
     if (!item) return;
+    if (typeof stopActiveNewsReel === "function") {
+      stopActiveNewsReel();
+      stopActiveNewsReel = null;
+    }
     const project = getProjectById(item.projectId);
     const modal = ensureGlobalModal();
 
@@ -407,7 +600,7 @@
           </div>
           <button type="button" class="btn btn-ghost btn-sm" id="modal-close-btn">Fechar [ESC]</button>
         </div>
-        <div class="modal-media">
+        <div class="modal-media" id="news-modal-media">
           <img src="${item.image}" alt="${item.title}" />
         </div>
         <div style="padding:28px 32px;display:flex;flex-direction:column;gap:16px;">
@@ -422,6 +615,13 @@
         </div>
       </div>
     `;
+
+    stopActiveNewsReel = mountProjectTakeReel(
+      document.getElementById("news-modal-media"),
+      item.projectId,
+      item.image,
+      item.title
+    );
 
     modal.classList.add("open");
     document.body.style.overflow = "hidden";
@@ -456,7 +656,7 @@
       if (window.AWA_NEWS.length) {
         const lead = window.AWA_NEWS[0];
         heroFeatureEl.innerHTML = `
-          <div class="hero-featured-media">
+          <div class="hero-featured-media" id="hero-featured-media">
             <img src="${lead.image}" alt="${lead.title}" />
           </div>
           <div class="hero-featured-body">
@@ -472,6 +672,12 @@
             </div>
           </div>
         `;
+        mountProjectTakeReel(
+          document.getElementById("hero-featured-media"),
+          lead.projectId,
+          lead.image,
+          lead.title
+        );
         heroFeatureEl.addEventListener("click", () => openNewsModal(lead.id));
       } else {
         heroFeatureEl.innerHTML = `
