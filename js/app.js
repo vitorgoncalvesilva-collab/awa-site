@@ -806,8 +806,11 @@
       });
     }
 
-    // Galeria Interativa
-    const categories = ["Todos", "Show Ao Vivo", "Ficção", "Documentário", "Videoclipe", "Publicidade", "Bastidores"];
+    // Galeria Interativa (apenas categorias existentes no acervo, em ordem aleatória)
+    const existingCats = Array.from(
+      new Set((window.AWA_SHOTS || []).map((s) => s.category).filter(Boolean))
+    );
+    const categories = ["Todos", ...shuffleArray(existingCats)];
     let activeCat = "Todos";
 
     function renderGallery() {
