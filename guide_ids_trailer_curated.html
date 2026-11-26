@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÀWA — Curadoria Final Montada · Irmãs de Sangue (81 itens)</title>
+  <style>
+    :root { --bg: #050505; --card: #111; --border: #242424; --fg: #f4f4f4; --dim: #8f8f8f; --accent: #ffffff; --green: #4ade80; --merge: #f59e0b; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; padding: 20px clamp(14px, 2vw, 32px) 84px; }
+    header { max-width: 2200px; margin: 0 auto 14px; border-bottom: 1px solid var(--border); padding-bottom: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; align-items: flex-end; }
+    h1 { margin: 0 0 4px; font-size: 1.35rem; letter-spacing: -0.02em; }
+    p.lead { margin: 0; color: var(--dim); font-size: 0.85rem; max-width: 960px; line-height: 1.45; }
+    .actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #000; border: 0; padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.82rem; }
+    .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    .toolbar { max-width: 2200px; margin: 0 auto 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; background: rgba(5,5,5,0.95); backdrop-filter: blur(8px); padding: 10px 0; border-bottom: 1px solid #181818; }
+    .chapters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chap-pill { color: var(--dim); text-decoration: none; font-size: 0.76rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); }
+    .chap-pill:hover { color: var(--fg); border-color: #666; }
+    .search-box { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .search-input { background: #111; color: var(--fg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 0.8rem; outline: none; width: 250px; }
+    main { max-width: 2200px; margin: 0 auto; }
+    .group { margin-bottom: 32px; scroll-margin-top: 72px; }
+    .group h2 { font-size: 1rem; font-weight: 600; margin: 0 0 12px; border-left: 3px solid var(--accent); padding-left: 10px; }
+    .group h2 .count { color: var(--dim); font-weight: 400; font-size: 0.82rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+    .card { display: block; background: var(--card); border: 2px solid var(--border); border-radius: 7px; overflow: hidden; cursor: pointer; user-select: none; transition: border-color 0.14s, opacity 0.14s; }
+    .card.is-picked { border-color: var(--green); }
+    .card:not(.is-picked) { opacity: 0.55; }
+    .card.hidden { display: none; }
+    .media-wrap { position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+    .media-wrap img, .media-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+    .media-wrap video { position: absolute; inset: 0; opacity: 0; transition: opacity 0.18s; }
+    .card:hover .media-wrap video { opacity: 1; }
+    .num-badge { position: absolute; top: 6px; left: 6px; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.68rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; max-width: 70%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .indiv-badge { background: var(--green); color: #052e16; }
+    .junc-badge { background: var(--merge); color: #1c1102; }
+    .ep-badge { position: absolute; top: 6px; right: 6px; background: rgba(15,15,15,0.86); color: #d4d4d4; border: 1px solid rgba(255,255,255,0.16); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.62rem; font-weight: 600; padding: 2px 6px; border-radius: 4px; }
+    .meta { padding: 8px 10px; }
+    .title { font-size: 0.79rem; font-weight: 600; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .num-inline { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--green); margin-right: 3px; }
+    .sub-row { margin-top: 5px; display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+    .sub { font-size: 0.64rem; color: var(--dim); font-family: ui-monospace, SFMono-Regular, monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    #toast { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: #052e16; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; display: none; z-index: 40; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Curadoria Final Montada — Irmãs de Sangue (Trailer)</h1>
+      <p class="lead"><strong>18 takes individuais</strong> + <strong>63 sequências montadas</strong> = <strong>81 itens publicados no Shotdeck</strong> (de 220 planos decupados · Direção: Marcos Senna · Produção: Rodrigo Trevisan · Fotografia: Adam Maskot · Op. Câmera &amp; Steadicam: Vitor Gonc). Passe o mouse para assistir cada sequência já concatenada. (<span id="selectedCount">81</span> ativos).</p>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" href="guide_ids_trailer.html">← Guide Completo (220)</a>
+      <a class="btn ghost" href="projeto.html?id=irmas-de-sangue" target="_blank">Abrir Projeto no Site ↗</a>
+      <a class="btn ghost" href="portfolio.html?q=Irm%C3%A3s" target="_blank">Abrir Portfólio ↗</a>
+      <button class="btn ghost" id="selectAllBtn">Marcar Todos</button>
+      <button class="btn ghost" id="resetBtn">Desmarcar Todos</button>
+      <button class="btn" id="copyBtn">Copiar Ativos (<span id="copyCount">81</span>)</button>
+    </div>
+  </header>
+  <div class="toolbar">
+    <nav class="chapters">
+      <a class="chap-pill" href="#individuais">Takes Individuais (18)</a>
+      <a class="chap-pill" href="#juncoes">Sequências Montadas (63)</a>
+    </nav>
+    <div class="search-box">
+      <input type="search" class="search-input" id="searchInput" placeholder="Filtrar padre, duelo, facão, taverna, lago...">
+    </div>
+  </div>
+  <main>
+    <section class="group" id="individuais">
+      <h2>Takes Individuais <span class="count">(18 takes)</span></h2>
+      <div class="grid">
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-01" data-val="ids-01 | #010 | 01:00:16:06 | 010_chapeu_claro_interior | Jovem de Chapéu Claro e Tranças Apoiada no Interior (#010)" data-search="ids-01 #010 jovem de chapéu claro e tranças apoiada no interior (#010) plano médio verde mata, terra &amp; pele 010_chapeu_claro_interior ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio jovem chapéu claro tranças apoiada interior">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/010_chapeu_claro_interior.jpg" alt="Jovem de Chapéu Claro e Tranças Apoiada no Interior (#010)" loading="lazy">
+            <video src="assets/videos/ids_trailer/010_chapeu_claro_interior.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #010</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-01</span> Jovem de Chapéu Claro e Tranças Apoiada no Interior (#010)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:16:06 · 3.67s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-02" data-val="ids-02 | #032 | 01:00:54:04 | 032_rosto_assustado_frente_casa | Rosto Assustado em Primeiro Plano na Frente da Casa (#032)" data-search="ids-02 #032 rosto assustado em primeiro plano na frente da casa (#032) close-up verde mata, terra &amp; pele 032_rosto_assustado_frente_casa ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro close-up rosto assustado primeiro plano frente casa">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/032_rosto_assustado_frente_casa.jpg" alt="Rosto Assustado em Primeiro Plano na Frente da Casa (#032)" loading="lazy">
+            <video src="assets/videos/ids_trailer/032_rosto_assustado_frente_casa.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #032</span>
+            <span class="ep-badge">Close-Up</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-02</span> Rosto Assustado em Primeiro Plano na Frente da Casa (#032)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:54:04 · 2.00s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-03" data-val="ids-03 | #045 | 01:01:15:18 | 045_cavalos_entre_folhagem | Cavalos Avistados Por Entre a Folhagem da Mata (#045)" data-search="ids-03 #045 cavalos avistados por entre a folhagem da mata (#045) plano geral verde mata, terra &amp; pele 045_cavalos_entre_folhagem ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral cavalos avistados por entre folhagem mata">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/045_cavalos_entre_folhagem.jpg" alt="Cavalos Avistados Por Entre a Folhagem da Mata (#045)" loading="lazy">
+            <video src="assets/videos/ids_trailer/045_cavalos_entre_folhagem.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #045</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-03</span> Cavalos Avistados Por Entre a Folhagem da Mata (#045)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:15:18 · 3.46s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-04" data-val="ids-04 | #048 | 01:01:22:01 | 048_entrada_capela_bancos | Entrada na Capela Pelos Bancos de Madeira (#048)" data-search="ids-04 #048 entrada na capela pelos bancos de madeira (#048) plano geral bege, madeira &amp; sombra 048_entrada_capela_bancos ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral entrada capela pelos bancos madeira">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/048_entrada_capela_bancos.jpg" alt="Entrada na Capela Pelos Bancos de Madeira (#048)" loading="lazy">
+            <video src="assets/videos/ids_trailer/048_entrada_capela_bancos.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #048</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-04</span> Entrada na Capela Pelos Bancos de Madeira (#048)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:22:01 · 2.42s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-05" data-val="ids-05 | #068 | 01:02:09:23 | 068_mulher_confrontando_olhar_noite | Mulher Confrontando com Olhar Firme na Noite (#068)" data-search="ids-05 #068 mulher confrontando com olhar firme na noite (#068) close-up azul noturno &amp; sombra 068_mulher_confrontando_olhar_noite ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro close-up mulher confrontando com olhar firme noite">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/068_mulher_confrontando_olhar_noite.jpg" alt="Mulher Confrontando com Olhar Firme na Noite (#068)" loading="lazy">
+            <video src="assets/videos/ids_trailer/068_mulher_confrontando_olhar_noite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #068</span>
+            <span class="ep-badge">Close-Up</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-05</span> Mulher Confrontando com Olhar Firme na Noite (#068)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:09:23 · 3.54s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-06" data-val="ids-06 | #078 | 01:02:26:02 | 078_sombras_chapeus_balcao_taverna | Sombras de Chapéus no Balcão da Taverna (#078)" data-search="ids-06 #078 sombras de chapéus no balcão da taverna (#078) plano médio âmbar &amp; sombra 078_sombras_chapeus_balcao_taverna ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sombras chapéus balcão taverna">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/078_sombras_chapeus_balcao_taverna.jpg" alt="Sombras de Chapéus no Balcão da Taverna (#078)" loading="lazy">
+            <video src="assets/videos/ids_trailer/078_sombras_chapeus_balcao_taverna.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #078</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-06</span> Sombras de Chapéus no Balcão da Taverna (#078)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:26:02 · 3.29s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-07" data-val="ids-07 | #081 | 01:02:31:19 | 081_jovem_cobrindo_olho_retrato | Jovem Cobrindo um Olho com a Mão em Retrato Frontal (#081)" data-search="ids-07 #081 jovem cobrindo um olho com a mão em retrato frontal (#081) close-up verde mata, terra &amp; pele 081_jovem_cobrindo_olho_retrato ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro close-up jovem cobrindo olho com mão retrato frontal">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/081_jovem_cobrindo_olho_retrato.jpg" alt="Jovem Cobrindo um Olho com a Mão em Retrato Frontal (#081)" loading="lazy">
+            <video src="assets/videos/ids_trailer/081_jovem_cobrindo_olho_retrato.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #081</span>
+            <span class="ep-badge">Close-Up</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-07</span> Jovem Cobrindo um Olho com a Mão em Retrato Frontal (#081)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:31:19 · 1.17s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-08" data-val="ids-08 | #098 | 01:02:52:06 | 098_mulher_observando_salao_escuro | Mulher Observando o Salão Escuro ao Lado do Balcão (#098)" data-search="ids-08 #098 mulher observando o salão escuro ao lado do balcão (#098) plano médio azul noturno &amp; sombra 098_mulher_observando_salao_escuro ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio mulher observando salão escuro lado balcão">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/098_mulher_observando_salao_escuro.jpg" alt="Mulher Observando o Salão Escuro ao Lado do Balcão (#098)" loading="lazy">
+            <video src="assets/videos/ids_trailer/098_mulher_observando_salao_escuro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #098</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-08</span> Mulher Observando o Salão Escuro ao Lado do Balcão (#098)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:52:06 · 1.50s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-09" data-val="ids-09 | #099 | 01:02:53:18 | 099_luta_desfoque_movimento_taverna | Luta em Desfoque de Movimento na Taverna (#099)" data-search="ids-09 #099 luta em desfoque de movimento na taverna (#099) plano médio âmbar &amp; sombra 099_luta_desfoque_movimento_taverna ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio luta desfoque movimento taverna">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/099_luta_desfoque_movimento_taverna.jpg" alt="Luta em Desfoque de Movimento na Taverna (#099)" loading="lazy">
+            <video src="assets/videos/ids_trailer/099_luta_desfoque_movimento_taverna.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #099</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-09</span> Luta em Desfoque de Movimento na Taverna (#099)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:53:18 · 1.54s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-10" data-val="ids-10 | #127 | 01:03:45:16 | 127_rostos_penumbra_atras_grades | Rostos na Penumbra Avermelhada Atrás das Grades (#127)" data-search="ids-10 #127 rostos na penumbra avermelhada atrás das grades (#127) close-up azul noturno &amp; sombra 127_rostos_penumbra_atras_grades ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro close-up rostos penumbra avermelhada atrás das grades">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/127_rostos_penumbra_atras_grades.jpg" alt="Rostos na Penumbra Avermelhada Atrás das Grades (#127)" loading="lazy">
+            <video src="assets/videos/ids_trailer/127_rostos_penumbra_atras_grades.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #127</span>
+            <span class="ep-badge">Close-Up</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-10</span> Rostos na Penumbra Avermelhada Atrás das Grades (#127)</div>
+            <div class="sub-row">
+              <span class="sub">01:03:45:16 · 5.92s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-11" data-val="ids-11 | #132 | 01:03:55:12 | 132_duas_meninas_cavalo_castanho | Duas Meninas Montadas Juntas em Cavalo Castanho (#132)" data-search="ids-11 #132 duas meninas montadas juntas em cavalo castanho (#132) plano geral verde mata, terra &amp; pele 132_duas_meninas_cavalo_castanho ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral duas meninas montadas juntas cavalo castanho">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/132_duas_meninas_cavalo_castanho.jpg" alt="Duas Meninas Montadas Juntas em Cavalo Castanho (#132)" loading="lazy">
+            <video src="assets/videos/ids_trailer/132_duas_meninas_cavalo_castanho.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #132</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-11</span> Duas Meninas Montadas Juntas em Cavalo Castanho (#132)</div>
+            <div class="sub-row">
+              <span class="sub">01:03:55:12 · 0.96s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-12" data-val="ids-12 | #145 | 01:04:14:09 | 145_flare_anamorfico_copas | Flare Anamórfico Solar Cortando as Copas das Árvores (#145)" data-search="ids-12 #145 flare anamórfico solar cortando as copas das árvores (#145) plano geral verde mata, terra &amp; pele 145_flare_anamorfico_copas ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral flare anamórfico solar cortando copas das árvores">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/145_flare_anamorfico_copas.jpg" alt="Flare Anamórfico Solar Cortando as Copas das Árvores (#145)" loading="lazy">
+            <video src="assets/videos/ids_trailer/145_flare_anamorfico_copas.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #145</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-12</span> Flare Anamórfico Solar Cortando as Copas das Árvores (#145)</div>
+            <div class="sub-row">
+              <span class="sub">01:04:14:09 · 0.75s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-13" data-val="ids-13 | #148 | 01:04:17:14 | 148_mulher_emergindo_agua_noite | Mulher Emergindo na Água Escura da Noite (#148)" data-search="ids-13 #148 mulher emergindo na água escura da noite (#148) plano geral azul noturno &amp; sombra 148_mulher_emergindo_agua_noite ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral mulher emergindo água escura noite">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/148_mulher_emergindo_agua_noite.jpg" alt="Mulher Emergindo na Água Escura da Noite (#148)" loading="lazy">
+            <video src="assets/videos/ids_trailer/148_mulher_emergindo_agua_noite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #148</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-13</span> Mulher Emergindo na Água Escura da Noite (#148)</div>
+            <div class="sub-row">
+              <span class="sub">01:04:17:14 · 3.50s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-14" data-val="ids-14 | #152 | 01:04:31:12 | 152_vulto_lenco_vermelho_varanda | Vulto com Lenço Vermelho Correndo Pela Varanda (#152)" data-search="ids-14 #152 vulto com lenço vermelho correndo pela varanda (#152) plano médio verde mata, terra &amp; pele 152_vulto_lenco_vermelho_varanda ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio vulto com lenço vermelho correndo pela varanda">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/152_vulto_lenco_vermelho_varanda.jpg" alt="Vulto com Lenço Vermelho Correndo Pela Varanda (#152)" loading="lazy">
+            <video src="assets/videos/ids_trailer/152_vulto_lenco_vermelho_varanda.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #152</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-14</span> Vulto com Lenço Vermelho Correndo Pela Varanda (#152)</div>
+            <div class="sub-row">
+              <span class="sub">01:04:31:12 · 4.17s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-15" data-val="ids-15 | #153 | 01:04:35:16 | 153_plano_geral_espelhado_lago | Plano Geral Espelhado do Lago na Floresta (#153)" data-search="ids-15 #153 plano geral espelhado do lago na floresta (#153) plano geral verde mata, terra &amp; pele 153_plano_geral_espelhado_lago ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral plano geral espelhado lago floresta">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/153_plano_geral_espelhado_lago.jpg" alt="Plano Geral Espelhado do Lago na Floresta (#153)" loading="lazy">
+            <video src="assets/videos/ids_trailer/153_plano_geral_espelhado_lago.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #153</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-15</span> Plano Geral Espelhado do Lago na Floresta (#153)</div>
+            <div class="sub-row">
+              <span class="sub">01:04:35:16 · 7.09s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-16" data-val="ids-16 | #172 | 01:05:06:07 | 172_mulheres_muro_pedra_bando | Mulheres Escondidas Atrás de Muro de Pedra com Bando ao Fundo (#172)" data-search="ids-16 #172 mulheres escondidas atrás de muro de pedra com bando ao fundo (#172) plano geral verde mata, terra &amp; pele 172_mulheres_muro_pedra_bando ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral mulheres escondidas atrás muro pedra com bando fundo">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/172_mulheres_muro_pedra_bando.jpg" alt="Mulheres Escondidas Atrás de Muro de Pedra com Bando ao Fundo (#172)" loading="lazy">
+            <video src="assets/videos/ids_trailer/172_mulheres_muro_pedra_bando.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #172</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-16</span> Mulheres Escondidas Atrás de Muro de Pedra com Bando ao Fundo (#172)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:06:07 · 1.13s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-17" data-val="ids-17 | #208 | 01:05:52:20 | 208_tres_irmas_grades_azul | Três Irmãs Sorrindo Atrás das Grades da Janela Azul (#208)" data-search="ids-17 #208 três irmãs sorrindo atrás das grades da janela azul (#208) plano médio azul intenso &amp; sombra 208_tres_irmas_grades_azul ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio três irmãs sorrindo atrás das grades janela azul">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/208_tres_irmas_grades_azul.jpg" alt="Três Irmãs Sorrindo Atrás das Grades da Janela Azul (#208)" loading="lazy">
+            <video src="assets/videos/ids_trailer/208_tres_irmas_grades_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #208</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-17</span> Três Irmãs Sorrindo Atrás das Grades da Janela Azul (#208)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:52:20 · 3.42s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-18" data-val="ids-18 | #214 | 01:06:02:03 | 214_trio_impasse_noturno_azul_varanda | Trio em Impasse Noturno sob Luz Azul na Varanda (#214)" data-search="ids-18 #214 trio em impasse noturno sob luz azul na varanda (#214) plano médio azul noturno &amp; sombra 214_trio_impasse_noturno_azul_varanda ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio trio impasse noturno sob luz azul varanda">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/214_trio_impasse_noturno_azul_varanda.jpg" alt="Trio em Impasse Noturno sob Luz Azul na Varanda (#214)" loading="lazy">
+            <video src="assets/videos/ids_trailer/214_trio_impasse_noturno_azul_varanda.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #214</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-18</span> Trio em Impasse Noturno sob Luz Azul na Varanda (#214)</div>
+            <div class="sub-row">
+              <span class="sub">01:06:02:03 · 3.59s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="group" id="juncoes">
+      <h2>Sequências Montadas <span class="count">(63 sequências)</span></h2>
+      <div class="grid">
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-19" data-val="ids-19 | #003 + #004 | 01:00:05:07 | seq_j01_3_4_padre_bencao_funeral | Padre Mascarado em Bênção Diante das Irmãs no Funeral (#003+#004)" data-search="ids-19 #003 + #004 padre mascarado em bênção diante das irmãs no funeral (#003+#004) plano geral verde musgo, preto &amp; sombra seq_j01_3_4_padre_bencao_funeral ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência funeral padre máscara mata bênção">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j01_3_4_padre_bencao_funeral.jpg" alt="Padre Mascarado em Bênção Diante das Irmãs no Funeral (#003+#004)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j01_3_4_padre_bencao_funeral.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 01 · #003 + #004</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-19</span> Padre Mascarado em Bênção Diante das Irmãs no Funeral (#003+#004)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:05:07 · 2.54s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-20" data-val="ids-20 | #005 + #006 | 01:00:07:20 | seq_j02_5_6_luto_choro_cortejo | Luto e Choro no Cortejo Entre as Irmãs (#005+#006)" data-search="ids-20 #005 + #006 luto e choro no cortejo entre as irmãs (#005+#006) plano médio preto fúnebre &amp; tons terrosos seq_j02_5_6_luto_choro_cortejo ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência luto choro véu cortejo irmãs">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j02_5_6_luto_choro_cortejo.jpg" alt="Luto e Choro no Cortejo Entre as Irmãs (#005+#006)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j02_5_6_luto_choro_cortejo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 02 · #005 + #006</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-20</span> Luto e Choro no Cortejo Entre as Irmãs (#005+#006)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:07:20 · 2.79s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-21" data-val="ids-21 | #008 + #009 | 01:00:12:05 | seq_j03_8_9_abraco_penumbra_cruz_sepultura | Abraço de Consolo na Penumbra &amp; Cruz de Madeira na Sepultura (#008+#009)" data-search="ids-21 #008 + #009 abraço de consolo na penumbra &amp; cruz de madeira na sepultura (#008+#009) plano geral preto, verde &amp; luz dourada seq_j03_8_9_abraco_penumbra_cruz_sepultura ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência abraço cruz sepultura velório contraluz">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j03_8_9_abraco_penumbra_cruz_sepultura.jpg" alt="Abraço de Consolo na Penumbra &amp; Cruz de Madeira na Sepultura (#008+#009)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j03_8_9_abraco_penumbra_cruz_sepultura.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 03 · #008 + #009</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-21</span> Abraço de Consolo na Penumbra &amp; Cruz de Madeira na Sepultura (#008+#009)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:12:05 · 4.05s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-22" data-val="ids-22 | #013 + #015 | 01:00:26:02 | seq_j04_13_15_grupo_estrada_jovens_armadas | Grupo Pela Estrada &amp; Jovens Armadas Reagindo na Entrada (#013+#015)" data-search="ids-22 #013 + #015 grupo pela estrada &amp; jovens armadas reagindo na entrada (#013+#015) plano médio verde rural &amp; terracota seq_j04_13_15_grupo_estrada_jovens_armadas ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência estrada faca reação grupo fazenda">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j04_13_15_grupo_estrada_jovens_armadas.jpg" alt="Grupo Pela Estrada &amp; Jovens Armadas Reagindo na Entrada (#013+#015)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j04_13_15_grupo_estrada_jovens_armadas.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 04 · #013 + #015</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-22</span> Grupo Pela Estrada &amp; Jovens Armadas Reagindo na Entrada (#013+#015)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:26:02 · 2.71s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-23" data-val="ids-23 | #014 + #020 | 01:00:27:14 | seq_j05_14_20_cavaleira_portao_amazona_campo | Cavaleira Chegando Entre os Pilares &amp; Amazona no Campo (#014+#020)" data-search="ids-23 #014 + #020 cavaleira chegando entre os pilares &amp; amazona no campo (#014+#020) plano geral verde campo &amp; ocres seq_j05_14_20_cavaleira_portao_amazona_campo ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência cavaleira cavalo portão amazona chapéu">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j05_14_20_cavaleira_portao_amazona_campo.jpg" alt="Cavaleira Chegando Entre os Pilares &amp; Amazona no Campo (#014+#020)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j05_14_20_cavaleira_portao_amazona_campo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 05 · #014 + #020</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-23</span> Cavaleira Chegando Entre os Pilares &amp; Amazona no Campo (#014+#020)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:27:14 · 1.88s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-24" data-val="ids-24 | #018 + #019 | 01:00:31:16 | seq_j06_18_19_porta_madeira_espingarda | Observação Pela Porta &amp; Mira de Espingarda do Casarão (#018+#019)" data-search="ids-24 #018 + #019 observação pela porta &amp; mira de espingarda do casarão (#018+#019) plano médio madeira quente &amp; preto seq_j06_18_19_porta_madeira_espingarda ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência porta espingarda casarão mira mascarado">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j06_18_19_porta_madeira_espingarda.jpg" alt="Observação Pela Porta &amp; Mira de Espingarda do Casarão (#018+#019)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j06_18_19_porta_madeira_espingarda.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 06 · #018 + #019</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-24</span> Observação Pela Porta &amp; Mira de Espingarda do Casarão (#018+#019)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:31:16 · 4.13s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-25" data-val="ids-25 | #026 + #027 | 01:00:43:19 | seq_j07_26_27_porta_varanda_tres_irmas_espingarda | Saída Pela Porta de Madeira &amp; Três Irmãs Armadas na Varanda (#026+#027)" data-search="ids-25 #026 + #027 saída pela porta de madeira &amp; três irmãs armadas na varanda (#026+#027) plano geral verde mata, branco &amp; madeira seq_j07_26_27_porta_varanda_tres_irmas_espingarda ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência varanda espingarda três irmãs porta cesto">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j07_26_27_porta_varanda_tres_irmas_espingarda.jpg" alt="Saída Pela Porta de Madeira &amp; Três Irmãs Armadas na Varanda (#026+#027)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j07_26_27_porta_varanda_tres_irmas_espingarda.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 07 · #026 + #027</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-25</span> Saída Pela Porta de Madeira &amp; Três Irmãs Armadas na Varanda (#026+#027)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:43:19 · 4.67s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-26" data-val="ids-26 | #028 + #029 | 01:00:48:11 | seq_j08_28_29_olhar_assustado_segredo_varanda | Olhar Assustado &amp; Conversa em Segredo Junto ao Cavalo (#028+#029)" data-search="ids-26 #028 + #029 olhar assustado &amp; conversa em segredo junto ao cavalo (#028+#029) plano médio verde, madeira &amp; pele seq_j08_28_29_olhar_assustado_segredo_varanda ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência varanda segredo cavalo susto irmãs">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j08_28_29_olhar_assustado_segredo_varanda.jpg" alt="Olhar Assustado &amp; Conversa em Segredo Junto ao Cavalo (#028+#029)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j08_28_29_olhar_assustado_segredo_varanda.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 08 · #028 + #029</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-26</span> Olhar Assustado &amp; Conversa em Segredo Junto ao Cavalo (#028+#029)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:48:11 · 2.58s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-27" data-val="ids-27 | #033 + #034 | 01:00:56:04 | seq_j09_33_34_rendicao_sala_bandoleiro_porta | Rendição na Sala Vermelha &amp; Bandoleiro Mascarado na Porta (#033+#034)" data-search="ids-27 #033 + #034 rendição na sala vermelha &amp; bandoleiro mascarado na porta (#033+#034) plano médio vermelho escuro &amp; penumbra seq_j09_33_34_rendicao_sala_bandoleiro_porta ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência rendição bandoleiro máscara sala porta">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j09_33_34_rendicao_sala_bandoleiro_porta.jpg" alt="Rendição na Sala Vermelha &amp; Bandoleiro Mascarado na Porta (#033+#034)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j09_33_34_rendicao_sala_bandoleiro_porta.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 09 · #033 + #034</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-27</span> Rendição na Sala Vermelha &amp; Bandoleiro Mascarado na Porta (#033+#034)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:56:04 · 3.54s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-28" data-val="ids-28 | #036 + #037 | 01:01:01:03 | seq_j10_36_37_rendidas_mesa_alerta_retrato | Mulheres Rendidas à Mesa &amp; Alerta Diante do Retrato Antigo (#036+#037)" data-search="ids-28 #036 + #037 mulheres rendidas à mesa &amp; alerta diante do retrato antigo (#036+#037) plano médio âmbar, madeira &amp; sombra seq_j10_36_37_rendidas_mesa_alerta_retrato ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência mesa jantar rendição retrato alerta">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j10_36_37_rendidas_mesa_alerta_retrato.jpg" alt="Mulheres Rendidas à Mesa &amp; Alerta Diante do Retrato Antigo (#036+#037)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j10_36_37_rendidas_mesa_alerta_retrato.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 10 · #036 + #037</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-28</span> Mulheres Rendidas à Mesa &amp; Alerta Diante do Retrato Antigo (#036+#037)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:01:03 · 3.96s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-29" data-val="ids-29 | #039 + #038 + #040 | 01:01:06:03 | seq_j11_39_38_40_preparacao_cavalos_sela_pasto | Preparação dos Cavalos, Montaria na Sela &amp; Pasto Verde (#039+#038+#040)" data-search="ids-29 #039 + #038 + #040 preparação dos cavalos, montaria na sela &amp; pasto verde (#039+#038+#040) plano geral verde pasto &amp; castanho seq_j11_39_38_40_preparacao_cavalos_sela_pasto ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência cavalo sela alpendre pasto montaria">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j11_39_38_40_preparacao_cavalos_sela_pasto.jpg" alt="Preparação dos Cavalos, Montaria na Sela &amp; Pasto Verde (#039+#038+#040)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j11_39_38_40_preparacao_cavalos_sela_pasto.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 11 · #039 + #038 + #040</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-29</span> Preparação dos Cavalos, Montaria na Sela &amp; Pasto Verde (#039+#038+#040)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:06:03 · 2.79s · 3 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-30" data-val="ids-30 | #041 + #043 | 01:01:07:21 | seq_j12_41_43_invasao_sala_galope_estrada | Invasão Armada na Sala &amp; Fuga em Galope Pela Estrada (#041+#043)" data-search="ids-30 #041 + #043 invasão armada na sala &amp; fuga em galope pela estrada (#041+#043) plano geral sombra, ocre &amp; terra seq_j12_41_43_invasao_sala_galope_estrada ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência invasão fuga galope estrada cavalo">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j12_41_43_invasao_sala_galope_estrada.jpg" alt="Invasão Armada na Sala &amp; Fuga em Galope Pela Estrada (#041+#043)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j12_41_43_invasao_sala_galope_estrada.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 12 · #041 + #043</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-30</span> Invasão Armada na Sala &amp; Fuga em Galope Pela Estrada (#041+#043)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:07:21 · 3.97s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-31" data-val="ids-31 | #046 + #047 | 01:01:19:05 | seq_j13_46_47_batida_porta_jovem_espantada | Batida Forte na Porta de Madeira &amp; Jovem Espantada na Manhã (#046+#047)" data-search="ids-31 #046 + #047 batida forte na porta de madeira &amp; jovem espantada na manhã (#046+#047) close-up madeira &amp; verde claro seq_j13_46_47_batida_porta_jovem_espantada ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro close-up sequência porta batida susto espanto manhã">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j13_46_47_batida_porta_jovem_espantada.jpg" alt="Batida Forte na Porta de Madeira &amp; Jovem Espantada na Manhã (#046+#047)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j13_46_47_batida_porta_jovem_espantada.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 13 · #046 + #047</span>
+            <span class="ep-badge">Close-Up</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-31</span> Batida Forte na Porta de Madeira &amp; Jovem Espantada na Manhã (#046+#047)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:19:05 · 2.84s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-32" data-val="ids-32 | #049 + #052 | 01:01:24:11 | seq_j14_49_52_vitral_igreja_pia_batismal | Passagem Diante do Vitral &amp; Irmãs com o Padre na Pia Batismal (#049+#052)" data-search="ids-32 #049 + #052 passagem diante do vitral &amp; irmãs com o padre na pia batismal (#049+#052) plano geral bege, azul &amp; branco seq_j14_49_52_vitral_igreja_pia_batismal ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência capela igreja vitral pia batismal padre">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j14_49_52_vitral_igreja_pia_batismal.jpg" alt="Passagem Diante do Vitral &amp; Irmãs com o Padre na Pia Batismal (#049+#052)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j14_49_52_vitral_igreja_pia_batismal.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 14 · #049 + #052</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-32</span> Passagem Diante do Vitral &amp; Irmãs com o Padre na Pia Batismal (#049+#052)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:24:11 · 6.30s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-33" data-val="ids-33 | #054 + #055 | 01:01:35:19 | seq_j15_54_55_padre_luz_altar_pulpito | Padre Contra a Luz Dourada do Altar &amp; Sermão no Púlpito (#054+#055)" data-search="ids-33 #054 + #055 padre contra a luz dourada do altar &amp; sermão no púlpito (#054+#055) plano médio dourado, preto &amp; madeira seq_j15_54_55_padre_luz_altar_pulpito ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência padre altar púlpito vitral contraluz">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j15_54_55_padre_luz_altar_pulpito.jpg" alt="Padre Contra a Luz Dourada do Altar &amp; Sermão no Púlpito (#054+#055)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j15_54_55_padre_luz_altar_pulpito.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 15 · #054 + #055</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-33</span> Padre Contra a Luz Dourada do Altar &amp; Sermão no Púlpito (#054+#055)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:35:19 · 7.04s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-34" data-val="ids-34 | #058 + #062 | 01:01:45:09 | seq_j16_58_62_confronto_capela_biblia_porta | Confronto na Capela com Bíblia &amp; Jovem Encarando na Porta (#058+#062)" data-search="ids-34 #058 + #062 confronto na capela com bíblia &amp; jovem encarando na porta (#058+#062) plano médio madeira, branco &amp; sombra seq_j16_58_62_confronto_capela_biblia_porta ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência capela bíblia confronto chapéu porta">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j16_58_62_confronto_capela_biblia_porta.jpg" alt="Confronto na Capela com Bíblia &amp; Jovem Encarando na Porta (#058+#062)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j16_58_62_confronto_capela_biblia_porta.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 16 · #058 + #062</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-34</span> Confronto na Capela com Bíblia &amp; Jovem Encarando na Porta (#058+#062)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:45:09 · 3.46s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-35" data-val="ids-35 | #057 + #060 | 01:01:44:15 | seq_j17_57_60_lagrimas_igreja_maos_dadas_altar | Lágrimas nos Bancos da Igreja &amp; Mãos Dadas Diante do Altar (#057+#060)" data-search="ids-35 #057 + #060 lágrimas nos bancos da igreja &amp; mãos dadas diante do altar (#057+#060) detalhe vermelho, branco &amp; preto seq_j17_57_60_lagrimas_igreja_maos_dadas_altar ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro detalhe sequência lágrimas igreja mãos dadas padre altar">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j17_57_60_lagrimas_igreja_maos_dadas_altar.jpg" alt="Lágrimas nos Bancos da Igreja &amp; Mãos Dadas Diante do Altar (#057+#060)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j17_57_60_lagrimas_igreja_maos_dadas_altar.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 17 · #057 + #060</span>
+            <span class="ep-badge">Detalhe</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-35</span> Lágrimas nos Bancos da Igreja &amp; Mãos Dadas Diante do Altar (#057+#060)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:44:15 · 3.54s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-36" data-val="ids-36 | #063 + #064 | 01:01:54:18 | seq_j18_63_64_capanga_portao_cavaleiros_noite_azul | Capanga no Portão &amp; Cavaleiros na Mata Noturna Azul (#063+#064)" data-search="ids-36 #063 + #064 capanga no portão &amp; cavaleiros na mata noturna azul (#063+#064) plano geral azul noturno &amp; sombra seq_j18_63_64_capanga_portao_cavaleiros_noite_azul ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência capanga portão cavaleiros noite azul">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j18_63_64_capanga_portao_cavaleiros_noite_azul.jpg" alt="Capanga no Portão &amp; Cavaleiros na Mata Noturna Azul (#063+#064)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j18_63_64_capanga_portao_cavaleiros_noite_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 18 · #063 + #064</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-36</span> Capanga no Portão &amp; Cavaleiros na Mata Noturna Azul (#063+#064)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:54:18 · 5.71s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-37" data-val="ids-37 | #065 + #067 | 01:02:00:11 | seq_j19_65_67_dialogo_tenso_janela_grito_furia | Diálogo Tenso Diante da Janela &amp; Grito de Fúria na Sala Escura (#065+#067)" data-search="ids-37 #065 + #067 diálogo tenso diante da janela &amp; grito de fúria na sala escura (#065+#067) plano médio sombra &amp; pele iluminada seq_j19_65_67_dialogo_tenso_janela_grito_furia ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência tensão grito fúria noite sala escura">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j19_65_67_dialogo_tenso_janela_grito_furia.jpg" alt="Diálogo Tenso Diante da Janela &amp; Grito de Fúria na Sala Escura (#065+#067)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j19_65_67_dialogo_tenso_janela_grito_furia.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 19 · #065 + #067</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-37</span> Diálogo Tenso Diante da Janela &amp; Grito de Fúria na Sala Escura (#065+#067)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:00:11 · 7.01s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-38" data-val="ids-38 | #069 + #070 + #071 | 01:02:13:12 | seq_j20_69_70_71_silhuetas_balcao_olhares_noite | Silhuetas na Sala, Observação no Balcão &amp; Olhares Tensos (#069+#070+#071)" data-search="ids-38 #069 + #070 + #071 silhuetas na sala, observação no balcão &amp; olhares tensos (#069+#070+#071) plano médio âmbar escuro &amp; sombra seq_j20_69_70_71_silhuetas_balcao_olhares_noite ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência silhuetas balcão chapéu noite olhares">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j20_69_70_71_silhuetas_balcao_olhares_noite.jpg" alt="Silhuetas na Sala, Observação no Balcão &amp; Olhares Tensos (#069+#070+#071)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j20_69_70_71_silhuetas_balcao_olhares_noite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 20 · #069 + #070 + #071</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-38</span> Silhuetas na Sala, Observação no Balcão &amp; Olhares Tensos (#069+#070+#071)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:13:12 · 2.17s · 3 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-39" data-val="ids-39 | #072 + #073 | 01:02:15:16 | seq_j21_72_73_ponte_madeira_riacho_corrimao | Encontro na Ponte de Madeira &amp; Conversa no Corrimão (#072+#073)" data-search="ids-39 #072 + #073 encontro na ponte de madeira &amp; conversa no corrimão (#072+#073) plano geral verde mata &amp; madeira seq_j21_72_73_ponte_madeira_riacho_corrimao ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência ponte riacho madeira trio mata">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j21_72_73_ponte_madeira_riacho_corrimao.jpg" alt="Encontro na Ponte de Madeira &amp; Conversa no Corrimão (#072+#073)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j21_72_73_ponte_madeira_riacho_corrimao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 21 · #072 + #073</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-39</span> Encontro na Ponte de Madeira &amp; Conversa no Corrimão (#072+#073)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:15:16 · 2.29s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-40" data-val="ids-40 | #075 + #077 | 01:02:19:08 | seq_j22_75_77_dialogo_persianas_armas_taverna | Diálogo Sob Persianas &amp; Mulheres Alinhadas Armadas na Taverna (#075+#077)" data-search="ids-40 #075 + #077 diálogo sob persianas &amp; mulheres alinhadas armadas na taverna (#075+#077) plano geral âmbar &amp; sombra seq_j22_75_77_dialogo_persianas_armas_taverna ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência persianas taverna armas mira mulheres">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j22_75_77_dialogo_persianas_armas_taverna.jpg" alt="Diálogo Sob Persianas &amp; Mulheres Alinhadas Armadas na Taverna (#075+#077)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j22_75_77_dialogo_persianas_armas_taverna.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 22 · #075 + #077</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-40</span> Diálogo Sob Persianas &amp; Mulheres Alinhadas Armadas na Taverna (#075+#077)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:19:08 · 4.38s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-41" data-val="ids-41 | #079 + #080 | 01:02:29:09 | seq_j23_79_80_cartas_antigas_taro_luz_azul | Cartas Antigas Sobre a Toalha Rendada &amp; Carta em Luz Azul (#079+#080)" data-search="ids-41 #079 + #080 cartas antigas sobre a toalha rendada &amp; carta em luz azul (#079+#080) detalhe azul frio &amp; branco seq_j23_79_80_cartas_antigas_taro_luz_azul ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro detalhe sequência cartas tarô baralho renda azul">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j23_79_80_cartas_antigas_taro_luz_azul.jpg" alt="Cartas Antigas Sobre a Toalha Rendada &amp; Carta em Luz Azul (#079+#080)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j23_79_80_cartas_antigas_taro_luz_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 23 · #079 + #080</span>
+            <span class="ep-badge">Detalhe</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-41</span> Cartas Antigas Sobre a Toalha Rendada &amp; Carta em Luz Azul (#079+#080)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:29:09 · 2.42s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-42" data-val="ids-42 | #084 + #085 | 01:02:35:05 | seq_j24_84_85_comando_armado_frente_a_frente_taverna | Mulher Comandando Ataque &amp; Frente a Frente Armado na Taverna (#084+#085)" data-search="ids-42 #084 + #085 mulher comandando ataque &amp; frente a frente armado na taverna (#084+#085) plano médio âmbar, marrom &amp; sombra seq_j24_84_85_comando_armado_frente_a_frente_taverna ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência taverna comando armas confronto capangas">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j24_84_85_comando_armado_frente_a_frente_taverna.jpg" alt="Mulher Comandando Ataque &amp; Frente a Frente Armado na Taverna (#084+#085)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j24_84_85_comando_armado_frente_a_frente_taverna.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 24 · #084 + #085</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-42</span> Mulher Comandando Ataque &amp; Frente a Frente Armado na Taverna (#084+#085)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:35:05 · 4.38s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-43" data-val="ids-43 | #086 + #087 + #088 | 01:02:39:14 | seq_j25_86_87_88_mascarado_roda_revolveres_comando | Mascarado na Luz Quente, Roda de Revólveres &amp; Comando Armado (#086+#087+#088)" data-search="ids-43 #086 + #087 + #088 mascarado na luz quente, roda de revólveres &amp; comando armado (#086+#087+#088) plano médio dourado, âmbar &amp; sombra seq_j25_86_87_88_mascarado_roda_revolveres_comando ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência revólver roda taverna grito mascarado">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j25_86_87_88_mascarado_roda_revolveres_comando.jpg" alt="Mascarado na Luz Quente, Roda de Revólveres &amp; Comando Armado (#086+#087+#088)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j25_86_87_88_mascarado_roda_revolveres_comando.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 25 · #086 + #087 + #088</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-43</span> Mascarado na Luz Quente, Roda de Revólveres &amp; Comando Armado (#086+#087+#088)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:39:14 · 4.21s · 3 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-44" data-val="ids-44 | #089 + #090 | 01:02:43:19 | seq_j26_89_90_chapeu_branco_confronto_mascarado | Bandoleiro de Chapéu Branco Confrontando o Mascarado (#089+#090)" data-search="ids-44 #089 + #090 bandoleiro de chapéu branco confrontando o mascarado (#089+#090) plano médio branco, âmbar &amp; preto seq_j26_89_90_chapeu_branco_confronto_mascarado ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência chapéu branco mascarado taverna confronto">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j26_89_90_chapeu_branco_confronto_mascarado.jpg" alt="Bandoleiro de Chapéu Branco Confrontando o Mascarado (#089+#090)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j26_89_90_chapeu_branco_confronto_mascarado.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 26 · #089 + #090</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-44</span> Bandoleiro de Chapéu Branco Confrontando o Mascarado (#089+#090)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:43:19 · 1.00s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-45" data-val="ids-45 | #091 | 01:02:44:19 | 091_troca_golpes_salao_taverna | Troca de Golpes no Salão da Taverna (#091)" data-search="ids-45 #091 troca de golpes no salão da taverna (#091) plano médio âmbar &amp; sombra 091_troca_golpes_salao_taverna ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência briga golpes salão taverna">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/091_troca_golpes_salao_taverna.jpg" alt="Troca de Golpes no Salão da Taverna (#091)" loading="lazy">
+            <video src="assets/videos/ids_trailer/091_troca_golpes_salao_taverna.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 27 · #091</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-45</span> Troca de Golpes no Salão da Taverna (#091)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:44:19 · 0.58s · 1 plano</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-46" data-val="ids-46 | #092 + #093 + #094 + #095 | 01:02:45:09 | seq_j28_92_93_94_95_saque_arma_pancadaria_taverna | Saque de Arma, Balcão Verde &amp; Pancadaria Sobre as Mesas (#092+#093+#094+#095)" data-search="ids-46 #092 + #093 + #094 + #095 saque de arma, balcão verde &amp; pancadaria sobre as mesas (#092+#093+#094+#095) plano médio âmbar, verde &amp; marrom seq_j28_92_93_94_95_saque_arma_pancadaria_taverna ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência saque balcão pancadaria mesas taverna">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j28_92_93_94_95_saque_arma_pancadaria_taverna.jpg" alt="Saque de Arma, Balcão Verde &amp; Pancadaria Sobre as Mesas (#092+#093+#094+#095)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j28_92_93_94_95_saque_arma_pancadaria_taverna.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 28 · #092 + #093 + #094 + #095</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-46</span> Saque de Arma, Balcão Verde &amp; Pancadaria Sobre as Mesas (#092+#093+#094+#095)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:45:09 · 2.26s · 4 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-47" data-val="ids-47 | #096 + #097 | 01:02:47:15 | seq_j29_96_97_mulher_rendida_arma_erguida | Mulher Rendida na Penumbra &amp; Arma Erguida na Confusão (#096+#097)" data-search="ids-47 #096 + #097 mulher rendida na penumbra &amp; arma erguida na confusão (#096+#097) plano médio âmbar escuro &amp; sombra seq_j29_96_97_mulher_rendida_arma_erguida ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência rendida espingarda taverna confusão">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j29_96_97_mulher_rendida_arma_erguida.jpg" alt="Mulher Rendida na Penumbra &amp; Arma Erguida na Confusão (#096+#097)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j29_96_97_mulher_rendida_arma_erguida.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 29 · #096 + #097</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-47</span> Mulher Rendida na Penumbra &amp; Arma Erguida na Confusão (#096+#097)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:47:15 · 4.62s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-48" data-val="ids-48 | #100 + #101 | 01:02:55:07 | seq_j30_100_101_silhuetas_janela_confronto_salao | Silhuetas na Janela Iluminada &amp; Confronto Fechado no Salão (#100+#101)" data-search="ids-48 #100 + #101 silhuetas na janela iluminada &amp; confronto fechado no salão (#100+#101) plano geral âmbar &amp; preto seq_j30_100_101_silhuetas_janela_confronto_salao ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência silhuetas janela salão escuridão confronto">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j30_100_101_silhuetas_janela_confronto_salao.jpg" alt="Silhuetas na Janela Iluminada &amp; Confronto Fechado no Salão (#100+#101)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j30_100_101_silhuetas_janela_confronto_salao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 30 · #100 + #101</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-48</span> Silhuetas na Janela Iluminada &amp; Confronto Fechado no Salão (#100+#101)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:55:07 · 5.75s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-49" data-val="ids-49 | #102 + #103 + #104 | 01:03:01:01 | seq_j31_102_103_104_espreita_portao_pistoleiro_cavalgando | Espreita Pelo Portão &amp; Pistoleiro Mascarado Cavalgando (#102+#103+#104)" data-search="ids-49 #102 + #103 + #104 espreita pelo portão &amp; pistoleiro mascarado cavalgando (#102+#103+#104) plano geral verde jardim &amp; sombra seq_j31_102_103_104_espreita_portao_pistoleiro_cavalgando ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência padre capanga pistoleiro cavalo portão">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j31_102_103_104_espreita_portao_pistoleiro_cavalgando.jpg" alt="Espreita Pelo Portão &amp; Pistoleiro Mascarado Cavalgando (#102+#103+#104)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j31_102_103_104_espreita_portao_pistoleiro_cavalgando.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 31 · #102 + #103 + #104</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-49</span> Espreita Pelo Portão &amp; Pistoleiro Mascarado Cavalgando (#102+#103+#104)</div>
+            <div class="sub-row">
+              <span class="sub">01:03:01:01 · 4.63s · 3 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-50" data-val="ids-50 | #107 + #106 | 01:03:08:11 | seq_j32_107_106_trio_mulheres_capanga_mascara_cravejada | Trio de Mulheres Encarando Capanga de Máscara Cravejada (#107+#106)" data-search="ids-50 #107 + #106 trio de mulheres encarando capanga de máscara cravejada (#107+#106) plano médio bege muro &amp; ocre seq_j32_107_106_trio_mulheres_capanga_mascara_cravejada ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência muro máscara cravejada capanga irmãs chapéu">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j32_107_106_trio_mulheres_capanga_mascara_cravejada.jpg" alt="Trio de Mulheres Encarando Capanga de Máscara Cravejada (#107+#106)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j32_107_106_trio_mulheres_capanga_mascara_cravejada.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 32 · #107 + #106</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-50</span> Trio de Mulheres Encarando Capanga de Máscara Cravejada (#107+#106)</div>
+            <div class="sub-row">
+              <span class="sub">01:03:08:11 · 5.25s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-51" data-val="ids-51 | #114 + #109 | 01:03:21:05 | seq_j33_114_109_chapeu_claro_dialogo_pistoleiro | Jovem de Chapéu Claro &amp; Diálogo de Costas com o Pistoleiro (#114+#109)" data-search="ids-51 #114 + #109 jovem de chapéu claro &amp; diálogo de costas com o pistoleiro (#114+#109) close-up bege, marrom &amp; branco seq_j33_114_109_chapeu_claro_dialogo_pistoleiro ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro close-up sequência chapéu claro pistoleiro diálogo muro">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j33_114_109_chapeu_claro_dialogo_pistoleiro.jpg" alt="Jovem de Chapéu Claro &amp; Diálogo de Costas com o Pistoleiro (#114+#109)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j33_114_109_chapeu_claro_dialogo_pistoleiro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 33 · #114 + #109</span>
+            <span class="ep-badge">Close-Up</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-51</span> Jovem de Chapéu Claro &amp; Diálogo de Costas com o Pistoleiro (#114+#109)</div>
+            <div class="sub-row">
+              <span class="sub">01:03:21:05 · 2.84s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-52" data-val="ids-52 | #116 + #117 | 01:03:23:21 | seq_j34_116_117_homem_mata_jovem_escondida_pinheiro | Homem na Luz Dourada &amp; Jovem Espiando Atrás do Pinheiro (#116+#117)" data-search="ids-52 #116 + #117 homem na luz dourada &amp; jovem espiando atrás do pinheiro (#116+#117) plano médio dourado &amp; verde pinheiro seq_j34_116_117_homem_mata_jovem_escondida_pinheiro ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência pinheiro espiando bosque luz dourada">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j34_116_117_homem_mata_jovem_escondida_pinheiro.jpg" alt="Homem na Luz Dourada &amp; Jovem Espiando Atrás do Pinheiro (#116+#117)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j34_116_117_homem_mata_jovem_escondida_pinheiro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 34 · #116 + #117</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-52</span> Homem na Luz Dourada &amp; Jovem Espiando Atrás do Pinheiro (#116+#117)</div>
+            <div class="sub-row">
+              <span class="sub">01:03:23:21 · 2.05s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-53" data-val="ids-53 | #118 + #119 + #120 + #121 | 01:03:25:22 | seq_j35_118_119_120_121_pinheiral_dourado_padre_rendendo | Pinheiral Dourado &amp; Padre Rendendo Mulher no Solo da Mata (#118+#119+#120+#121)" data-search="ids-53 #118 + #119 + #120 + #121 pinheiral dourado &amp; padre rendendo mulher no solo da mata (#118+#119+#120+#121) plano geral dourado, verde &amp; preto seq_j35_118_119_120_121_pinheiral_dourado_padre_rendendo ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência pinheiral padre luta floresta dourado">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j35_118_119_120_121_pinheiral_dourado_padre_rendendo.jpg" alt="Pinheiral Dourado &amp; Padre Rendendo Mulher no Solo da Mata (#118+#119+#120+#121)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j35_118_119_120_121_pinheiral_dourado_padre_rendendo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 35 · #118 + #119 + #120 + #121</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-53</span> Pinheiral Dourado &amp; Padre Rendendo Mulher no Solo da Mata (#118+#119+#120+#121)</div>
+            <div class="sub-row">
+              <span class="sub">01:03:25:22 · 4.75s · 4 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-54" data-val="ids-54 | #122 + #123 | 01:03:30:16 | seq_j36_122_123_cavaleira_cavalo_branco_amazona_bosque | Cavaleira no Cavalo Branco &amp; Amazona Avançando no Bosque (#122+#123)" data-search="ids-54 #122 + #123 cavaleira no cavalo branco &amp; amazona avançando no bosque (#122+#123) plano geral dourado, branco &amp; verde seq_j36_122_123_cavaleira_cavalo_branco_amazona_bosque ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência cavalo branco amazona bosque dourado">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j36_122_123_cavaleira_cavalo_branco_amazona_bosque.jpg" alt="Cavaleira no Cavalo Branco &amp; Amazona Avançando no Bosque (#122+#123)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j36_122_123_cavaleira_cavalo_branco_amazona_bosque.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 36 · #122 + #123</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-54</span> Cavaleira no Cavalo Branco &amp; Amazona Avançando no Bosque (#122+#123)</div>
+            <div class="sub-row">
+              <span class="sub">01:03:30:16 · 4.13s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-55" data-val="ids-55 | #124 + #125 | 01:03:34:19 | seq_j37_124_125_ritual_noturno_tochas_encapuzado | Ritual Noturno com Tochas Acesas &amp; Encapuzado Diante do Fogo (#124+#125)" data-search="ids-55 #124 + #125 ritual noturno com tochas acesas &amp; encapuzado diante do fogo (#124+#125) plano geral fogo laranja &amp; preto seq_j37_124_125_ritual_noturno_tochas_encapuzado ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência ritual tochas fogo capuz noite">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j37_124_125_ritual_noturno_tochas_encapuzado.jpg" alt="Ritual Noturno com Tochas Acesas &amp; Encapuzado Diante do Fogo (#124+#125)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j37_124_125_ritual_noturno_tochas_encapuzado.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 37 · #124 + #125</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-55</span> Ritual Noturno com Tochas Acesas &amp; Encapuzado Diante do Fogo (#124+#125)</div>
+            <div class="sub-row">
+              <span class="sub">01:03:34:19 · 3.96s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-56" data-val="ids-56 | #130 + #134 | 01:03:54:02 | seq_j38_130_134_menina_jardim_homem_mata | Memória da Menina no Jardim &amp; Confronto Entre Árvores (#130+#134)" data-search="ids-56 #130 + #134 memória da menina no jardim &amp; confronto entre árvores (#130+#134) plano médio verde vivo &amp; branco seq_j38_130_134_menina_jardim_homem_mata ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência menina infância flashback jardim mata">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j38_130_134_menina_jardim_homem_mata.jpg" alt="Memória da Menina no Jardim &amp; Confronto Entre Árvores (#130+#134)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j38_130_134_menina_jardim_homem_mata.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 38 · #130 + #134</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-56</span> Memória da Menina no Jardim &amp; Confronto Entre Árvores (#130+#134)</div>
+            <div class="sub-row">
+              <span class="sub">01:03:54:02 · 2.04s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-57" data-val="ids-57 | #135 + #136 + #137 + #138 | 01:04:01:21 | seq_j39_135_136_137_138_homem_chapeu_branco_parede_terracota | Homem de Chapéu Branco Investindo Contra Parede Terracota e Porta (#135+#136+#137+#138)" data-search="ids-57 #135 + #136 + #137 + #138 homem de chapéu branco investindo contra parede terracota e porta (#135+#136+#137+#138) plano geral terracota, branco &amp; vermelho seq_j39_135_136_137_138_homem_chapeu_branco_parede_terracota ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência chapéu branco calça vermelha terracota varanda porta">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j39_135_136_137_138_homem_chapeu_branco_parede_terracota.jpg" alt="Homem de Chapéu Branco Investindo Contra Parede Terracota e Porta (#135+#136+#137+#138)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j39_135_136_137_138_homem_chapeu_branco_parede_terracota.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 39 · #135 + #136 + #137 + #138</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-57</span> Homem de Chapéu Branco Investindo Contra Parede Terracota e Porta (#135+#136+#137+#138)</div>
+            <div class="sub-row">
+              <span class="sub">01:04:01:21 · 2.25s · 4 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-58" data-val="ids-58 | #141 + #139 | 01:04:06:08 | seq_j40_141_139_plano_holandes_queda_menina_azulejos | Homem Caindo em Plano Holandês &amp; Menina nos Azulejos (#141+#139)" data-search="ids-58 #141 + #139 homem caindo em plano holandês &amp; menina nos azulejos (#141+#139) plano médio branco, azul &amp; sombra seq_j40_141_139_plano_holandes_queda_menina_azulejos ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência plano holandês queda menina azulejos">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j40_141_139_plano_holandes_queda_menina_azulejos.jpg" alt="Homem Caindo em Plano Holandês &amp; Menina nos Azulejos (#141+#139)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j40_141_139_plano_holandes_queda_menina_azulejos.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 40 · #141 + #139</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-58</span> Homem Caindo em Plano Holandês &amp; Menina nos Azulejos (#141+#139)</div>
+            <div class="sub-row">
+              <span class="sub">01:04:06:08 · 3.51s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-59" data-val="ids-59 | #147 + #156 + #154 | 01:04:15:18 | seq_j41_147_156_154_troncos_lago_pano_sobre_rio | Caminhada Entre Troncos, Perfil no Lago &amp; Pano Sobre o Rio (#147+#156+#154)" data-search="ids-59 #147 + #156 + #154 caminhada entre troncos, perfil no lago &amp; pano sobre o rio (#147+#156+#154) plano médio verde mata, água &amp; branco seq_j41_147_156_154_troncos_lago_pano_sobre_rio ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência lago rio pano mata água">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j41_147_156_154_troncos_lago_pano_sobre_rio.jpg" alt="Caminhada Entre Troncos, Perfil no Lago &amp; Pano Sobre o Rio (#147+#156+#154)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j41_147_156_154_troncos_lago_pano_sobre_rio.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 41 · #147 + #156 + #154</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-59</span> Caminhada Entre Troncos, Perfil no Lago &amp; Pano Sobre o Rio (#147+#156+#154)</div>
+            <div class="sub-row">
+              <span class="sub">01:04:15:18 · 9.47s · 3 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-60" data-val="ids-60 | #155 + #157 | 01:04:45:20 | seq_j42_155_157_pano_ensanguentado_lavado_rio | Pano Ensanguentado Recolhido &amp; Lavado na Água do Rio (#155+#157)" data-search="ids-60 #155 + #157 pano ensanguentado recolhido &amp; lavado na água do rio (#155+#157) detalhe água cinza, branco &amp; sangue seq_j42_155_157_pano_ensanguentado_lavado_rio ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro detalhe sequência pano sangue rio mãos água">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j42_155_157_pano_ensanguentado_lavado_rio.jpg" alt="Pano Ensanguentado Recolhido &amp; Lavado na Água do Rio (#155+#157)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j42_155_157_pano_ensanguentado_lavado_rio.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 42 · #155 + #157</span>
+            <span class="ep-badge">Detalhe</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-60</span> Pano Ensanguentado Recolhido &amp; Lavado na Água do Rio (#155+#157)</div>
+            <div class="sub-row">
+              <span class="sub">01:04:45:20 · 2.79s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-61" data-val="ids-61 | #158 + #159 | 01:04:53:04 | seq_j43_158_159_emboscada_lago_jovem_espingarda | Emboscada à Beira do Lago &amp; Jovem de Véu com Espingarda (#158+#159)" data-search="ids-61 #158 + #159 emboscada à beira do lago &amp; jovem de véu com espingarda (#158+#159) plano geral verde bosque &amp; preto seq_j43_158_159_emboscada_lago_jovem_espingarda ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência emboscada lago tiro espingarda véu">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j43_158_159_emboscada_lago_jovem_espingarda.jpg" alt="Emboscada à Beira do Lago &amp; Jovem de Véu com Espingarda (#158+#159)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j43_158_159_emboscada_lago_jovem_espingarda.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 43 · #158 + #159</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-61</span> Emboscada à Beira do Lago &amp; Jovem de Véu com Espingarda (#158+#159)</div>
+            <div class="sub-row">
+              <span class="sub">01:04:53:04 · 1.75s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-62" data-val="ids-62 | #161 + #162 | 01:04:55:20 | seq_j44_161_162_correria_lagoa_luta_margem | Correria Atrás da Lagoa &amp; Luta Corpo a Corpo na Margem (#161+#162)" data-search="ids-62 #161 + #162 correria atrás da lagoa &amp; luta corpo a corpo na margem (#161+#162) plano geral verde &amp; água escura seq_j44_161_162_correria_lagoa_luta_margem ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência correria lagoa luta margem fuga">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j44_161_162_correria_lagoa_luta_margem.jpg" alt="Correria Atrás da Lagoa &amp; Luta Corpo a Corpo na Margem (#161+#162)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j44_161_162_correria_lagoa_luta_margem.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 44 · #161 + #162</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-62</span> Correria Atrás da Lagoa &amp; Luta Corpo a Corpo na Margem (#161+#162)</div>
+            <div class="sub-row">
+              <span class="sub">01:04:55:20 · 1.58s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-63" data-val="ids-63 | #160 + #165 + #166 | 01:04:54:22 | seq_j45_160_165_166_revolver_hortensias_espingarda_luta | Revólver nas Hortênsias, Espingarda na Mata &amp; Luta Corporal (#160+#165+#166)" data-search="ids-63 #160 + #165 + #166 revólver nas hortênsias, espingarda na mata &amp; luta corporal (#160+#165+#166) plano médio verde, azul hortênsia &amp; ocre seq_j45_160_165_166_revolver_hortensias_espingarda_luta ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência revólver hortênsias espingarda luta corporal mascarado">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j45_160_165_166_revolver_hortensias_espingarda_luta.jpg" alt="Revólver nas Hortênsias, Espingarda na Mata &amp; Luta Corporal (#160+#165+#166)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j45_160_165_166_revolver_hortensias_espingarda_luta.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 45 · #160 + #165 + #166</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-63</span> Revólver nas Hortênsias, Espingarda na Mata &amp; Luta Corporal (#160+#165+#166)</div>
+            <div class="sub-row">
+              <span class="sub">01:04:54:22 · 2.67s · 3 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-64" data-val="ids-64 | #163 + #164 | 01:04:57:10 | seq_j46_163_164_mulheres_mirando_espingardas_tronco | Duas Mulheres Mirando Espingardas &amp; Grupo Escondido no Tronco (#163+#164)" data-search="ids-64 #163 + #164 duas mulheres mirando espingardas &amp; grupo escondido no tronco (#163+#164) plano médio verde mata &amp; preto seq_j46_163_164_mulheres_mirando_espingardas_tronco ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência espingardas mira tronco bosque mulheres">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j46_163_164_mulheres_mirando_espingardas_tronco.jpg" alt="Duas Mulheres Mirando Espingardas &amp; Grupo Escondido no Tronco (#163+#164)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j46_163_164_mulheres_mirando_espingardas_tronco.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 46 · #163 + #164</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-64</span> Duas Mulheres Mirando Espingardas &amp; Grupo Escondido no Tronco (#163+#164)</div>
+            <div class="sub-row">
+              <span class="sub">01:04:57:10 · 1.34s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-65" data-val="ids-65 | #170 + #151 | 01:05:03:10 | seq_j47_170_151_olhos_fechados_tensao_fogo_noturno | Tensão de Olhos Fechados &amp; Mulheres Junto ao Fogo Noturno (#170+#151)" data-search="ids-65 #170 + #151 tensão de olhos fechados &amp; mulheres junto ao fogo noturno (#170+#151) close-up âmbar, fogo &amp; preto seq_j47_170_151_olhos_fechados_tensao_fogo_noturno ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro close-up sequência olhos fechados fogo noite tensão intimidade">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j47_170_151_olhos_fechados_tensao_fogo_noturno.jpg" alt="Tensão de Olhos Fechados &amp; Mulheres Junto ao Fogo Noturno (#170+#151)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j47_170_151_olhos_fechados_tensao_fogo_noturno.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 47 · #170 + #151</span>
+            <span class="ep-badge">Close-Up</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-65</span> Tensão de Olhos Fechados &amp; Mulheres Junto ao Fogo Noturno (#170+#151)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:03:10 · 4.79s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-66" data-val="ids-66 | #171 + #174 | 01:05:05:04 | seq_j48_171_174_homens_contraluz_tiroteio_campo | Homens Armados em Contraluz &amp; Tiroteio em Campo Aberto (#171+#174)" data-search="ids-66 #171 + #174 homens armados em contraluz &amp; tiroteio em campo aberto (#171+#174) plano geral dourado, sombra &amp; verde seq_j48_171_174_homens_contraluz_tiroteio_campo ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência tiroteio contraluz armas campo aberto ação">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j48_171_174_homens_contraluz_tiroteio_campo.jpg" alt="Homens Armados em Contraluz &amp; Tiroteio em Campo Aberto (#171+#174)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j48_171_174_homens_contraluz_tiroteio_campo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 48 · #171 + #174</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-66</span> Homens Armados em Contraluz &amp; Tiroteio em Campo Aberto (#171+#174)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:05:04 · 2.92s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-67" data-val="ids-67 | #173 + #176 | 01:05:07:10 | seq_j49_173_176_invasao_portao_galope_gramado | Invasão Pelo Portão com Tiros &amp; Cavaleiro em Galope no Gramado (#173+#176)" data-search="ids-67 #173 + #176 invasão pelo portão com tiros &amp; cavaleiro em galope no gramado (#173+#176) plano geral verde gramado &amp; terra seq_j49_173_176_invasao_portao_galope_gramado ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência invasão portão galope cavalo gramado">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j49_173_176_invasao_portao_galope_gramado.jpg" alt="Invasão Pelo Portão com Tiros &amp; Cavaleiro em Galope no Gramado (#173+#176)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j49_173_176_invasao_portao_galope_gramado.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 49 · #173 + #176</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-67</span> Invasão Pelo Portão com Tiros &amp; Cavaleiro em Galope no Gramado (#173+#176)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:07:10 · 2.46s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-68" data-val="ids-68 | #177 + #178 + #179 | 01:05:12:23 | seq_j50_177_178_179_balaustrada_mascarado_facao | Enfrentamento na Balaustrada &amp; Mascarado Brandindo Facão (#177+#178+#179)" data-search="ids-68 #177 + #178 + #179 enfrentamento na balaustrada &amp; mascarado brandindo facão (#177+#178+#179) plano médio dourado, branco &amp; verde seq_j50_177_178_179_balaustrada_mascarado_facao ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência facão balaustrada mascarado duelo fazenda">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j50_177_178_179_balaustrada_mascarado_facao.jpg" alt="Enfrentamento na Balaustrada &amp; Mascarado Brandindo Facão (#177+#178+#179)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j50_177_178_179_balaustrada_mascarado_facao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 50 · #177 + #178 + #179</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-68</span> Enfrentamento na Balaustrada &amp; Mascarado Brandindo Facão (#177+#178+#179)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:12:23 · 4.17s · 3 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-69" data-val="ids-69 | #180 + #181 + #182 + #183 | 01:05:17:03 | seq_j51_180_181_182_183_corrida_queda_embate_mulheres_gramado | Corrida, Queda e Embate Físico Entre Mulheres no Gramado (#180+#181+#182+#183)" data-search="ids-69 #180 + #181 + #182 + #183 corrida, queda e embate físico entre mulheres no gramado (#180+#181+#182+#183) plano médio dourado &amp; verde grama seq_j51_180_181_182_183_corrida_queda_embate_mulheres_gramado ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência embate luta mulheres gramado queda">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j51_180_181_182_183_corrida_queda_embate_mulheres_gramado.jpg" alt="Corrida, Queda e Embate Físico Entre Mulheres no Gramado (#180+#181+#182+#183)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j51_180_181_182_183_corrida_queda_embate_mulheres_gramado.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 51 · #180 + #181 + #182 + #183</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-69</span> Corrida, Queda e Embate Físico Entre Mulheres no Gramado (#180+#181+#182+#183)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:17:03 · 3.09s · 4 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-70" data-val="ids-70 | #184 + #188 + #189 | 01:05:20:05 | seq_j52_184_188_189_luta_homens_queda_encosta_riacho | Luta Corporal de Homens na Grama &amp; Queda na Encosta do Riacho (#184+#188+#189)" data-search="ids-70 #184 + #188 + #189 luta corporal de homens na grama &amp; queda na encosta do riacho (#184+#188+#189) plano geral verde gramado &amp; marrom seq_j52_184_188_189_luta_homens_queda_encosta_riacho ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência luta homens queda encosta riacho">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j52_184_188_189_luta_homens_queda_encosta_riacho.jpg" alt="Luta Corporal de Homens na Grama &amp; Queda na Encosta do Riacho (#184+#188+#189)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j52_184_188_189_luta_homens_queda_encosta_riacho.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 52 · #184 + #188 + #189</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-70</span> Luta Corporal de Homens na Grama &amp; Queda na Encosta do Riacho (#184+#188+#189)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:20:05 · 3.34s · 3 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-71" data-val="ids-71 | #190 + #191 | 01:05:25:16 | seq_j53_190_191_despencando_pedra_splash_riacho | Combatente Despencando na Pedra &amp; Queda na Água com Splash (#190+#191)" data-search="ids-71 #190 + #191 combatente despencando na pedra &amp; queda na água com splash (#190+#191) plano geral água branca, pedra &amp; verde seq_j53_190_191_despencando_pedra_splash_riacho ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência queda água riacho splash pedra">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j53_190_191_despencando_pedra_splash_riacho.jpg" alt="Combatente Despencando na Pedra &amp; Queda na Água com Splash (#190+#191)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j53_190_191_despencando_pedra_splash_riacho.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 53 · #190 + #191</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-71</span> Combatente Despencando na Pedra &amp; Queda na Água com Splash (#190+#191)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:25:16 · 2.29s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-72" data-val="ids-72 | #185 + #186 + #187 | 01:05:20:21 | seq_j54_185_186_187_duelo_facoes_contraluz | Duelo de Facões com Lâminas Cruzadas em Contraluz Dourada (#185+#186+#187)" data-search="ids-72 #185 + #186 + #187 duelo de facões com lâminas cruzadas em contraluz dourada (#185+#186+#187) plano médio dourado, silhueta &amp; branco seq_j54_185_186_187_duelo_facoes_contraluz ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência duelo facões lâminas contraluz dourado">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j54_185_186_187_duelo_facoes_contraluz.jpg" alt="Duelo de Facões com Lâminas Cruzadas em Contraluz Dourada (#185+#186+#187)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j54_185_186_187_duelo_facoes_contraluz.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 54 · #185 + #186 + #187</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-72</span> Duelo de Facões com Lâminas Cruzadas em Contraluz Dourada (#185+#186+#187)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:20:21 · 2.12s · 3 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-73" data-val="ids-73 | #192 + #193 + #194 | 01:05:27:23 | seq_j55_192_193_194_golpe_sombra_corpos_silhueta_facao | Golpe de Facão na Sombra, Corpos no Gramado &amp; Silhueta (#192+#193+#194)" data-search="ids-73 #192 + #193 + #194 golpe de facão na sombra, corpos no gramado &amp; silhueta (#192+#193+#194) plano geral preto, dourado &amp; verde seq_j55_192_193_194_golpe_sombra_corpos_silhueta_facao ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência facão corpos silhueta duelo entardecer">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j55_192_193_194_golpe_sombra_corpos_silhueta_facao.jpg" alt="Golpe de Facão na Sombra, Corpos no Gramado &amp; Silhueta (#192+#193+#194)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j55_192_193_194_golpe_sombra_corpos_silhueta_facao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 55 · #192 + #193 + #194</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-73</span> Golpe de Facão na Sombra, Corpos no Gramado &amp; Silhueta (#192+#193+#194)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:27:23 · 3.21s · 3 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-74" data-val="ids-74 | #195 + #196 + #197 | 01:05:31:04 | seq_j56_195_196_197_confusao_caes_jovem_ferida_queda | Confusão no Chão com Cães &amp; Jovem Ferida em Contra-Plongée (#195+#196+#197)" data-search="ids-74 #195 + #196 + #197 confusão no chão com cães &amp; jovem ferida em contra-plongée (#195+#196+#197) close-up verde, branco &amp; sombra seq_j56_195_196_197_confusao_caes_jovem_ferida_queda ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro close-up sequência cães queda ferida contra-plongée grama">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j56_195_196_197_confusao_caes_jovem_ferida_queda.jpg" alt="Confusão no Chão com Cães &amp; Jovem Ferida em Contra-Plongée (#195+#196+#197)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j56_195_196_197_confusao_caes_jovem_ferida_queda.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 56 · #195 + #196 + #197</span>
+            <span class="ep-badge">Close-Up</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-74</span> Confusão no Chão com Cães &amp; Jovem Ferida em Contra-Plongée (#195+#196+#197)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:31:04 · 3.79s · 3 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-75" data-val="ids-75 | #198 + #201 | 01:05:34:23 | seq_j57_198_201_socorro_grama_corpos_balaustrada | Socorro na Grama &amp; Corpos Caídos Diante da Balaustrada (#198+#201)" data-search="ids-75 #198 + #201 socorro na grama &amp; corpos caídos diante da balaustrada (#198+#201) plano geral verde escuro &amp; pedra clara seq_j57_198_201_socorro_grama_corpos_balaustrada ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência socorro corpos balaustrada drama fazenda">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j57_198_201_socorro_grama_corpos_balaustrada.jpg" alt="Socorro na Grama &amp; Corpos Caídos Diante da Balaustrada (#198+#201)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j57_198_201_socorro_grama_corpos_balaustrada.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 57 · #198 + #201</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-75</span> Socorro na Grama &amp; Corpos Caídos Diante da Balaustrada (#198+#201)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:34:23 · 4.04s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-76" data-val="ids-76 | #199 + #200 | 01:05:37:16 | seq_j58_199_200_grito_dor_rosto_ensanguentado | Grito de Dor no Gramado &amp; Rosto Ensanguentado em Contraluz (#199+#200)" data-search="ids-76 #199 + #200 grito de dor no gramado &amp; rosto ensanguentado em contraluz (#199+#200) close-up sangue, pele &amp; verde seq_j58_199_200_grito_dor_rosto_ensanguentado ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro close-up sequência grito dor sangue rosto contraluz">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j58_199_200_grito_dor_rosto_ensanguentado.jpg" alt="Grito de Dor no Gramado &amp; Rosto Ensanguentado em Contraluz (#199+#200)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j58_199_200_grito_dor_rosto_ensanguentado.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 58 · #199 + #200</span>
+            <span class="ep-badge">Close-Up</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-76</span> Grito de Dor no Gramado &amp; Rosto Ensanguentado em Contraluz (#199+#200)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:37:16 · 4.59s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-77" data-val="ids-77 | #204 + #203 | 01:05:46:21 | seq_j59_204_203_caminhada_patio_tres_irmas_bando | Caminhada de Costas Pelo Pátio &amp; Três Irmãs Diante do Bando (#204+#203)" data-search="ids-77 #204 + #203 caminhada de costas pelo pátio &amp; três irmãs diante do bando (#204+#203) plano médio verde fazenda &amp; branco seq_j59_204_203_caminhada_patio_tres_irmas_bando ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência pátio três irmãs bando armado fazenda">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j59_204_203_caminhada_patio_tres_irmas_bando.jpg" alt="Caminhada de Costas Pelo Pátio &amp; Três Irmãs Diante do Bando (#204+#203)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j59_204_203_caminhada_patio_tres_irmas_bando.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 59 · #204 + #203</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-77</span> Caminhada de Costas Pelo Pátio &amp; Três Irmãs Diante do Bando (#204+#203)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:46:21 · 4.13s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-78" data-val="ids-78 | #206 + #207 | 01:05:50:20 | seq_j60_206_207_encapuzado_ruiva_amarrada_corda | Encapuzado Segurando Mulher &amp; Jovem Ruiva Amarrada Gritando (#206+#207)" data-search="ids-78 #206 + #207 encapuzado segurando mulher &amp; jovem ruiva amarrada gritando (#206+#207) plano médio ruivo, corda &amp; verde seq_j60_206_207_encapuzado_ruiva_amarrada_corda ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano médio sequência encapuzado amarrada corda ruiva grito">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j60_206_207_encapuzado_ruiva_amarrada_corda.jpg" alt="Encapuzado Segurando Mulher &amp; Jovem Ruiva Amarrada Gritando (#206+#207)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j60_206_207_encapuzado_ruiva_amarrada_corda.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 60 · #206 + #207</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-78</span> Encapuzado Segurando Mulher &amp; Jovem Ruiva Amarrada Gritando (#206+#207)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:50:20 · 2.00s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-79" data-val="ids-79 | #209 + #210 + #211 | 01:05:56:06 | seq_j61_209_210_211_cerco_armas_impasse_mexicano | Cerco de Armas Apontadas, Grito no Centro &amp; Impasse Mexicano (#209+#210+#211)" data-search="ids-79 #209 + #210 + #211 cerco de armas apontadas, grito no centro &amp; impasse mexicano (#209+#210+#211) plano geral branco, marrom &amp; preto seq_j61_209_210_211_cerco_armas_impasse_mexicano ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência cerco impasse mexicano revólveres armas grito">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j61_209_210_211_cerco_armas_impasse_mexicano.jpg" alt="Cerco de Armas Apontadas, Grito no Centro &amp; Impasse Mexicano (#209+#210+#211)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j61_209_210_211_cerco_armas_impasse_mexicano.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 61 · #209 + #210 + #211</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-79</span> Cerco de Armas Apontadas, Grito no Centro &amp; Impasse Mexicano (#209+#210+#211)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:56:06 · 3.50s · 3 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-80" data-val="ids-80 | #212 + #213 | 01:05:59:18 | seq_j62_212_213_jovens_chorando_roda_armada | Jovens Chorando Abraçadas &amp; Roda Armada em Tensão Máxima (#212+#213)" data-search="ids-80 #212 + #213 jovens chorando abraçadas &amp; roda armada em tensão máxima (#212+#213) plano geral verde, branco &amp; preto seq_j62_212_213_jovens_chorando_roda_armada ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro plano geral sequência choro espingardas roda armada tensão">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j62_212_213_jovens_chorando_roda_armada.jpg" alt="Jovens Chorando Abraçadas &amp; Roda Armada em Tensão Máxima (#212+#213)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j62_212_213_jovens_chorando_roda_armada.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 62 · #212 + #213</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-80</span> Jovens Chorando Abraçadas &amp; Roda Armada em Tensão Máxima (#212+#213)</div>
+            <div class="sub-row">
+              <span class="sub">01:05:59:18 · 2.37s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="ids-81" data-val="ids-81 | #215 + #216 | 01:06:05:17 | seq_j63_215_216_confronto_tochas_furia_chamas | Confronto Noturno Cercado por Tochas &amp; Fúria Diante das Chamas (#215+#216)" data-search="ids-81 #215 + #216 confronto noturno cercado por tochas &amp; fúria diante das chamas (#215+#216) close-up laranja chamas &amp; preto seq_j63_215_216_confronto_tochas_furia_chamas ficção irmãs de sangue ids trailer marcos senna rodrigo trevisan adam maskot vitor gonc felipe savino daniel lopes blackmagic pocket 4k bmpcc 4k sirui anamorphic 24mm sirui anamorphic 35mm sirui anamorphic 75mm mavic pro close-up sequência tochas chamas fogo fúria clímax">
+          <div class="media-wrap">
+            <img src="assets/shots/ids_trailer/seq_j63_215_216_confronto_tochas_furia_chamas.jpg" alt="Confronto Noturno Cercado por Tochas &amp; Fúria Diante das Chamas (#215+#216)" loading="lazy">
+            <video src="assets/videos/ids_trailer/seq_j63_215_216_confronto_tochas_furia_chamas.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 63 · #215 + #216</span>
+            <span class="ep-badge">Close-Up</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">ids-81</span> Confronto Noturno Cercado por Tochas &amp; Fúria Diante das Chamas (#215+#216)</div>
+            <div class="sub-row">
+              <span class="sub">01:06:05:17 · 5.76s · 2 planos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="toast">Ativos copiados para a área de transferência!</div>
+  <script>
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const countEl = document.getElementById('selectedCount');
+    const copyCountEl = document.getElementById('copyCount');
+    const searchInput = document.getElementById('searchInput');
+
+    function updateCount() {
+      const n = cards.filter(c => c.classList.contains('is-picked')).length;
+      countEl.textContent = n;
+      copyCountEl.textContent = n;
+    }
+
+    function applyFilters() {
+      const q = searchInput.value.trim().toLowerCase();
+      cards.forEach(c => {
+        const matchQ = !q || c.dataset.search.includes(q);
+        c.classList.toggle('hidden', !matchQ);
+      });
+      document.querySelectorAll('.group').forEach(sec => {
+        sec.style.display = sec.querySelectorAll('.card:not(.hidden)').length > 0 ? '' : 'none';
+      });
+    }
+
+    cards.forEach(c => {
+      const vid = c.querySelector('video');
+      c.addEventListener('mouseenter', () => vid.play().catch(() => {}));
+      c.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+      c.addEventListener('click', () => {
+        c.classList.toggle('is-picked');
+        updateCount();
+      });
+    });
+
+    searchInput.addEventListener('input', applyFilters);
+    document.getElementById('selectAllBtn').addEventListener('click', () => {
+      cards.filter(c => !c.classList.contains('hidden')).forEach(c => c.classList.add('is-picked'));
+      updateCount();
+    });
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('is-picked'));
+      updateCount();
+    });
+
+    function showToast() {
+      const t = document.getElementById('toast');
+      t.style.display = 'block';
+      setTimeout(() => t.style.display = 'none', 2500);
+    }
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const lines = cards.filter(c => c.classList.contains('is-picked')).map(c => c.dataset.val);
+      const text = lines.join('\n');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showToast).catch(() => {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(ta);
+          showToast();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
