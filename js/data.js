@@ -7,6 +7,7 @@ window.AWA_CONFIG = {
   brandName: "ÀWA",
   tagline: "Nós somos a imagem que nos olha de volta.",
   email: "contato@awacinema.com.br", // <-- Substitua pelo seu e-mail real
+  whatsapp: "", // <-- Substitua pelo seu WhatsApp com DDI+DDD (ex: "5511999999999")
   location: "BRASIL",
   instagram: "@awa.cinema",
   vimeo: "vimeo.com/awacinema",

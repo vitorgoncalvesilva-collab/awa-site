@@ -1760,19 +1760,26 @@
       const mailtoHref = `mailto:${encodeURIComponent(cfg.email)}?subject=${encodeURIComponent(
         subject
       )}&body=${encodeURIComponent(body)}`;
+      const whatsappDigits = (cfg.whatsapp || "").replace(/\D/g, "");
+      const whatsappHref = whatsappDigits
+        ? `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(body)}`
+        : `https://wa.me/?text=${encodeURIComponent(body)}`;
 
       summaryWrapEl.innerHTML = `
         <div class="email-summary-box">
           <div class="news-meta-row" style="margin-bottom:12px;">
             <span class="news-tag">PRONTO PARA ENVIAR</span>
-            <span>DESTINO: ${cfg.email}</span>
+            <span>WHATSAPP · ${cfg.email}</span>
           </div>
           <div style="font-family:var(--font-mono);font-size:0.78rem;color:var(--fg-soft);margin-bottom:12px;">
             <strong>Assunto:</strong> ${subject}
           </div>
           <pre style="white-space:pre-wrap;font-family:var(--font-mono);font-size:0.76rem;color:var(--fg-muted);background:var(--surface-2);padding:14px;border:1px solid var(--border);margin-bottom:16px;line-height:1.55;">${body}</pre>
           <div style="display:flex;flex-wrap:wrap;gap:10px;">
-            <a href="${mailtoHref}" class="btn btn-primary" id="open-mailto-btn">
+            <a href="${whatsappHref}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="open-whatsapp-btn">
+              Enviar pelo WhatsApp
+            </a>
+            <a href="${mailtoHref}" class="btn btn-ghost" id="open-mailto-btn">
               Enviar por e-mail
             </a>
             <button type="button" class="btn btn-ghost" id="copy-brief-btn">
@@ -1796,10 +1803,10 @@
       if (stepIndex >= steps.length) {
         addBubble(
           "awa",
-          `Perfeito, ${chatData.name}! Compilei toda a nossa conversa abaixo. Clique em "Enviar por e-mail" para disparar direto para ${cfg.email}.`
+          `Perfeito, ${chatData.name}! Compilei toda a nossa conversa abaixo. Escolha "Enviar pelo WhatsApp" ou "Enviar por e-mail".`
         );
         renderQuickReplies([]);
-        inputEl.placeholder = "Deseja acrescentar mais algum detalhe ao e-mail?";
+        inputEl.placeholder = "Deseja acrescentar mais algum detalhe à mensagem?";
         compileEmailSummary();
         return;
       }
