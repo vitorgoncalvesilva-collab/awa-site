@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÀWA — Curadoria Final Montada · LONNMAR, CHF “SERENO” (33 itens)</title>
+  <style>
+    :root { --bg: #050505; --card: #111; --border: #242424; --fg: #f4f4f4; --dim: #8f8f8f; --accent: #ffffff; --green: #4ade80; --merge: #f59e0b; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; padding: 20px clamp(14px, 2vw, 32px) 84px; }
+    header { max-width: 2200px; margin: 0 auto 14px; border-bottom: 1px solid var(--border); padding-bottom: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; align-items: flex-end; }
+    h1 { margin: 0 0 4px; font-size: 1.35rem; letter-spacing: -0.02em; }
+    p.lead { margin: 0; color: var(--dim); font-size: 0.85rem; max-width: 920px; line-height: 1.45; }
+    .actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #000; border: 0; padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.82rem; }
+    .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    .toolbar { max-width: 2200px; margin: 0 auto 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; background: rgba(5,5,5,0.95); backdrop-filter: blur(8px); padding: 10px 0; border-bottom: 1px solid #181818; }
+    .chapters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chap-pill { color: var(--dim); text-decoration: none; font-size: 0.76rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); }
+    .chap-pill:hover { color: var(--fg); border-color: #666; }
+    .search-box { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .search-input { background: #111; color: var(--fg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 0.8rem; outline: none; width: 250px; }
+    main { max-width: 2200px; margin: 0 auto; }
+    .group { margin-bottom: 32px; scroll-margin-top: 72px; }
+    .group h2 { font-size: 1rem; font-weight: 600; margin: 0 0 12px; border-left: 3px solid var(--accent); padding-left: 10px; }
+    .group h2 .count { color: var(--dim); font-weight: 400; font-size: 0.82rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+    .card { display: block; background: var(--card); border: 2px solid var(--border); border-radius: 7px; overflow: hidden; cursor: pointer; user-select: none; transition: border-color 0.14s, opacity 0.14s; }
+    .card.is-picked { border-color: var(--green); }
+    .card:not(.is-picked) { opacity: 0.55; }
+    .card.hidden { display: none; }
+    .media-wrap { position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+    .media-wrap img, .media-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+    .media-wrap video { position: absolute; inset: 0; opacity: 0; transition: opacity 0.18s; }
+    .card:hover .media-wrap video { opacity: 1; }
+    .num-badge { position: absolute; top: 6px; left: 6px; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.68rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; max-width: 70%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .indiv-badge { background: var(--green); color: #052e16; }
+    .junc-badge { background: var(--merge); color: #1c1102; }
+    .ep-badge { position: absolute; top: 6px; right: 6px; background: rgba(15,15,15,0.86); color: #d4d4d4; border: 1px solid rgba(255,255,255,0.16); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.62rem; font-weight: 600; padding: 2px 6px; border-radius: 4px; }
+    .meta { padding: 8px 10px; }
+    .title { font-size: 0.79rem; font-weight: 600; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .num-inline { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--green); margin-right: 3px; }
+    .sub-row { margin-top: 5px; display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+    .sub { font-size: 0.64rem; color: var(--dim); font-family: ui-monospace, SFMono-Regular, monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .yt-pill { flex-shrink: 0; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.62rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: var(--green); color: #052e16; text-decoration: none; }
+    .yt-pill:hover { filter: brightness(1.1); }
+    #toast { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: #052e16; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; display: none; z-index: 40; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Curadoria Final Montada — LONNMAR, CHF “SERENO”</h1>
+      <p class="lead"><strong>13 takes individuais</strong> + <strong>20 sequências montadas</strong> = <strong>33 itens publicados no Shotdeck</strong> (de 71 planos decupados · Direção: Lucas Ristow · Fotografia: Lucas Ristow &amp; Vitor Gonçalves). Passe o mouse para assistir cada sequência já concatenada. (<span id="selectedCount">33</span> ativos).</p>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" href="guide_lonnmar_sereno.html">← Guide Completo (71)</a>
+      <a class="btn ghost" href="projeto.html?id=lonnmar-chf-sereno" target="_blank">Abrir Projeto no Site ↗</a>
+      <a class="btn ghost" href="portfolio.html?q=SERENO" target="_blank">Abrir Portfólio ↗</a>
+      <a class="btn ghost" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener">YouTube ↗</a>
+      <button class="btn ghost" id="selectAllBtn">Marcar Todos</button>
+      <button class="btn ghost" id="resetBtn">Desmarcar Todos</button>
+      <button class="btn" id="copyBtn">Copiar Ativos (<span id="copyCount">33</span>)</button>
+    </div>
+  </header>
+  <div class="toolbar">
+    <nav class="chapters">
+      <a class="chap-pill" href="#individuais">Takes Individuais (13)</a>
+      <a class="chap-pill" href="#juncoes">Sequências Montadas (20)</a>
+    </nav>
+    <div class="search-box">
+      <input type="search" class="search-input" id="searchInput" placeholder="Filtrar #51, drone, moldura, mar, p&b...">
+    </div>
+  </div>
+  <main>
+    <section class="group" id="individuais">
+      <h2>Takes Individuais <span class="count">(13 takes)</span></h2>
+      <div class="grid">
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-03" data-val="lns-03 | #03 | 01:00:01:22 | 03_perfil_janela_anoitecer | Perfil na Janela ao Anoitecer (#03)" data-search="lns-03 #03 perfil na janela ao anoitecer (#03) close-up azul escuro &amp; pele quente perfil janela anoitecer close-up penumbra 03_perfil_janela_anoitecer">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/03_perfil_janela_anoitecer.jpg" alt="Perfil na Janela ao Anoitecer (#03)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/03_perfil_janela_anoitecer.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #03</span>
+            <span class="ep-badge">Close-Up</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-03</span> Perfil na Janela ao Anoitecer (#03)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:01:22 · 1.96s · 1 plano</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-10" data-val="lns-10 | #20 | 01:00:29:23 | 20_plongee_costas_escadaria_ondas | Plongée — Costas na Escadaria Sobre Ondas (#20)" data-search="lns-10 #20 plongée — costas na escadaria sobre ondas (#20) plongée verde-escuro oceano &amp; pedra plongée ondas mar escadaria costas 20_plongee_costas_escadaria_ondas">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/20_plongee_costas_escadaria_ondas.jpg" alt="Plongée — Costas na Escadaria Sobre Ondas (#20)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/20_plongee_costas_escadaria_ondas.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #20</span>
+            <span class="ep-badge">Plongée</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-10</span> Plongée — Costas na Escadaria Sobre Ondas (#20)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:29:23 · 1.92s · 1 plano</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-12" data-val="lns-12 | #23 | 01:00:33:20 | 23_sebo_vinil_capa_gato | Sebo de Vinil — Mãos Segurando Capa de Disco (Gato Preto) (#23)" data-search="lns-12 #23 sebo de vinil — mãos segurando capa de disco (gato preto) (#23) plano detalhe azul escuro, branco &amp; grafite sebo vinil disco capa gato mãos detalhe 23_sebo_vinil_capa_gato">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/23_sebo_vinil_capa_gato.jpg" alt="Sebo de Vinil — Mãos Segurando Capa de Disco (Gato Preto) (#23)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/23_sebo_vinil_capa_gato.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #23</span>
+            <span class="ep-badge">Plano Detalhe</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-12</span> Sebo de Vinil — Mãos Segurando Capa de Disco (Gato Preto) (#23)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:33:20 · 0.96s · 1 plano</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-13" data-val="lns-13 | #24 | 01:00:34:19 | 24_grande_angular_gestual_sorriso | Grande Angular — Gestual e Sorriso para Câmera (#24)" data-search="lns-13 #24 grande angular — gestual e sorriso para câmera (#24) primeiro plano preto, laranja &amp; cinza urbano grande-angular gesto sorriso câmera centro 24_grande_angular_gestual_sorriso">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/24_grande_angular_gestual_sorriso.jpg" alt="Grande Angular — Gestual e Sorriso para Câmera (#24)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/24_grande_angular_gestual_sorriso.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #24</span>
+            <span class="ep-badge">Primeiro Plano</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-13</span> Grande Angular — Gestual e Sorriso para Câmera (#24)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:34:19 · 0.96s · 1 plano</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-16" data-val="lns-16 | #31 | 01:00:48:07 | 31_interior_noturno_acendendo_cigarro | Interior Noturno — Regata Branca e Acendendo Cigarro na Janela (#31)" data-search="lns-16 #31 interior noturno — regata branca e acendendo cigarro na janela (#31) plano médio branco, azul led &amp; chama âmbar interior noite regata branca isqueiro chama janela led azul 31_interior_noturno_acendendo_cigarro">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/31_interior_noturno_acendendo_cigarro.jpg" alt="Interior Noturno — Regata Branca e Acendendo Cigarro na Janela (#31)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/31_interior_noturno_acendendo_cigarro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #31</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-16</span> Interior Noturno — Regata Branca e Acendendo Cigarro na Janela (#31)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:48:07 · 5.84s · 1 plano</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-18" data-val="lns-18 | #33 | 01:00:56:01 | 33_janela_noturna_fumaca_azul | Janela Noturna — Fumaça e Brasa na Luz Azul (#33)" data-search="lns-18 #33 janela noturna — fumaça e brasa na luz azul (#33) plano médio azul elétrico, branco &amp; brasa fumaça brasa janela led azul noite 33_janela_noturna_fumaca_azul">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/33_janela_noturna_fumaca_azul.jpg" alt="Janela Noturna — Fumaça e Brasa na Luz Azul (#33)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/33_janela_noturna_fumaca_azul.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #33</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-18</span> Janela Noturna — Fumaça e Brasa na Luz Azul (#33)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:56:01 · 1.96s · 1 plano</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-24" data-val="lns-24 | #45 | 01:01:21:20 | 45_toldo_vermelho_entardecer | Sob Toldo Vermelho — LONNMAR na Calçada ao Entardecer (#45)" data-search="lns-24 #45 sob toldo vermelho — lonnmar na calçada ao entardecer (#45) plano médio vermelho toldo, azul céu &amp; laranja toldo vermelho calçada entardecer crepusculo centro 45_toldo_vermelho_entardecer">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/45_toldo_vermelho_entardecer.jpg" alt="Sob Toldo Vermelho — LONNMAR na Calçada ao Entardecer (#45)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/45_toldo_vermelho_entardecer.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #45</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-24</span> Sob Toldo Vermelho — LONNMAR na Calçada ao Entardecer (#45)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:21:20 · 2.00s · 1 plano</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-25" data-val="lns-25 | #46 | 01:01:23:20 | 46_interior_pb_silhueta_quadro | Interior P&amp;B — Silhueta na Janela com Quadro na Parede (#46)" data-search="lns-25 #46 interior p&amp;b — silhueta na janela com quadro na parede (#46) plano geral monocromático p&amp;b interior p&amp;b silhueta janela quadro arquitetura 46_interior_pb_silhueta_quadro">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/46_interior_pb_silhueta_quadro.jpg" alt="Interior P&amp;B — Silhueta na Janela com Quadro na Parede (#46)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/46_interior_pb_silhueta_quadro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #46</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-25</span> Interior P&amp;B — Silhueta na Janela com Quadro na Parede (#46)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:23:20 · 4.13s · 1 plano</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-26" data-val="lns-26 | #48 | 01:01:29:20 | 48_contraplongee_igreja_candelaria | Contra-Plongée — LONNMAR Diante de Igreja Histórica (#48)" data-search="lns-26 #48 contra-plongée — lonnmar diante de igreja histórica (#48) contra-plongée laranja, bege pedra &amp; azul céu contra-plongée igreja centro histórico arquitetura 48_contraplongee_igreja_candelaria">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/48_contraplongee_igreja_candelaria.jpg" alt="Contra-Plongée — LONNMAR Diante de Igreja Histórica (#48)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/48_contraplongee_igreja_candelaria.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #48</span>
+            <span class="ep-badge">Contra-Plongée</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-26</span> Contra-Plongée — LONNMAR Diante de Igreja Histórica (#48)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:29:20 · 1.04s · 1 plano</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-27" data-val="lns-27 | #51 | 01:01:48:09 | 51_plano_sequencia_beco_motos | Plano Sequência no Beco — Muro Grafiteado, Motos e Toldo (#51)" data-search="lns-27 #51 plano sequência no beco — muro grafiteado, motos e toldo (#51) plano sequência amarelo grafite, vermelho &amp; azul noite plano sequência beco grafite motos toldo caminhada sem cortes 51_plano_sequencia_beco_motos">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/51_plano_sequencia_beco_motos.jpg" alt="Plano Sequência no Beco — Muro Grafiteado, Motos e Toldo (#51)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/51_plano_sequencia_beco_motos.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #51</span>
+            <span class="ep-badge">Plano Sequência</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-27</span> Plano Sequência no Beco — Muro Grafiteado, Motos e Toldo (#51)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:48:09 · 21.56s · 1 plano</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-28" data-val="lns-28 | #52 | 01:02:09:22 | 52_perfil_janela_clara_contemplativo | Perfil na Janela Clara — Olhar Contemplativo para Fora (#52)" data-search="lns-28 #52 perfil na janela clara — olhar contemplativo para fora (#52) primeiro plano azul claro, laranja &amp; pele perfil janela contemplativo dia primeiro plano 52_perfil_janela_clara_contemplativo">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/52_perfil_janela_clara_contemplativo.jpg" alt="Perfil na Janela Clara — Olhar Contemplativo para Fora (#52)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/52_perfil_janela_clara_contemplativo.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #52</span>
+            <span class="ep-badge">Primeiro Plano</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-28</span> Perfil na Janela Clara — Olhar Contemplativo para Fora (#52)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:09:22 · 1.54s · 1 plano</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-31" data-val="lns-31 | #69 | 01:02:30:19 | 69_vlt_vermelho_caminhao | VLT Vermelho Passando Diante de Caminhão na Avenida (#69)" data-search="lns-31 #69 vlt vermelho passando diante de caminhão na avenida (#69) plano geral vermelho vlt, verde caminhão &amp; asfalto vlt bonde trem caminhão avenida centro 69_vlt_vermelho_caminhao">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/69_vlt_vermelho_caminhao.jpg" alt="VLT Vermelho Passando Diante de Caminhão na Avenida (#69)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/69_vlt_vermelho_caminhao.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #69</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-31</span> VLT Vermelho Passando Diante de Caminhão na Avenida (#69)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:30:19 · 1.96s · 1 plano</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-33" data-val="lns-33 | #71 | 01:02:34:16 | 71_retrato_final_janela_noite | Retrato Final na Janela — Regata Branca com Cigarro nos Lábios (#71)" data-search="lns-33 #71 retrato final na janela — regata branca com cigarro nos lábios (#71) plano médio âmbar pele, branco &amp; azul bokeh final encerramento retrato janela noite regata branca cigarro 71_retrato_final_janela_noite">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/71_retrato_final_janela_noite.jpg" alt="Retrato Final na Janela — Regata Branca com Cigarro nos Lábios (#71)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/71_retrato_final_janela_noite.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #71</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-33</span> Retrato Final na Janela — Regata Branca com Cigarro nos Lábios (#71)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:34:16 · 7.84s · 1 plano</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="group" id="juncoes">
+      <h2>Sequências Montadas (Concatenadas) <span class="count">(20 sequências)</span></h2>
+      <div class="grid">
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-01" data-val="lns-01 | #01 + #05 | 01:00:00:00 | seq_j01_01_05_caminhada_noturna_creditos | Caminhada Noturna na Rua &amp; Créditos de Abertura na Avenida (#01+#05)" data-search="lns-01 #01 + #05 caminhada noturna na rua &amp; créditos de abertura na avenida (#01+#05) plano geral azul noturno, âmbar &amp; asfalto abertura caminhada noite créditos avenida costas sequência seq_j01_01_05_caminhada_noturna_creditos">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j01_01_05_caminhada_noturna_creditos.jpg" alt="Caminhada Noturna na Rua &amp; Créditos de Abertura na Avenida (#01+#05)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j01_01_05_caminhada_noturna_creditos.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 01 · #01 + #05</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-01</span> Caminhada Noturna na Rua &amp; Créditos de Abertura na Avenida (#01+#05)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:00:00 · 2.88s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-02" data-val="lns-02 | #02 + #04 | 01:00:00:23 | seq_j02_02_04_viaduto_pb_cartela_sereno | Viaduto Noturno P&amp;B &amp; Cartela Oficial “SERENO” no Carro (#02+#04)" data-search="lns-02 #02 + #04 viaduto noturno p&amp;b &amp; cartela oficial “sereno” no carro (#02+#04) plano geral monocromático p&amp;b &amp; dourado cartela sereno viaduto p&amp;b carro chuva título sequência seq_j02_02_04_viaduto_pb_cartela_sereno">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j02_02_04_viaduto_pb_cartela_sereno.jpg" alt="Viaduto Noturno P&amp;B &amp; Cartela Oficial “SERENO” no Carro (#02+#04)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j02_02_04_viaduto_pb_cartela_sereno.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 02 · #02 + #04</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-02</span> Viaduto Noturno P&amp;B &amp; Cartela Oficial “SERENO” no Carro (#02+#04)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:00:23 · 2.88s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-04" data-val="lns-04 | #08 + #06 | 01:00:09:16 | seq_j03_08_06_zenital_pb_logo_lonnmar | Zenital P&amp;B na Faixa de Pedestres &amp; Plongée Aéreo com Logo LONNMAR (#08+#06)" data-search="lns-04 #08 + #06 zenital p&amp;b na faixa de pedestres &amp; plongée aéreo com logo lonnmar (#08+#06) zenital monocromático p&amp;b drone aéreo zenital plongée p&amp;b logo lonnmar carros sequência seq_j03_08_06_zenital_pb_logo_lonnmar">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j03_08_06_zenital_pb_logo_lonnmar.jpg" alt="Zenital P&amp;B na Faixa de Pedestres &amp; Plongée Aéreo com Logo LONNMAR (#08+#06)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j03_08_06_zenital_pb_logo_lonnmar.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 04 · #08 + #06</span>
+            <span class="ep-badge">Zenital</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-04</span> Zenital P&amp;B na Faixa de Pedestres &amp; Plongée Aéreo com Logo LONNMAR (#08+#06)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:09:16 · 1.92s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-05" data-val="lns-05 | #10 + #09 | 01:00:11:14 | seq_j04_10_09_celular_grafite_rua_historica | LONNMAR com Celular no Muro Grafiteado &amp; Rua Histórica à Noite (#10+#09)" data-search="lns-05 #10 + #09 lonnmar com celular no muro grafiteado &amp; rua histórica à noite (#10+#09) plano médio âmbar, laranja &amp; azul noturno rua grafite celular noite toldo motos centro sequência seq_j04_10_09_celular_grafite_rua_historica">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j04_10_09_celular_grafite_rua_historica.jpg" alt="LONNMAR com Celular no Muro Grafiteado &amp; Rua Histórica à Noite (#10+#09)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j04_10_09_celular_grafite_rua_historica.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 05 · #10 + #09</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-05</span> LONNMAR com Celular no Muro Grafiteado &amp; Rua Histórica à Noite (#10+#09)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:11:14 · 1.92s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-06" data-val="lns-06 | #11 + #16 | 01:00:12:13 | seq_j08_11_16_escadaria_mar_perfil_ceu | Sentado na Escadaria à Beira-Mar &amp; Perfil Olhando para o Céu (#11+#16)" data-search="lns-06 #11 + #16 sentado na escadaria à beira-mar &amp; perfil olhando para o céu (#11+#16) plano médio azul mar, turquesa &amp; preto mar escadaria perfil céu baía beira-mar sequência seq_j08_11_16_escadaria_mar_perfil_ceu">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j08_11_16_escadaria_mar_perfil_ceu.jpg" alt="Sentado na Escadaria à Beira-Mar &amp; Perfil Olhando para o Céu (#11+#16)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j08_11_16_escadaria_mar_perfil_ceu.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 06 · #11 + #16</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-06</span> Sentado na Escadaria à Beira-Mar &amp; Perfil Olhando para o Céu (#11+#16)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:12:13 · 3.67s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-07" data-val="lns-07 | #12 + #15 | 01:00:14:06 | seq_j06_12_15_costas_escadaria_baia_geral | Costas na Escadaria Diante da Baía &amp; Plano Geral com Tênis Amarelo (#12+#15)" data-search="lns-07 #12 + #15 costas na escadaria diante da baía &amp; plano geral com tênis amarelo (#12+#15) plano geral verde-água, cinza pedra &amp; amarelo mar baía escadaria plano geral tênis amarelo contemplativo sequência seq_j06_12_15_costas_escadaria_baia_geral">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j06_12_15_costas_escadaria_baia_geral.jpg" alt="Costas na Escadaria Diante da Baía &amp; Plano Geral com Tênis Amarelo (#12+#15)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j06_12_15_costas_escadaria_baia_geral.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 07 · #12 + #15</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-07</span> Costas na Escadaria Diante da Baía &amp; Plano Geral com Tênis Amarelo (#12+#15)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:14:06 · 5.84s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-08" data-val="lns-08 | #17 + #13 | 01:00:26:03 | seq_j07_17_13_detalhe_maos_anel_desfoque_agua | Detalhe das Mãos com Anel &amp; Close-Up Desfocado Diante da Água (#17+#13)" data-search="lns-08 #17 + #13 detalhe das mãos com anel &amp; close-up desfocado diante da água (#17+#13) plano detalhe verde-água, jeans &amp; pele detalhe mãos anel desfoque rack focus mar água sequência seq_j07_17_13_detalhe_maos_anel_desfoque_agua">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j07_17_13_detalhe_maos_anel_desfoque_agua.jpg" alt="Detalhe das Mãos com Anel &amp; Close-Up Desfocado Diante da Água (#17+#13)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j07_17_13_detalhe_maos_anel_desfoque_agua.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 08 · #17 + #13</span>
+            <span class="ep-badge">Plano Detalhe</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-08</span> Detalhe das Mãos com Anel &amp; Close-Up Desfocado Diante da Água (#17+#13)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:26:03 · 2.76s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-09" data-val="lns-09 | #18 + #19 | 01:00:27:01 | seq_j09_18_19_closeup_tatuagem_conjunto_pedra | Close-Up Lateral com Tatuagem &amp; Plano Conjunto Pensativo na Pedra (#18+#19)" data-search="lns-09 #18 + #19 close-up lateral com tatuagem &amp; plano conjunto pensativo na pedra (#18+#19) close-up turquesa, cinza pedra &amp; laranja close-up tatuagem brinco pedra mar retrato sequência seq_j09_18_19_closeup_tatuagem_conjunto_pedra">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j09_18_19_closeup_tatuagem_conjunto_pedra.jpg" alt="Close-Up Lateral com Tatuagem &amp; Plano Conjunto Pensativo na Pedra (#18+#19)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j09_18_19_closeup_tatuagem_conjunto_pedra.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 09 · #18 + #19</span>
+            <span class="ep-badge">Close-Up</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-09</span> Close-Up Lateral com Tatuagem &amp; Plano Conjunto Pensativo na Pedra (#18+#19)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:27:01 · 2.92s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-11" data-val="lns-11 | #22 + #21 | 01:00:32:21 | seq_j10_22_21_perfil_sorrindo_rua_centro | Perfil Sorrindo de Boné Diante da Grade &amp; Rua do Centro entre Prédios (#22+#21)" data-search="lns-11 #22 + #21 perfil sorrindo de boné diante da grade &amp; rua do centro entre prédios (#22+#21) primeiro plano verde folhagem &amp; cinza urbano sorriso boné perfil centro prédios dia sequência seq_j10_22_21_perfil_sorrindo_rua_centro">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j10_22_21_perfil_sorrindo_rua_centro.jpg" alt="Perfil Sorrindo de Boné Diante da Grade &amp; Rua do Centro entre Prédios (#22+#21)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j10_22_21_perfil_sorrindo_rua_centro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 11 · #22 + #21</span>
+            <span class="ep-badge">Primeiro Plano</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-11</span> Perfil Sorrindo de Boné Diante da Grade &amp; Rua do Centro entre Prédios (#22+#21)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:32:21 · 1.96s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-14" data-val="lns-14 | #27 + #29 | 01:00:37:17 | seq_j12_27_29_contraplongee_pb_edificios | Contra-Plongée Extremo P&amp;B — Entre Edifícios &amp; Silhueta Urbana (#27+#29)" data-search="lns-14 #27 + #29 contra-plongée extremo p&amp;b — entre edifícios &amp; silhueta urbana (#27+#29) contra-plongée monocromático p&amp;b contra-plongée p&amp;b silhueta edifícios grande-angular arquitetura sequência seq_j12_27_29_contraplongee_pb_edificios">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j12_27_29_contraplongee_pb_edificios.jpg" alt="Contra-Plongée Extremo P&amp;B — Entre Edifícios &amp; Silhueta Urbana (#27+#29)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j12_27_29_contraplongee_pb_edificios.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 14 · #27 + #29</span>
+            <span class="ep-badge">Contra-Plongée</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-14</span> Contra-Plongée Extremo P&amp;B — Entre Edifícios &amp; Silhueta Urbana (#27+#29)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:37:17 · 4.76s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-15" data-val="lns-15 | #30 + #28 | 01:00:44:09 | seq_j11_30_28_closeup_rua_apontando | Close-Up Frontal na Rua &amp; Plano Médio Apontando para a Esquerda (#30+#28)" data-search="lns-15 #30 + #28 close-up frontal na rua &amp; plano médio apontando para a esquerda (#30+#28) primeiro plano cinza urbano, laranja &amp; verde close-up performance rua centro gesto olhar sequência seq_j11_30_28_closeup_rua_apontando">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j11_30_28_closeup_rua_apontando.jpg" alt="Close-Up Frontal na Rua &amp; Plano Médio Apontando para a Esquerda (#30+#28)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j11_30_28_closeup_rua_apontando.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 15 · #30 + #28</span>
+            <span class="ep-badge">Primeiro Plano</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-15</span> Close-Up Frontal na Rua &amp; Plano Médio Apontando para a Esquerda (#30+#28)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:44:09 · 5.84s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-17" data-val="lns-17 | #34 + #32 + #36 | 01:00:58:00 | seq_j13_34_32_36_drones_noturnos_taxis_zenital | Drones Noturnos — Táxis Amarelos, Avenida Iluminada &amp; Zenital no Cruzamento (#34+#32+#36)" data-search="lns-17 #34 + #32 + #36 drones noturnos — táxis amarelos, avenida iluminada &amp; zenital no cruzamento (#34+#32+#36) plongée aéreo amarelo táxi, laranja &amp; azul asfalto drone aéreo noite táxis ônibus zenital cruzamento avenida sequência seq_j13_34_32_36_drones_noturnos_taxis_zenital">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j13_34_32_36_drones_noturnos_taxis_zenital.jpg" alt="Drones Noturnos — Táxis Amarelos, Avenida Iluminada &amp; Zenital no Cruzamento (#34+#32+#36)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j13_34_32_36_drones_noturnos_taxis_zenital.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 17 · #34 + #32 + #36</span>
+            <span class="ep-badge">Plongée Aéreo</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-17</span> Drones Noturnos — Táxis Amarelos, Avenida Iluminada &amp; Zenital no Cruzamento (#34+#32+#36)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:58:00 · 5.76s · 3 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-19" data-val="lns-19 | #35 + #37 | 01:00:59:22 | seq_j14_35_37_aereos_pb_edificio_morro | Aéreos Noturnos P&amp;B — Edifício Iluminado &amp; Panorama com Morro (#35+#37)" data-search="lns-19 #35 + #37 aéreos noturnos p&amp;b — edifício iluminado &amp; panorama com morro (#35+#37) plano geral monocromático p&amp;b drone aéreo p&amp;b noite edifício panorama morro sequência seq_j14_35_37_aereos_pb_edificio_morro">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j14_35_37_aereos_pb_edificio_morro.jpg" alt="Aéreos Noturnos P&amp;B — Edifício Iluminado &amp; Panorama com Morro (#35+#37)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j14_35_37_aereos_pb_edificio_morro.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 19 · #35 + #37</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-19</span> Aéreos Noturnos P&amp;B — Edifício Iluminado &amp; Panorama com Morro (#35+#37)</div>
+            <div class="sub-row">
+              <span class="sub">01:00:59:22 · 2.92s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-20" data-val="lns-20 | #41 + #38 | 01:01:14:10 | seq_j15_41_38_fumaca_noturna_leds_azuis | Close-Up Soltando Fumaça &amp; Contra-Plongée Diante de LEDs Azuis (#41+#38)" data-search="lns-20 #41 + #38 close-up soltando fumaça &amp; contra-plongée diante de leds azuis (#41+#38) close-up azul neon, branco &amp; sombra close-up fumaça leds azuis regata branca contra-plongée noite sequência seq_j15_41_38_fumaca_noturna_leds_azuis">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j15_41_38_fumaca_noturna_leds_azuis.jpg" alt="Close-Up Soltando Fumaça &amp; Contra-Plongée Diante de LEDs Azuis (#41+#38)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j15_41_38_fumaca_noturna_leds_azuis.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 20 · #41 + #38</span>
+            <span class="ep-badge">Close-Up</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-20</span> Close-Up Soltando Fumaça &amp; Contra-Plongée Diante de LEDs Azuis (#41+#38)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:14:10 · 5.88s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-21" data-val="lns-21 | #42 + #39 | 01:01:17:09 | seq_j16_42_39_carro_chuva_drone_viaduto | Interior do Carro na Chuva &amp; Drone Noturno Sobre Viaduto Grafiteado (#42+#39)" data-search="lns-21 #42 + #39 interior do carro na chuva &amp; drone noturno sobre viaduto grafiteado (#42+#39) over-the-shoulder vermelho, azul, verde &amp; grafite carro chuva para-brisa drone viaduto grafite noite sequência seq_j16_42_39_carro_chuva_drone_viaduto">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j16_42_39_carro_chuva_drone_viaduto.jpg" alt="Interior do Carro na Chuva &amp; Drone Noturno Sobre Viaduto Grafiteado (#42+#39)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j16_42_39_carro_chuva_drone_viaduto.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 21 · #42 + #39</span>
+            <span class="ep-badge">Over-the-Shoulder</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-21</span> Interior do Carro na Chuva &amp; Drone Noturno Sobre Viaduto Grafiteado (#42+#39)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:17:09 · 2.84s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-22" data-val="lns-22 | #43 + #07 | 01:01:18:07 | seq_j17_43_07_porta_grafiteada_taxi_lonnmar | Porta Grafiteada com Táxi Amarelo &amp; LONNMAR Encostado na Porta Pichada (#43+#07)" data-search="lns-22 #43 + #07 porta grafiteada com táxi amarelo &amp; lonnmar encostado na porta pichada (#43+#07) plano geral amarelo táxi, ocre &amp; grafite porta grafite pichação táxi amarelo centro sequência seq_j17_43_07_porta_grafiteada_taxi_lonnmar">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j17_43_07_porta_grafiteada_taxi_lonnmar.jpg" alt="Porta Grafiteada com Táxi Amarelo &amp; LONNMAR Encostado na Porta Pichada (#43+#07)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j17_43_07_porta_grafiteada_taxi_lonnmar.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 22 · #43 + #07</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-22</span> Porta Grafiteada com Táxi Amarelo &amp; LONNMAR Encostado na Porta Pichada (#43+#07)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:18:07 · 2.92s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-23" data-val="lns-23 | #40 + #26 | 01:01:09:14 | seq_j18_40_26_esquina_transeuntes_casaroes | Esquina do Centro com Transeuntes &amp; Perfil Diante de Casarões Históricos (#40+#26)" data-search="lns-23 #40 + #26 esquina do centro com transeuntes &amp; perfil diante de casarões históricos (#40+#26) plano médio laranja camiseta, cinza &amp; verde esquina centro transeuntes casarões perfil sequência seq_j18_40_26_esquina_transeuntes_casaroes">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j18_40_26_esquina_transeuntes_casaroes.jpg" alt="Esquina do Centro com Transeuntes &amp; Perfil Diante de Casarões Históricos (#40+#26)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j18_40_26_esquina_transeuntes_casaroes.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 23 · #40 + #26</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-23</span> Esquina do Centro com Transeuntes &amp; Perfil Diante de Casarões Históricos (#40+#26)</div>
+            <div class="sub-row">
+              <span class="sub">01:01:09:14 · 5.80s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-29" data-val="lns-29 | #65 + #62 + #63 + #64 + #61 + #60 + #59 + #56 + #57 + #58 + #55 + #54 + #53 | 01:02:23:02 | seq_j19_molduras_montagem_ritmica_completa | Montagem Rítmica em Moldura — Flash Cuts P&amp;B, Mar &amp; Rua (#65→#53)" data-search="lns-29 #65 + #62 + #63 + #64 + #61 + #60 + #59 + #56 + #57 + #58 + #55 + #54 + #53 montagem rítmica em moldura — flash cuts p&amp;b, mar &amp; rua (#65→#53) moldura · flash cut monocromático p&amp;b &amp; turquesa mar moldura flash cut p&amp;b montagem staccato mar cais abre caminhos sequência seq_j19_molduras_montagem_ritmica_completa">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j19_molduras_montagem_ritmica_completa.jpg" alt="Montagem Rítmica em Moldura — Flash Cuts P&amp;B, Mar &amp; Rua (#65→#53)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j19_molduras_montagem_ritmica_completa.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 29 · #65 + #62 + #63 + #64 + #61 + #60 + #59 + #56 + #57 + #58 + #55 + #54 + #53</span>
+            <span class="ep-badge">Moldura · Flash Cut</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-29</span> Montagem Rítmica em Moldura — Flash Cuts P&amp;B, Mar &amp; Rua (#65→#53)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:23:02 · 12.60s · 13 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-30" data-val="lns-30 | #67 + #66 | 01:02:26:23 | seq_j20_67_66_xerox_ciclista_mao_lente | Fachada “XEROX” com Ciclista &amp; Mão na Lente Sorrindo na Rua (#67+#66)" data-search="lns-30 #67 + #66 fachada “xerox” com ciclista &amp; mão na lente sorrindo na rua (#67+#66) plano geral cores urbanas, azul &amp; laranja xerox ciclista fachada mão na lente sorriso grande-angular sequência seq_j20_67_66_xerox_ciclista_mao_lente">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j20_67_66_xerox_ciclista_mao_lente.jpg" alt="Fachada “XEROX” com Ciclista &amp; Mão na Lente Sorrindo na Rua (#67+#66)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j20_67_66_xerox_ciclista_mao_lente.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 30 · #67 + #66</span>
+            <span class="ep-badge">Plano Geral</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-30</span> Fachada “XEROX” com Ciclista &amp; Mão na Lente Sorrindo na Rua (#67+#66)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:26:23 · 4.84s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="lns-32" data-val="lns-32 | #70 + #68 | 01:02:32:18 | seq_j21_70_68_esquina_taxi_rua_noturna | Esquina ao Entardecer com Táxi Amarelo &amp; Rua Noturna com Faróis (#70+#68)" data-search="lns-32 #70 + #68 esquina ao entardecer com táxi amarelo &amp; rua noturna com faróis (#70+#68) plano médio amarelo táxi, laranja &amp; azul noite esquina táxi amarelo entardecer noite faróis perfil sequência seq_j21_70_68_esquina_taxi_rua_noturna">
+          <div class="media-wrap">
+            <img src="assets/shots/lonnmar_sereno/seq_j21_70_68_esquina_taxi_rua_noturna.jpg" alt="Esquina ao Entardecer com Táxi Amarelo &amp; Rua Noturna com Faróis (#70+#68)" loading="lazy">
+            <video src="assets/videos/lonnmar_sereno/seq_j21_70_68_esquina_taxi_rua_noturna.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">SEQ 32 · #70 + #68</span>
+            <span class="ep-badge">Plano Médio</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">lns-32</span> Esquina ao Entardecer com Táxi Amarelo &amp; Rua Noturna com Faróis (#70+#68)</div>
+            <div class="sub-row">
+              <span class="sub">01:02:32:18 · 3.84s · 2 planos</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=FyqZFqnNW5A" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="toast">Ativos copiados para a área de transferência!</div>
+  <script>
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const countEl = document.getElementById('selectedCount');
+    const copyCountEl = document.getElementById('copyCount');
+    const searchInput = document.getElementById('searchInput');
+
+    function updateCount() {
+      const n = cards.filter(c => c.classList.contains('is-picked')).length;
+      countEl.textContent = n;
+      copyCountEl.textContent = n;
+    }
+
+    function applyFilters() {
+      const q = searchInput.value.trim().toLowerCase();
+      cards.forEach(c => {
+        const matchQ = !q || c.dataset.search.includes(q);
+        c.classList.toggle('hidden', !matchQ);
+      });
+      document.querySelectorAll('.group').forEach(sec => {
+        sec.style.display = sec.querySelectorAll('.card:not(.hidden)').length > 0 ? '' : 'none';
+      });
+    }
+
+    cards.forEach(c => {
+      const vid = c.querySelector('video');
+      c.addEventListener('mouseenter', () => vid.play().catch(() => {}));
+      c.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+      c.addEventListener('click', () => {
+        c.classList.toggle('is-picked');
+        updateCount();
+      });
+    });
+
+    searchInput.addEventListener('input', applyFilters);
+    document.getElementById('selectAllBtn').addEventListener('click', () => {
+      cards.filter(c => !c.classList.contains('hidden')).forEach(c => c.classList.add('is-picked'));
+      updateCount();
+    });
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('is-picked'));
+      updateCount();
+    });
+
+    function showToast() {
+      const t = document.getElementById('toast');
+      t.style.display = 'block';
+      setTimeout(() => t.style.display = 'none', 2500);
+    }
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const lines = cards.filter(c => c.classList.contains('is-picked')).map(c => c.dataset.val);
+      const text = lines.join('\n');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showToast).catch(() => {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(ta);
+          showToast();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
