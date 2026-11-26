@@ -293,13 +293,11 @@
       return null;
     }
 
-    const baseWindowMs = options.clipWindowMs || 2800;
-    const initialDelayMs = options.initialDelayMs || baseWindowMs;
-    let isFirstCut = true;
     let queue = shuffleArray(rawTakes);
     let idx = 0;
     let activeSlot = 0;
     let cutTimer = null;
+    let watchdogCleanup = null;
     let stopped = false;
 
     containerEl.innerHTML = `
@@ -311,7 +309,10 @@
 
     const slots = Array.from(containerEl.querySelectorAll("video"));
     slots.forEach((vid) => {
-      if (queue.length > 1) vid.dataset.noLoop = "1";
+      if (queue.length > 1) {
+        vid.dataset.noLoop = "1";
+        vid.loop = false;
+      }
       prepareMobileVideoAttrs(vid);
     });
 
@@ -319,6 +320,10 @@
       if (cutTimer) {
         clearTimeout(cutTimer);
         cutTimer = null;
+      }
+      if (watchdogCleanup) {
+        watchdogCleanup();
+        watchdogCleanup = null;
       }
     }
 
@@ -343,7 +348,12 @@
         slot.setAttribute("src", shot.video);
         slot.load();
       }
-      if (queue.length > 1) slot.dataset.noLoop = "1";
+      if (queue.length > 1) {
+        slot.dataset.noLoop = "1";
+        slot.loop = false;
+      } else {
+        slot.loop = true;
+      }
       prepareMobileVideoAttrs(slot);
     }
 
@@ -364,8 +374,7 @@
       clearTimers();
       if (stopped || queue.length <= 1) return;
       const currentVid = slots[activeSlot];
-      const delayMs = isFirstCut ? initialDelayMs : baseWindowMs;
-      isFirstCut = false;
+      currentVid.loop = false;
 
       const triggerAdvance = () => {
         if (stopped || !document.body.contains(containerEl)) {
@@ -381,7 +390,35 @@
         advanceTake();
       };
 
-      cutTimer = setTimeout(triggerAdvance, delayMs);
+      const armWatchdog = (ms) => {
+        if (cutTimer) clearTimeout(cutTimer);
+        cutTimer = setTimeout(triggerAdvance, ms);
+      };
+
+      const armDurationWatchdog = () => {
+        const durSec = Number.isFinite(currentVid.duration) && currentVid.duration > 0 ? currentVid.duration : 10;
+        const ms = Math.max(4000, Math.ceil(durSec * 1000) + 2500);
+        armWatchdog(ms);
+      };
+
+      const onPlayingOrMeta = () => {
+        if (stopped || slots[activeSlot] !== currentVid) return;
+        armDurationWatchdog();
+      };
+
+      currentVid.addEventListener("playing", onPlayingOrMeta);
+      currentVid.addEventListener("loadedmetadata", onPlayingOrMeta);
+      watchdogCleanup = () => {
+        currentVid.removeEventListener("playing", onPlayingOrMeta);
+        currentVid.removeEventListener("loadedmetadata", onPlayingOrMeta);
+      };
+
+      if (!currentVid.paused && currentVid.readyState >= 2) {
+        armDurationWatchdog();
+      } else {
+        armWatchdog(8000);
+      }
+
       currentVid.onended = () => {
         clearTimers();
         triggerAdvance();
@@ -714,8 +751,7 @@
             document.getElementById(`hero-featured-media-${idx}`),
             item.projectId,
             item.image,
-            item.title,
-            { initialDelayMs: 2600 + idx * 700, clipWindowMs: 2800 + idx * 250 }
+            item.title
           );
         });
 
