@@ -246,7 +246,6 @@
             <div>
               <div class="footer-heading">Contato & Estúdio</div>
               <div class="footer-links">
-                <a href="mailto:${cfg.email}">${cfg.email}</a>
                 <span>${cfg.location}</span>
                 <span>${cfg.instagram}</span>
                 <a href="contato.html" style="color:var(--fg);text-decoration:underline;text-underline-offset:4px;">Chat</a>
@@ -1667,7 +1666,7 @@
   }
 
   // =========================================================================
-  // 8. CONTATO — CHAT INTERATIVO DIRETO PARA O E-MAIL (contato.html)
+  // 8. CONTATO — CHAT INTERATIVO DIRETO PARA O WHATSAPP (contato.html)
   // =========================================================================
   function initContactChat() {
     const messagesEl = document.getElementById("chat-messages");
@@ -1675,18 +1674,15 @@
     const formEl = document.getElementById("chat-form");
     const inputEl = document.getElementById("chat-input");
     const summaryWrapEl = document.getElementById("email-summary-wrap");
-    const targetEmailLabel = document.getElementById("target-email-display");
     const resetChatBtn = document.getElementById("reset-chat-btn");
 
     if (!messagesEl || !formEl || !inputEl) return;
-    if (targetEmailLabel) targetEmailLabel.textContent = cfg.email;
 
     const params = new URLSearchParams(window.location.search);
     const preSubject = params.get("assunto");
 
     const chatData = {
       name: "",
-      senderEmail: "",
       projectType: preSubject || "",
       brief: ""
     };
@@ -1703,12 +1699,6 @@
         prompt: (d) => `Prazer, ${d.name}. Sobre qual formato ou frente você gostaria de conversar?`,
         placeholder: "Escolha uma opção ou escreva o tipo de projeto...",
         quick: ["Ficção / Curta ou Longa", "Documentário", "Videoclipe / Filme-Álbum", "Publicidade", "Coprodução / Orçamento"]
-      },
-      {
-        key: "senderEmail",
-        prompt: "Qual é o seu melhor e-mail para retornarmos a resposta?",
-        placeholder: "seuemail@dominio.com.br",
-        quick: []
       },
       {
         key: "brief",
@@ -1747,7 +1737,6 @@
         `Olá equipe ÀWA,`,
         ``,
         `Nome / Organização: ${chatData.name}`,
-        `E-mail de retorno: ${chatData.senderEmail}`,
         `Formato / Assunto: ${chatData.projectType}`,
         ``,
         `Mensagem / Briefing:`,
@@ -1757,9 +1746,6 @@
         `Enviado via Chat Direto do Site ÀWA`
       ].join("\n");
 
-      const mailtoHref = `mailto:${encodeURIComponent(cfg.email)}?subject=${encodeURIComponent(
-        subject
-      )}&body=${encodeURIComponent(body)}`;
       const whatsappDigits = (cfg.whatsapp || "").replace(/\D/g, "");
       const whatsappHref = whatsappDigits
         ? `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(body)}`
@@ -1769,7 +1755,7 @@
         <div class="email-summary-box">
           <div class="news-meta-row" style="margin-bottom:12px;">
             <span class="news-tag">PRONTO PARA ENVIAR</span>
-            <span>WHATSAPP · ${cfg.email}</span>
+            <span>WHATSAPP</span>
           </div>
           <div style="font-family:var(--font-mono);font-size:0.78rem;color:var(--fg-soft);margin-bottom:12px;">
             <strong>Assunto:</strong> ${subject}
@@ -1778,9 +1764,6 @@
           <div style="display:flex;flex-wrap:wrap;gap:10px;">
             <a href="${whatsappHref}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="open-whatsapp-btn">
               Enviar pelo WhatsApp
-            </a>
-            <a href="${mailtoHref}" class="btn btn-ghost" id="open-mailto-btn">
-              Enviar por e-mail
             </a>
             <button type="button" class="btn btn-ghost" id="copy-brief-btn">
               Copiar
@@ -1792,7 +1775,7 @@
       const copyBtn = document.getElementById("copy-brief-btn");
       if (copyBtn) {
         copyBtn.onclick = () => {
-          navigator.clipboard?.writeText(`Para: ${cfg.email}\nAssunto: ${subject}\n\n${body}`);
+          navigator.clipboard?.writeText(body);
           copyBtn.textContent = "Copiado ✓";
           setTimeout(() => (copyBtn.textContent = "Copiar"), 2000);
         };
@@ -1803,7 +1786,7 @@
       if (stepIndex >= steps.length) {
         addBubble(
           "awa",
-          `Perfeito, ${chatData.name}! Compilei toda a nossa conversa abaixo. Escolha "Enviar pelo WhatsApp" ou "Enviar por e-mail".`
+          `Perfeito, ${chatData.name}! Compilei toda a nossa conversa abaixo. Clique em "Enviar pelo WhatsApp".`
         );
         renderQuickReplies([]);
         inputEl.placeholder = "Deseja acrescentar mais algum detalhe à mensagem?";
@@ -1833,7 +1816,7 @@
         // Mensagens extras depois de concluído são anexadas ao briefing
         chatData.brief += `\n+ Complemento: ${clean}`;
         compileEmailSummary();
-        addBubble("awa", "Adicionado ao corpo do e-mail! Você já pode clicar no botão abaixo para enviar.");
+        addBubble("awa", 'Adicionado à mensagem! Você já pode clicar em "Enviar pelo WhatsApp".');
       }
     }
 

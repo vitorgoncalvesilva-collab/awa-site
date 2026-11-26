@@ -6,7 +6,6 @@
 window.AWA_CONFIG = {
   brandName: "ÀWA",
   tagline: "Nós somos a imagem que nos olha de volta.",
-  email: "vitor.goncalvesilva@gmail.com",
   whatsapp: "5511916135815",
   location: "BRASIL",
   instagram: "@awa.cinema",
