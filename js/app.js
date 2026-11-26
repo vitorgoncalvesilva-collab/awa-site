@@ -203,7 +203,7 @@
               `<a href="${item.href}" class="nav-link ${currentPage === item.id ? "active" : ""}">${item.label}</a>`
           )
           .join("")}
-        <a href="contato.html" class="nav-link ${currentPage === "contato" ? "active" : ""}">Contato (Chat → E-mail)</a>
+        <a href="contato.html" class="nav-link ${currentPage === "contato" ? "active" : ""}">Contato</a>
       `;
     }
 
@@ -250,7 +250,7 @@
                 <a href="mailto:${cfg.email}">${cfg.email}</a>
                 <span>${cfg.location}</span>
                 <span>${cfg.instagram}</span>
-                <a href="contato.html" style="color:var(--fg);text-decoration:underline;text-underline-offset:4px;">Abrir chat para e-mail →</a>
+                <a href="contato.html" style="color:var(--fg);text-decoration:underline;text-underline-offset:4px;">Chat</a>
               </div>
             </div>
           </div>
@@ -563,11 +563,11 @@
           <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end;">
             ${
               shot.youtubeUrl
-                ? `<a href="${shot.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">▶ Assistir Episódio no YouTube ↗</a>`
+                ? `<a href="${shot.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">YouTube ↗</a>`
                 : ""
             }
             <a href="projeto.html?id=${encodeURIComponent(project.id)}&shot=${encodeURIComponent(shot.id)}" class="btn ${shot.youtubeUrl ? "btn-ghost" : "btn-primary"}">
-              Ir para a Página do Projeto →
+              Projeto
             </a>
             <span class="mono" style="font-size:0.68rem;color:var(--fg-dim);">${idx + 1} / ${shots.length} · ← → PARA NAVEGAR</span>
           </div>
@@ -616,7 +616,7 @@
             <span class="news-tag">${item.tag}</span>
             <span class="mono" style="font-size:0.72rem;color:var(--fg-muted);">${item.date}</span>
           </div>
-          <button type="button" class="btn btn-ghost btn-sm" id="modal-close-btn">Fechar [ESC]</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="modal-close-btn">Fechar</button>
         </div>
         <div class="modal-media" id="news-modal-media">
           <img src="${item.image}" alt="${item.title}" />
@@ -626,9 +626,9 @@
           <p style="color:var(--fg-soft);font-size:1rem;line-height:1.7;">${item.fullText}</p>
           <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;">
             <a href="projeto.html?id=${encodeURIComponent(project.id)}" class="btn btn-primary">
-              Ver Obra Relacionada (${project.title}) →
+              Projeto
             </a>
-            <a href="portfolio.html" class="btn btn-ghost">Explorar Takes no Shotdeck</a>
+            <a href="portfolio.html" class="btn btn-ghost">Galeria</a>
           </div>
         </div>
       </div>
@@ -702,7 +702,7 @@
                 <p style="color:var(--fg-muted);font-size:0.86rem;line-height:1.55;">${item.excerpt}</p>
               </div>
               <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border);">
-                <span class="mono" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;">Abrir projeto</span>
+                <span class="mono" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;">Projeto</span>
                 <span>→</span>
               </div>
             </div>
@@ -757,7 +757,7 @@
             <h2 style="font-family:var(--font-display);font-size:1.35rem;font-weight:500;line-height:1.28;">${lead.title}</h2>
             <p style="color:var(--fg-muted);font-size:0.9rem;">${lead.excerpt}</p>
             <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border);">
-              <span class="mono" style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;">Ler nota completa</span>
+              <span class="mono" style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;">Ler</span>
               <span>→</span>
             </div>
           </div>
@@ -794,7 +794,7 @@
             <p class="news-card-excerpt" style="margin-top:10px;">${n.excerpt}</p>
           </div>
           <div class="news-card-foot">
-            <span>Abrir projeto</span>
+            <span>Projeto</span>
             <span>→</span>
           </div>
         </article>`
@@ -1099,7 +1099,7 @@
               <img src="${cfg.assets.simbolo}" alt="" style="width:42px;opacity:0.4;" />
               <h3 style="font-family:var(--font-display);font-size:1.3rem;">Nenhum take encontrado para "${state.query}"</h3>
               <p style="color:var(--fg-muted);max-width:44ch;">Tente buscar por enquadramentos como <strong>zenital</strong>, <strong>arvoreser</strong>, <strong>anamórfica</strong> ou limpe os filtros.</p>
-              <button type="button" class="btn btn-ghost btn-sm" id="reset-search-btn">Limpar busca e filtros</button>
+              <button type="button" class="btn btn-ghost btn-sm" id="reset-search-btn">Limpar</button>
             </div>`;
           const resetBtn = document.getElementById("reset-search-btn");
           if (resetBtn) {
@@ -1221,7 +1221,7 @@
                 <span>·</span>
                 <span>${proj.aspectRatio}</span>
                 <span>·</span>
-                <span style="color:var(--fg);">Abrir obra →</span>
+                <span style="color:var(--fg);">Projeto →</span>
               </div>
             </div>
           </a>`
@@ -1314,7 +1314,7 @@
             <div class="eyebrow">Acervo em Preparação</div>
             <h1 class="page-title">Nenhum projeto publicado ainda</h1>
             <p style="color:var(--fg-muted);margin-bottom:24px;">Assim que você aprovar os primeiros takes, este espaço exibirá a ficha técnica e o vídeo completo da obra.</p>
-            <a href="portfolio.html" class="btn btn-primary">Voltar ao Portfólio</a>
+            <a href="portfolio.html" class="btn btn-primary">Galeria</a>
           </div>
         </section>`;
       return;
@@ -1354,11 +1354,11 @@
             <div style="display:flex;gap:10px;flex-wrap:wrap;">
               ${
                 ytId
-                  ? `<a href="#filme-completo" class="btn btn-primary btn-sm">▶ Assistir Filme Completo</a>`
+                  ? `<a href="#filme-completo" class="btn btn-primary btn-sm">Assistir</a>`
                   : ""
               }
-              <a href="portfolio.html" class="btn btn-ghost btn-sm">← Voltar ao Shotdeck</a>
-              <a href="contato.html?assunto=${encodeURIComponent("Projeto: " + project.title)}" class="btn btn-ghost btn-sm">Solicitar Ficha / Orçamento</a>
+              <a href="portfolio.html" class="btn btn-ghost btn-sm">Galeria</a>
+              <a href="contato.html?assunto=${encodeURIComponent("Projeto: " + project.title)}" class="btn btn-ghost btn-sm">Orçamento</a>
             </div>
           </div>
         </div>
@@ -1375,7 +1375,7 @@
               <h2 class="section-heading">Filme Completo</h2>
             </div>
             <a href="${ytDirectUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
-              Abrir no YouTube ↗
+              YouTube ↗
             </a>
           </div>
           <div class="youtube-player-wrap">
@@ -1440,7 +1440,7 @@
               <div class="eyebrow" style="margin-bottom:10px;">Shotdeck da Obra</div>
               <h2 class="section-heading">Takes Indexados deste Projeto (${projectShots.length})</h2>
             </div>
-            <a href="portfolio.html?q=${encodeURIComponent(project.title)}" class="btn btn-ghost btn-sm">Ver todos no buscador →</a>
+            <a href="portfolio.html?q=${encodeURIComponent(project.title)}" class="btn btn-ghost btn-sm">Galeria</a>
           </div>
 
           <div class="shotdeck-grid" id="project-shots-grid">
@@ -1470,8 +1470,8 @@
           </div>
 
           <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:32px;border-top:1px solid var(--border);">
-            <a href="projeto.html?id=${encodeURIComponent(prevProject.id)}" class="btn btn-ghost">← Anterior: ${prevProject.title}</a>
-            <a href="projeto.html?id=${encodeURIComponent(nextProject.id)}" class="btn btn-ghost">Próximo: ${nextProject.title} →</a>
+            <a href="projeto.html?id=${encodeURIComponent(prevProject.id)}" class="btn btn-ghost">← Anterior</a>
+            <a href="projeto.html?id=${encodeURIComponent(nextProject.id)}" class="btn btn-ghost">Próximo →</a>
           </div>
         </div>
       </section>
@@ -1724,10 +1724,10 @@
           <pre style="white-space:pre-wrap;font-family:var(--font-mono);font-size:0.76rem;color:var(--fg-muted);background:var(--surface-2);padding:14px;border:1px solid var(--border);margin-bottom:16px;line-height:1.55;">${body}</pre>
           <div style="display:flex;flex-wrap:wrap;gap:10px;">
             <a href="${mailtoHref}" class="btn btn-primary" id="open-mailto-btn">
-              Abrir no Meu E-mail e Enviar →
+              Enviar por e-mail
             </a>
             <button type="button" class="btn btn-ghost" id="copy-brief-btn">
-              Copiar Mensagem
+              Copiar
             </button>
           </div>
         </div>
@@ -1738,7 +1738,7 @@
         copyBtn.onclick = () => {
           navigator.clipboard?.writeText(`Para: ${cfg.email}\nAssunto: ${subject}\n\n${body}`);
           copyBtn.textContent = "Copiado ✓";
-          setTimeout(() => (copyBtn.textContent = "Copiar Mensagem"), 2000);
+          setTimeout(() => (copyBtn.textContent = "Copiar"), 2000);
         };
       }
     }
@@ -1747,7 +1747,7 @@
       if (stepIndex >= steps.length) {
         addBubble(
           "awa",
-          `Perfeito, ${chatData.name}! Compilei toda a nossa conversa abaixo. Clique em "Abrir no Meu E-mail e Enviar" para disparar direto para ${cfg.email}.`
+          `Perfeito, ${chatData.name}! Compilei toda a nossa conversa abaixo. Clique em "Enviar por e-mail" para disparar direto para ${cfg.email}.`
         );
         renderQuickReplies([]);
         inputEl.placeholder = "Deseja acrescentar mais algum detalhe ao e-mail?";
