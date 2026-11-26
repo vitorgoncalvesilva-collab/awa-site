@@ -549,7 +549,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-t01",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Raízes do Choro Nordestino — Depoimento no saguão do Teatro Anchieta (T01)",
+    "title": "ISB2026 - Raízes do Choro Nordestino",
     "timecode": "00:00:47:10",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -601,7 +601,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-t02",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Raízes do Choro Nordestino — Depoimento em pé no hall do Sesc Consolação (T02)",
+    "title": "ISB2026 - Raízes do Choro Nordestino",
     "timecode": "00:01:42:16",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -652,7 +652,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-t03",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Teco Cardoso Quarteto — Músico em diálogo no palco antes do show (T03)",
+    "title": "ISB2026 - Teco Cardoso Quarteto",
     "timecode": "00:01:21:15",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -699,7 +699,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-t04",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Cristina Azuma e Marcia Taborda — Violonista sentada no palco com violão (T04)",
+    "title": "ISB2026 - Cristina Azuma e Marcia Taborda",
     "timecode": "00:01:10:12",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -744,7 +744,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-t05",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Fabio Timbira e Timbiraçu — Formação da banda alinhada no palco (T05)",
+    "title": "ISB2026 - Fabio Timbira e Timbiraçu",
     "timecode": "00:03:30:07",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -799,7 +799,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-t06",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Fabio Timbira e Timbiraçu — Percussão e vocal no centro do palco (T06)",
+    "title": "ISB2026 - Fabio Timbira e Timbiraçu",
     "timecode": "00:01:47:03",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -854,7 +854,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-t07",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Cornucópia Desvairada — Performance cênica sob luz vermelha intensa (T07)",
+    "title": "ISB2026 - Cornucópia Desvairada",
     "timecode": "00:03:44:00",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Geral",
@@ -914,7 +914,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j1",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Jazzmin's Big Band — Seção de sopros e big band em performance (J1)",
+    "title": "ISB2026 - Jazzmin's Big Band",
     "timecode": "00:00:51:20",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -977,7 +977,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j2",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Jazzmin's Big Band — Contrabaixo elétrico, piano e partitura no palco (J2)",
+    "title": "ISB2026 - Jazzmin's Big Band",
     "timecode": "00:02:11:10",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -1038,7 +1038,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j3",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Alexandre Vianna Trio — Dedilhado no contrabaixo acústico em close (J3)",
+    "title": "ISB2026 - Alexandre Vianna Trio",
     "timecode": "00:01:46:11",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -1087,7 +1087,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j4",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Alexandre Vianna Trio — Mãos nas teclas do piano acústico (J4)",
+    "title": "ISB2026 - Alexandre Vianna Trio",
     "timecode": "00:00:59:04",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -1136,7 +1136,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j5",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Alexandre Vianna Trio — Piano acústico em ensaio sob foco de palco (J5)",
+    "title": "ISB2026 - Alexandre Vianna Trio",
     "timecode": "00:01:50:15",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -1184,7 +1184,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j6",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Mestre Negro / Andrea Ernest Dias Quarteto / Allan Abbadia / Vanille Goovaerts & Ricardo Herz / Forró das Minas — Fachada do Sesc Consolação e chegada dos artistas (J6)",
+    "title": "ISB2026 - Mestre Negro / Andrea Ernest Dias Quarteto / Allan Abbadia / Vanille Goovaerts & Ricardo Herz / Forró das Minas",
     "timecode": "00:00:40:14",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Geral",
@@ -1263,7 +1263,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j7",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Andrea Ernest Dias Quarteto — Baixo elétrico em contraluz azul no ensaio (J7)",
+    "title": "ISB2026 - Andrea Ernest Dias Quarteto",
     "timecode": "00:02:50:07",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -1311,7 +1311,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j8",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Andrea Ernest Dias Quarteto — Teclado sintetizador diante da passagem de som (J8)",
+    "title": "ISB2026 - Andrea Ernest Dias Quarteto",
     "timecode": "00:02:31:05",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -1359,7 +1359,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j9",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Andrea Ernest Dias Quarteto — Partitura manuscrita sob iluminação magenta (J9)",
+    "title": "ISB2026 - Andrea Ernest Dias Quarteto",
     "timecode": "00:03:53:11",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -1407,7 +1407,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j10",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Allan Abbadia — Capa do vinil “A Love Supreme” (John Coltrane) e leitura (J10)",
+    "title": "ISB2026 - Allan Abbadia",
     "timecode": "00:03:28:00",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -1460,7 +1460,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j11",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Allan Abbadia — Cordas e braço do contrabaixo acústico em close (J11)",
+    "title": "ISB2026 - Allan Abbadia",
     "timecode": "00:03:15:18",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -1512,7 +1512,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j12",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Vanille Goovaerts & Ricardo Herz — Violino e conjunto de cordas em cena (J12)",
+    "title": "ISB2026 - Vanille Goovaerts & Ricardo Herz",
     "timecode": "00:03:32:07",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -1558,7 +1558,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j13",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Vanille Goovaerts & Ricardo Herz — Diálogo musical entre rabeca e violino no ensaio (J13)",
+    "title": "ISB2026 - Vanille Goovaerts & Ricardo Herz",
     "timecode": "00:04:09:10",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -1604,7 +1604,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j14",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Esdras Nogueira Quinteto — Saxofone barítono sob foco direto de luz (J14)",
+    "title": "ISB2026 - Esdras Nogueira Quinteto",
     "timecode": "00:01:26:20",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -1652,7 +1652,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j15",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Esdras Nogueira Quinteto — Bastidores laterais com baixo e amplificadores (J15)",
+    "title": "ISB2026 - Esdras Nogueira Quinteto",
     "timecode": "00:02:50:21",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -1701,7 +1701,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j16",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Peu Abrantes Trio — Baquetas, pandeiro e percussão em vista zenital (J16)",
+    "title": "ISB2026 - Peu Abrantes Trio",
     "timecode": "00:02:28:20",
     "category": "Show Ao Vivo",
     "enquadramento": "Zenital",
@@ -1748,7 +1748,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j17",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Peu Abrantes Trio — Estante de partitura e palco geral em passagem de som (J17)",
+    "title": "ISB2026 - Peu Abrantes Trio",
     "timecode": "00:02:49:12",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -1795,7 +1795,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j18",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Ariane Rodrigues — Depoimento intimista nos bastidores do Teatro (J18)",
+    "title": "ISB2026 - Ariane Rodrigues",
     "timecode": "00:02:54:10",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -1845,7 +1845,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j19",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Ariane Rodrigues — Mãos percutindo tambores e congas (J19)",
+    "title": "ISB2026 - Ariane Rodrigues",
     "timecode": "00:01:47:22",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -1896,7 +1896,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j20",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Ariane Rodrigues — Baterista em contra-plongée sob luz branca intensa (J20)",
+    "title": "ISB2026 - Ariane Rodrigues",
     "timecode": "00:02:23:12",
     "category": "Show Ao Vivo",
     "enquadramento": "Contra-Plongée",
@@ -1945,7 +1945,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j21",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Duo Mica e Caito Marcondes — Detalhe do espigão do contrabaixo e luz de palco (J21)",
+    "title": "ISB2026 - Duo Mica e Caito Marcondes",
     "timecode": "00:03:43:18",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -1993,7 +1993,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j22",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Duo Mica e Caito Marcondes — Pedaleira, cabos e músicos no palco em ensaio (J22)",
+    "title": "ISB2026 - Duo Mica e Caito Marcondes",
     "timecode": "00:02:42:10",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -2041,7 +2041,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j23",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Esdras Nogueira Quinteto — Esdras Nogueira em entrevista nos bastidores (J23)",
+    "title": "ISB2026 - Esdras Nogueira Quinteto",
     "timecode": "00:02:55:17",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -2089,7 +2089,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j24",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Vanille Goovaerts & Ricardo Herz — Vanille Goovaerts no palco segurando rabecas (J24)",
+    "title": "ISB2026 - Vanille Goovaerts & Ricardo Herz",
     "timecode": "00:01:06:10",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -2134,7 +2134,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j25",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Vanille Goovaerts & Ricardo Herz — Ricardo Herz demonstrando arco e rabeca no palco (J25)",
+    "title": "ISB2026 - Vanille Goovaerts & Ricardo Herz",
     "timecode": "00:03:36:03",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -2179,7 +2179,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j26",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Allan Abbadia — Allan Abbadia em entrevista lateral de perfil (J26)",
+    "title": "ISB2026 - Allan Abbadia",
     "timecode": "00:00:52:18",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -2229,7 +2229,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j27",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Duo Mica e Caito Marcondes — Violino em cena sob iluminação verde e azul (J27)",
+    "title": "ISB2026 - Duo Mica e Caito Marcondes",
     "timecode": "00:03:46:12",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -2277,7 +2277,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j28",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Duo Mica e Caito Marcondes — Depoimento no saguão sob luz natural de janela (J28)",
+    "title": "ISB2026 - Duo Mica e Caito Marcondes",
     "timecode": "00:03:11:21",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -2324,7 +2324,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j29",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Grupo Batuque Negro — Depoimento no palco com iluminação dramática (J29)",
+    "title": "ISB2026 - Grupo Batuque Negro",
     "timecode": "00:00:47:23",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -2374,7 +2374,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j30",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Grupo Batuque Negro — Músico sentado no palco diante de refletores azuis (J30)",
+    "title": "ISB2026 - Grupo Batuque Negro",
     "timecode": "00:02:20:07",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -2425,7 +2425,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j31",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Alana Ananias — Entrevista no saguão entre cadeiras coloridas (J31)",
+    "title": "ISB2026 - Alana Ananias",
     "timecode": "00:02:03:15",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Geral",
@@ -2474,7 +2474,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j32",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Alana Ananias — Baterista de costas diante dos pratos iluminados (J32)",
+    "title": "ISB2026 - Alana Ananias",
     "timecode": "00:01:17:19",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -2524,7 +2524,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j33",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Alana Ananias — Baquetas atacando tambores e pratos da bateria (J33)",
+    "title": "ISB2026 - Alana Ananias",
     "timecode": "00:00:58:00",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -2574,7 +2574,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j34",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Alana Ananias — Toca-discos girando vinil cor-de-rosa nos bastidores (J34)",
+    "title": "ISB2026 - Alana Ananias",
     "timecode": "00:01:31:09",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -2625,7 +2625,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j35",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Alana Ananias — Trompete em close sob iluminação magenta (J35)",
+    "title": "ISB2026 - Alana Ananias",
     "timecode": "00:02:58:12",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -2675,7 +2675,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j36",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Alana Ananias — Desfoque seletivo em cordas e braço do instrumento (J36)",
+    "title": "ISB2026 - Alana Ananias",
     "timecode": "00:02:20:14",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -2725,7 +2725,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j37",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Alana Ananias — Baterista em performance intensa sob luz vermelha (J37)",
+    "title": "ISB2026 - Alana Ananias",
     "timecode": "00:02:42:02",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -2774,7 +2774,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j38",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Fábio Leandro — Fabio Leandro ao piano acústico no Teatro Anchieta (J38)",
+    "title": "ISB2026 - Fábio Leandro",
     "timecode": "00:00:56:06",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -2817,7 +2817,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j39",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Fábio Leandro — Mãos ao piano em plano lateral contínuo (J39)",
+    "title": "ISB2026 - Fábio Leandro",
     "timecode": "00:01:07:23",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -2861,7 +2861,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j40",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Fábio Leandro — Perfil do pianista diante do piano de cauda (J40)",
+    "title": "ISB2026 - Fábio Leandro",
     "timecode": "00:02:26:14",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -2905,7 +2905,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j41",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Forró das Minas — Baterista ajustando pratos e baquetas no ensaio (J41)",
+    "title": "ISB2026 - Forró das Minas",
     "timecode": "00:01:08:22",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -2958,7 +2958,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j42",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Forró das Minas — Integrante do Forró das Minas no corredor do Sesc (J42)",
+    "title": "ISB2026 - Forró das Minas",
     "timecode": "00:02:30:00",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3011,7 +3011,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j43",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Forró das Minas — Guitarrista em contra-plongée com foco de luz atrás (J43)",
+    "title": "ISB2026 - Forró das Minas",
     "timecode": "00:02:15:00",
     "category": "Show Ao Vivo",
     "enquadramento": "Contra-Plongée",
@@ -3064,7 +3064,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j44",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Forró das Minas — Clarinete em execução no palco durante ensaio (J44)",
+    "title": "ISB2026 - Forró das Minas",
     "timecode": "00:02:26:23",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3117,7 +3117,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j45",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Forró das Minas — Baterista com boina sob iluminação quente de palco (J45)",
+    "title": "ISB2026 - Forró das Minas",
     "timecode": "00:03:11:00",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3170,7 +3170,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j46",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Trio Solar — Débora Gurgel em depoimento sentada na plateia (J46)",
+    "title": "ISB2026 - Trio Solar",
     "timecode": "00:01:05:23",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -3217,7 +3217,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j47",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Trio Solar — Contrabaixista concentrada tocando no palco (J47)",
+    "title": "ISB2026 - Trio Solar",
     "timecode": "00:01:49:17",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3262,7 +3262,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j48",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Trio Solar — Baterista em ação sob holofotes vermelhos (J48)",
+    "title": "ISB2026 - Trio Solar",
     "timecode": "00:01:45:15",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3308,7 +3308,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j49",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Trio Solar — Pianista em plano médio lateral no piano de cauda (J49)",
+    "title": "ISB2026 - Trio Solar",
     "timecode": "00:03:09:00",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3354,7 +3354,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j50",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Trio Solar — Contrabaixista em perfil lateral sob luz de palco (J50)",
+    "title": "ISB2026 - Trio Solar",
     "timecode": "00:02:36:13",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3400,7 +3400,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j51",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Bruno Migotto e o Instituto — Teclas do piano vistas de cima em zenital perfeito (J51)",
+    "title": "ISB2026 - Bruno Migotto e o Instituto",
     "timecode": "00:01:08:19",
     "category": "Show Ao Vivo",
     "enquadramento": "Zenital",
@@ -3452,7 +3452,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j52",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Bruno Migotto e o Instituto — Bruno Migotto em entrevista no saguão do Sesc (J52)",
+    "title": "ISB2026 - Bruno Migotto e o Instituto",
     "timecode": "00:01:57:15",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3503,7 +3503,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j53",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Bruno Migotto e o Instituto — Flautista em solo sob foco de luz dramático (J53)",
+    "title": "ISB2026 - Bruno Migotto e o Instituto",
     "timecode": "00:02:17:15",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3554,7 +3554,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j54",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Bruno Migotto e o Instituto — Retrato em close-up durante a passagem de som (J54)",
+    "title": "ISB2026 - Bruno Migotto e o Instituto",
     "timecode": "00:02:25:07",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -3605,7 +3605,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j55",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Claudia Castelo Branco — Claudia Castelo Branco cantando ao microfone (J55)",
+    "title": "ISB2026 - Claudia Castelo Branco",
     "timecode": "00:01:27:09",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -3649,7 +3649,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j56",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Claudia Castelo Branco — Pianista expressiva gesticulando ao piano de cauda (J56)",
+    "title": "ISB2026 - Claudia Castelo Branco",
     "timecode": "00:01:18:09",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3694,7 +3694,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j57",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Evandro Gracelli & BrAzulcaJá — Evandro Gracelli em entrevista no palco vazio (J57)",
+    "title": "ISB2026 - Evandro Gracelli & BrAzulcaJá",
     "timecode": "00:01:59:03",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3742,7 +3742,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j58",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Evandro Gracelli & BrAzulcaJá — Baterista em perfil sob iluminação azul e âmbar (J58)",
+    "title": "ISB2026 - Evandro Gracelli & BrAzulcaJá",
     "timecode": "00:01:17:20",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3791,7 +3791,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j59",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Evandro Gracelli & BrAzulcaJá — Trio em performance conjunta no palco (J59)",
+    "title": "ISB2026 - Evandro Gracelli & BrAzulcaJá",
     "timecode": "00:01:24:05",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -3841,7 +3841,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j60",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Fábio Peron e Lucas Rocha — Violão em ensaio descontraído no camarim (J60)",
+    "title": "ISB2026 - Fábio Peron e Lucas Rocha",
     "timecode": "00:00:52:10",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -3888,7 +3888,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j61",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Fábio Peron e Lucas Rocha — Músico com bandolim em entrevista no palco (J61)",
+    "title": "ISB2026 - Fábio Peron e Lucas Rocha",
     "timecode": "00:01:10:10",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3934,7 +3934,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j62",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Fábio Peron e Lucas Rocha — Violonista sentado diante das poltronas do Teatro (J62)",
+    "title": "ISB2026 - Fábio Peron e Lucas Rocha",
     "timecode": "00:01:52:07",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -3980,7 +3980,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j63",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Fábio Peron e Lucas Rocha — Detalhe da mão dedilhando o bandolim (J63)",
+    "title": "ISB2026 - Fábio Peron e Lucas Rocha",
     "timecode": "00:02:54:09",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -4027,7 +4027,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j64",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Raízes do Choro Nordestino — Depoimento no saguão do Sesc Consolação (J64)",
+    "title": "ISB2026 - Raízes do Choro Nordestino",
     "timecode": "00:02:19:03",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -4078,7 +4078,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j65",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Raízes do Choro Nordestino — Entrevista no hall de entrada com luz natural (J65)",
+    "title": "ISB2026 - Raízes do Choro Nordestino",
     "timecode": "00:01:27:21",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -4129,7 +4129,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j66",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Raízes do Choro Nordestino — Sanfona e flauta transversal em dueto no palco (J66)",
+    "title": "ISB2026 - Raízes do Choro Nordestino",
     "timecode": "00:01:26:02",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -4182,7 +4182,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j67",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Raízes do Choro Nordestino — Fole e botões do acordeão em plano detalhe (J67)",
+    "title": "ISB2026 - Raízes do Choro Nordestino",
     "timecode": "00:01:19:13",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -4234,7 +4234,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j68",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Conde Favela Sexteto — Contrabaixista em contraluz vermelha no palco (J68)",
+    "title": "ISB2026 - Conde Favela Sexteto",
     "timecode": "00:00:52:02",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -4283,7 +4283,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j69",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Conde Favela Sexteto — Trombone de costas em enquadramento próximo (J69)",
+    "title": "ISB2026 - Conde Favela Sexteto",
     "timecode": "00:01:00:01",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -4332,7 +4332,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j70",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Conde Favela Sexteto — Depoimento em close no Teatro Anchieta (J70)",
+    "title": "ISB2026 - Conde Favela Sexteto",
     "timecode": "00:02:27:12",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -4380,7 +4380,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j71",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Conde Favela Sexteto — Músico explicando arranjo no palco (J71)",
+    "title": "ISB2026 - Conde Favela Sexteto",
     "timecode": "00:03:25:04",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -4429,7 +4429,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j72",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Conde Favela Sexteto — Mão no braço do contrabaixo acústico em close (J72)",
+    "title": "ISB2026 - Conde Favela Sexteto",
     "timecode": "00:02:11:23",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -4478,7 +4478,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j73",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Portunhol Selvagem — Pianista ao piano de cauda sob luz âmbar (J73)",
+    "title": "ISB2026 - Portunhol Selvagem",
     "timecode": "00:01:26:23",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -4530,7 +4530,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j74",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Portunhol Selvagem — Benjamin Taubkin em depoimento no palco (J74)",
+    "title": "ISB2026 - Portunhol Selvagem",
     "timecode": "00:01:18:10",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -4582,7 +4582,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j75",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Portunhol Selvagem — Mãos dedilhando as cordas da harpa em close (J75)",
+    "title": "ISB2026 - Portunhol Selvagem",
     "timecode": "00:01:14:09",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -4636,7 +4636,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j76",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Teco Cardoso Quarteto — Contrabaixo acústico e bateria em diálogo no palco (J76)",
+    "title": "ISB2026 - Teco Cardoso Quarteto",
     "timecode": "00:01:40:13",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -4683,7 +4683,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j77",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Teco Cardoso Quarteto — Mãos sobre o teclado do piano em detalhe (J77)",
+    "title": "ISB2026 - Teco Cardoso Quarteto",
     "timecode": "00:02:11:19",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -4731,7 +4731,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j78",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Daniel D'Alcântara Quarteto — Daniel D'Alcântara tocando trompete no saguão (J78)",
+    "title": "ISB2026 - Daniel D'Alcântara Quarteto",
     "timecode": "00:00:10:23",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -4778,7 +4778,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j79",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Daniel D'Alcântara Quarteto — Daniel D'Alcântara com trompete em entrevista no saguão (J79)",
+    "title": "ISB2026 - Daniel D'Alcântara Quarteto",
     "timecode": "00:00:18:12",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -4826,7 +4826,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j80",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Maria Clara Valle Trio — Violoncelista nos bastidores com janela ao fundo (J80)",
+    "title": "ISB2026 - Maria Clara Valle Trio",
     "timecode": "00:02:24:07",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -4874,7 +4874,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j81",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Maria Clara Valle Trio — Maria Clara Valle tocando violoncelo em cena (J81)",
+    "title": "ISB2026 - Maria Clara Valle Trio",
     "timecode": "00:02:37:10",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -4921,7 +4921,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j82",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Maria Clara Valle Trio — Arco deslizando nas cordas do violoncelo (J82)",
+    "title": "ISB2026 - Maria Clara Valle Trio",
     "timecode": "00:01:29:19",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -4970,7 +4970,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j83",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Maria Clara Valle Trio — Baquetas vibrando no prato da bateria (J83)",
+    "title": "ISB2026 - Maria Clara Valle Trio",
     "timecode": "00:01:50:11",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -5019,7 +5019,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j84",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Cristina Azuma e Marcia Taborda — Cristina Azuma em entrevista segurando violão (J84)",
+    "title": "ISB2026 - Cristina Azuma e Marcia Taborda",
     "timecode": "00:01:25:20",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -5064,7 +5064,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j85",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Cristina Azuma e Marcia Taborda — Dueto de violões em perfil durante passagem de som (J85)",
+    "title": "ISB2026 - Cristina Azuma e Marcia Taborda",
     "timecode": "00:00:54:01",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -5109,7 +5109,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j86",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Cristina Azuma e Marcia Taborda — Violonista concentrada em performance solo (J86)",
+    "title": "ISB2026 - Cristina Azuma e Marcia Taborda",
     "timecode": "00:01:49:02",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -5153,7 +5153,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j87",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Cristina Azuma e Marcia Taborda — Dueto de violões sob luz azul intensa no palco (J87)",
+    "title": "ISB2026 - Cristina Azuma e Marcia Taborda",
     "timecode": "00:02:03:08",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Geral",
@@ -5200,7 +5200,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j88",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Roberto Sion — Maestro Roberto Sion sorrindo na plateia (J88)",
+    "title": "ISB2026 - Roberto Sion",
     "timecode": "00:02:12:09",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -5250,7 +5250,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j89",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Roberto Sion — Passagem de som e ajuste de palco (J89)",
+    "title": "ISB2026 - Roberto Sion",
     "timecode": "00:00:49:19",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -5301,7 +5301,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j90",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Roberto Sion — Bumbo “BASS” em primeiro plano com guitarrista ao fundo (J90)",
+    "title": "ISB2026 - Roberto Sion",
     "timecode": "00:01:41:23",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -5352,7 +5352,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j91",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Roberto Sion — Baterista em contraluz quente no palco (J91)",
+    "title": "ISB2026 - Roberto Sion",
     "timecode": "00:01:22:20",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -5402,7 +5402,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j92",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Roberto Sion — Dedos acionando as chaves do saxofone (J92)",
+    "title": "ISB2026 - Roberto Sion",
     "timecode": "00:02:34:21",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -5453,7 +5453,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j93",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Roberto Sion — Guitarrista em foco durante passagem de som (J93)",
+    "title": "ISB2026 - Roberto Sion",
     "timecode": "00:02:49:09",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -5503,7 +5503,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j94",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Javiera Hunfan e Regional Jacarandá — Depoimento em meio plano nos bastidores (J94)",
+    "title": "ISB2026 - Javiera Hunfan e Regional Jacarandá",
     "timecode": "00:01:10:18",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -5558,7 +5558,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j95",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Javiera Hunfan e Regional Jacarandá — Cantora em entrevista no saguão do Teatro (J95)",
+    "title": "ISB2026 - Javiera Hunfan e Regional Jacarandá",
     "timecode": "00:01:32:03",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -5613,7 +5613,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j96",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Javiera Hunfan e Regional Jacarandá — Mãos nas chaves do clarinete em close (J96)",
+    "title": "ISB2026 - Javiera Hunfan e Regional Jacarandá",
     "timecode": "00:01:30:11",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -5668,7 +5668,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j97",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Javiera Hunfan e Regional Jacarandá — Dedilhado no cavaquinho/violão em plano detalhe (J97)",
+    "title": "ISB2026 - Javiera Hunfan e Regional Jacarandá",
     "timecode": "00:01:54:10",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -5724,7 +5724,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j98",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Javiera Hunfan e Regional Jacarandá — Tuba/sousafone e músicos em formação no palco (J98)",
+    "title": "ISB2026 - Javiera Hunfan e Regional Jacarandá",
     "timecode": "00:02:53:13",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -5780,7 +5780,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j99",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Fabio Timbira e Timbiraçu — Músico no saguão com figurino estampado (J99)",
+    "title": "ISB2026 - Fabio Timbira e Timbiraçu",
     "timecode": "00:01:22:13",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -5835,7 +5835,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j100",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Fabio Timbira e Timbiraçu — Percussão e pandeiro artesanal em ensaio (J100)",
+    "title": "ISB2026 - Fabio Timbira e Timbiraçu",
     "timecode": "00:01:40:14",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -5890,7 +5890,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j101",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Fabio Timbira e Timbiraçu — Pandeiro/alfaia pintada em performance no palco (J101)",
+    "title": "ISB2026 - Fabio Timbira e Timbiraçu",
     "timecode": "00:01:16:19",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -5946,7 +5946,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j102",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Murillo da Rós Trio — Murillo da Rós em entrevista no Teatro Anchieta (J102)",
+    "title": "ISB2026 - Murillo da Rós Trio",
     "timecode": "00:01:18:22",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -5994,7 +5994,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j103",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Murillo da Rós Trio — Quarteto flamenco em performance no palco (J103)",
+    "title": "ISB2026 - Murillo da Rós Trio",
     "timecode": "00:02:24:13",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -6043,7 +6043,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j104",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Irmãos & Brothers — Trompete e contrabaixo em dueto sob luz azul (J104)",
+    "title": "ISB2026 - Irmãos & Brothers",
     "timecode": "00:00:49:23",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -6091,7 +6091,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j105",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Irmãos & Brothers — Irmãos em entrevista descontraída no saguão (J105)",
+    "title": "ISB2026 - Irmãos & Brothers",
     "timecode": "00:02:45:13",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -6139,7 +6139,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j106",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Irmãos & Brothers — Conversa nos bastidores do saguão antes do show (J106)",
+    "title": "ISB2026 - Irmãos & Brothers",
     "timecode": "00:03:40:00",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -6187,7 +6187,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j107",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Irmãos & Brothers — Contrabaixo acústico com figurino estampado (J107)",
+    "title": "ISB2026 - Irmãos & Brothers",
     "timecode": "00:02:01:15",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -6234,7 +6234,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j108",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Irmãos & Brothers — Contrabaixista em cena com luz lateral (J108)",
+    "title": "ISB2026 - Irmãos & Brothers",
     "timecode": "00:02:42:20",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -6281,7 +6281,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j109",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Irmãos & Brothers — Baterista em performance energética no palco (J109)",
+    "title": "ISB2026 - Irmãos & Brothers",
     "timecode": "00:03:49:05",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -6328,7 +6328,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j110",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Irmãos & Brothers — Mãos nas teclas do piano acústico em close (J110)",
+    "title": "ISB2026 - Irmãos & Brothers",
     "timecode": "00:02:20:14",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -6376,7 +6376,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j111",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Otis Selimane — Percussionista com pandeiro no centro do palco (J111)",
+    "title": "ISB2026 - Otis Selimane",
     "timecode": "00:01:04:09",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -6424,7 +6424,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j112",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Otis Selimane — Otis Selimane em entrevista nos bastidores (J112)",
+    "title": "ISB2026 - Otis Selimane",
     "timecode": "00:01:42:17",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -6471,7 +6471,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j113",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Otis Selimane — Músico ao microfone em ensaio no palco (J113)",
+    "title": "ISB2026 - Otis Selimane",
     "timecode": "00:03:28:01",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -6519,7 +6519,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j114",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Otis Selimane — Braço do baixo elétrico azul em plano detalhe (J114)",
+    "title": "ISB2026 - Otis Selimane",
     "timecode": "00:02:02:06",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -6568,7 +6568,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j115",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Otis Selimane — Roda de conversa nos bastidores do Teatro (J115)",
+    "title": "ISB2026 - Otis Selimane",
     "timecode": "00:02:16:17",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -6616,7 +6616,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j116",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Otis Selimane — Baixista em solo sob iluminação azul (J116)",
+    "title": "ISB2026 - Otis Selimane",
     "timecode": "00:01:30:11",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -6664,7 +6664,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j117",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Otis Selimane — Guitarra e baixo em dueto sob luz azul (J117)",
+    "title": "ISB2026 - Otis Selimane",
     "timecode": "00:03:25:09",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -6713,7 +6713,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j118",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "POIN — Pequena Orquestra Interativa — Chegada dos integrantes da POIN na entrada do Sesc (J118)",
+    "title": "ISB2026 - POIN — Pequena Orquestra Interativa",
     "timecode": "00:00:40:23",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -6764,7 +6764,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j119",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "POIN — Pequena Orquestra Interativa — Pequena Orquestra Interativa em cena com sousafone (J119)",
+    "title": "ISB2026 - POIN — Pequena Orquestra Interativa",
     "timecode": "00:02:51:21",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Geral",
@@ -6815,7 +6815,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j120",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "POIN — Pequena Orquestra Interativa — Formação cênica da POIN no Teatro Anchieta (J120)",
+    "title": "ISB2026 - POIN — Pequena Orquestra Interativa",
     "timecode": "00:02:19:01",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Geral",
@@ -6866,7 +6866,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j121",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "POIN — Pequena Orquestra Interativa — Pés coreografados em movimento sincronizado no palco (J121)",
+    "title": "ISB2026 - POIN — Pequena Orquestra Interativa",
     "timecode": "00:02:25:18",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -6917,7 +6917,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j122",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "POIN — Pequena Orquestra Interativa — Grupo alinhado em performance coreografada (J122)",
+    "title": "ISB2026 - POIN — Pequena Orquestra Interativa",
     "timecode": "00:03:17:07",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Geral",
@@ -6968,7 +6968,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j123",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "POIN — Pequena Orquestra Interativa — Integrante sorrindo nos bastidores do Sesc (J123)",
+    "title": "ISB2026 - POIN — Pequena Orquestra Interativa",
     "timecode": "00:03:29:09",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -7018,7 +7018,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j124",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Os Barbapapas — Depoimento em close no palco antes do show (J124)",
+    "title": "ISB2026 - Os Barbapapas",
     "timecode": "00:00:51:18",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -7066,7 +7066,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j125",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Os Barbapapas — Instrumentista diante de harpa de taças de cristal (J125)",
+    "title": "ISB2026 - Os Barbapapas",
     "timecode": "00:00:36:12",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -7115,7 +7115,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j126",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Os Barbapapas — Depoimento no saguão com camisa amarela (J126)",
+    "title": "ISB2026 - Os Barbapapas",
     "timecode": "00:02:30:06",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -7163,7 +7163,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j127",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Os Barbapapas — Músico em entrevista expressiva no saguão (J127)",
+    "title": "ISB2026 - Os Barbapapas",
     "timecode": "00:01:49:16",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -7211,7 +7211,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j128",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Os Barbapapas — Performance na harpa de taças de cristal iluminadas (J128)",
+    "title": "ISB2026 - Os Barbapapas",
     "timecode": "00:01:18:05",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -7259,7 +7259,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j129",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Os Barbapapas — Performer e vocal em iluminação magenta intensa (J129)",
+    "title": "ISB2026 - Os Barbapapas",
     "timecode": "00:01:30:13",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -7308,7 +7308,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j130",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Os Barbapapas — Bateria iluminada por tons quentes e roxos (J130)",
+    "title": "ISB2026 - Os Barbapapas",
     "timecode": "00:01:57:22",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -7356,7 +7356,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j131",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Os Barbapapas — Vocalista em performance sob luz magenta (J131)",
+    "title": "ISB2026 - Os Barbapapas",
     "timecode": "00:02:52:17",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -7404,7 +7404,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j132",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Os Barbapapas — Taças de cristal iluminadas em cena noturna (J132)",
+    "title": "ISB2026 - Os Barbapapas",
     "timecode": "00:03:40:00",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -7452,7 +7452,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j133",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Cornucópia Desvairada — Retrato em entrevista nos bastidores do Teatro (J133)",
+    "title": "ISB2026 - Cornucópia Desvairada",
     "timecode": "00:01:43:09",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -7511,7 +7511,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j134",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Cornucópia Desvairada — Depoimento em close-up no palco (J134)",
+    "title": "ISB2026 - Cornucópia Desvairada",
     "timecode": "00:02:37:12",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -7570,7 +7570,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j135",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Cornucópia Desvairada — Trombone e metais em dueto no palco (J135)",
+    "title": "ISB2026 - Cornucópia Desvairada",
     "timecode": "00:00:56:16",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -7631,7 +7631,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j136",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Cornucópia Desvairada — Seção de sopros e percussão em cena (J136)",
+    "title": "ISB2026 - Cornucópia Desvairada",
     "timecode": "00:01:52:21",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Conjunto",
@@ -7692,7 +7692,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j137",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Cornucópia Desvairada — Percussão e atabaques em ritmo no palco (J137)",
+    "title": "ISB2026 - Cornucópia Desvairada",
     "timecode": "00:02:29:21",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -7753,7 +7753,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j138",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Cornucópia Desvairada — Trombone em contraluz quente intensa (J138)",
+    "title": "ISB2026 - Cornucópia Desvairada",
     "timecode": "00:03:07:17",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -7813,7 +7813,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j139",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Welington Moreira Pimpa e Batucada — Welington Moreira Pimpa tocando pandeiro no saguão (J139)",
+    "title": "ISB2026 - Welington Moreira Pimpa e Batucada",
     "timecode": "00:00:42:17",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -7863,7 +7863,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j140",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Welington Moreira Pimpa e Batucada — Integrante em depoimento no Teatro Anchieta (J140)",
+    "title": "ISB2026 - Welington Moreira Pimpa e Batucada",
     "timecode": "00:03:20:12",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -7911,7 +7911,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j141",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Welington Moreira Pimpa e Batucada — Cantor ao microfone e percussão em destaque (J141)",
+    "title": "ISB2026 - Welington Moreira Pimpa e Batucada",
     "timecode": "00:01:34:13",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -7960,7 +7960,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j142",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Welington Moreira Pimpa e Batucada — Quarteto em cena sob iluminação vermelha (J142)",
+    "title": "ISB2026 - Welington Moreira Pimpa e Batucada",
     "timecode": "00:02:08:07",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Geral",
@@ -8010,7 +8010,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j143",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Welington Moreira Pimpa e Batucada — Baterista em ação com iluminação vermelha e branca (J143)",
+    "title": "ISB2026 - Welington Moreira Pimpa e Batucada",
     "timecode": "00:02:28:22",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -8059,7 +8059,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j144",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Welington Moreira Pimpa e Batucada — Berimbau sendo tocado no palco em ensaio (J144)",
+    "title": "ISB2026 - Welington Moreira Pimpa e Batucada",
     "timecode": "00:03:55:23",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -8108,7 +8108,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j145",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Luan Sodré Quarteto — Luan Sodré em entrevista com violão no Teatro (J145)",
+    "title": "ISB2026 - Luan Sodré Quarteto",
     "timecode": "00:01:56:16",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -8155,7 +8155,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j146",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Luan Sodré Quarteto — Mãos dedilhando violão de nylon em plano detalhe (J146)",
+    "title": "ISB2026 - Luan Sodré Quarteto",
     "timecode": "00:01:53:08",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -8203,7 +8203,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j147",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Luan Sodré Quarteto — Mãos tocando congas em plongée diagonal (J147)",
+    "title": "ISB2026 - Luan Sodré Quarteto",
     "timecode": "00:03:18:13",
     "category": "Show Ao Vivo",
     "enquadramento": "Plongée",
@@ -8250,7 +8250,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j148",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Luan Sodré Quarteto — Dedilhado no contrabaixo acústico em close (J148)",
+    "title": "ISB2026 - Luan Sodré Quarteto",
     "timecode": "00:01:12:17",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -8297,7 +8297,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j149",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Neris Rodrigues — Neris Rodrigues em entrevista com trombone no saguão (J149)",
+    "title": "ISB2026 - Neris Rodrigues",
     "timecode": "00:03:19:10",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -8346,7 +8346,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j150",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Neris Rodrigues — Trombonista em performance solo no palco (J150)",
+    "title": "ISB2026 - Neris Rodrigues",
     "timecode": "00:03:24:15",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -8394,7 +8394,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j151",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Neris Rodrigues — Mãos percutindo congas em velocidade (J151)",
+    "title": "ISB2026 - Neris Rodrigues",
     "timecode": "00:02:05:07",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -8444,7 +8444,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j152",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Thamiris Cunha — Clarinete em solo sob foco de luz (J152)",
+    "title": "ISB2026 - Thamiris Cunha",
     "timecode": "00:00:51:14",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
@@ -8491,7 +8491,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j153",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Thamiris Cunha — Thamiris Cunha em entrevista no palco (J153)",
+    "title": "ISB2026 - Thamiris Cunha",
     "timecode": "00:02:21:23",
     "category": "Show Ao Vivo",
     "enquadramento": "Close-Up",
@@ -8538,7 +8538,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j154",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Thamiris Cunha — Violão em detalhe no ensaio de palco (J154)",
+    "title": "ISB2026 - Thamiris Cunha",
     "timecode": "00:02:43:17",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Detalhe",
@@ -8586,7 +8586,7 @@ window.AWA_SHOTS = [
   {
     "id": "isb-j155",
     "projectId": "instrumental-sesc-brasil-2026",
-    "title": "Thamiris Cunha — Violonista no palco sob luz vermelha intensa (J155)",
+    "title": "ISB2026 - Thamiris Cunha",
     "timecode": "00:01:53:01",
     "category": "Show Ao Vivo",
     "enquadramento": "Plano Médio",
