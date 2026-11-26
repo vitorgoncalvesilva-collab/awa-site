@@ -366,7 +366,12 @@
           </div>
 
           <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end;">
-            <a href="projeto.html?id=${encodeURIComponent(project.id)}&shot=${encodeURIComponent(shot.id)}" class="btn btn-primary">
+            ${
+              shot.youtubeUrl
+                ? `<a href="${shot.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">▶ Assistir Episódio no YouTube ↗</a>`
+                : ""
+            }
+            <a href="projeto.html?id=${encodeURIComponent(project.id)}&shot=${encodeURIComponent(shot.id)}" class="btn ${shot.youtubeUrl ? "btn-ghost" : "btn-primary"}">
               Ir para a Página do Projeto →
             </a>
             <span class="mono" style="font-size:0.68rem;color:var(--fg-dim);">${idx + 1} / ${shots.length} · ← → PARA NAVEGAR</span>
@@ -506,7 +511,7 @@
     }
 
     // Galeria Interativa
-    const categories = ["Todos", "Ficção", "Documentário", "Videoclipe", "Publicidade", "Bastidores"];
+    const categories = ["Todos", "Show Ao Vivo", "Ficção", "Documentário", "Videoclipe", "Publicidade", "Bastidores"];
     let activeCat = "Todos";
 
     function renderGallery() {
@@ -653,9 +658,13 @@
       "VITÃO",
       "MARIANA NOLASCO",
       "JUNIOR CASTRO",
+      "INSTRUMENTAL SESC BRASIL",
+      "ISB 2026",
       "BMMCC 2.5K",
       "BMPCC 6K",
       "BMPCC 4K",
+      "OLYMPUS EM1 MKII",
+      "SESC CONSOLAÇÃO",
       "SESC MOGI"
     ];
 
@@ -1249,7 +1258,7 @@
     if (!clientsWall || !projectsTableBody) return;
 
     let activeFilter = "Todos";
-    const cats = ["Todos", "Ficção", "Documentário", "Videoclipe", "Publicidade", "Bastidores"];
+    const cats = ["Todos", "Show Ao Vivo", "Ficção", "Documentário", "Videoclipe", "Publicidade", "Bastidores"];
 
     clientsWall.innerHTML = window.AWA_CLIENTS.map(
       (c) => `

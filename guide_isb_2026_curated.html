@@ -1,0 +1,2572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÀWA — Curadoria Final Montada · ISB 2026 (162 itens)</title>
+  <style>
+    :root { --bg: #050505; --card: #111; --border: #242424; --fg: #f4f4f4; --dim: #8f8f8f; --accent: #ffffff; --green: #4ade80; --merge: #f59e0b; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; padding: 20px clamp(14px, 2vw, 32px) 84px; }
+    header { max-width: 2200px; margin: 0 auto 14px; border-bottom: 1px solid var(--border); padding-bottom: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; align-items: flex-end; }
+    h1 { margin: 0 0 4px; font-size: 1.35rem; letter-spacing: -0.02em; }
+    p.lead { margin: 0; color: var(--dim); font-size: 0.85rem; max-width: 920px; line-height: 1.45; }
+    .actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #000; border: 0; padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.82rem; }
+    .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    .toolbar { max-width: 2200px; margin: 0 auto 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; background: rgba(5,5,5,0.95); backdrop-filter: blur(8px); padding: 10px 0; border-bottom: 1px solid #181818; }
+    .chapters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chap-pill { color: var(--dim); text-decoration: none; font-size: 0.76rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); }
+    .chap-pill:hover { color: var(--fg); border-color: #666; }
+    .search-box { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .ep-select, .search-input { background: #111; color: var(--fg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 0.8rem; outline: none; }
+    .search-input { width: 250px; }
+    main { max-width: 2200px; margin: 0 auto; }
+    .group { margin-bottom: 32px; scroll-margin-top: 72px; }
+    .group h2 { font-size: 1rem; font-weight: 600; margin: 0 0 12px; border-left: 3px solid var(--accent); padding-left: 10px; }
+    .group h2 .count { color: var(--dim); font-weight: 400; font-size: 0.82rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+    .card { display: block; background: var(--card); border: 2px solid var(--border); border-radius: 7px; overflow: hidden; cursor: pointer; user-select: none; transition: border-color 0.14s; }
+    .card.is-picked { border-color: var(--green); }
+    .card:not(.is-picked) { opacity: 0.55; }
+    .card.hidden { display: none; }
+    .media-wrap { position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+    .media-wrap img, .media-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+    .media-wrap video { position: absolute; inset: 0; opacity: 0; transition: opacity 0.18s; }
+    .card:hover .media-wrap video { opacity: 1; }
+    .num-badge { position: absolute; top: 6px; left: 6px; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.7rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; }
+    .indiv-badge { background: var(--green); color: #052e16; }
+    .junc-badge { background: var(--merge); color: #1c1102; }
+    .ep-badge { position: absolute; top: 6px; right: 6px; background: rgba(15,15,15,0.86); color: #d4d4d4; border: 1px solid rgba(255,255,255,0.16); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.62rem; font-weight: 600; padding: 2px 6px; border-radius: 4px; }
+    .meta { padding: 8px 10px; }
+    .title { font-size: 0.78rem; font-weight: 600; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .num-inline { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--green); margin-right: 3px; }
+    .sub-row { margin-top: 5px; display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+    .sub { font-size: 0.64rem; color: var(--dim); font-family: ui-monospace, SFMono-Regular, monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .yt-pill { flex-shrink: 0; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.62rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: var(--green); color: #052e16; text-decoration: none; }
+    .yt-pill:hover { filter: brightness(1.1); }
+    .yt-pill.pending { background: transparent; color: var(--dim); border: 1px dashed #333; font-weight: 500; }
+    #toast { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: #052e16; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; display: none; z-index: 40; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Curadoria Final Montada — Instrumental Sesc Brasil 2026</h1>
+      <p class="lead"><strong>7 takes individuais</strong> + <strong>155 junções montadas</strong> = <strong>162 sequências prontas</strong> (com <code>#0509</code> corrigido sem frame sobrando). Passe o mouse para assistir cada junção já concatenada. (<span id="selectedCount">162</span> ativas).</p>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" href="guide_isb_2026.html">← Voltar ao Guide Completo (1483)</a>
+      <button class="btn ghost" id="selectAllBtn">Marcar Todos</button>
+      <button class="btn ghost" id="resetBtn">Desmarcar Todos</button>
+      <button class="btn" id="copyBtn">Copiar Ativos (<span id="copyCount">162</span>)</button>
+    </div>
+  </header>
+  <div class="toolbar">
+    <nav class="chapters">
+      <a class="chap-pill" href="#individuais">Takes Individuais (7)</a>
+      <a class="chap-pill" href="#juncoes">Junções Montadas (155)</a>
+    </nav>
+    <div class="search-box">
+      <select class="ep-select" id="epFilter"><option value="all">Todos os Episódios</option><option value="01">EP 01</option><option value="02">EP 02</option><option value="03">EP 03</option><option value="04">EP 04</option><option value="05">EP 05</option><option value="06">EP 06</option><option value="07">EP 07</option><option value="08">EP 08</option><option value="09">EP 09</option><option value="10">EP 10</option><option value="11">EP 11</option><option value="12">EP 12</option><option value="13">EP 13</option><option value="14">EP 14</option><option value="15">EP 15</option><option value="16">EP 16</option><option value="17">EP 17</option><option value="18">EP 18</option><option value="19">EP 19</option><option value="20">EP 20</option><option value="21">EP 21</option><option value="22">EP 22</option><option value="23">EP 23</option><option value="24">EP 24</option><option value="25">EP 25</option><option value="26">EP 26</option><option value="27">EP 27</option><option value="28">EP 28</option><option value="29">EP 29</option><option value="30">EP 30</option><option value="31">EP 31</option><option value="32">EP 32</option><option value="33">EP 33</option><option value="34">EP 34</option><option value="35">EP 35</option><option value="36">EP 36</option><option value="37">EP 37</option><option value="38">EP 38</option><option value="39">EP 39</option></select>
+      <input type="search" class="search-input" id="searchInput" placeholder="Filtrar J6, #0509, artista, ep14...">
+    </div>
+  </div>
+  <main>
+    <section class="group" id="individuais">
+      <h2>Takes Individuais <span class="count">(7 takes)</span></h2>
+      <div class="grid">
+        <div class="card is-picked" role="button" tabindex="0" data-code="T01" data-eps="20" data-val="T01 | #0758 | EP 20 | Raízes do Choro Nordestino | t01_ep20_006 (3.50s)" data-search="t01 #0758 20 raízes do choro nordestino t01_ep20_006">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/t01_ep20_006.jpg" alt="T01 — Raízes do Choro Nordestino" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/t01_ep20_006.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">T01</span>
+            <span class="ep-badge">EP 20</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T01</span> Raízes do Choro Nordestino</div>
+            <div class="sub-row">
+              <span class="sub">#0758 · 3.50s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=zgeTvrMKo_U" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 20 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="T02" data-eps="20" data-val="T02 | #0772 | EP 20 | Raízes do Choro Nordestino | t02_ep20_020 (3.50s)" data-search="t02 #0772 20 raízes do choro nordestino t02_ep20_020">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/t02_ep20_020.jpg" alt="T02 — Raízes do Choro Nordestino" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/t02_ep20_020.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">T02</span>
+            <span class="ep-badge">EP 20</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T02</span> Raízes do Choro Nordestino</div>
+            <div class="sub-row">
+              <span class="sub">#0772 · 3.50s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=zgeTvrMKo_U" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 20 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="T03" data-eps="23" data-val="T03 | #0851 | EP 23 | Teco Cardoso Quarteto | t03_ep23_005 (3.50s)" data-search="t03 #0851 23 teco cardoso quarteto t03_ep23_005">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/t03_ep23_005.jpg" alt="T03 — Teco Cardoso Quarteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/t03_ep23_005.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">T03</span>
+            <span class="ep-badge">EP 23</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T03</span> Teco Cardoso Quarteto</div>
+            <div class="sub-row">
+              <span class="sub">#0851 · 3.50s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=BjCTy_k34HY" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 23 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="T04" data-eps="26" data-val="T04 | #0922 | EP 26 | Cristina Azuma e Marcia Taborda | t04_ep26_002 (3.50s)" data-search="t04 #0922 26 cristina azuma e marcia taborda t04_ep26_002">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/t04_ep26_002.jpg" alt="T04 — Cristina Azuma e Marcia Taborda" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/t04_ep26_002.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">T04</span>
+            <span class="ep-badge">EP 26</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T04</span> Cristina Azuma e Marcia Taborda</div>
+            <div class="sub-row">
+              <span class="sub">#0922 · 3.50s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=KaRsQxQnEoA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 26 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="T05" data-eps="29" data-val="T05 | #1021 | EP 29 | Fábio Timbira e Timbiraçu | t05_ep29_003 (3.50s)" data-search="t05 #1021 29 fábio timbira e timbiraçu t05_ep29_003">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/t05_ep29_003.jpg" alt="T05 — Fábio Timbira e Timbiraçu" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/t05_ep29_003.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">T05</span>
+            <span class="ep-badge">EP 29</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T05</span> Fábio Timbira e Timbiraçu</div>
+            <div class="sub-row">
+              <span class="sub">#1021 · 3.50s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=TN4UpzeAzGE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 29 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="T06" data-eps="29" data-val="T06 | #1022 | EP 29 | Fábio Timbira e Timbiraçu | t06_ep29_004 (2.67s)" data-search="t06 #1022 29 fábio timbira e timbiraçu t06_ep29_004">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/t06_ep29_004.jpg" alt="T06 — Fábio Timbira e Timbiraçu" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/t06_ep29_004.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">T06</span>
+            <span class="ep-badge">EP 29</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T06</span> Fábio Timbira e Timbiraçu</div>
+            <div class="sub-row">
+              <span class="sub">#1022 · 2.67s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=TN4UpzeAzGE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 29 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="T07" data-eps="35" data-val="T07 | #1323 | EP 35 | Cornucópia Desvairada | t07_ep35_046 (3.13s)" data-search="t07 #1323 35 cornucópia desvairada t07_ep35_046">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/t07_ep35_046.jpg" alt="T07 — Cornucópia Desvairada" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/t07_ep35_046.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">T07</span>
+            <span class="ep-badge">EP 35</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T07</span> Cornucópia Desvairada</div>
+            <div class="sub-row">
+              <span class="sub">#1323 · 3.13s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=e9P-PUJcqtA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 35 ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="group" id="juncoes">
+      <h2>Junções &amp; Sequências Montadas <span class="count">(155 sequências)</span></h2>
+      <div class="grid">
+        <div class="card is-picked" role="button" tabindex="0" data-code="J1" data-eps="01" data-val="J1 | #0002 + #0007 + #0008 + #0010 + #0011 + #0014 | EP 01 | Jazzmin&#x27;s Big Band | j001_0002_0007_0008_0010_etc6 (16.13s)" data-search="j1 #0002 + #0007 + #0008 + #0010 + #0011 + #0014 01 jazzmin&#x27;s big band j001_0002_0007_0008_0010_etc6">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j001_0002_0007_0008_0010_etc6.jpg" alt="J1 — Jazzmin&#x27;s Big Band" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j001_0002_0007_0008_0010_etc6.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J1</span>
+            <span class="ep-badge">EP 01</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J1</span> Jazzmin&#x27;s Big Band</div>
+            <div class="sub-row">
+              <span class="sub">#0002 + #0007 + #0008 + #0010 + #0011 + #0014 · 16.13s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=eg5TKNRPgMY" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 01 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J2" data-eps="01" data-val="J2 | #0012 + #0009 + #0013 | EP 01 | Jazzmin&#x27;s Big Band | j002_0012_0009_0013 (6.83s)" data-search="j2 #0012 + #0009 + #0013 01 jazzmin&#x27;s big band j002_0012_0009_0013">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j002_0012_0009_0013.jpg" alt="J2 — Jazzmin&#x27;s Big Band" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j002_0012_0009_0013.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J2</span>
+            <span class="ep-badge">EP 01</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J2</span> Jazzmin&#x27;s Big Band</div>
+            <div class="sub-row">
+              <span class="sub">#0012 + #0009 + #0013 · 6.83s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=eg5TKNRPgMY" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 01 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J3" data-eps="02" data-val="J3 | #0016 + #0021 | EP 02 | Alexandre Vianna Trio | j003_0016_0021 (7.00s)" data-search="j3 #0016 + #0021 02 alexandre vianna trio j003_0016_0021">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j003_0016_0021.jpg" alt="J3 — Alexandre Vianna Trio" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j003_0016_0021.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J3</span>
+            <span class="ep-badge">EP 02</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J3</span> Alexandre Vianna Trio</div>
+            <div class="sub-row">
+              <span class="sub">#0016 + #0021 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=gRMzicORovQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 02 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J4" data-eps="02" data-val="J4 | #0020 + #0019 | EP 02 | Alexandre Vianna Trio | j004_0020_0019 (4.67s)" data-search="j4 #0020 + #0019 02 alexandre vianna trio j004_0020_0019">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j004_0020_0019.jpg" alt="J4 — Alexandre Vianna Trio" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j004_0020_0019.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J4</span>
+            <span class="ep-badge">EP 02</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J4</span> Alexandre Vianna Trio</div>
+            <div class="sub-row">
+              <span class="sub">#0020 + #0019 · 4.67s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=gRMzicORovQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 02 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J5" data-eps="02" data-val="J5 | #0027 + #0026 | EP 02 | Alexandre Vianna Trio | j005_0027_0026 (7.00s)" data-search="j5 #0027 + #0026 02 alexandre vianna trio j005_0027_0026">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j005_0027_0026.jpg" alt="J5 — Alexandre Vianna Trio" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j005_0027_0026.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J5</span>
+            <span class="ep-badge">EP 02</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J5</span> Alexandre Vianna Trio</div>
+            <div class="sub-row">
+              <span class="sub">#0027 + #0026 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=gRMzicORovQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 02 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J6" data-eps="03, 04, 05, 06, 14" data-val="J6 | #0040 + #0086 + #0145 + #0201 + #0509 | EP 03, 04, 05, 06, 14 | Mestre Negro / Andrea Ernest Dias Quarteto / Allan Abbadia / Vanille Goovaerts &amp; Ricardo Herz / Forró das Minas | j006_0040_0086_0145_0201_etc5 (5.79s)" data-search="j6 #0040 + #0086 + #0145 + #0201 + #0509 03, 04, 05, 06, 14 mestre negro / andrea ernest dias quarteto / allan abbadia / vanille goovaerts &amp; ricardo herz / forró das minas j006_0040_0086_0145_0201_etc5">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j006_0040_0086_0145_0201_etc5.jpg" alt="J6 — Mestre Negro / Andrea Ernest Dias Quarteto / Allan Abbadia / Vanille Goovaerts &amp; Ricardo Herz / Forró das Minas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j006_0040_0086_0145_0201_etc5.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J6</span>
+            <span class="ep-badge">MULTI (5 EPs)</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J6</span> Mestre Negro / Andrea Ernest Dias Quarteto / Allan Abbadia / Vanille Goovaerts &amp; Ricardo Herz / Forró das Minas</div>
+            <div class="sub-row">
+              <span class="sub">#0040 + #0086 + #0145 + #0201 + #0509 · 5.79s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=IEuOJTauwQU" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 03 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J7" data-eps="04" data-val="J7 | #0117 + #0121 + #0120 | EP 04 | Andrea Ernest Dias Quarteto | j007_0117_0121_0120 (6.04s)" data-search="j7 #0117 + #0121 + #0120 04 andrea ernest dias quarteto j007_0117_0121_0120">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j007_0117_0121_0120.jpg" alt="J7 — Andrea Ernest Dias Quarteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j007_0117_0121_0120.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J7</span>
+            <span class="ep-badge">EP 04</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J7</span> Andrea Ernest Dias Quarteto</div>
+            <div class="sub-row">
+              <span class="sub">#0117 + #0121 + #0120 · 6.04s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=r_VoMBeOq9E" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 04 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J8" data-eps="04" data-val="J8 | #0119 + #0122 | EP 04 | Andrea Ernest Dias Quarteto | j008_0119_0122 (3.67s)" data-search="j8 #0119 + #0122 04 andrea ernest dias quarteto j008_0119_0122">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j008_0119_0122.jpg" alt="J8 — Andrea Ernest Dias Quarteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j008_0119_0122.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J8</span>
+            <span class="ep-badge">EP 04</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J8</span> Andrea Ernest Dias Quarteto</div>
+            <div class="sub-row">
+              <span class="sub">#0119 + #0122 · 3.67s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=r_VoMBeOq9E" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 04 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J9" data-eps="04" data-val="J9 | #0141 + #0140 | EP 04 | Andrea Ernest Dias Quarteto | j009_0141_0140 (2.96s)" data-search="j9 #0141 + #0140 04 andrea ernest dias quarteto j009_0141_0140">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j009_0141_0140.jpg" alt="J9 — Andrea Ernest Dias Quarteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j009_0141_0140.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J9</span>
+            <span class="ep-badge">EP 04</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J9</span> Andrea Ernest Dias Quarteto</div>
+            <div class="sub-row">
+              <span class="sub">#0141 + #0140 · 2.96s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=r_VoMBeOq9E" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 04 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J10" data-eps="05" data-val="J10 | #0195 + #0196 + #0197 | EP 05 | Allan Abbadia | j010_0195_0196_0197 (5.96s)" data-search="j10 #0195 + #0196 + #0197 05 allan abbadia j010_0195_0196_0197">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j010_0195_0196_0197.jpg" alt="J10 — Allan Abbadia" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j010_0195_0196_0197.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J10</span>
+            <span class="ep-badge">EP 05</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J10</span> Allan Abbadia</div>
+            <div class="sub-row">
+              <span class="sub">#0195 + #0196 + #0197 · 5.96s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=ju5XrLDEbFU" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 05 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J11" data-eps="05" data-val="J11 | #0190 + #0187 + #0186 + #0194 | EP 05 | Allan Abbadia | j011_0190_0187_0186_0194 (8.29s)" data-search="j11 #0190 + #0187 + #0186 + #0194 05 allan abbadia j011_0190_0187_0186_0194">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j011_0190_0187_0186_0194.jpg" alt="J11 — Allan Abbadia" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j011_0190_0187_0186_0194.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J11</span>
+            <span class="ep-badge">EP 05</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J11</span> Allan Abbadia</div>
+            <div class="sub-row">
+              <span class="sub">#0190 + #0187 + #0186 + #0194 · 8.29s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=ju5XrLDEbFU" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 05 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J12" data-eps="06" data-val="J12 | #0240 + #0241 | EP 06 | Vanille Goovaerts &amp; Ricardo Herz | j012_0240_0241 (3.58s)" data-search="j12 #0240 + #0241 06 vanille goovaerts &amp; ricardo herz j012_0240_0241">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j012_0240_0241.jpg" alt="J12 — Vanille Goovaerts &amp; Ricardo Herz" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j012_0240_0241.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J12</span>
+            <span class="ep-badge">EP 06</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J12</span> Vanille Goovaerts &amp; Ricardo Herz</div>
+            <div class="sub-row">
+              <span class="sub">#0240 + #0241 · 3.58s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=Eqzrg9PjZiE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 06 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J13" data-eps="06" data-val="J13 | #0246 + #0248 + #0249 | EP 06 | Vanille Goovaerts &amp; Ricardo Herz | j013_0246_0248_0249 (5.21s)" data-search="j13 #0246 + #0248 + #0249 06 vanille goovaerts &amp; ricardo herz j013_0246_0248_0249">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j013_0246_0248_0249.jpg" alt="J13 — Vanille Goovaerts &amp; Ricardo Herz" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j013_0246_0248_0249.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J13</span>
+            <span class="ep-badge">EP 06</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J13</span> Vanille Goovaerts &amp; Ricardo Herz</div>
+            <div class="sub-row">
+              <span class="sub">#0246 + #0248 + #0249 · 5.21s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=Eqzrg9PjZiE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 06 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J14" data-eps="07" data-val="J14 | #0274 + #0273 + #0272 + #0271 | EP 07 | Esdras Nogueira Quinteto | j014_0274_0273_0272_0271 (5.46s)" data-search="j14 #0274 + #0273 + #0272 + #0271 07 esdras nogueira quinteto j014_0274_0273_0272_0271">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j014_0274_0273_0272_0271.jpg" alt="J14 — Esdras Nogueira Quinteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j014_0274_0273_0272_0271.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J14</span>
+            <span class="ep-badge">EP 07</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J14</span> Esdras Nogueira Quinteto</div>
+            <div class="sub-row">
+              <span class="sub">#0274 + #0273 + #0272 + #0271 · 5.46s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=eNvPkKP9U0U" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 07 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J15" data-eps="07" data-val="J15 | #0297 + #0295 + #0291 | EP 07 | Esdras Nogueira Quinteto | j015_0297_0295_0291 (5.00s)" data-search="j15 #0297 + #0295 + #0291 07 esdras nogueira quinteto j015_0297_0295_0291">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j015_0297_0295_0291.jpg" alt="J15 — Esdras Nogueira Quinteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j015_0297_0295_0291.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J15</span>
+            <span class="ep-badge">EP 07</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J15</span> Esdras Nogueira Quinteto</div>
+            <div class="sub-row">
+              <span class="sub">#0297 + #0295 + #0291 · 5.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=eNvPkKP9U0U" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 07 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J16" data-eps="08" data-val="J16 | #0334 + #0333 + #0338 | EP 08 | Peu Abrantes Trio | j016_0334_0333_0338 (2.25s)" data-search="j16 #0334 + #0333 + #0338 08 peu abrantes trio j016_0334_0333_0338">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j016_0334_0333_0338.jpg" alt="J16 — Peu Abrantes Trio" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j016_0334_0333_0338.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J16</span>
+            <span class="ep-badge">EP 08</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J16</span> Peu Abrantes Trio</div>
+            <div class="sub-row">
+              <span class="sub">#0334 + #0333 + #0338 · 2.25s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qYEqyuyiI0k" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 08 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J17" data-eps="08" data-val="J17 | #0337 + #0340 + #0339 | EP 08 | Peu Abrantes Trio | j017_0337_0340_0339 (5.08s)" data-search="j17 #0337 + #0340 + #0339 08 peu abrantes trio j017_0337_0340_0339">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j017_0337_0340_0339.jpg" alt="J17 — Peu Abrantes Trio" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j017_0337_0340_0339.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J17</span>
+            <span class="ep-badge">EP 08</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J17</span> Peu Abrantes Trio</div>
+            <div class="sub-row">
+              <span class="sub">#0337 + #0340 + #0339 · 5.08s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qYEqyuyiI0k" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 08 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J18" data-eps="09" data-val="J18 | #0344 + #0343 + #0349 | EP 09 | Ariane Rodrigues | j018_0344_0343_0349 (7.96s)" data-search="j18 #0344 + #0343 + #0349 09 ariane rodrigues j018_0344_0343_0349">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j018_0344_0343_0349.jpg" alt="J18 — Ariane Rodrigues" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j018_0344_0343_0349.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J18</span>
+            <span class="ep-badge">EP 09</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J18</span> Ariane Rodrigues</div>
+            <div class="sub-row">
+              <span class="sub">#0344 + #0343 + #0349 · 7.96s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=phaDTVwxp4E" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 09 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J19" data-eps="09" data-val="J19 | #0360 + #0354 + #0355 | EP 09 | Ariane Rodrigues | j019_0360_0354_0355 (3.96s)" data-search="j19 #0360 + #0354 + #0355 09 ariane rodrigues j019_0360_0354_0355">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j019_0360_0354_0355.jpg" alt="J19 — Ariane Rodrigues" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j019_0360_0354_0355.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J19</span>
+            <span class="ep-badge">EP 09</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J19</span> Ariane Rodrigues</div>
+            <div class="sub-row">
+              <span class="sub">#0360 + #0354 + #0355 · 3.96s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=phaDTVwxp4E" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 09 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J20" data-eps="09" data-val="J20 | #0365 + #0363 + #0372 | EP 09 | Ariane Rodrigues | j020_0365_0363_0372 (3.54s)" data-search="j20 #0365 + #0363 + #0372 09 ariane rodrigues j020_0365_0363_0372">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j020_0365_0363_0372.jpg" alt="J20 — Ariane Rodrigues" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j020_0365_0363_0372.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J20</span>
+            <span class="ep-badge">EP 09</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J20</span> Ariane Rodrigues</div>
+            <div class="sub-row">
+              <span class="sub">#0365 + #0363 + #0372 · 3.54s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=phaDTVwxp4E" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 09 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J21" data-eps="10" data-val="J21 | #0393 + #0400 + #0408 | EP 10 | Duo Mica e Caito Marcondes | j021_0393_0400_0408 (4.58s)" data-search="j21 #0393 + #0400 + #0408 10 duo mica e caito marcondes j021_0393_0400_0408">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j021_0393_0400_0408.jpg" alt="J21 — Duo Mica e Caito Marcondes" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j021_0393_0400_0408.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J21</span>
+            <span class="ep-badge">EP 10</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J21</span> Duo Mica e Caito Marcondes</div>
+            <div class="sub-row">
+              <span class="sub">#0393 + #0400 + #0408 · 4.58s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=tJEv7FW_wVE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 10 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J22" data-eps="10" data-val="J22 | #0411 + #0412 | EP 10 | Duo Mica e Caito Marcondes | j022_0411_0412 (1.46s)" data-search="j22 #0411 + #0412 10 duo mica e caito marcondes j022_0411_0412">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j022_0411_0412.jpg" alt="J22 — Duo Mica e Caito Marcondes" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j022_0411_0412.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J22</span>
+            <span class="ep-badge">EP 10</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J22</span> Duo Mica e Caito Marcondes</div>
+            <div class="sub-row">
+              <span class="sub">#0411 + #0412 · 1.46s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=tJEv7FW_wVE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 10 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J23" data-eps="07" data-val="J23 | #0257 + #0260 | EP 07 | Esdras Nogueira Quinteto | j023_0257_0260 (6.83s)" data-search="j23 #0257 + #0260 07 esdras nogueira quinteto j023_0257_0260">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j023_0257_0260.jpg" alt="J23 — Esdras Nogueira Quinteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j023_0257_0260.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J23</span>
+            <span class="ep-badge">EP 07</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J23</span> Esdras Nogueira Quinteto</div>
+            <div class="sub-row">
+              <span class="sub">#0257 + #0260 · 6.83s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=eNvPkKP9U0U" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 07 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J24" data-eps="06" data-val="J24 | #0208 + #0209 | EP 06 | Vanille Goovaerts &amp; Ricardo Herz | j024_0208_0209 (6.83s)" data-search="j24 #0208 + #0209 06 vanille goovaerts &amp; ricardo herz j024_0208_0209">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j024_0208_0209.jpg" alt="J24 — Vanille Goovaerts &amp; Ricardo Herz" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j024_0208_0209.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J24</span>
+            <span class="ep-badge">EP 06</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J24</span> Vanille Goovaerts &amp; Ricardo Herz</div>
+            <div class="sub-row">
+              <span class="sub">#0208 + #0209 · 6.83s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=Eqzrg9PjZiE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 06 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J25" data-eps="06" data-val="J25 | #0210 + #0213 | EP 06 | Vanille Goovaerts &amp; Ricardo Herz | j025_0210_0213 (5.25s)" data-search="j25 #0210 + #0213 06 vanille goovaerts &amp; ricardo herz j025_0210_0213">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j025_0210_0213.jpg" alt="J25 — Vanille Goovaerts &amp; Ricardo Herz" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j025_0210_0213.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J25</span>
+            <span class="ep-badge">EP 06</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J25</span> Vanille Goovaerts &amp; Ricardo Herz</div>
+            <div class="sub-row">
+              <span class="sub">#0210 + #0213 · 5.25s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=Eqzrg9PjZiE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 06 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J26" data-eps="05" data-val="J26 | #0152 + #0159 | EP 05 | Allan Abbadia | j026_0152_0159 (4.21s)" data-search="j26 #0152 + #0159 05 allan abbadia j026_0152_0159">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j026_0152_0159.jpg" alt="J26 — Allan Abbadia" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j026_0152_0159.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J26</span>
+            <span class="ep-badge">EP 05</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J26</span> Allan Abbadia</div>
+            <div class="sub-row">
+              <span class="sub">#0152 + #0159 · 4.21s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=ju5XrLDEbFU" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 05 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J27" data-eps="10" data-val="J27 | #0423 + #0425 | EP 10 | Duo Mica e Caito Marcondes | j027_0423_0425 (2.96s)" data-search="j27 #0423 + #0425 10 duo mica e caito marcondes j027_0423_0425">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j027_0423_0425.jpg" alt="J27 — Duo Mica e Caito Marcondes" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j027_0423_0425.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J27</span>
+            <span class="ep-badge">EP 10</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J27</span> Duo Mica e Caito Marcondes</div>
+            <div class="sub-row">
+              <span class="sub">#0423 + #0425 · 2.96s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=tJEv7FW_wVE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 10 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J28" data-eps="10" data-val="J28 | #0417 + #0420 | EP 10 | Duo Mica e Caito Marcondes | j028_0417_0420 (5.38s)" data-search="j28 #0417 + #0420 10 duo mica e caito marcondes j028_0417_0420">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j028_0417_0420.jpg" alt="J28 — Duo Mica e Caito Marcondes" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j028_0417_0420.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J28</span>
+            <span class="ep-badge">EP 10</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J28</span> Duo Mica e Caito Marcondes</div>
+            <div class="sub-row">
+              <span class="sub">#0417 + #0420 · 5.38s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=tJEv7FW_wVE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 10 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J29" data-eps="11" data-val="J29 | #0429 + #0428 | EP 11 | Grupo Batuque Negro | j029_0429_0428 (5.29s)" data-search="j29 #0429 + #0428 11 grupo batuque negro j029_0429_0428">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j029_0429_0428.jpg" alt="J29 — Grupo Batuque Negro" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j029_0429_0428.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J29</span>
+            <span class="ep-badge">EP 11</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J29</span> Grupo Batuque Negro</div>
+            <div class="sub-row">
+              <span class="sub">#0429 + #0428 · 5.29s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=jCdMgi9JIeM" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 11 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J30" data-eps="11" data-val="J30 | #0458 + #0455 + #0457 | EP 11 | Grupo Batuque Negro | j030_0458_0455_0457 (6.75s)" data-search="j30 #0458 + #0455 + #0457 11 grupo batuque negro j030_0458_0455_0457">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j030_0458_0455_0457.jpg" alt="J30 — Grupo Batuque Negro" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j030_0458_0455_0457.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J30</span>
+            <span class="ep-badge">EP 11</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J30</span> Grupo Batuque Negro</div>
+            <div class="sub-row">
+              <span class="sub">#0458 + #0455 + #0457 · 6.75s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=jCdMgi9JIeM" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 11 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J31" data-eps="12" data-val="J31 | #0477 + #0463 | EP 12 | Alana Ananias | j031_0477_0463 (7.00s)" data-search="j31 #0477 + #0463 12 alana ananias j031_0477_0463">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j031_0477_0463.jpg" alt="J31 — Alana Ananias" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j031_0477_0463.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J31</span>
+            <span class="ep-badge">EP 12</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J31</span> Alana Ananias</div>
+            <div class="sub-row">
+              <span class="sub">#0477 + #0463 · 7.00s</span>
+              <span class="yt-pill pending">Ep 12 não postado</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J32" data-eps="12" data-val="J32 | #0469 + #0468 | EP 12 | Alana Ananias | j032_0469_0468 (2.50s)" data-search="j32 #0469 + #0468 12 alana ananias j032_0469_0468">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j032_0469_0468.jpg" alt="J32 — Alana Ananias" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j032_0469_0468.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J32</span>
+            <span class="ep-badge">EP 12</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J32</span> Alana Ananias</div>
+            <div class="sub-row">
+              <span class="sub">#0469 + #0468 · 2.50s</span>
+              <span class="yt-pill pending">Ep 12 não postado</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J33" data-eps="12" data-val="J33 | #0464 + #0465 | EP 12 | Alana Ananias | j033_0464_0465 (2.42s)" data-search="j33 #0464 + #0465 12 alana ananias j033_0464_0465">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j033_0464_0465.jpg" alt="J33 — Alana Ananias" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j033_0464_0465.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J33</span>
+            <span class="ep-badge">EP 12</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J33</span> Alana Ananias</div>
+            <div class="sub-row">
+              <span class="sub">#0464 + #0465 · 2.42s</span>
+              <span class="yt-pill pending">Ep 12 não postado</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J34" data-eps="12" data-val="J34 | #0472 + #0471 | EP 12 | Alana Ananias | j034_0472_0471 (2.79s)" data-search="j34 #0472 + #0471 12 alana ananias j034_0472_0471">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j034_0472_0471.jpg" alt="J34 — Alana Ananias" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j034_0472_0471.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J34</span>
+            <span class="ep-badge">EP 12</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J34</span> Alana Ananias</div>
+            <div class="sub-row">
+              <span class="sub">#0472 + #0471 · 2.79s</span>
+              <span class="yt-pill pending">Ep 12 não postado</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J35" data-eps="12" data-val="J35 | #0473 + #0482 | EP 12 | Alana Ananias | j035_0473_0482 (5.08s)" data-search="j35 #0473 + #0482 12 alana ananias j035_0473_0482">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j035_0473_0482.jpg" alt="J35 — Alana Ananias" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j035_0473_0482.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J35</span>
+            <span class="ep-badge">EP 12</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J35</span> Alana Ananias</div>
+            <div class="sub-row">
+              <span class="sub">#0473 + #0482 · 5.08s</span>
+              <span class="yt-pill pending">Ep 12 não postado</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J36" data-eps="12" data-val="J36 | #0480 + #0479 | EP 12 | Alana Ananias | j036_0480_0479 (2.67s)" data-search="j36 #0480 + #0479 12 alana ananias j036_0480_0479">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j036_0480_0479.jpg" alt="J36 — Alana Ananias" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j036_0480_0479.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J36</span>
+            <span class="ep-badge">EP 12</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J36</span> Alana Ananias</div>
+            <div class="sub-row">
+              <span class="sub">#0480 + #0479 · 2.67s</span>
+              <span class="yt-pill pending">Ep 12 não postado</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J37" data-eps="12" data-val="J37 | #0481 + #0486 | EP 12 | Alana Ananias | j037_0481_0486 (3.29s)" data-search="j37 #0481 + #0486 12 alana ananias j037_0481_0486">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j037_0481_0486.jpg" alt="J37 — Alana Ananias" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j037_0481_0486.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J37</span>
+            <span class="ep-badge">EP 12</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J37</span> Alana Ananias</div>
+            <div class="sub-row">
+              <span class="sub">#0481 + #0486 · 3.29s</span>
+              <span class="yt-pill pending">Ep 12 não postado</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J38" data-eps="13" data-val="J38 | #0494 + #0500 | EP 13 | Fabio Leandro | j038_0494_0500 (7.00s)" data-search="j38 #0494 + #0500 13 fabio leandro j038_0494_0500">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j038_0494_0500.jpg" alt="J38 — Fabio Leandro" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j038_0494_0500.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J38</span>
+            <span class="ep-badge">EP 13</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J38</span> Fabio Leandro</div>
+            <div class="sub-row">
+              <span class="sub">#0494 + #0500 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=ex1yKsSydVo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 13 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J39" data-eps="13" data-val="J39 | #0496 + #0497 | EP 13 | Fabio Leandro | j039_0496_0497 (5.17s)" data-search="j39 #0496 + #0497 13 fabio leandro j039_0496_0497">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j039_0496_0497.jpg" alt="J39 — Fabio Leandro" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j039_0496_0497.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J39</span>
+            <span class="ep-badge">EP 13</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J39</span> Fabio Leandro</div>
+            <div class="sub-row">
+              <span class="sub">#0496 + #0497 · 5.17s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=ex1yKsSydVo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 13 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J40" data-eps="13" data-val="J40 | #0508 + #0507 | EP 13 | Fabio Leandro | j040_0508_0507 (5.13s)" data-search="j40 #0508 + #0507 13 fabio leandro j040_0508_0507">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j040_0508_0507.jpg" alt="J40 — Fabio Leandro" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j040_0508_0507.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J40</span>
+            <span class="ep-badge">EP 13</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J40</span> Fabio Leandro</div>
+            <div class="sub-row">
+              <span class="sub">#0508 + #0507 · 5.13s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=ex1yKsSydVo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 13 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J41" data-eps="14" data-val="J41 | #0526 + #0522 + #0523 | EP 14 | Forró das Minas | j041_0526_0522_0523 (2.38s)" data-search="j41 #0526 + #0522 + #0523 14 forró das minas j041_0526_0522_0523">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j041_0526_0522_0523.jpg" alt="J41 — Forró das Minas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j041_0526_0522_0523.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J41</span>
+            <span class="ep-badge">EP 14</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J41</span> Forró das Minas</div>
+            <div class="sub-row">
+              <span class="sub">#0526 + #0522 + #0523 · 2.38s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=efLR0NHvgHU" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 14 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J42" data-eps="14" data-val="J42 | #0525 + #0534 + #0563 | EP 14 | Forró das Minas | j042_0525_0534_0563 (9.46s)" data-search="j42 #0525 + #0534 + #0563 14 forró das minas j042_0525_0534_0563">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j042_0525_0534_0563.jpg" alt="J42 — Forró das Minas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j042_0525_0534_0563.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J42</span>
+            <span class="ep-badge">EP 14</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J42</span> Forró das Minas</div>
+            <div class="sub-row">
+              <span class="sub">#0525 + #0534 + #0563 · 9.46s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=efLR0NHvgHU" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 14 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J43" data-eps="14" data-val="J43 | #0554 + #0550 + #0556 + #0546 | EP 14 | Forró das Minas | j043_0554_0550_0556_0546 (5.42s)" data-search="j43 #0554 + #0550 + #0556 + #0546 14 forró das minas j043_0554_0550_0556_0546">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j043_0554_0550_0556_0546.jpg" alt="J43 — Forró das Minas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j043_0554_0550_0556_0546.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J43</span>
+            <span class="ep-badge">EP 14</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J43</span> Forró das Minas</div>
+            <div class="sub-row">
+              <span class="sub">#0554 + #0550 + #0556 + #0546 · 5.42s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=efLR0NHvgHU" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 14 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J44" data-eps="14" data-val="J44 | #0558 + #0561 + #0564 | EP 14 | Forró das Minas | j044_0558_0561_0564 (3.42s)" data-search="j44 #0558 + #0561 + #0564 14 forró das minas j044_0558_0561_0564">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j044_0558_0561_0564.jpg" alt="J44 — Forró das Minas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j044_0558_0561_0564.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J44</span>
+            <span class="ep-badge">EP 14</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J44</span> Forró das Minas</div>
+            <div class="sub-row">
+              <span class="sub">#0558 + #0561 + #0564 · 3.42s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=efLR0NHvgHU" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 14 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J45" data-eps="14" data-val="J45 | #0572 + #0570 + #0573 | EP 14 | Forró das Minas | j045_0572_0570_0573 (2.13s)" data-search="j45 #0572 + #0570 + #0573 14 forró das minas j045_0572_0570_0573">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j045_0572_0570_0573.jpg" alt="J45 — Forró das Minas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j045_0572_0570_0573.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J45</span>
+            <span class="ep-badge">EP 14</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J45</span> Forró das Minas</div>
+            <div class="sub-row">
+              <span class="sub">#0572 + #0570 + #0573 · 2.13s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=efLR0NHvgHU" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 14 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J46" data-eps="15" data-val="J46 | #0583 + #0582 | EP 15 | Trio Solar | j046_0583_0582 (4.38s)" data-search="j46 #0583 + #0582 15 trio solar j046_0583_0582">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j046_0583_0582.jpg" alt="J46 — Trio Solar" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j046_0583_0582.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J46</span>
+            <span class="ep-badge">EP 15</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J46</span> Trio Solar</div>
+            <div class="sub-row">
+              <span class="sub">#0583 + #0582 · 4.38s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=N3-kvOWZ7xI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 15 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J47" data-eps="15" data-val="J47 | #0601 + #0599 | EP 15 | Trio Solar | j047_0601_0599 (7.00s)" data-search="j47 #0601 + #0599 15 trio solar j047_0601_0599">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j047_0601_0599.jpg" alt="J47 — Trio Solar" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j047_0601_0599.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J47</span>
+            <span class="ep-badge">EP 15</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J47</span> Trio Solar</div>
+            <div class="sub-row">
+              <span class="sub">#0601 + #0599 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=N3-kvOWZ7xI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 15 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J48" data-eps="15" data-val="J48 | #0600 + #0594 | EP 15 | Trio Solar | j048_0600_0594 (4.75s)" data-search="j48 #0600 + #0594 15 trio solar j048_0600_0594">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j048_0600_0594.jpg" alt="J48 — Trio Solar" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j048_0600_0594.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J48</span>
+            <span class="ep-badge">EP 15</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J48</span> Trio Solar</div>
+            <div class="sub-row">
+              <span class="sub">#0600 + #0594 · 4.75s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=N3-kvOWZ7xI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 15 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J49" data-eps="15" data-val="J49 | #0614 + #0617 + #0616 | EP 15 | Trio Solar | j049_0614_0617_0616 (3.58s)" data-search="j49 #0614 + #0617 + #0616 15 trio solar j049_0614_0617_0616">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j049_0614_0617_0616.jpg" alt="J49 — Trio Solar" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j049_0614_0617_0616.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J49</span>
+            <span class="ep-badge">EP 15</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J49</span> Trio Solar</div>
+            <div class="sub-row">
+              <span class="sub">#0614 + #0617 + #0616 · 3.58s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=N3-kvOWZ7xI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 15 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J50" data-eps="15" data-val="J50 | #0610 + #0609 + #0608 | EP 15 | Trio Solar | j050_0610_0609_0608 (5.54s)" data-search="j50 #0610 + #0609 + #0608 15 trio solar j050_0610_0609_0608">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j050_0610_0609_0608.jpg" alt="J50 — Trio Solar" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j050_0610_0609_0608.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J50</span>
+            <span class="ep-badge">EP 15</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J50</span> Trio Solar</div>
+            <div class="sub-row">
+              <span class="sub">#0610 + #0609 + #0608 · 5.54s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=N3-kvOWZ7xI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 15 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J51" data-eps="16" data-val="J51 | #0636 + #0637 | EP 16 | Bruno Migotto e Instituto | j051_0636_0637 (4.88s)" data-search="j51 #0636 + #0637 16 bruno migotto e instituto j051_0636_0637">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j051_0636_0637.jpg" alt="J51 — Bruno Migotto e Instituto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j051_0636_0637.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J51</span>
+            <span class="ep-badge">EP 16</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J51</span> Bruno Migotto e Instituto</div>
+            <div class="sub-row">
+              <span class="sub">#0636 + #0637 · 4.88s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=yfYThYgraAA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 16 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J52" data-eps="16" data-val="J52 | #0638 + #0632 | EP 16 | Bruno Migotto e Instituto | j052_0638_0632 (4.13s)" data-search="j52 #0638 + #0632 16 bruno migotto e instituto j052_0638_0632">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j052_0638_0632.jpg" alt="J52 — Bruno Migotto e Instituto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j052_0638_0632.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J52</span>
+            <span class="ep-badge">EP 16</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J52</span> Bruno Migotto e Instituto</div>
+            <div class="sub-row">
+              <span class="sub">#0638 + #0632 · 4.13s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=yfYThYgraAA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 16 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J53" data-eps="16" data-val="J53 | #0659 + #0660 + #0661 | EP 16 | Bruno Migotto e Instituto | j053_0659_0660_0661 (2.46s)" data-search="j53 #0659 + #0660 + #0661 16 bruno migotto e instituto j053_0659_0660_0661">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j053_0659_0660_0661.jpg" alt="J53 — Bruno Migotto e Instituto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j053_0659_0660_0661.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J53</span>
+            <span class="ep-badge">EP 16</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J53</span> Bruno Migotto e Instituto</div>
+            <div class="sub-row">
+              <span class="sub">#0659 + #0660 + #0661 · 2.46s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=yfYThYgraAA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 16 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J54" data-eps="16" data-val="J54 | #0662 + #0663 + #0664 + #0665 | EP 16 | Bruno Migotto e Instituto | j054_0662_0663_0664_0665 (2.50s)" data-search="j54 #0662 + #0663 + #0664 + #0665 16 bruno migotto e instituto j054_0662_0663_0664_0665">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j054_0662_0663_0664_0665.jpg" alt="J54 — Bruno Migotto e Instituto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j054_0662_0663_0664_0665.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J54</span>
+            <span class="ep-badge">EP 16</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J54</span> Bruno Migotto e Instituto</div>
+            <div class="sub-row">
+              <span class="sub">#0662 + #0663 + #0664 + #0665 · 2.50s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=yfYThYgraAA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 16 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J55" data-eps="17" data-val="J55 | #0685 + #0686 | EP 17 | Claudia Castelo Branco | j055_0685_0686 (2.67s)" data-search="j55 #0685 + #0686 17 claudia castelo branco j055_0685_0686">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j055_0685_0686.jpg" alt="J55 — Claudia Castelo Branco" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j055_0685_0686.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J55</span>
+            <span class="ep-badge">EP 17</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J55</span> Claudia Castelo Branco</div>
+            <div class="sub-row">
+              <span class="sub">#0685 + #0686 · 2.67s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=gGG4kWg2N3U" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 17 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J56" data-eps="17" data-val="J56 | #0684 + #0678 | EP 17 | Claudia Castelo Branco | j056_0684_0678 (7.00s)" data-search="j56 #0684 + #0678 17 claudia castelo branco j056_0684_0678">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j056_0684_0678.jpg" alt="J56 — Claudia Castelo Branco" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j056_0684_0678.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J56</span>
+            <span class="ep-badge">EP 17</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J56</span> Claudia Castelo Branco</div>
+            <div class="sub-row">
+              <span class="sub">#0684 + #0678 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=gGG4kWg2N3U" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 17 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J57" data-eps="18" data-val="J57 | #0697 + #0699 | EP 18 | Evandro Gracelli &amp; Brazulcajá | j057_0697_0699 (7.00s)" data-search="j57 #0697 + #0699 18 evandro gracelli &amp; brazulcajá j057_0697_0699">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j057_0697_0699.jpg" alt="J57 — Evandro Gracelli &amp; Brazulcajá" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j057_0697_0699.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J57</span>
+            <span class="ep-badge">EP 18</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J57</span> Evandro Gracelli &amp; Brazulcajá</div>
+            <div class="sub-row">
+              <span class="sub">#0697 + #0699 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=6h05Zrq0BKg" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 18 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J58" data-eps="18" data-val="J58 | #0707 + #0708 + #0709 + #0710 | EP 18 | Evandro Gracelli &amp; Brazulcajá | j058_0707_0708_0709_0710 (2.88s)" data-search="j58 #0707 + #0708 + #0709 + #0710 18 evandro gracelli &amp; brazulcajá j058_0707_0708_0709_0710">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j058_0707_0708_0709_0710.jpg" alt="J58 — Evandro Gracelli &amp; Brazulcajá" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j058_0707_0708_0709_0710.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J58</span>
+            <span class="ep-badge">EP 18</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J58</span> Evandro Gracelli &amp; Brazulcajá</div>
+            <div class="sub-row">
+              <span class="sub">#0707 + #0708 + #0709 + #0710 · 2.88s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=6h05Zrq0BKg" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 18 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J59" data-eps="18" data-val="J59 | #0711 + #0713 + #0716 + #0717 | EP 18 | Evandro Gracelli &amp; Brazulcajá | j059_0711_0713_0716_0717 (4.13s)" data-search="j59 #0711 + #0713 + #0716 + #0717 18 evandro gracelli &amp; brazulcajá j059_0711_0713_0716_0717">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j059_0711_0713_0716_0717.jpg" alt="J59 — Evandro Gracelli &amp; Brazulcajá" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j059_0711_0713_0716_0717.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J59</span>
+            <span class="ep-badge">EP 18</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J59</span> Evandro Gracelli &amp; Brazulcajá</div>
+            <div class="sub-row">
+              <span class="sub">#0711 + #0713 + #0716 + #0717 · 4.13s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=6h05Zrq0BKg" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 18 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J60" data-eps="19" data-val="J60 | #0732 + #0736 | EP 19 | Fabio Peron e Lucas Rocha | j060_0732_0736 (5.13s)" data-search="j60 #0732 + #0736 19 fabio peron e lucas rocha j060_0732_0736">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j060_0732_0736.jpg" alt="J60 — Fabio Peron e Lucas Rocha" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j060_0732_0736.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J60</span>
+            <span class="ep-badge">EP 19</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J60</span> Fabio Peron e Lucas Rocha</div>
+            <div class="sub-row">
+              <span class="sub">#0732 + #0736 · 5.13s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=CAVkWksbpR0" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 19 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J61" data-eps="19" data-val="J61 | #0737 + #0747 | EP 19 | Fabio Peron e Lucas Rocha | j061_0737_0747 (6.25s)" data-search="j61 #0737 + #0747 19 fabio peron e lucas rocha j061_0737_0747">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j061_0737_0747.jpg" alt="J61 — Fabio Peron e Lucas Rocha" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j061_0737_0747.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J61</span>
+            <span class="ep-badge">EP 19</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J61</span> Fabio Peron e Lucas Rocha</div>
+            <div class="sub-row">
+              <span class="sub">#0737 + #0747 · 6.25s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=CAVkWksbpR0" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 19 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J62" data-eps="19" data-val="J62 | #0746 + #0739 | EP 19 | Fabio Peron e Lucas Rocha | j062_0746_0739 (6.79s)" data-search="j62 #0746 + #0739 19 fabio peron e lucas rocha j062_0746_0739">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j062_0746_0739.jpg" alt="J62 — Fabio Peron e Lucas Rocha" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j062_0746_0739.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J62</span>
+            <span class="ep-badge">EP 19</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J62</span> Fabio Peron e Lucas Rocha</div>
+            <div class="sub-row">
+              <span class="sub">#0746 + #0739 · 6.79s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=CAVkWksbpR0" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 19 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J63" data-eps="19" data-val="J63 | #0751 + #0750 + #0748 | EP 19 | Fabio Peron e Lucas Rocha | j063_0751_0750_0748 (6.58s)" data-search="j63 #0751 + #0750 + #0748 19 fabio peron e lucas rocha j063_0751_0750_0748">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j063_0751_0750_0748.jpg" alt="J63 — Fabio Peron e Lucas Rocha" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j063_0751_0750_0748.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J63</span>
+            <span class="ep-badge">EP 19</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J63</span> Fabio Peron e Lucas Rocha</div>
+            <div class="sub-row">
+              <span class="sub">#0751 + #0750 + #0748 · 6.58s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=CAVkWksbpR0" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 19 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J64" data-eps="20" data-val="J64 | #0778 + #0792 | EP 20 | Raízes do Choro Nordestino | j064_0778_0792 (7.00s)" data-search="j64 #0778 + #0792 20 raízes do choro nordestino j064_0778_0792">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j064_0778_0792.jpg" alt="J64 — Raízes do Choro Nordestino" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j064_0778_0792.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J64</span>
+            <span class="ep-badge">EP 20</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J64</span> Raízes do Choro Nordestino</div>
+            <div class="sub-row">
+              <span class="sub">#0778 + #0792 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=zgeTvrMKo_U" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 20 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J65" data-eps="20" data-val="J65 | #0763 + #0789 | EP 20 | Raízes do Choro Nordestino | j065_0763_0789 (6.88s)" data-search="j65 #0763 + #0789 20 raízes do choro nordestino j065_0763_0789">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j065_0763_0789.jpg" alt="J65 — Raízes do Choro Nordestino" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j065_0763_0789.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J65</span>
+            <span class="ep-badge">EP 20</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J65</span> Raízes do Choro Nordestino</div>
+            <div class="sub-row">
+              <span class="sub">#0763 + #0789 · 6.88s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=zgeTvrMKo_U" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 20 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J66" data-eps="20" data-val="J66 | #0767 + #0766 + #0770 | EP 20 | Raízes do Choro Nordestino | j066_0767_0766_0770 (3.63s)" data-search="j66 #0767 + #0766 + #0770 20 raízes do choro nordestino j066_0767_0766_0770">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j066_0767_0766_0770.jpg" alt="J66 — Raízes do Choro Nordestino" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j066_0767_0766_0770.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J66</span>
+            <span class="ep-badge">EP 20</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J66</span> Raízes do Choro Nordestino</div>
+            <div class="sub-row">
+              <span class="sub">#0767 + #0766 + #0770 · 3.63s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=zgeTvrMKo_U" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 20 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J67" data-eps="20" data-val="J67 | #0764 + #0760 | EP 20 | Raízes do Choro Nordestino | j067_0764_0760 (3.50s)" data-search="j67 #0764 + #0760 20 raízes do choro nordestino j067_0764_0760">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j067_0764_0760.jpg" alt="J67 — Raízes do Choro Nordestino" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j067_0764_0760.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J67</span>
+            <span class="ep-badge">EP 20</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J67</span> Raízes do Choro Nordestino</div>
+            <div class="sub-row">
+              <span class="sub">#0764 + #0760 · 3.50s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=zgeTvrMKo_U" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 20 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J68" data-eps="21" data-val="J68 | #0796 + #0804 | EP 21 | Conde Favela Sexteto | j068_0796_0804 (1.46s)" data-search="j68 #0796 + #0804 21 conde favela sexteto j068_0796_0804">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j068_0796_0804.jpg" alt="J68 — Conde Favela Sexteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j068_0796_0804.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J68</span>
+            <span class="ep-badge">EP 21</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J68</span> Conde Favela Sexteto</div>
+            <div class="sub-row">
+              <span class="sub">#0796 + #0804 · 1.46s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qgp2rt-rIwI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 21 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J69" data-eps="21" data-val="J69 | #0801 + #0802 | EP 21 | Conde Favela Sexteto | j069_0801_0802 (2.25s)" data-search="j69 #0801 + #0802 21 conde favela sexteto j069_0801_0802">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j069_0801_0802.jpg" alt="J69 — Conde Favela Sexteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j069_0801_0802.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J69</span>
+            <span class="ep-badge">EP 21</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J69</span> Conde Favela Sexteto</div>
+            <div class="sub-row">
+              <span class="sub">#0801 + #0802 · 2.25s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qgp2rt-rIwI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 21 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J70" data-eps="21" data-val="J70 | #0807 + #0813 | EP 21 | Conde Favela Sexteto | j070_0807_0813 (6.29s)" data-search="j70 #0807 + #0813 21 conde favela sexteto j070_0807_0813">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j070_0807_0813.jpg" alt="J70 — Conde Favela Sexteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j070_0807_0813.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J70</span>
+            <span class="ep-badge">EP 21</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J70</span> Conde Favela Sexteto</div>
+            <div class="sub-row">
+              <span class="sub">#0807 + #0813 · 6.29s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qgp2rt-rIwI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 21 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J71" data-eps="21" data-val="J71 | #0821 + #0815 | EP 21 | Conde Favela Sexteto | j071_0821_0815 (6.17s)" data-search="j71 #0821 + #0815 21 conde favela sexteto j071_0821_0815">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j071_0821_0815.jpg" alt="J71 — Conde Favela Sexteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j071_0821_0815.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J71</span>
+            <span class="ep-badge">EP 21</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J71</span> Conde Favela Sexteto</div>
+            <div class="sub-row">
+              <span class="sub">#0821 + #0815 · 6.17s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qgp2rt-rIwI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 21 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J72" data-eps="21" data-val="J72 | #0812 + #0819 + #0809 + #0806 | EP 21 | Conde Favela Sexteto | j072_0812_0819_0809_0806 (8.54s)" data-search="j72 #0812 + #0819 + #0809 + #0806 21 conde favela sexteto j072_0812_0819_0809_0806">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j072_0812_0819_0809_0806.jpg" alt="J72 — Conde Favela Sexteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j072_0812_0819_0809_0806.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J72</span>
+            <span class="ep-badge">EP 21</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J72</span> Conde Favela Sexteto</div>
+            <div class="sub-row">
+              <span class="sub">#0812 + #0819 + #0809 + #0806 · 8.54s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qgp2rt-rIwI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 21 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J73" data-eps="22" data-val="J73 | #0838 + #0837 | EP 22 | Portunhol Selvagem | j073_0838_0837 (2.92s)" data-search="j73 #0838 + #0837 22 portunhol selvagem j073_0838_0837">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j073_0838_0837.jpg" alt="J73 — Portunhol Selvagem" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j073_0838_0837.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J73</span>
+            <span class="ep-badge">EP 22</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J73</span> Portunhol Selvagem</div>
+            <div class="sub-row">
+              <span class="sub">#0838 + #0837 · 2.92s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=WwH6-kBcQac" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 22 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J74" data-eps="22" data-val="J74 | #0833 + #0836 | EP 22 | Portunhol Selvagem | j074_0833_0836 (6.46s)" data-search="j74 #0833 + #0836 22 portunhol selvagem j074_0833_0836">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j074_0833_0836.jpg" alt="J74 — Portunhol Selvagem" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j074_0833_0836.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J74</span>
+            <span class="ep-badge">EP 22</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J74</span> Portunhol Selvagem</div>
+            <div class="sub-row">
+              <span class="sub">#0833 + #0836 · 6.46s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=WwH6-kBcQac" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 22 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J75" data-eps="22" data-val="J75 | #0835 + #0831 + #0830 | EP 22 | Portunhol Selvagem | j075_0835_0831_0830 (3.79s)" data-search="j75 #0835 + #0831 + #0830 22 portunhol selvagem j075_0835_0831_0830">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j075_0835_0831_0830.jpg" alt="J75 — Portunhol Selvagem" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j075_0835_0831_0830.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J75</span>
+            <span class="ep-badge">EP 22</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J75</span> Portunhol Selvagem</div>
+            <div class="sub-row">
+              <span class="sub">#0835 + #0831 + #0830 · 3.79s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=WwH6-kBcQac" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 22 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J76" data-eps="23" data-val="J76 | #0858 + #0860 + #0862 | EP 23 | Teco Cardoso Quarteto | j076_0858_0860_0862 (4.17s)" data-search="j76 #0858 + #0860 + #0862 23 teco cardoso quarteto j076_0858_0860_0862">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j076_0858_0860_0862.jpg" alt="J76 — Teco Cardoso Quarteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j076_0858_0860_0862.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J76</span>
+            <span class="ep-badge">EP 23</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J76</span> Teco Cardoso Quarteto</div>
+            <div class="sub-row">
+              <span class="sub">#0858 + #0860 + #0862 · 4.17s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=BjCTy_k34HY" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 23 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J77" data-eps="23" data-val="J77 | #0864 + #0865 + #0866 | EP 23 | Teco Cardoso Quarteto | j077_0864_0865_0866 (3.33s)" data-search="j77 #0864 + #0865 + #0866 23 teco cardoso quarteto j077_0864_0865_0866">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j077_0864_0865_0866.jpg" alt="J77 — Teco Cardoso Quarteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j077_0864_0865_0866.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J77</span>
+            <span class="ep-badge">EP 23</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J77</span> Teco Cardoso Quarteto</div>
+            <div class="sub-row">
+              <span class="sub">#0864 + #0865 + #0866 · 3.33s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=BjCTy_k34HY" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 23 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J78" data-eps="24" data-val="J78 | #0874 + #0875 | EP 24 | Daniel D&#x27;Alcântara Quarteto | j078_0874_0875 (6.96s)" data-search="j78 #0874 + #0875 24 daniel d&#x27;alcântara quarteto j078_0874_0875">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j078_0874_0875.jpg" alt="J78 — Daniel D&#x27;Alcântara Quarteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j078_0874_0875.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J78</span>
+            <span class="ep-badge">EP 24</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J78</span> Daniel D&#x27;Alcântara Quarteto</div>
+            <div class="sub-row">
+              <span class="sub">#0874 + #0875 · 6.96s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=u69w3-9j1vo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 24 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J79" data-eps="24" data-val="J79 | #0873 + #0887 | EP 24 | Daniel D&#x27;Alcântara Quarteto | j079_0873_0887 (6.71s)" data-search="j79 #0873 + #0887 24 daniel d&#x27;alcântara quarteto j079_0873_0887">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j079_0873_0887.jpg" alt="J79 — Daniel D&#x27;Alcântara Quarteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j079_0873_0887.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J79</span>
+            <span class="ep-badge">EP 24</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J79</span> Daniel D&#x27;Alcântara Quarteto</div>
+            <div class="sub-row">
+              <span class="sub">#0873 + #0887 · 6.71s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=u69w3-9j1vo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 24 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J80" data-eps="25" data-val="J80 | #0910 + #0906 + #0920 | EP 25 | Maria Clara Valle Trio | j080_0910_0906_0920 (5.92s)" data-search="j80 #0910 + #0906 + #0920 25 maria clara valle trio j080_0910_0906_0920">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j080_0910_0906_0920.jpg" alt="J80 — Maria Clara Valle Trio" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j080_0910_0906_0920.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J80</span>
+            <span class="ep-badge">EP 25</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J80</span> Maria Clara Valle Trio</div>
+            <div class="sub-row">
+              <span class="sub">#0910 + #0906 + #0920 · 5.92s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=2H71VLgE0OQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 25 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J81" data-eps="25" data-val="J81 | #0913 + #0914 | EP 25 | Maria Clara Valle Trio | j081_0913_0914 (2.54s)" data-search="j81 #0913 + #0914 25 maria clara valle trio j081_0913_0914">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j081_0913_0914.jpg" alt="J81 — Maria Clara Valle Trio" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j081_0913_0914.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J81</span>
+            <span class="ep-badge">EP 25</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J81</span> Maria Clara Valle Trio</div>
+            <div class="sub-row">
+              <span class="sub">#0913 + #0914 · 2.54s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=2H71VLgE0OQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 25 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J82" data-eps="25" data-val="J82 | #0902 + #0901 | EP 25 | Maria Clara Valle Trio | j082_0902_0901 (6.58s)" data-search="j82 #0902 + #0901 25 maria clara valle trio j082_0902_0901">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j082_0902_0901.jpg" alt="J82 — Maria Clara Valle Trio" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j082_0902_0901.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J82</span>
+            <span class="ep-badge">EP 25</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J82</span> Maria Clara Valle Trio</div>
+            <div class="sub-row">
+              <span class="sub">#0902 + #0901 · 6.58s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=2H71VLgE0OQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 25 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J83" data-eps="25" data-val="J83 | #0904 + #0915 | EP 25 | Maria Clara Valle Trio | j083_0904_0915 (3.88s)" data-search="j83 #0904 + #0915 25 maria clara valle trio j083_0904_0915">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j083_0904_0915.jpg" alt="J83 — Maria Clara Valle Trio" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j083_0904_0915.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J83</span>
+            <span class="ep-badge">EP 25</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J83</span> Maria Clara Valle Trio</div>
+            <div class="sub-row">
+              <span class="sub">#0904 + #0915 · 3.88s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=2H71VLgE0OQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 25 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J84" data-eps="26" data-val="J84 | #0929 + #0927 | EP 26 | Cristina Azuma e Marcia Taborda | j084_0929_0927 (6.88s)" data-search="j84 #0929 + #0927 26 cristina azuma e marcia taborda j084_0929_0927">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j084_0929_0927.jpg" alt="J84 — Cristina Azuma e Marcia Taborda" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j084_0929_0927.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J84</span>
+            <span class="ep-badge">EP 26</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J84</span> Cristina Azuma e Marcia Taborda</div>
+            <div class="sub-row">
+              <span class="sub">#0929 + #0927 · 6.88s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=KaRsQxQnEoA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 26 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J85" data-eps="26" data-val="J85 | #0925 + #0930 | EP 26 | Cristina Azuma e Marcia Taborda | j085_0925_0930 (3.38s)" data-search="j85 #0925 + #0930 26 cristina azuma e marcia taborda j085_0925_0930">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j085_0925_0930.jpg" alt="J85 — Cristina Azuma e Marcia Taborda" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j085_0925_0930.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J85</span>
+            <span class="ep-badge">EP 26</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J85</span> Cristina Azuma e Marcia Taborda</div>
+            <div class="sub-row">
+              <span class="sub">#0925 + #0930 · 3.38s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=KaRsQxQnEoA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 26 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J86" data-eps="26" data-val="J86 | #0932 + #0937 | EP 26 | Cristina Azuma e Marcia Taborda | j086_0932_0937 (7.00s)" data-search="j86 #0932 + #0937 26 cristina azuma e marcia taborda j086_0932_0937">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j086_0932_0937.jpg" alt="J86 — Cristina Azuma e Marcia Taborda" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j086_0932_0937.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J86</span>
+            <span class="ep-badge">EP 26</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J86</span> Cristina Azuma e Marcia Taborda</div>
+            <div class="sub-row">
+              <span class="sub">#0932 + #0937 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=KaRsQxQnEoA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 26 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J87" data-eps="26" data-val="J87 | #0934 + #0936 | EP 26 | Cristina Azuma e Marcia Taborda | j087_0934_0936 (7.00s)" data-search="j87 #0934 + #0936 26 cristina azuma e marcia taborda j087_0934_0936">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j087_0934_0936.jpg" alt="J87 — Cristina Azuma e Marcia Taborda" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j087_0934_0936.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J87</span>
+            <span class="ep-badge">EP 26</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J87</span> Cristina Azuma e Marcia Taborda</div>
+            <div class="sub-row">
+              <span class="sub">#0934 + #0936 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=KaRsQxQnEoA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 26 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J88" data-eps="27" data-val="J88 | #0945 + #0956 | EP 27 | Roberto Sion | j088_0945_0956 (5.54s)" data-search="j88 #0945 + #0956 27 roberto sion j088_0945_0956">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j088_0945_0956.jpg" alt="J88 — Roberto Sion" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j088_0945_0956.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J88</span>
+            <span class="ep-badge">EP 27</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J88</span> Roberto Sion</div>
+            <div class="sub-row">
+              <span class="sub">#0945 + #0956 · 5.54s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=JCaUhfX0VBQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 27 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J89" data-eps="27" data-val="J89 | #0944 + #0940 | EP 27 | Roberto Sion | j089_0944_0940 (5.63s)" data-search="j89 #0944 + #0940 27 roberto sion j089_0944_0940">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j089_0944_0940.jpg" alt="J89 — Roberto Sion" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j089_0944_0940.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J89</span>
+            <span class="ep-badge">EP 27</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J89</span> Roberto Sion</div>
+            <div class="sub-row">
+              <span class="sub">#0944 + #0940 · 5.63s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=JCaUhfX0VBQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 27 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J90" data-eps="27" data-val="J90 | #0957 + #0962 | EP 27 | Roberto Sion | j090_0957_0962 (3.33s)" data-search="j90 #0957 + #0962 27 roberto sion j090_0957_0962">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j090_0957_0962.jpg" alt="J90 — Roberto Sion" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j090_0957_0962.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J90</span>
+            <span class="ep-badge">EP 27</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J90</span> Roberto Sion</div>
+            <div class="sub-row">
+              <span class="sub">#0957 + #0962 · 3.33s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=JCaUhfX0VBQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 27 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J91" data-eps="27" data-val="J91 | #0954 + #0958 + #0959 | EP 27 | Roberto Sion | j091_0954_0958_0959 (5.17s)" data-search="j91 #0954 + #0958 + #0959 27 roberto sion j091_0954_0958_0959">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j091_0954_0958_0959.jpg" alt="J91 — Roberto Sion" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j091_0954_0958_0959.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J91</span>
+            <span class="ep-badge">EP 27</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J91</span> Roberto Sion</div>
+            <div class="sub-row">
+              <span class="sub">#0954 + #0958 + #0959 · 5.17s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=JCaUhfX0VBQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 27 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J92" data-eps="27" data-val="J92 | #0967 + #0966 | EP 27 | Roberto Sion | j092_0967_0966 (3.71s)" data-search="j92 #0967 + #0966 27 roberto sion j092_0967_0966">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j092_0967_0966.jpg" alt="J92 — Roberto Sion" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j092_0967_0966.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J92</span>
+            <span class="ep-badge">EP 27</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J92</span> Roberto Sion</div>
+            <div class="sub-row">
+              <span class="sub">#0967 + #0966 · 3.71s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=JCaUhfX0VBQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 27 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J93" data-eps="27" data-val="J93 | #0969 + #0971 | EP 27 | Roberto Sion | j093_0969_0971 (2.92s)" data-search="j93 #0969 + #0971 27 roberto sion j093_0969_0971">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j093_0969_0971.jpg" alt="J93 — Roberto Sion" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j093_0969_0971.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J93</span>
+            <span class="ep-badge">EP 27</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J93</span> Roberto Sion</div>
+            <div class="sub-row">
+              <span class="sub">#0969 + #0971 · 2.92s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=JCaUhfX0VBQ" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 27 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J94" data-eps="28" data-val="J94 | #0987 + #0991 | EP 28 | Javiera Hünfan e Regional Jacarandá | j094_0987_0991 (6.79s)" data-search="j94 #0987 + #0991 28 javiera hünfan e regional jacarandá j094_0987_0991">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j094_0987_0991.jpg" alt="J94 — Javiera Hünfan e Regional Jacarandá" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j094_0987_0991.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J94</span>
+            <span class="ep-badge">EP 28</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J94</span> Javiera Hünfan e Regional Jacarandá</div>
+            <div class="sub-row">
+              <span class="sub">#0987 + #0991 · 6.79s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=xBrSltyPkxo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 28 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J95" data-eps="28" data-val="J95 | #0997 + #0979 | EP 28 | Javiera Hünfan e Regional Jacarandá | j095_0997_0979 (7.00s)" data-search="j95 #0997 + #0979 28 javiera hünfan e regional jacarandá j095_0997_0979">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j095_0997_0979.jpg" alt="J95 — Javiera Hünfan e Regional Jacarandá" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j095_0997_0979.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J95</span>
+            <span class="ep-badge">EP 28</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J95</span> Javiera Hünfan e Regional Jacarandá</div>
+            <div class="sub-row">
+              <span class="sub">#0997 + #0979 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=xBrSltyPkxo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 28 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J96" data-eps="28" data-val="J96 | #0996 + #0993 | EP 28 | Javiera Hünfan e Regional Jacarandá | j096_0996_0993 (4.58s)" data-search="j96 #0996 + #0993 28 javiera hünfan e regional jacarandá j096_0996_0993">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j096_0996_0993.jpg" alt="J96 — Javiera Hünfan e Regional Jacarandá" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j096_0996_0993.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J96</span>
+            <span class="ep-badge">EP 28</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J96</span> Javiera Hünfan e Regional Jacarandá</div>
+            <div class="sub-row">
+              <span class="sub">#0996 + #0993 · 4.58s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=xBrSltyPkxo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 28 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J97" data-eps="28" data-val="J97 | #1004 + #1003 | EP 28 | Javiera Hünfan e Regional Jacarandá | j097_1004_1003 (2.17s)" data-search="j97 #1004 + #1003 28 javiera hünfan e regional jacarandá j097_1004_1003">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j097_1004_1003.jpg" alt="J97 — Javiera Hünfan e Regional Jacarandá" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j097_1004_1003.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J97</span>
+            <span class="ep-badge">EP 28</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J97</span> Javiera Hünfan e Regional Jacarandá</div>
+            <div class="sub-row">
+              <span class="sub">#1004 + #1003 · 2.17s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=xBrSltyPkxo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 28 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J98" data-eps="28" data-val="J98 | #1014 + #1015 | EP 28 | Javiera Hünfan e Regional Jacarandá | j098_1014_1015 (3.21s)" data-search="j98 #1014 + #1015 28 javiera hünfan e regional jacarandá j098_1014_1015">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j098_1014_1015.jpg" alt="J98 — Javiera Hünfan e Regional Jacarandá" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j098_1014_1015.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J98</span>
+            <span class="ep-badge">EP 28</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J98</span> Javiera Hünfan e Regional Jacarandá</div>
+            <div class="sub-row">
+              <span class="sub">#1014 + #1015 · 3.21s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=xBrSltyPkxo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 28 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J99" data-eps="29" data-val="J99 | #1029 + #1023 | EP 29 | Fábio Timbira e Timbiraçu | j099_1029_1023 (7.00s)" data-search="j99 #1029 + #1023 29 fábio timbira e timbiraçu j099_1029_1023">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j099_1029_1023.jpg" alt="J99 — Fábio Timbira e Timbiraçu" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j099_1029_1023.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J99</span>
+            <span class="ep-badge">EP 29</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J99</span> Fábio Timbira e Timbiraçu</div>
+            <div class="sub-row">
+              <span class="sub">#1029 + #1023 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=TN4UpzeAzGE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 29 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J100" data-eps="29" data-val="J100 | #1034 + #1030 + #1026 | EP 29 | Fábio Timbira e Timbiraçu | j100_1034_1030_1026 (9.38s)" data-search="j100 #1034 + #1030 + #1026 29 fábio timbira e timbiraçu j100_1034_1030_1026">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j100_1034_1030_1026.jpg" alt="J100 — Fábio Timbira e Timbiraçu" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j100_1034_1030_1026.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J100</span>
+            <span class="ep-badge">EP 29</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J100</span> Fábio Timbira e Timbiraçu</div>
+            <div class="sub-row">
+              <span class="sub">#1034 + #1030 + #1026 · 9.38s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=TN4UpzeAzGE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 29 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J101" data-eps="29" data-val="J101 | #1027 + #1028 | EP 29 | Fábio Timbira e Timbiraçu | j101_1027_1028 (5.50s)" data-search="j101 #1027 + #1028 29 fábio timbira e timbiraçu j101_1027_1028">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j101_1027_1028.jpg" alt="J101 — Fábio Timbira e Timbiraçu" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j101_1027_1028.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J101</span>
+            <span class="ep-badge">EP 29</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J101</span> Fábio Timbira e Timbiraçu</div>
+            <div class="sub-row">
+              <span class="sub">#1027 + #1028 · 5.50s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=TN4UpzeAzGE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 29 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J102" data-eps="30" data-val="J102 | #1072 + #1069 | EP 30 | Murilo Da Rós | j102_1072_1069 (5.21s)" data-search="j102 #1072 + #1069 30 murilo da rós j102_1072_1069">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j102_1072_1069.jpg" alt="J102 — Murilo Da Rós" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j102_1072_1069.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J102</span>
+            <span class="ep-badge">EP 30</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J102</span> Murilo Da Rós</div>
+            <div class="sub-row">
+              <span class="sub">#1072 + #1069 · 5.21s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=oCHDU2oEoXs" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 30 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J103" data-eps="30" data-val="J103 | #1086 + #1089 | EP 30 | Murilo Da Rós | j103_1086_1089 (3.08s)" data-search="j103 #1086 + #1089 30 murilo da rós j103_1086_1089">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j103_1086_1089.jpg" alt="J103 — Murilo Da Rós" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j103_1086_1089.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J103</span>
+            <span class="ep-badge">EP 30</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J103</span> Murilo Da Rós</div>
+            <div class="sub-row">
+              <span class="sub">#1086 + #1089 · 3.08s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=oCHDU2oEoXs" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 30 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J104" data-eps="31" data-val="J104 | #1107 + #1099 | EP 31 | Irmãos &amp; Brothers | j104_1107_1099 (3.92s)" data-search="j104 #1107 + #1099 31 irmãos &amp; brothers j104_1107_1099">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j104_1107_1099.jpg" alt="J104 — Irmãos &amp; Brothers" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j104_1107_1099.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J104</span>
+            <span class="ep-badge">EP 31</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J104</span> Irmãos &amp; Brothers</div>
+            <div class="sub-row">
+              <span class="sub">#1107 + #1099 · 3.92s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=G0pRRK6KVHE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 31 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J105" data-eps="31" data-val="J105 | #1130 + #1112 | EP 31 | Irmãos &amp; Brothers | j105_1130_1112 (4.42s)" data-search="j105 #1130 + #1112 31 irmãos &amp; brothers j105_1130_1112">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j105_1130_1112.jpg" alt="J105 — Irmãos &amp; Brothers" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j105_1130_1112.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J105</span>
+            <span class="ep-badge">EP 31</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J105</span> Irmãos &amp; Brothers</div>
+            <div class="sub-row">
+              <span class="sub">#1130 + #1112 · 4.42s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=G0pRRK6KVHE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 31 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J106" data-eps="31" data-val="J106 | #1114 + #1133 | EP 31 | Irmãos &amp; Brothers | j106_1114_1133 (7.00s)" data-search="j106 #1114 + #1133 31 irmãos &amp; brothers j106_1114_1133">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j106_1114_1133.jpg" alt="J106 — Irmãos &amp; Brothers" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j106_1114_1133.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J106</span>
+            <span class="ep-badge">EP 31</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J106</span> Irmãos &amp; Brothers</div>
+            <div class="sub-row">
+              <span class="sub">#1114 + #1133 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=G0pRRK6KVHE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 31 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J107" data-eps="31" data-val="J107 | #1120 + #1116 | EP 31 | Irmãos &amp; Brothers | j107_1120_1116 (2.58s)" data-search="j107 #1120 + #1116 31 irmãos &amp; brothers j107_1120_1116">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j107_1120_1116.jpg" alt="J107 — Irmãos &amp; Brothers" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j107_1120_1116.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J107</span>
+            <span class="ep-badge">EP 31</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J107</span> Irmãos &amp; Brothers</div>
+            <div class="sub-row">
+              <span class="sub">#1120 + #1116 · 2.58s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=G0pRRK6KVHE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 31 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J108" data-eps="31" data-val="J108 | #1109 + #1104 | EP 31 | Irmãos &amp; Brothers | j108_1109_1104 (3.92s)" data-search="j108 #1109 + #1104 31 irmãos &amp; brothers j108_1109_1104">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j108_1109_1104.jpg" alt="J108 — Irmãos &amp; Brothers" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j108_1109_1104.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J108</span>
+            <span class="ep-badge">EP 31</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J108</span> Irmãos &amp; Brothers</div>
+            <div class="sub-row">
+              <span class="sub">#1109 + #1104 · 3.92s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=G0pRRK6KVHE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 31 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J109" data-eps="31" data-val="J109 | #1101 + #1117 | EP 31 | Irmãos &amp; Brothers | j109_1101_1117 (2.67s)" data-search="j109 #1101 + #1117 31 irmãos &amp; brothers j109_1101_1117">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j109_1101_1117.jpg" alt="J109 — Irmãos &amp; Brothers" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j109_1101_1117.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J109</span>
+            <span class="ep-badge">EP 31</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J109</span> Irmãos &amp; Brothers</div>
+            <div class="sub-row">
+              <span class="sub">#1101 + #1117 · 2.67s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=G0pRRK6KVHE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 31 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J110" data-eps="31" data-val="J110 | #1125 + #1126 + #1124 | EP 31 | Irmãos &amp; Brothers | j110_1125_1126_1124 (9.71s)" data-search="j110 #1125 + #1126 + #1124 31 irmãos &amp; brothers j110_1125_1126_1124">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j110_1125_1126_1124.jpg" alt="J110 — Irmãos &amp; Brothers" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j110_1125_1126_1124.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J110</span>
+            <span class="ep-badge">EP 31</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J110</span> Irmãos &amp; Brothers</div>
+            <div class="sub-row">
+              <span class="sub">#1125 + #1126 + #1124 · 9.71s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=G0pRRK6KVHE" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 31 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J111" data-eps="32" data-val="J111 | #1141 + #1142 | EP 32 | Otis Selimane | j111_1141_1142 (6.46s)" data-search="j111 #1141 + #1142 32 otis selimane j111_1141_1142">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j111_1141_1142.jpg" alt="J111 — Otis Selimane" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j111_1141_1142.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J111</span>
+            <span class="ep-badge">EP 32</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J111</span> Otis Selimane</div>
+            <div class="sub-row">
+              <span class="sub">#1141 + #1142 · 6.46s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=425JpJIardo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 32 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J112" data-eps="32" data-val="J112 | #1149 + #1151 | EP 32 | Otis Selimane | j112_1149_1151 (7.00s)" data-search="j112 #1149 + #1151 32 otis selimane j112_1149_1151">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j112_1149_1151.jpg" alt="J112 — Otis Selimane" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j112_1149_1151.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J112</span>
+            <span class="ep-badge">EP 32</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J112</span> Otis Selimane</div>
+            <div class="sub-row">
+              <span class="sub">#1149 + #1151 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=425JpJIardo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 32 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J113" data-eps="32" data-val="J113 | #1148 + #1146 | EP 32 | Otis Selimane | j113_1148_1146 (5.46s)" data-search="j113 #1148 + #1146 32 otis selimane j113_1148_1146">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j113_1148_1146.jpg" alt="J113 — Otis Selimane" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j113_1148_1146.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J113</span>
+            <span class="ep-badge">EP 32</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J113</span> Otis Selimane</div>
+            <div class="sub-row">
+              <span class="sub">#1148 + #1146 · 5.46s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=425JpJIardo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 32 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J114" data-eps="32" data-val="J114 | #1153 + #1154 | EP 32 | Otis Selimane | j114_1153_1154 (2.42s)" data-search="j114 #1153 + #1154 32 otis selimane j114_1153_1154">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j114_1153_1154.jpg" alt="J114 — Otis Selimane" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j114_1153_1154.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J114</span>
+            <span class="ep-badge">EP 32</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J114</span> Otis Selimane</div>
+            <div class="sub-row">
+              <span class="sub">#1153 + #1154 · 2.42s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=425JpJIardo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 32 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J115" data-eps="32" data-val="J115 | #1156 + #1140 | EP 32 | Otis Selimane | j115_1156_1140 (3.67s)" data-search="j115 #1156 + #1140 32 otis selimane j115_1156_1140">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j115_1156_1140.jpg" alt="J115 — Otis Selimane" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j115_1156_1140.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J115</span>
+            <span class="ep-badge">EP 32</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J115</span> Otis Selimane</div>
+            <div class="sub-row">
+              <span class="sub">#1156 + #1140 · 3.67s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=425JpJIardo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 32 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J116" data-eps="32" data-val="J116 | #1144 + #1145 | EP 32 | Otis Selimane | j116_1144_1145 (2.58s)" data-search="j116 #1144 + #1145 32 otis selimane j116_1144_1145">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j116_1144_1145.jpg" alt="J116 — Otis Selimane" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j116_1144_1145.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J116</span>
+            <span class="ep-badge">EP 32</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J116</span> Otis Selimane</div>
+            <div class="sub-row">
+              <span class="sub">#1144 + #1145 · 2.58s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=425JpJIardo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 32 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J117" data-eps="32" data-val="J117 | #1169 + #1168 + #1167 | EP 32 | Otis Selimane | j117_1169_1168_1167 (4.79s)" data-search="j117 #1169 + #1168 + #1167 32 otis selimane j117_1169_1168_1167">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j117_1169_1168_1167.jpg" alt="J117 — Otis Selimane" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j117_1169_1168_1167.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J117</span>
+            <span class="ep-badge">EP 32</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J117</span> Otis Selimane</div>
+            <div class="sub-row">
+              <span class="sub">#1169 + #1168 + #1167 · 4.79s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=425JpJIardo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 32 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J118" data-eps="33" data-val="J118 | #1178 + #1179 | EP 33 | POIN — Pequena Orquestra Interativa | j118_1178_1179 (4.58s)" data-search="j118 #1178 + #1179 33 poin — pequena orquestra interativa j118_1178_1179">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j118_1178_1179.jpg" alt="J118 — POIN — Pequena Orquestra Interativa" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j118_1178_1179.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J118</span>
+            <span class="ep-badge">EP 33</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J118</span> POIN — Pequena Orquestra Interativa</div>
+            <div class="sub-row">
+              <span class="sub">#1178 + #1179 · 4.58s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=lpBv8_j4RdM" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 33 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J119" data-eps="33" data-val="J119 | #1210 + #1209 | EP 33 | POIN — Pequena Orquestra Interativa | j119_1210_1209 (5.25s)" data-search="j119 #1210 + #1209 33 poin — pequena orquestra interativa j119_1210_1209">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j119_1210_1209.jpg" alt="J119 — POIN — Pequena Orquestra Interativa" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j119_1210_1209.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J119</span>
+            <span class="ep-badge">EP 33</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J119</span> POIN — Pequena Orquestra Interativa</div>
+            <div class="sub-row">
+              <span class="sub">#1210 + #1209 · 5.25s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=lpBv8_j4RdM" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 33 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J120" data-eps="33" data-val="J120 | #1200 + #1201 | EP 33 | POIN — Pequena Orquestra Interativa | j120_1200_1201 (3.67s)" data-search="j120 #1200 + #1201 33 poin — pequena orquestra interativa j120_1200_1201">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j120_1200_1201.jpg" alt="J120 — POIN — Pequena Orquestra Interativa" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j120_1200_1201.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J120</span>
+            <span class="ep-badge">EP 33</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J120</span> POIN — Pequena Orquestra Interativa</div>
+            <div class="sub-row">
+              <span class="sub">#1200 + #1201 · 3.67s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=lpBv8_j4RdM" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 33 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J121" data-eps="33" data-val="J121 | #1202 + #1203 | EP 33 | POIN — Pequena Orquestra Interativa | j121_1202_1203 (2.79s)" data-search="j121 #1202 + #1203 33 poin — pequena orquestra interativa j121_1202_1203">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j121_1202_1203.jpg" alt="J121 — POIN — Pequena Orquestra Interativa" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j121_1202_1203.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J121</span>
+            <span class="ep-badge">EP 33</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J121</span> POIN — Pequena Orquestra Interativa</div>
+            <div class="sub-row">
+              <span class="sub">#1202 + #1203 · 2.79s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=lpBv8_j4RdM" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 33 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J122" data-eps="33" data-val="J122 | #1215 + #1216 | EP 33 | POIN — Pequena Orquestra Interativa | j122_1215_1216 (6.92s)" data-search="j122 #1215 + #1216 33 poin — pequena orquestra interativa j122_1215_1216">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j122_1215_1216.jpg" alt="J122 — POIN — Pequena Orquestra Interativa" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j122_1215_1216.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J122</span>
+            <span class="ep-badge">EP 33</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J122</span> POIN — Pequena Orquestra Interativa</div>
+            <div class="sub-row">
+              <span class="sub">#1215 + #1216 · 6.92s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=lpBv8_j4RdM" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 33 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J123" data-eps="33" data-val="J123 | #1217 + #1211 + #1183 | EP 33 | POIN — Pequena Orquestra Interativa | j123_1217_1211_1183 (8.96s)" data-search="j123 #1217 + #1211 + #1183 33 poin — pequena orquestra interativa j123_1217_1211_1183">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j123_1217_1211_1183.jpg" alt="J123 — POIN — Pequena Orquestra Interativa" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j123_1217_1211_1183.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J123</span>
+            <span class="ep-badge">EP 33</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J123</span> POIN — Pequena Orquestra Interativa</div>
+            <div class="sub-row">
+              <span class="sub">#1217 + #1211 + #1183 · 8.96s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=lpBv8_j4RdM" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 33 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J124" data-eps="34" data-val="J124 | #1227 + #1221 | EP 34 | Os Barbapapas | j124_1227_1221 (7.00s)" data-search="j124 #1227 + #1221 34 os barbapapas j124_1227_1221">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j124_1227_1221.jpg" alt="J124 — Os Barbapapas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j124_1227_1221.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J124</span>
+            <span class="ep-badge">EP 34</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J124</span> Os Barbapapas</div>
+            <div class="sub-row">
+              <span class="sub">#1227 + #1221 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qmpU_Kkyo1I" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 34 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J125" data-eps="34" data-val="J125 | #1222 + #1226 + #1229 | EP 34 | Os Barbapapas | j125_1222_1226_1229 (2.75s)" data-search="j125 #1222 + #1226 + #1229 34 os barbapapas j125_1222_1226_1229">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j125_1222_1226_1229.jpg" alt="J125 — Os Barbapapas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j125_1222_1226_1229.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J125</span>
+            <span class="ep-badge">EP 34</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J125</span> Os Barbapapas</div>
+            <div class="sub-row">
+              <span class="sub">#1222 + #1226 + #1229 · 2.75s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qmpU_Kkyo1I" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 34 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J126" data-eps="34" data-val="J126 | #1231 + #1234 | EP 34 | Os Barbapapas | j126_1231_1234 (4.38s)" data-search="j126 #1231 + #1234 34 os barbapapas j126_1231_1234">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j126_1231_1234.jpg" alt="J126 — Os Barbapapas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j126_1231_1234.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J126</span>
+            <span class="ep-badge">EP 34</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J126</span> Os Barbapapas</div>
+            <div class="sub-row">
+              <span class="sub">#1231 + #1234 · 4.38s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qmpU_Kkyo1I" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 34 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J127" data-eps="34" data-val="J127 | #1240 + #1270 | EP 34 | Os Barbapapas | j127_1240_1270 (6.00s)" data-search="j127 #1240 + #1270 34 os barbapapas j127_1240_1270">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j127_1240_1270.jpg" alt="J127 — Os Barbapapas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j127_1240_1270.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J127</span>
+            <span class="ep-badge">EP 34</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J127</span> Os Barbapapas</div>
+            <div class="sub-row">
+              <span class="sub">#1240 + #1270 · 6.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qmpU_Kkyo1I" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 34 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J128" data-eps="34" data-val="J128 | #1232 + #1233 + #1238 | EP 34 | Os Barbapapas | j128_1232_1233_1238 (3.46s)" data-search="j128 #1232 + #1233 + #1238 34 os barbapapas j128_1232_1233_1238">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j128_1232_1233_1238.jpg" alt="J128 — Os Barbapapas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j128_1232_1233_1238.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J128</span>
+            <span class="ep-badge">EP 34</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J128</span> Os Barbapapas</div>
+            <div class="sub-row">
+              <span class="sub">#1232 + #1233 + #1238 · 3.46s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qmpU_Kkyo1I" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 34 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J129" data-eps="34" data-val="J129 | #1236 + #1237 | EP 34 | Os Barbapapas | j129_1236_1237 (2.96s)" data-search="j129 #1236 + #1237 34 os barbapapas j129_1236_1237">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j129_1236_1237.jpg" alt="J129 — Os Barbapapas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j129_1236_1237.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J129</span>
+            <span class="ep-badge">EP 34</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J129</span> Os Barbapapas</div>
+            <div class="sub-row">
+              <span class="sub">#1236 + #1237 · 2.96s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qmpU_Kkyo1I" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 34 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J130" data-eps="34" data-val="J130 | #1244 + #1243 | EP 34 | Os Barbapapas | j130_1244_1243 (4.33s)" data-search="j130 #1244 + #1243 34 os barbapapas j130_1244_1243">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j130_1244_1243.jpg" alt="J130 — Os Barbapapas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j130_1244_1243.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J130</span>
+            <span class="ep-badge">EP 34</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J130</span> Os Barbapapas</div>
+            <div class="sub-row">
+              <span class="sub">#1244 + #1243 · 4.33s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qmpU_Kkyo1I" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 34 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J131" data-eps="34" data-val="J131 | #1262 + #1258 | EP 34 | Os Barbapapas | j131_1262_1258 (2.50s)" data-search="j131 #1262 + #1258 34 os barbapapas j131_1262_1258">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j131_1262_1258.jpg" alt="J131 — Os Barbapapas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j131_1262_1258.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J131</span>
+            <span class="ep-badge">EP 34</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J131</span> Os Barbapapas</div>
+            <div class="sub-row">
+              <span class="sub">#1262 + #1258 · 2.50s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qmpU_Kkyo1I" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 34 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J132" data-eps="34" data-val="J132 | #1272 + #1235 | EP 34 | Os Barbapapas | j132_1272_1235 (4.21s)" data-search="j132 #1272 + #1235 34 os barbapapas j132_1272_1235">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j132_1272_1235.jpg" alt="J132 — Os Barbapapas" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j132_1272_1235.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J132</span>
+            <span class="ep-badge">EP 34</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J132</span> Os Barbapapas</div>
+            <div class="sub-row">
+              <span class="sub">#1272 + #1235 · 4.21s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=qmpU_Kkyo1I" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 34 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J133" data-eps="35" data-val="J133 | #1280 + #1279 | EP 35 | Cornucópia Desvairada | j133_1280_1279 (7.00s)" data-search="j133 #1280 + #1279 35 cornucópia desvairada j133_1280_1279">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j133_1280_1279.jpg" alt="J133 — Cornucópia Desvairada" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j133_1280_1279.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J133</span>
+            <span class="ep-badge">EP 35</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J133</span> Cornucópia Desvairada</div>
+            <div class="sub-row">
+              <span class="sub">#1280 + #1279 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=e9P-PUJcqtA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 35 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J134" data-eps="35" data-val="J134 | #1312 + #1285 | EP 35 | Cornucópia Desvairada | j134_1312_1285 (6.50s)" data-search="j134 #1312 + #1285 35 cornucópia desvairada j134_1312_1285">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j134_1312_1285.jpg" alt="J134 — Cornucópia Desvairada" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j134_1312_1285.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J134</span>
+            <span class="ep-badge">EP 35</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J134</span> Cornucópia Desvairada</div>
+            <div class="sub-row">
+              <span class="sub">#1312 + #1285 · 6.50s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=e9P-PUJcqtA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 35 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J135" data-eps="35" data-val="J135 | #1287 + #1288 | EP 35 | Cornucópia Desvairada | j135_1287_1288 (2.38s)" data-search="j135 #1287 + #1288 35 cornucópia desvairada j135_1287_1288">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j135_1287_1288.jpg" alt="J135 — Cornucópia Desvairada" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j135_1287_1288.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J135</span>
+            <span class="ep-badge">EP 35</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J135</span> Cornucópia Desvairada</div>
+            <div class="sub-row">
+              <span class="sub">#1287 + #1288 · 2.38s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=e9P-PUJcqtA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 35 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J136" data-eps="35" data-val="J136 | #1299 + #1301 | EP 35 | Cornucópia Desvairada | j136_1299_1301 (3.96s)" data-search="j136 #1299 + #1301 35 cornucópia desvairada j136_1299_1301">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j136_1299_1301.jpg" alt="J136 — Cornucópia Desvairada" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j136_1299_1301.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J136</span>
+            <span class="ep-badge">EP 35</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J136</span> Cornucópia Desvairada</div>
+            <div class="sub-row">
+              <span class="sub">#1299 + #1301 · 3.96s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=e9P-PUJcqtA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 35 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J137" data-eps="35" data-val="J137 | #1311 + #1307 | EP 35 | Cornucópia Desvairada | j137_1311_1307 (2.33s)" data-search="j137 #1311 + #1307 35 cornucópia desvairada j137_1311_1307">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j137_1311_1307.jpg" alt="J137 — Cornucópia Desvairada" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j137_1311_1307.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J137</span>
+            <span class="ep-badge">EP 35</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J137</span> Cornucópia Desvairada</div>
+            <div class="sub-row">
+              <span class="sub">#1311 + #1307 · 2.33s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=e9P-PUJcqtA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 35 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J138" data-eps="35" data-val="J138 | #1316 + #1315 | EP 35 | Cornucópia Desvairada | j138_1316_1315 (4.29s)" data-search="j138 #1316 + #1315 35 cornucópia desvairada j138_1316_1315">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j138_1316_1315.jpg" alt="J138 — Cornucópia Desvairada" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j138_1316_1315.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J138</span>
+            <span class="ep-badge">EP 35</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J138</span> Cornucópia Desvairada</div>
+            <div class="sub-row">
+              <span class="sub">#1316 + #1315 · 4.29s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=e9P-PUJcqtA" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 35 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J139" data-eps="36" data-val="J139 | #1327 + #1348 | EP 36 | Welington Moreira Pimpa e Batucada | j139_1327_1348 (7.00s)" data-search="j139 #1327 + #1348 36 welington moreira pimpa e batucada j139_1327_1348">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j139_1327_1348.jpg" alt="J139 — Welington Moreira Pimpa e Batucada" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j139_1327_1348.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J139</span>
+            <span class="ep-badge">EP 36</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J139</span> Welington Moreira Pimpa e Batucada</div>
+            <div class="sub-row">
+              <span class="sub">#1327 + #1348 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=L32ol50gbyI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 36 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J140" data-eps="36" data-val="J140 | #1328 + #1331 | EP 36 | Welington Moreira Pimpa e Batucada | j140_1328_1331 (4.38s)" data-search="j140 #1328 + #1331 36 welington moreira pimpa e batucada j140_1328_1331">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j140_1328_1331.jpg" alt="J140 — Welington Moreira Pimpa e Batucada" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j140_1328_1331.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J140</span>
+            <span class="ep-badge">EP 36</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J140</span> Welington Moreira Pimpa e Batucada</div>
+            <div class="sub-row">
+              <span class="sub">#1328 + #1331 · 4.38s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=L32ol50gbyI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 36 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J141" data-eps="36" data-val="J141 | #1335 + #1342 | EP 36 | Welington Moreira Pimpa e Batucada | j141_1335_1342 (4.08s)" data-search="j141 #1335 + #1342 36 welington moreira pimpa e batucada j141_1335_1342">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j141_1335_1342.jpg" alt="J141 — Welington Moreira Pimpa e Batucada" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j141_1335_1342.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J141</span>
+            <span class="ep-badge">EP 36</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J141</span> Welington Moreira Pimpa e Batucada</div>
+            <div class="sub-row">
+              <span class="sub">#1335 + #1342 · 4.08s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=L32ol50gbyI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 36 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J142" data-eps="36" data-val="J142 | #1340 + #1341 | EP 36 | Welington Moreira Pimpa e Batucada | j142_1340_1341 (4.04s)" data-search="j142 #1340 + #1341 36 welington moreira pimpa e batucada j142_1340_1341">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j142_1340_1341.jpg" alt="J142 — Welington Moreira Pimpa e Batucada" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j142_1340_1341.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J142</span>
+            <span class="ep-badge">EP 36</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J142</span> Welington Moreira Pimpa e Batucada</div>
+            <div class="sub-row">
+              <span class="sub">#1340 + #1341 · 4.04s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=L32ol50gbyI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 36 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J143" data-eps="36" data-val="J143 | #1345 + #1352 | EP 36 | Welington Moreira Pimpa e Batucada | j143_1345_1352 (3.00s)" data-search="j143 #1345 + #1352 36 welington moreira pimpa e batucada j143_1345_1352">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j143_1345_1352.jpg" alt="J143 — Welington Moreira Pimpa e Batucada" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j143_1345_1352.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J143</span>
+            <span class="ep-badge">EP 36</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J143</span> Welington Moreira Pimpa e Batucada</div>
+            <div class="sub-row">
+              <span class="sub">#1345 + #1352 · 3.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=L32ol50gbyI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 36 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J144" data-eps="36" data-val="J144 | #1367 + #1363 + #1364 | EP 36 | Welington Moreira Pimpa e Batucada | j144_1367_1363_1364 (5.63s)" data-search="j144 #1367 + #1363 + #1364 36 welington moreira pimpa e batucada j144_1367_1363_1364">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j144_1367_1363_1364.jpg" alt="J144 — Welington Moreira Pimpa e Batucada" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j144_1367_1363_1364.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J144</span>
+            <span class="ep-badge">EP 36</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J144</span> Welington Moreira Pimpa e Batucada</div>
+            <div class="sub-row">
+              <span class="sub">#1367 + #1363 + #1364 · 5.63s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=L32ol50gbyI" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 36 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J145" data-eps="37" data-val="J145 | #1383 + #1379 | EP 37 | Luan Sodré Quarteto | j145_1383_1379 (7.00s)" data-search="j145 #1383 + #1379 37 luan sodré quarteto j145_1383_1379">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j145_1383_1379.jpg" alt="J145 — Luan Sodré Quarteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j145_1383_1379.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J145</span>
+            <span class="ep-badge">EP 37</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J145</span> Luan Sodré Quarteto</div>
+            <div class="sub-row">
+              <span class="sub">#1383 + #1379 · 7.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=kqkpshugkgo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 37 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J146" data-eps="37" data-val="J146 | #1393 + #1392 + #1398 | EP 37 | Luan Sodré Quarteto | j146_1393_1392_1398 (7.79s)" data-search="j146 #1393 + #1392 + #1398 37 luan sodré quarteto j146_1393_1392_1398">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j146_1393_1392_1398.jpg" alt="J146 — Luan Sodré Quarteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j146_1393_1392_1398.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J146</span>
+            <span class="ep-badge">EP 37</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J146</span> Luan Sodré Quarteto</div>
+            <div class="sub-row">
+              <span class="sub">#1393 + #1392 + #1398 · 7.79s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=kqkpshugkgo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 37 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J147" data-eps="37" data-val="J147 | #1405 + #1406 + #1407 | EP 37 | Luan Sodré Quarteto | j147_1405_1406_1407 (4.83s)" data-search="j147 #1405 + #1406 + #1407 37 luan sodré quarteto j147_1405_1406_1407">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j147_1405_1406_1407.jpg" alt="J147 — Luan Sodré Quarteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j147_1405_1406_1407.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J147</span>
+            <span class="ep-badge">EP 37</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J147</span> Luan Sodré Quarteto</div>
+            <div class="sub-row">
+              <span class="sub">#1405 + #1406 + #1407 · 4.83s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=kqkpshugkgo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 37 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J148" data-eps="37" data-val="J148 | #1382 + #1384 + #1391 | EP 37 | Luan Sodré Quarteto | j148_1382_1384_1391 (6.00s)" data-search="j148 #1382 + #1384 + #1391 37 luan sodré quarteto j148_1382_1384_1391">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j148_1382_1384_1391.jpg" alt="J148 — Luan Sodré Quarteto" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j148_1382_1384_1391.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J148</span>
+            <span class="ep-badge">EP 37</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J148</span> Luan Sodré Quarteto</div>
+            <div class="sub-row">
+              <span class="sub">#1382 + #1384 + #1391 · 6.00s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=kqkpshugkgo" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 37 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J149" data-eps="38" data-val="J149 | #1446 + #1441 | EP 38 | Neris | j149_1446_1441 (4.38s)" data-search="j149 #1446 + #1441 38 neris j149_1446_1441">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j149_1446_1441.jpg" alt="J149 — Neris" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j149_1446_1441.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J149</span>
+            <span class="ep-badge">EP 38</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J149</span> Neris</div>
+            <div class="sub-row">
+              <span class="sub">#1446 + #1441 · 4.38s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=MYND5sz_GfM" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 38 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J150" data-eps="38" data-val="J150 | #1447 + #1442 | EP 38 | Neris | j150_1447_1442 (5.13s)" data-search="j150 #1447 + #1442 38 neris j150_1447_1442">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j150_1447_1442.jpg" alt="J150 — Neris" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j150_1447_1442.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J150</span>
+            <span class="ep-badge">EP 38</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J150</span> Neris</div>
+            <div class="sub-row">
+              <span class="sub">#1447 + #1442 · 5.13s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=MYND5sz_GfM" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 38 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J151" data-eps="38" data-val="J151 | #1435 + #1439 + #1438 + #1437 | EP 38 | Neris | j151_1435_1439_1438_1437 (6.21s)" data-search="j151 #1435 + #1439 + #1438 + #1437 38 neris j151_1435_1439_1438_1437">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j151_1435_1439_1438_1437.jpg" alt="J151 — Neris" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j151_1435_1439_1438_1437.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J151</span>
+            <span class="ep-badge">EP 38</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J151</span> Neris</div>
+            <div class="sub-row">
+              <span class="sub">#1435 + #1439 + #1438 + #1437 · 6.21s</span>
+              <a class="yt-pill" href="https://www.youtube.com/watch?v=MYND5sz_GfM" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ YouTube Ep 38 ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J152" data-eps="39" data-val="J152 | #1453 + #1455 | EP 39 | Thamiris Cunha | j152_1453_1455 (7.00s)" data-search="j152 #1453 + #1455 39 thamiris cunha j152_1453_1455">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j152_1453_1455.jpg" alt="J152 — Thamiris Cunha" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j152_1453_1455.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J152</span>
+            <span class="ep-badge">EP 39</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J152</span> Thamiris Cunha</div>
+            <div class="sub-row">
+              <span class="sub">#1453 + #1455 · 7.00s</span>
+              <span class="yt-pill pending">Ep 39 não postado</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J153" data-eps="39" data-val="J153 | #1454 + #1477 | EP 39 | Thamiris Cunha | j153_1454_1477 (7.00s)" data-search="j153 #1454 + #1477 39 thamiris cunha j153_1454_1477">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j153_1454_1477.jpg" alt="J153 — Thamiris Cunha" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j153_1454_1477.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J153</span>
+            <span class="ep-badge">EP 39</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J153</span> Thamiris Cunha</div>
+            <div class="sub-row">
+              <span class="sub">#1454 + #1477 · 7.00s</span>
+              <span class="yt-pill pending">Ep 39 não postado</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J154" data-eps="39" data-val="J154 | #1475 + #1476 + #1472 | EP 39 | Thamiris Cunha | j154_1475_1476_1472 (6.79s)" data-search="j154 #1475 + #1476 + #1472 39 thamiris cunha j154_1475_1476_1472">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j154_1475_1476_1472.jpg" alt="J154 — Thamiris Cunha" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j154_1475_1476_1472.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J154</span>
+            <span class="ep-badge">EP 39</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J154</span> Thamiris Cunha</div>
+            <div class="sub-row">
+              <span class="sub">#1475 + #1476 + #1472 · 6.79s</span>
+              <span class="yt-pill pending">Ep 39 não postado</span>
+            </div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-code="J155" data-eps="39" data-val="J155 | #1468 + #1469 + #1471 | EP 39 | Thamiris Cunha | j155_1468_1469_1471 (8.88s)" data-search="j155 #1468 + #1469 + #1471 39 thamiris cunha j155_1468_1469_1471">
+          <div class="media-wrap">
+            <img src="assets/shots/isb_2026_curated/j155_1468_1469_1471.jpg" alt="J155 — Thamiris Cunha" loading="lazy">
+            <video src="assets/videos/isb_2026_curated/j155_1468_1469_1471.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J155</span>
+            <span class="ep-badge">EP 39</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J155</span> Thamiris Cunha</div>
+            <div class="sub-row">
+              <span class="sub">#1468 + #1469 + #1471 · 8.88s</span>
+              <span class="yt-pill pending">Ep 39 não postado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="toast">Lista copiada!</div>
+  <script>
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const countEl = document.getElementById('selectedCount');
+    const copyCountEl = document.getElementById('copyCount');
+    const searchInput = document.getElementById('searchInput');
+    const epFilter = document.getElementById('epFilter');
+
+    function updateCount() {
+      const n = cards.filter(c => c.classList.contains('is-picked')).length;
+      countEl.textContent = n;
+      copyCountEl.textContent = n;
+    }
+    function applyFilters() {
+      const q = searchInput.value.trim().toLowerCase();
+      const ep = epFilter.value;
+      cards.forEach(c => {
+        const eps = c.dataset.eps.split(',').map(s => s.trim());
+        const okEp = ep === 'all' || eps.includes(ep);
+        const okQ = !q || c.dataset.search.includes(q);
+        c.classList.toggle('hidden', !(okEp && okQ));
+      });
+      document.querySelectorAll('.group').forEach(g => {
+        g.style.display = g.querySelectorAll('.card:not(.hidden)').length ? '' : 'none';
+      });
+    }
+    cards.forEach(c => {
+      const vid = c.querySelector('video');
+      c.addEventListener('mouseenter', () => vid.play().catch(() => {}));
+      c.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+      c.addEventListener('click', () => {
+        c.classList.toggle('is-picked');
+        updateCount();
+      });
+    });
+    searchInput.addEventListener('input', applyFilters);
+    epFilter.addEventListener('change', applyFilters);
+    document.getElementById('selectAllBtn').addEventListener('click', () => {
+      cards.filter(c => !c.classList.contains('hidden')).forEach(c => c.classList.add('is-picked'));
+      updateCount();
+    });
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('is-picked'));
+      updateCount();
+    });
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const out = cards.filter(c => c.classList.contains('is-picked')).map(c => c.dataset.val);
+      navigator.clipboard.writeText(out.join('\n')).then(() => {
+        const t = document.getElementById('toast');
+        t.style.display = 'block';
+        setTimeout(() => t.style.display = 'none', 2500);
+      });
+    });
+  </script>
+</body>
+</html>
