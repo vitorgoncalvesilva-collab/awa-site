@@ -27,7 +27,7 @@ window.AWA_NEWS = [
     "date": "2026",
     "tag": "VIDEOCLIPE",
     "title": "LONNMAR, CHF — “SERENO” (Clipe Oficial)",
-    "excerpt": "Videoclipe oficial de LONNMAR & CHF (QG do Horizonte), com direção e edição de Lucas Ristow, fotografia de Lucas Ristow e Vitor Gonc e operação de câmera de Vitor Gonçalves.",
+    "excerpt": "Videoclipe oficial de LONNMAR & CHF (QG do Horizonte), com direção e edição de Lucas Ristow, fotografia de Lucas Ristow e Vitor Gonc e operação de câmera de Vitor Gonc.",
     "fullText": "Videoclipe oficial da faixa “SERENO”, de LONNMAR e CHF, lançado pelo selo QG do Horizonte. Direção e edição de Lucas Ristow, direção de fotografia de Lucas Ristow e Vitor Gonc, operação de câmera de Vitor Gonc, foto still de Gab de Jesus, captação/mix/master de Nando Lopes, instrumental de CHF e letra de LONNMAR, com apoio da Fdr Clothing. Entre o centro do Rio de Janeiro, o mar, voos de drone noturnos, planos-sequência e montagem em moldura, os 33 takes e sequências curados (de 71 planos decupados) já estão indexados no Shotdeck.",
     "image": "assets/shots/lonnmar_sereno/31_interior_noturno_acendendo_cigarro.jpg",
     "projectId": "lonnmar-chf-sereno"
@@ -194,7 +194,7 @@ window.AWA_PROJECTS = [
     "status": "Videoclipe Oficial · QG do Horizonte",
     "youtubeUrl": "https://www.youtube.com/watch?v=FyqZFqnNW5A",
     "logline": "Do centro histórico do Rio às escadarias diante do mar e aos voos noturnos de drone: LONNMAR e CHF atravessam a cidade entre planos-sequência, P&B em alto contraste e flash cuts rítmicos.",
-    "synopsis": "Videoclipe oficial da faixa “SERENO” (LONNMAR e CHF, lançamento QG do Horizonte), com direção e edição de Lucas Ristow, direção de fotografia de Lucas Ristow e Vitor Gonc e operação de câmera de Vitor Gonçalves. A montagem alterna caminhadas noturnas e cartelas no para-brisa chuvoso, retratos contemplativos à beira-mar, planos-sequência contínuos pelas ruas e becos do centro, drones noturnos sobre táxis e viadutos grafiteados e uma sequência staccato em moldura P&B.",
+    "synopsis": "Videoclipe oficial da faixa “SERENO” (LONNMAR e CHF, lançamento QG do Horizonte), com direção e edição de Lucas Ristow, direção de fotografia de Lucas Ristow e Vitor Gonc e operação de câmera de Vitor Gonc. A montagem alterna caminhadas noturnas e cartelas no para-brisa chuvoso, retratos contemplativos à beira-mar, planos-sequência contínuos pelas ruas e becos do centro, drones noturnos sobre táxis e viadutos grafiteados e uma sequência staccato em moldura P&B.",
     "directorNote": "Fotografia urbana e noturna em 16:9 4K captada com Sony FX30 e Lumix GX80 e conjunto óptico Rokinon 7mm f3.5, Raynette 28mm f2.8, Sigma 17-35mm f2.8, Olympus Zuiko 12-50mm f3.5 e Tamron 17-70mm f2.8.",
     "coverImage": "assets/shots/lonnmar_sereno/31_interior_noturno_acendendo_cigarro.jpg",
     "coverVideo": "assets/videos/lonnmar_sereno/31_interior_noturno_acendendo_cigarro.mp4",
