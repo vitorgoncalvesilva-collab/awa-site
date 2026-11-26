@@ -7,7 +7,7 @@ window.AWA_CONFIG = {
   brandName: "ÀWA",
   tagline: "Nós somos a imagem que nos olha de volta.",
   email: "contato@awacinema.com.br", // <-- Substitua pelo seu e-mail real
-  location: "São Paulo · Salvador · Rio de Janeiro",
+  location: "BRASIL",
   instagram: "@awa.cinema",
   vimeo: "vimeo.com/awacinema",
   assets: {
