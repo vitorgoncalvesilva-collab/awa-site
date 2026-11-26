@@ -806,18 +806,39 @@
       });
     }
 
-    // Galeria Interativa (apenas categorias existentes no acervo, em ordem aleatória)
-    const existingCats = Array.from(
-      new Set((window.AWA_SHOTS || []).map((s) => s.category).filter(Boolean))
-    );
-    const categories = ["Todos", ...shuffleArray(existingCats)];
-    let activeCat = "Todos";
+    // Galeria Interativa: todas as categorias, enquadramentos e tags existentes em ordem aleatória
+    const tagDisplayMap = new Map();
+    const addFilterTag = (raw) => {
+      const clean = String(raw || "").trim();
+      if (!clean || clean === "," || clean === "-" || clean === "—") return;
+      const key = norm(clean);
+      if (!key || tagDisplayMap.has(key)) return;
+      tagDisplayMap.set(key, clean);
+    };
+
+    (window.AWA_SHOTS || []).forEach((s) => {
+      addFilterTag(s.category);
+      addFilterTag(s.enquadramento);
+      (s.tags || []).forEach(addFilterTag);
+    });
+
+    const allFilterTags = shuffleArray(Array.from(tagDisplayMap.values()));
+    const INITIAL_TAG_LIMIT = 14;
+    let showAllTags = false;
+    let activeTag = "Todos";
+
+    function shotMatchesTag(shot, tag) {
+      if (tag === "Todos") return true;
+      const target = norm(tag);
+      if (norm(shot.category) === target || norm(shot.enquadramento) === target) return true;
+      return (shot.tags || []).some((t) => norm(t) === target);
+    }
 
     function renderGallery() {
       const basePool =
-        activeCat === "Todos"
+        activeTag === "Todos"
           ? window.AWA_SHOTS
-          : window.AWA_SHOTS.filter((s) => s.category === activeCat);
+          : (window.AWA_SHOTS || []).filter((s) => shotMatchesTag(s, activeTag));
       const filtered = shuffleArray(basePool).slice(0, 8);
 
       if (!filtered.length) {
@@ -869,24 +890,50 @@
     }
 
     if (galleryFiltersEl && galleryGridEl) {
-      galleryFiltersEl.innerHTML = categories
-        .map(
-          (cat) => `
-        <button type="button" class="filter-pill ${cat === activeCat ? "active" : ""}" data-cat="${cat}">
-          ${cat}
-        </button>`
-        )
-        .join("");
+      function renderGalleryFilters() {
+        const visibleTags = showAllTags ? allFilterTags : allFilterTags.slice(0, INITIAL_TAG_LIMIT);
+        const pillList = ["Todos", ...visibleTags];
+        if (activeTag !== "Todos" && !pillList.includes(activeTag)) {
+          pillList.push(activeTag);
+        }
 
-      galleryFiltersEl.querySelectorAll("[data-cat]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          activeCat = btn.dataset.cat;
-          galleryFiltersEl.querySelectorAll(".filter-pill").forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-          renderGallery();
+        const pillsHtml = pillList
+          .map((tag) => {
+            const safeTag = tag.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+            return `
+          <button type="button" class="filter-pill ${tag === activeTag ? "active" : ""}" data-tag="${safeTag}">
+            ${safeTag}
+          </button>`;
+          })
+          .join("");
+
+        const toggleHtml =
+          allFilterTags.length > INITIAL_TAG_LIMIT
+            ? `<button type="button" class="filter-pill" id="gallery-toggle-tags" style="border-style:dashed;color:var(--fg);">
+                ${showAllTags ? "Mostrar menos" : `Ver todas (${allFilterTags.length}) +`}
+              </button>`
+            : "";
+
+        galleryFiltersEl.innerHTML = pillsHtml + toggleHtml;
+
+        galleryFiltersEl.querySelectorAll("[data-tag]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            activeTag = btn.dataset.tag;
+            renderGalleryFilters();
+            renderGallery();
+          });
         });
-      });
 
+        const toggleBtn = document.getElementById("gallery-toggle-tags");
+        if (toggleBtn) {
+          toggleBtn.addEventListener("click", () => {
+            showAllTags = !showAllTags;
+            renderGalleryFilters();
+          });
+        }
+      }
+
+      renderGalleryFilters();
       renderGallery();
     }
   }
