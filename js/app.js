@@ -155,7 +155,7 @@
     const navItems = [
       { id: "home", label: "Início", href: "index.html" },
       { id: "portfolio", label: "Portfólio / Shotdeck", href: "portfolio.html" },
-      { id: "time", label: "Time & Parceiros", href: "time.html" },
+      // { id: "time", label: "Time & Parceiros", href: "time.html" },
       { id: "clientes", label: "Clientes & Projetos", href: "clientes.html" }
     ];
 
@@ -230,7 +230,6 @@
               <div class="footer-links">
                 <a href="index.html">Início & Notícias</a>
                 <a href="portfolio.html">Portfólio / Shotdeck</a>
-                <a href="time.html">Time & Parceiros</a>
                 <a href="clientes.html">Clientes & Projetos</a>
                 <a href="contato.html">Contato Direto</a>
               </div>
