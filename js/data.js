@@ -28,7 +28,7 @@ window.AWA_NEWS = [
     "tag": "TEMPORADA · SHOW AO VIVO",
     "title": "Instrumental Sesc Brasil 2026 — 39 Episódios no Sesc Consolação",
     "excerpt": "Cobertura documental e de bastidores da temporada 2026 do Instrumental Sesc Brasil (39 episódios, com 37 já publicados na playlist oficial do YouTube).",
-    "fullText": "Temporada 2026 do Instrumental Sesc Brasil gravada no Teatro Anchieta (Sesc Consolação), reunindo 39 episódios do ciclo de música instrumental brasileira. Direção de Conteúdo de Vitor Gonc, Coordenação de Bianca Lombardi Ellwanger, Coordenação de Comunicação de Gabriela Zacarias Rassy, Cinegrafista / Videomaker Davi Gomes Massari e Vitor Gonc, Logger/Ass. de Edição Betânia Dutra de Oliveira e Gestão de Redes Sociais (YouTube) de Gabriel Sartore. Captado com Blackmagic Pocket 4k, Olympus Em1 mkii (Lumix GX80 nos episódios 01–03), GoPro Hero 5 e iPhone 12/13, com lentes Lumix 25mm f1.7, Olympus Zuiko 12-50mm f3.5, Tamron 70-210mm f2.8 e Rokinon 7mm f3.5. Todos os 162 takes e sequências curados já estão indexados no Shotdeck com acesso direto ao episódio correspondente no YouTube.",
+    "fullText": "Temporada 2026 do Instrumental Sesc Brasil gravada no Teatro Anchieta (Sesc Consolação), reunindo 39 episódios do ciclo de música instrumental brasileira. Produção Sesc / Recheio, Direção de Conteúdo de Vitor Gonc, Coordenação de Bianca Lombardi Ellwanger, Coordenação de Comunicação de Gabriela Zacarias Rassy, Cinegrafista / Videomaker Davi Gomes Massari e Vitor Gonc, Logger/Ass. de Edição Betânia Dutra de Oliveira e Gestão de Redes Sociais (YouTube) de Gabriel Sartore. Captado com Blackmagic Pocket 4k, Olympus Em1 mkii (Lumix GX80 nos episódios 01–03), GoPro Hero 5 e iPhone 12/13, com lentes Lumix 25mm f1.7, Olympus Zuiko 12-50mm f3.5, Tamron 70-210mm f2.8 e Rokinon 7mm f3.5. Todos os 162 takes e sequências curados já estão indexados no Shotdeck com acesso direto ao episódio correspondente no YouTube.",
     "image": "assets/shots/isb_2026_curated/j001_0002_0007_0008_0010_etc6.jpg",
     "projectId": "instrumental-sesc-brasil-2026"
   },
@@ -130,7 +130,7 @@ window.AWA_PROJECTS = [
     "title": "Instrumental Sesc Brasil — Temporada 2026",
     "category": "Show Ao Vivo",
     "year": "2026",
-    "client": "Sesc São Paulo / Sesc Consolação",
+    "client": "Sesc / Recheio",
     "duration": "39 Episódios · 162 Takes & Sequências",
     "format": "16:9 Full HD / 4K · Cor",
     "aspectRatio": "16:9 (1920×1080)",
@@ -15144,7 +15144,7 @@ window.AWA_PARTNERS = [];
 
 window.AWA_CLIENTS = [
   {
-    "name": "Sesc São Paulo / ISB 2026",
+    "name": "Sesc / Recheio",
     "sector": "Música, Show Ao Vivo & Série Documental",
     "projectsCount": "39 episódios · 162 takes",
     "highlight": "Instrumental Sesc Brasil — Temporada 2026",
