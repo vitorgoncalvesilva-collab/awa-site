@@ -306,6 +306,7 @@ window.AWA_PROJECTS = [
     "camera": "Olympus Em1 Mkii, Blackmagic Pocket 4k, Blackmagic Pocket 6k",
     "lenses": "Olympus Zuiko 12-50mm f3.5, Lumix 25mm f1.7, Sigma Art 18-35mm f1.8",
     "status": "Campanha Oficial · Collab Vizzela + As Brabas",
+    "youtubeUrl": "https://www.youtube.com/watch?v=U10SCYst6DQ",
     "logline": "Futebol feminino, beleza e atitude em campo: jogadoras das Brabas protagonizam o lançamento do Lip Oil Frozen Grape da Vizzela com chaveiro exclusivo.",
     "synopsis": "Filme da campanha oficial da colaboração entre Vizzela Cosméticos e As Brabas (futebol feminino do Corinthians) para o lançamento do Lip Oil Frozen Grape — Edição Especial. Com direção audiovisual de Vitor Gonc, operação de câmera de Vitor Gonc, Davi Massari e Adam Goodman e edição e motion de João Victor Toledo, a narrativa visual articula três blocos em campo e arquibancada: condução de bola e embaixadinhas com chuteira rosa, preparação da goleira com efeito cooling refrescante e apresentação do frasco com chaveiro metálico exclusivo.",
     "directorNote": "Captação multicâmera com Olympus Em1 Mkii, Blackmagic Pocket 4k, Blackmagic Pocket 6k e lentes Olympus Zuiko 12-50mm f3.5, Lumix 25mm f1.7, Sigma Art 18-35mm f1.8 em luz natural difusa de campo e cobertura de arquibancada, combinando câmera baixa rente ao gramado, contra-plongées geométricos, packshots em foco seletivo e motion graphics em estética de colagem esportiva.",

@@ -545,6 +545,7 @@
               <div><strong>Obra —</strong> <a href="projeto.html?id=${encodeURIComponent(project.id)}" class="eyecandy-credit-link">${project.title}</a> (${project.category})</div>
               <div><strong>Óptica & Câmera —</strong> ${shot.lente} · ${shot.camera} · ${shot.iluminacao}</div>
               <div><strong>Timecode —</strong> <span class="mono">${shot.timecode}</span></div>
+              ${project.creditNote ? `<div><strong>Participação —</strong> ${project.creditNote}</div>` : ""}
             </div>
             <p style="color:var(--fg-muted);font-size:0.9rem;line-height:1.55;margin-bottom:14px;max-width:66ch;">${shot.notes}</p>
             <div class="eyecandy-pill-tags">
@@ -1264,6 +1265,7 @@
               <div class="shot-card-project">${proj.client}</div>
               <h3 class="shot-card-title">${proj.title}</h3>
               <p style="color:var(--fg-muted);font-size:0.86rem;line-height:1.5;">${proj.logline}</p>
+              ${proj.creditNote ? `<p class="mono" style="color:var(--fg-soft);font-size:0.72rem;line-height:1.45;margin-top:6px;">${proj.creditNote}</p>` : ""}
               <div class="shot-specs-line" style="margin-top:auto;padding-top:8px;">
                 <span>${proj.duration}</span>
                 <span>·</span>
@@ -1463,6 +1465,11 @@
                   )
                   .join("")}
               </div>
+              ${
+                project.creditNote
+                  ? `<p class="mono" style="margin-top:14px;padding:12px 14px;border:1px solid var(--border);border-left:2px solid var(--fg);background:var(--surface-1);color:var(--fg-soft);font-size:0.78rem;line-height:1.55;">${project.creditNote}</p>`
+                  : ""
+              }
             </div>
           </div>
 
