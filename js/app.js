@@ -356,7 +356,7 @@
             <p style="color:var(--fg-muted);font-size:0.9rem;line-height:1.55;margin-bottom:14px;max-width:66ch;">${shot.notes}</p>
             <div class="eyecandy-pill-tags">
               ${shot.tags
-                .slice(0, 6)
+                .slice(0, shot.projectId === "instrumental-sesc-brasil-2026" ? 45 : 6)
                 .map(
                   (t) =>
                     `<a href="portfolio.html?q=${encodeURIComponent(t)}" class="eyecandy-pill-tag">${t}</a>`
