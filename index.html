@@ -9,14 +9,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/awa.css?v=20261125d" />
+  <link rel="stylesheet" href="css/awa.css?v=20261126b" />
 </head>
 <body data-page="home">
   <header class="site-header" id="site-header"></header>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Menu móvel"></nav>
 
   <main>
-    <!-- SETOR 1: NOTÍCIAS RECENTES NO TOPO -->
+    <!-- SETOR 1: 3 ÚLTIMOS PROJETOS NO TOPO -->
     <div class="news-ticker-bar" aria-label="Últimas notícias">
       <div class="container news-ticker-inner">
         <span class="ticker-badge">Projetos Recentes</span>
@@ -26,43 +26,31 @@
 
     <section class="hero-news-section">
       <div class="container">
-        <div class="hero-grid">
-          <div class="hero-lead">
+        <div class="hero-top-bar">
+          <div class="hero-juncao-wrap">
+            <img src="assets/brand/awa-juncao.png" alt="ÀWA — Símbolo e Tipografia" class="hero-juncao-img" />
             <div>
-              <div class="hero-juncao-wrap" style="margin-bottom:28px;">
-                <img src="assets/brand/awa-juncao.png" alt="ÀWA — Símbolo e Tipografia" class="hero-juncao-img" />
-                <div>
-                  <div class="eyebrow">Cinema Autoral · Nó Infinito</div>
-                  <p class="mono" style="font-size:0.74rem;color:var(--fg-muted);margin-top:6px;">ÀWA (IORUBÁ) — "NÓS" / "NÓS SOMOS"</p>
-                </div>
-              </div>
-              <h1 class="hero-title">Nós somos a imagem que nos olha de volta.</h1>
-            </div>
-
-            <p class="hero-subtitle">
-              Cinema tecido de dentro para fora. Aqui reunimos nossos projetos mais recentes, uma galeria interativa de quadros e nosso acervo técnico de takes estilo Shotdeck.
-            </p>
-
-            <div class="hero-actions">
-              <a href="portfolio.html" class="btn btn-primary">Buscar Takes no Shotdeck →</a>
-              <a href="clientes.html" class="btn btn-ghost">Catálogo de Obras</a>
-              <a href="contato.html" class="btn btn-ghost">Iniciar Conversa</a>
+              <h1 class="hero-eyebrow-heading">Últimos Projetos</h1>
+              <p class="mono" style="font-size:0.74rem;color:var(--fg-muted);margin-top:4px;">ÀWA (IORUBÁ) — "NÓS" / "NÓS SOMOS" · CINEMA AUTORAL</p>
             </div>
           </div>
 
-          <!-- Notícia em Destaque no Topo -->
-          <article class="hero-featured-card" id="hero-featured-news"></article>
+          <div class="hero-actions">
+            <a href="clientes.html" class="btn btn-primary">Catálogo de Obras →</a>
+            <a href="portfolio.html" class="btn btn-ghost">Buscar Takes no Shotdeck</a>
+            <a href="contato.html" class="btn btn-ghost">Iniciar Conversa</a>
+          </div>
         </div>
 
-        <!-- Três Notícias Recentes em Grade Editorial -->
-        <div class="news-strip-header">
-          <div>
-            <div class="eyebrow" style="margin-bottom:8px;">Setor 01 · Sala de Imprensa & Estreias</div>
-            <h2 class="section-heading">Notícias Recentes</h2>
-          </div>
-          <span class="mono" style="font-size:0.72rem;color:var(--fg-muted);">CLIQUE EM QUALQUER NOTA PARA LER</span>
+        <!-- Os 3 últimos projetos inseridos com compilado aleatório de takes -->
+        <div class="hero-latest-grid" id="hero-latest-projects"></div>
+
+        <div class="hero-latest-footer">
+          <span class="mono" style="font-size:0.72rem;letter-spacing:0.14em;color:var(--fg-muted);text-transform:uppercase;">
+            Clique em qualquer projeto para abrir ficha técnica e takes
+          </span>
+          <a href="clientes.html" class="btn btn-ghost btn-sm">Ver Catálogo de Obras Completo →</a>
         </div>
-        <div class="news-grid" id="news-grid"></div>
       </div>
     </section>
 
@@ -166,6 +154,6 @@
   <footer class="site-footer" id="site-footer"></footer>
 
   <script src="js/data.js?v=20261125e"></script>
-  <script src="js/app.js?v=20261126a"></script>
+  <script src="js/app.js?v=20261126b"></script>
 </body>
 </html>

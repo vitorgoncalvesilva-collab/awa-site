@@ -287,7 +287,7 @@
 
   let stopActiveNewsReel = null;
 
-  function mountProjectTakeReel(containerEl, projectId, fallbackImage, altText) {
+  function mountProjectTakeReel(containerEl, projectId, fallbackImage, altText, options = {}) {
     if (!containerEl) return null;
     const rawTakes = (window.AWA_SHOTS || []).filter((s) => s.projectId === projectId && s.video);
     if (!rawTakes.length) {
@@ -295,6 +295,9 @@
       return null;
     }
 
+    const baseWindowMs = options.clipWindowMs || 2800;
+    const initialDelayMs = options.initialDelayMs || baseWindowMs;
+    let isFirstCut = true;
     let queue = shuffleArray(rawTakes);
     let idx = 0;
     let activeSlot = 0;
@@ -363,21 +366,24 @@
       clearTimers();
       if (stopped || queue.length <= 1) return;
       const currentVid = slots[activeSlot];
-      const CLIP_WINDOW_MS = 2800;
+      const delayMs = isFirstCut ? initialDelayMs : baseWindowMs;
+      isFirstCut = false;
 
       const triggerAdvance = () => {
         if (stopped || !document.body.contains(containerEl)) {
           stopAll();
           return;
         }
-        if (document.hidden) {
+        const rect = containerEl.getBoundingClientRect();
+        const offscreen = rect.bottom < -120 || rect.top > (window.innerHeight || 900) + 120;
+        if (document.hidden || offscreen) {
           cutTimer = setTimeout(triggerAdvance, 1000);
           return;
         }
         advanceTake();
       };
 
-      cutTimer = setTimeout(triggerAdvance, CLIP_WINDOW_MS);
+      cutTimer = setTimeout(triggerAdvance, delayMs);
       currentVid.onended = () => {
         clearTimers();
         triggerAdvance();
@@ -633,6 +639,7 @@
   // =========================================================================
   function initHomePage() {
     const tickerEl = document.getElementById("news-ticker-items");
+    const latestGridEl = document.getElementById("hero-latest-projects");
     const heroFeatureEl = document.getElementById("hero-featured-news");
     const newsGridEl = document.getElementById("news-grid");
     const galleryFiltersEl = document.getElementById("gallery-filters");
@@ -650,6 +657,66 @@
       tickerEl.querySelectorAll("[data-news-id]").forEach((el) => {
         el.addEventListener("click", () => openNewsModal(el.dataset.newsId));
       });
+    }
+
+    if (latestGridEl) {
+      const latestProjects = (window.AWA_NEWS || []).slice(0, 3);
+      if (latestProjects.length) {
+        latestGridEl.innerHTML = latestProjects
+          .map(
+            (item, idx) => `
+          <article class="hero-featured-card" data-news-id="${item.id}" tabindex="0">
+            <div class="hero-featured-media" id="hero-featured-media-${idx}">
+              <img src="${item.image}" alt="${item.title}" />
+            </div>
+            <div class="hero-featured-body">
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <div class="news-meta-row">
+                  <span class="news-tag">${item.tag}</span>
+                  <span>${item.date}</span>
+                </div>
+                <h2 style="font-family:var(--font-display);font-size:1.15rem;font-weight:500;line-height:1.28;">${item.title}</h2>
+                <p style="color:var(--fg-muted);font-size:0.86rem;line-height:1.55;">${item.excerpt}</p>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border);">
+                <span class="mono" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;">Abrir projeto</span>
+                <span>→</span>
+              </div>
+            </div>
+          </article>`
+          )
+          .join("");
+
+        latestProjects.forEach((item, idx) => {
+          mountProjectTakeReel(
+            document.getElementById(`hero-featured-media-${idx}`),
+            item.projectId,
+            item.image,
+            item.title,
+            { initialDelayMs: 2600 + idx * 700, clipWindowMs: 2800 + idx * 250 }
+          );
+        });
+
+        latestGridEl.querySelectorAll("[data-news-id]").forEach((card) => {
+          card.addEventListener("click", () => openNewsModal(card.dataset.newsId));
+          card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openNewsModal(card.dataset.newsId);
+            }
+          });
+        });
+      } else {
+        latestGridEl.innerHTML = `
+          <article class="hero-featured-card" style="grid-column: 1 / -1;">
+            <div class="hero-featured-body" style="justify-content:center;align-items:flex-start;min-height:220px;">
+              <span class="news-tag">EM BREVE</span>
+              <h2 style="font-family:var(--font-display);font-size:1.35rem;font-weight:500;">Novo acervo ÀWA em ingestão</h2>
+              <p style="color:var(--fg-muted);font-size:0.92rem;">Os primeiros trabalhos e projetos oficiais estão sendo catalogados direto do DaVinci Resolve Studio.</p>
+            </div>
+          </article>
+        `;
+      }
     }
 
     if (heroFeatureEl) {
