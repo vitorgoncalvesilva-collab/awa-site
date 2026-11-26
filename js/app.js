@@ -984,34 +984,21 @@
       }
     }, 2600);
 
-    // Nuvem limpa de técnicas & termos (estilo Eyecandy)
-    const cloudTerms = [
-      "ZENITAL",
-      "SILHUETA",
-      "CONTRA-PLONGÉE",
-      "CLOSE-UP",
-      "PLANO GERAL",
-      "PLANO MÉDIO",
-      "PLONGÉE",
-      "OVER-THE-SHOULDER",
-      "LENS FLARE",
-      "CONTRALUZ",
-      "DETALHE",
-      "WHIP PAN",
-      "VIDEOCLIPE",
-      "SHOW AO VIVO",
-      "VITÃO",
-      "MARIANA NOLASCO",
-      "JUNIOR CASTRO",
-      "INSTRUMENTAL SESC BRASIL",
-      "ISB 2026",
-      "BMMCC 2.5K",
-      "BMPCC 6K",
-      "BMPCC 4K",
-      "OLYMPUS EM1 MKII",
-      "SESC CONSOLAÇÃO",
-      "SESC MOGI"
-    ];
+    // Nuvem randômica de técnicas, categorias & tags reais do acervo (50 termos por carregamento)
+    const cloudTagMap = new Map();
+    const addCloudTerm = (raw) => {
+      const clean = String(raw || "").trim();
+      if (!clean || clean === "," || clean === "-" || clean === "—") return;
+      const key = norm(clean);
+      if (!key || cloudTagMap.has(key)) return;
+      cloudTagMap.set(key, clean.toUpperCase());
+    };
+    (window.AWA_SHOTS || []).forEach((s) => {
+      addCloudTerm(s.category);
+      addCloudTerm(s.enquadramento);
+      (s.tags || []).forEach(addCloudTerm);
+    });
+    const cloudTerms = shuffleArray(Array.from(cloudTagMap.values())).slice(0, 50);
 
     // Construir índice de autocompletar
     const suggestionPool = [];
@@ -1037,12 +1024,14 @@
     function renderTagCloud() {
       if (!tagCloudEl) return;
       tagCloudEl.innerHTML = cloudTerms
-        .map(
-          (t) => `
-        <button type="button" class="cloud-tag-btn ${norm(state.query) === norm(t) ? "active" : ""}" data-q="${t.toLowerCase()}">
-          ${t}
-        </button>`
-        )
+        .map((t) => {
+          const safeDisplay = t.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+          const safeQuery = t.toLowerCase().replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+          return `
+        <button type="button" class="cloud-tag-btn ${norm(state.query) === norm(t) ? "active" : ""}" data-q="${safeQuery}">
+          ${safeDisplay}
+        </button>`;
+        })
         .join("");
 
       tagCloudEl.querySelectorAll("[data-q]").forEach((btn) => {
