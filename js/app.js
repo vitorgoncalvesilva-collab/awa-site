@@ -1695,7 +1695,7 @@
       {
         key: "name",
         prompt: "Olá! Aqui é a mesa de direção da ÀWA. Como podemos te chamar (seu nome ou produtora)?",
-        placeholder: "Ex: Mariana Luz / Selo Brisa",
+        placeholder: "Digite aqui sua mensagem",
         quick: []
       },
       {
