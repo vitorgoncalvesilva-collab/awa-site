@@ -587,14 +587,26 @@
     document.getElementById("eye-next-btn").onclick = goNext;
   }
 
-  function openNewsModal(newsId) {
-    const item = (window.AWA_NEWS || []).find((n) => n.id === newsId);
+  function openNewsModal(newsOrProjectId) {
+    let item = (window.AWA_NEWS || []).find((n) => n.id === newsOrProjectId || n.projectId === newsOrProjectId);
+    const projectMatch = item ? getProjectById(item.projectId) : (window.AWA_PROJECTS || []).find((p) => p.id === newsOrProjectId);
+    if (!item && projectMatch) {
+      item = {
+        id: projectMatch.id,
+        projectId: projectMatch.id,
+        tag: (projectMatch.category || "PROJETO").toUpperCase(),
+        date: projectMatch.year,
+        title: projectMatch.title,
+        fullText: projectMatch.synopsis || projectMatch.logline || "",
+        image: projectMatch.coverImage
+      };
+    }
     if (!item) return;
     if (typeof stopActiveNewsReel === "function") {
       stopActiveNewsReel();
       stopActiveNewsReel = null;
     }
-    const project = getProjectById(item.projectId);
+    const project = projectMatch || getProjectById(item.projectId);
     const modal = ensureGlobalModal();
 
     modal.innerHTML = `
@@ -660,12 +672,23 @@
     }
 
     if (latestGridEl) {
-      const latestProjects = (window.AWA_NEWS || []).slice(0, 3);
-      if (latestProjects.length) {
-        latestGridEl.innerHTML = latestProjects
+      const randomProjects = shuffleArray(window.AWA_PROJECTS || []).slice(0, 3).map((proj) => {
+        const newsMatch = (window.AWA_NEWS || []).find((n) => n.projectId === proj.id);
+        return {
+          modalKey: newsMatch ? newsMatch.id : proj.id,
+          projectId: proj.id,
+          tag: newsMatch ? newsMatch.tag : proj.category,
+          date: proj.year,
+          title: newsMatch ? newsMatch.title : proj.title,
+          excerpt: newsMatch ? newsMatch.excerpt : proj.logline,
+          image: newsMatch ? newsMatch.image : proj.coverImage
+        };
+      });
+      if (randomProjects.length) {
+        latestGridEl.innerHTML = randomProjects
           .map(
             (item, idx) => `
-          <article class="hero-featured-card" data-news-id="${item.id}" tabindex="0">
+          <article class="hero-featured-card" data-news-id="${item.modalKey}" tabindex="0">
             <div class="hero-featured-media" id="hero-featured-media-${idx}">
               <img src="${item.image}" alt="${item.title}" />
             </div>
@@ -687,7 +710,7 @@
           )
           .join("");
 
-        latestProjects.forEach((item, idx) => {
+        randomProjects.forEach((item, idx) => {
           mountProjectTakeReel(
             document.getElementById(`hero-featured-media-${idx}`),
             item.projectId,
