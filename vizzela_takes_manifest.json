@@ -1,0 +1,6142 @@
+[
+  {
+    "vid_idx": 1,
+    "title": "vizzela_asbrabas",
+    "filename": "vizzela_asbrabas.mp4",
+    "orientation": "horizontal",
+    "aspect": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": "24",
+    "total_dur": 42.0,
+    "category": "Labial & Boca",
+    "takes_count": 21,
+    "takes": [
+      {
+        "slug": "v01_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 6.25,
+        "dur": 6.25,
+        "desc": "Abertura — Jogadora Amarrando a Chuteira",
+        "jpg": "assets/shots/vizzela_takes/v01_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_001.mp4"
+      },
+      {
+        "slug": "v01_002",
+        "take_idx": 2,
+        "t0": 6.25,
+        "t1": 9.33,
+        "dur": 3.08,
+        "desc": "Close-Up Rosto — Jogadora em Aquecimento",
+        "jpg": "assets/shots/vizzela_takes/v01_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_002.mp4"
+      },
+      {
+        "slug": "v01_003",
+        "take_idx": 3,
+        "t0": 9.33,
+        "t1": 11.33,
+        "dur": 2.0,
+        "desc": "Contra-Plongée no Gol — Jogadora Conduzindo a Bola",
+        "jpg": "assets/shots/vizzela_takes/v01_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_003.mp4"
+      },
+      {
+        "slug": "v01_004",
+        "take_idx": 4,
+        "t0": 11.33,
+        "t1": 12.25,
+        "dur": 0.92,
+        "desc": "Plano Detalhe Lateral — Chuteira Rosa no Gramado",
+        "jpg": "assets/shots/vizzela_takes/v01_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_004.mp4"
+      },
+      {
+        "slug": "v01_005",
+        "take_idx": 5,
+        "t0": 12.25,
+        "t1": 13.54,
+        "dur": 1.29,
+        "desc": "Tracking Baixo — Pés e Bola em Velocidade",
+        "jpg": "assets/shots/vizzela_takes/v01_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_005.mp4"
+      },
+      {
+        "slug": "v01_006",
+        "take_idx": 6,
+        "t0": 13.54,
+        "t1": 14.29,
+        "dur": 0.75,
+        "desc": "Close-Up Detalhe — Chuteira Rosa Pisando na Bola",
+        "jpg": "assets/shots/vizzela_takes/v01_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_006.mp4"
+      },
+      {
+        "slug": "v01_007",
+        "take_idx": 7,
+        "t0": 14.29,
+        "t1": 17.33,
+        "dur": 3.04,
+        "desc": "Plano Geral — Embaixadinhas & Lip Oil Frozen Grape",
+        "jpg": "assets/shots/vizzela_takes/v01_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_007.mp4"
+      },
+      {
+        "slug": "v01_008",
+        "take_idx": 8,
+        "t0": 17.33,
+        "t1": 18.67,
+        "dur": 1.34,
+        "desc": "Plongée Detalhe — Goleira Calçando a Luva",
+        "jpg": "assets/shots/vizzela_takes/v01_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_008.mp4"
+      },
+      {
+        "slug": "v01_009",
+        "take_idx": 9,
+        "t0": 18.67,
+        "t1": 20.58,
+        "dur": 1.91,
+        "desc": "Contra-Plongée — Goleira Ajustando a Luva",
+        "jpg": "assets/shots/vizzela_takes/v01_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_009.mp4"
+      },
+      {
+        "slug": "v01_010",
+        "take_idx": 10,
+        "t0": 20.58,
+        "t1": 22.04,
+        "dur": 1.46,
+        "desc": "Close-Up Frontal — Batida de Luvas",
+        "jpg": "assets/shots/vizzela_takes/v01_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_010.mp4"
+      },
+      {
+        "slug": "v01_011",
+        "take_idx": 11,
+        "t0": 22.04,
+        "t1": 24.33,
+        "dur": 2.29,
+        "desc": "Plano Médio — Goleira Erguendo as Luvas",
+        "jpg": "assets/shots/vizzela_takes/v01_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_011.mp4"
+      },
+      {
+        "slug": "v01_012",
+        "take_idx": 12,
+        "t0": 24.33,
+        "t1": 25.67,
+        "dur": 1.34,
+        "desc": "Packshot Detalhe — Embalagem Lip Oil Frozen Grape",
+        "jpg": "assets/shots/vizzela_takes/v01_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_012.mp4"
+      },
+      {
+        "slug": "v01_013",
+        "take_idx": 13,
+        "t0": 25.67,
+        "t1": 28.79,
+        "dur": 3.12,
+        "desc": "Plano Médio — Goleira com Embalagem Cooling",
+        "jpg": "assets/shots/vizzela_takes/v01_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_013.mp4"
+      },
+      {
+        "slug": "v01_014",
+        "take_idx": 14,
+        "t0": 28.79,
+        "t1": 31.42,
+        "dur": 2.63,
+        "desc": "Contra-Plongée Arquibancada — Embaixadinha de Cabeça",
+        "jpg": "assets/shots/vizzela_takes/v01_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_014.mp4"
+      },
+      {
+        "slug": "v01_015",
+        "take_idx": 15,
+        "t0": 31.42,
+        "t1": 33.08,
+        "dur": 1.66,
+        "desc": "Plano Detalhe — Chaveiro Lip Oil Preso no Shorts",
+        "jpg": "assets/shots/vizzela_takes/v01_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_015.mp4"
+      },
+      {
+        "slug": "v01_016",
+        "take_idx": 16,
+        "t0": 33.08,
+        "t1": 35.12,
+        "dur": 2.04,
+        "desc": "Contra-Plongée — Jogadora Equilibrando a Bola",
+        "jpg": "assets/shots/vizzela_takes/v01_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_016.mp4"
+      },
+      {
+        "slug": "v01_017",
+        "take_idx": 17,
+        "t0": 35.12,
+        "t1": 36.42,
+        "dur": 1.3,
+        "desc": "Packshot Still Life — Chuteira, Bola Penalty & Lip Oil",
+        "jpg": "assets/shots/vizzela_takes/v01_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_017.mp4"
+      },
+      {
+        "slug": "v01_018",
+        "take_idx": 18,
+        "t0": 36.42,
+        "t1": 37.62,
+        "dur": 1.2,
+        "desc": "Plano Médio — Jogadora Girando a Bola no Dedo",
+        "jpg": "assets/shots/vizzela_takes/v01_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_018.mp4"
+      },
+      {
+        "slug": "v01_019",
+        "take_idx": 19,
+        "t0": 37.62,
+        "t1": 39.08,
+        "dur": 1.46,
+        "desc": "Plano Médio — Comemoração e Pose com Bola",
+        "jpg": "assets/shots/vizzela_takes/v01_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_019.mp4"
+      },
+      {
+        "slug": "v01_020",
+        "take_idx": 20,
+        "t0": 39.08,
+        "t1": 40.62,
+        "dur": 1.54,
+        "desc": "Close-Up Frontal — Jogadora Exibindo Lip Oil",
+        "jpg": "assets/shots/vizzela_takes/v01_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_020.mp4"
+      },
+      {
+        "slug": "v01_021",
+        "take_idx": 21,
+        "t0": 40.62,
+        "t1": 42.0,
+        "dur": 1.38,
+        "desc": "Packshot Final — Cartela Vizzela + Corinthians",
+        "jpg": "assets/shots/vizzela_takes/v01_021.jpg",
+        "mp4": "assets/videos/vizzela_takes/v01_021.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 2,
+    "title": "BB Cream Campanha - Vertical",
+    "filename": "Cópia de BB Cream Campanha - Vertical.mp4",
+    "orientation": "vertical",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": "23.98",
+    "total_dur": 62.52,
+    "category": "Pele & Face",
+    "takes_count": 35,
+    "takes": [
+      {
+        "slug": "v02_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 4.84,
+        "dur": 4.84,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v02_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_001.mp4"
+      },
+      {
+        "slug": "v02_002",
+        "take_idx": 2,
+        "t0": 4.84,
+        "t1": 6.01,
+        "dur": 1.17,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v02_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_002.mp4"
+      },
+      {
+        "slug": "v02_003",
+        "take_idx": 3,
+        "t0": 6.01,
+        "t1": 7.38,
+        "dur": 1.38,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v02_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_003.mp4"
+      },
+      {
+        "slug": "v02_004",
+        "take_idx": 4,
+        "t0": 7.38,
+        "t1": 8.47,
+        "dur": 1.08,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v02_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_004.mp4"
+      },
+      {
+        "slug": "v02_005",
+        "take_idx": 5,
+        "t0": 8.47,
+        "t1": 9.55,
+        "dur": 1.08,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v02_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_005.mp4"
+      },
+      {
+        "slug": "v02_006",
+        "take_idx": 6,
+        "t0": 9.55,
+        "t1": 12.14,
+        "dur": 2.59,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v02_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_006.mp4"
+      },
+      {
+        "slug": "v02_007",
+        "take_idx": 7,
+        "t0": 12.14,
+        "t1": 13.22,
+        "dur": 1.08,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v02_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_007.mp4"
+      },
+      {
+        "slug": "v02_008",
+        "take_idx": 8,
+        "t0": 13.22,
+        "t1": 14.85,
+        "dur": 1.63,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v02_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_008.mp4"
+      },
+      {
+        "slug": "v02_009",
+        "take_idx": 9,
+        "t0": 14.85,
+        "t1": 17.39,
+        "dur": 2.54,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v02_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_009.mp4"
+      },
+      {
+        "slug": "v02_010",
+        "take_idx": 10,
+        "t0": 17.39,
+        "t1": 19.19,
+        "dur": 1.79,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v02_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_010.mp4"
+      },
+      {
+        "slug": "v02_011",
+        "take_idx": 11,
+        "t0": 19.19,
+        "t1": 21.19,
+        "dur": 2.0,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v02_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_011.mp4"
+      },
+      {
+        "slug": "v02_012",
+        "take_idx": 12,
+        "t0": 21.19,
+        "t1": 22.81,
+        "dur": 1.63,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v02_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_012.mp4"
+      },
+      {
+        "slug": "v02_013",
+        "take_idx": 13,
+        "t0": 22.81,
+        "t1": 26.99,
+        "dur": 4.17,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v02_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_013.mp4"
+      },
+      {
+        "slug": "v02_014",
+        "take_idx": 14,
+        "t0": 26.99,
+        "t1": 28.07,
+        "dur": 1.08,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v02_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_014.mp4"
+      },
+      {
+        "slug": "v02_015",
+        "take_idx": 15,
+        "t0": 28.07,
+        "t1": 28.95,
+        "dur": 0.88,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v02_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_015.mp4"
+      },
+      {
+        "slug": "v02_016",
+        "take_idx": 16,
+        "t0": 28.95,
+        "t1": 29.86,
+        "dur": 0.92,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v02_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_016.mp4"
+      },
+      {
+        "slug": "v02_017",
+        "take_idx": 17,
+        "t0": 29.86,
+        "t1": 30.82,
+        "dur": 0.96,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v02_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_017.mp4"
+      },
+      {
+        "slug": "v02_018",
+        "take_idx": 18,
+        "t0": 30.82,
+        "t1": 35.12,
+        "dur": 4.3,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v02_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_018.mp4"
+      },
+      {
+        "slug": "v02_019",
+        "take_idx": 19,
+        "t0": 35.12,
+        "t1": 36.45,
+        "dur": 1.33,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v02_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_019.mp4"
+      },
+      {
+        "slug": "v02_020",
+        "take_idx": 20,
+        "t0": 36.45,
+        "t1": 37.41,
+        "dur": 0.96,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v02_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_020.mp4"
+      },
+      {
+        "slug": "v02_021",
+        "take_idx": 21,
+        "t0": 37.41,
+        "t1": 38.33,
+        "dur": 0.92,
+        "desc": "Take #21",
+        "jpg": "assets/shots/vizzela_takes/v02_021.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_021.mp4"
+      },
+      {
+        "slug": "v02_022",
+        "take_idx": 22,
+        "t0": 38.33,
+        "t1": 39.25,
+        "dur": 0.92,
+        "desc": "Take #22",
+        "jpg": "assets/shots/vizzela_takes/v02_022.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_022.mp4"
+      },
+      {
+        "slug": "v02_023",
+        "take_idx": 23,
+        "t0": 39.25,
+        "t1": 40.21,
+        "dur": 0.96,
+        "desc": "Take #23",
+        "jpg": "assets/shots/vizzela_takes/v02_023.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_023.mp4"
+      },
+      {
+        "slug": "v02_024",
+        "take_idx": 24,
+        "t0": 40.21,
+        "t1": 42.0,
+        "dur": 1.79,
+        "desc": "Take #24",
+        "jpg": "assets/shots/vizzela_takes/v02_024.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_024.mp4"
+      },
+      {
+        "slug": "v02_025",
+        "take_idx": 25,
+        "t0": 42.0,
+        "t1": 44.38,
+        "dur": 2.38,
+        "desc": "Take #25",
+        "jpg": "assets/shots/vizzela_takes/v02_025.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_025.mp4"
+      },
+      {
+        "slug": "v02_026",
+        "take_idx": 26,
+        "t0": 44.38,
+        "t1": 44.84,
+        "dur": 0.46,
+        "desc": "Take #26",
+        "jpg": "assets/shots/vizzela_takes/v02_026.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_026.mp4"
+      },
+      {
+        "slug": "v02_027",
+        "take_idx": 27,
+        "t0": 44.84,
+        "t1": 46.21,
+        "dur": 1.38,
+        "desc": "Take #27",
+        "jpg": "assets/shots/vizzela_takes/v02_027.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_027.mp4"
+      },
+      {
+        "slug": "v02_028",
+        "take_idx": 28,
+        "t0": 46.21,
+        "t1": 47.21,
+        "dur": 1.0,
+        "desc": "Take #28",
+        "jpg": "assets/shots/vizzela_takes/v02_028.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_028.mp4"
+      },
+      {
+        "slug": "v02_029",
+        "take_idx": 29,
+        "t0": 47.21,
+        "t1": 49.55,
+        "dur": 2.34,
+        "desc": "Take #29",
+        "jpg": "assets/shots/vizzela_takes/v02_029.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_029.mp4"
+      },
+      {
+        "slug": "v02_030",
+        "take_idx": 30,
+        "t0": 49.55,
+        "t1": 50.51,
+        "dur": 0.96,
+        "desc": "Take #30",
+        "jpg": "assets/shots/vizzela_takes/v02_030.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_030.mp4"
+      },
+      {
+        "slug": "v02_031",
+        "take_idx": 31,
+        "t0": 50.51,
+        "t1": 51.43,
+        "dur": 0.92,
+        "desc": "Take #31",
+        "jpg": "assets/shots/vizzela_takes/v02_031.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_031.mp4"
+      },
+      {
+        "slug": "v02_032",
+        "take_idx": 32,
+        "t0": 51.43,
+        "t1": 52.93,
+        "dur": 1.5,
+        "desc": "Take #32",
+        "jpg": "assets/shots/vizzela_takes/v02_032.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_032.mp4"
+      },
+      {
+        "slug": "v02_033",
+        "take_idx": 33,
+        "t0": 52.93,
+        "t1": 54.55,
+        "dur": 1.63,
+        "desc": "Take #33",
+        "jpg": "assets/shots/vizzela_takes/v02_033.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_033.mp4"
+      },
+      {
+        "slug": "v02_034",
+        "take_idx": 34,
+        "t0": 54.55,
+        "t1": 60.77,
+        "dur": 6.21,
+        "desc": "Take #34",
+        "jpg": "assets/shots/vizzela_takes/v02_034.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_034.mp4"
+      },
+      {
+        "slug": "v02_035",
+        "take_idx": 35,
+        "t0": 60.77,
+        "t1": 62.52,
+        "dur": 1.75,
+        "desc": "Take #35",
+        "jpg": "assets/shots/vizzela_takes/v02_035.jpg",
+        "mp4": "assets/videos/vizzela_takes/v02_035.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 3,
+    "title": "BEAUTY BLUSH CINNAMON - VERTICAL",
+    "filename": "Cópia de BEAUTY BLUSH CINNAMON - VERTICAL.mp4",
+    "orientation": "vertical",
+    "aspect": "9:16",
+    "width": 2160,
+    "height": 3840,
+    "fps": "23.98",
+    "total_dur": 44.84,
+    "category": "Pele & Face",
+    "takes_count": 22,
+    "takes": [
+      {
+        "slug": "v03_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 3.0,
+        "dur": 3.0,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v03_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_001.mp4"
+      },
+      {
+        "slug": "v03_002",
+        "take_idx": 2,
+        "t0": 3.0,
+        "t1": 4.71,
+        "dur": 1.71,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v03_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_002.mp4"
+      },
+      {
+        "slug": "v03_003",
+        "take_idx": 3,
+        "t0": 4.71,
+        "t1": 9.88,
+        "dur": 5.17,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v03_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_003.mp4"
+      },
+      {
+        "slug": "v03_004",
+        "take_idx": 4,
+        "t0": 9.88,
+        "t1": 13.1,
+        "dur": 3.21,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v03_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_004.mp4"
+      },
+      {
+        "slug": "v03_005",
+        "take_idx": 5,
+        "t0": 13.1,
+        "t1": 14.72,
+        "dur": 1.63,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v03_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_005.mp4"
+      },
+      {
+        "slug": "v03_006",
+        "take_idx": 6,
+        "t0": 14.72,
+        "t1": 16.73,
+        "dur": 2.0,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v03_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_006.mp4"
+      },
+      {
+        "slug": "v03_007",
+        "take_idx": 7,
+        "t0": 16.73,
+        "t1": 18.81,
+        "dur": 2.09,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v03_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_007.mp4"
+      },
+      {
+        "slug": "v03_008",
+        "take_idx": 8,
+        "t0": 18.81,
+        "t1": 20.27,
+        "dur": 1.46,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v03_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_008.mp4"
+      },
+      {
+        "slug": "v03_009",
+        "take_idx": 9,
+        "t0": 20.27,
+        "t1": 22.31,
+        "dur": 2.04,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v03_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_009.mp4"
+      },
+      {
+        "slug": "v03_010",
+        "take_idx": 10,
+        "t0": 22.31,
+        "t1": 23.94,
+        "dur": 1.63,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v03_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_010.mp4"
+      },
+      {
+        "slug": "v03_011",
+        "take_idx": 11,
+        "t0": 23.94,
+        "t1": 25.98,
+        "dur": 2.04,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v03_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_011.mp4"
+      },
+      {
+        "slug": "v03_012",
+        "take_idx": 12,
+        "t0": 25.98,
+        "t1": 28.03,
+        "dur": 2.04,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v03_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_012.mp4"
+      },
+      {
+        "slug": "v03_013",
+        "take_idx": 13,
+        "t0": 28.03,
+        "t1": 29.36,
+        "dur": 1.33,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v03_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_013.mp4"
+      },
+      {
+        "slug": "v03_014",
+        "take_idx": 14,
+        "t0": 29.36,
+        "t1": 30.78,
+        "dur": 1.42,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v03_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_014.mp4"
+      },
+      {
+        "slug": "v03_015",
+        "take_idx": 15,
+        "t0": 30.78,
+        "t1": 32.41,
+        "dur": 1.63,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v03_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_015.mp4"
+      },
+      {
+        "slug": "v03_016",
+        "take_idx": 16,
+        "t0": 32.41,
+        "t1": 34.24,
+        "dur": 1.84,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v03_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_016.mp4"
+      },
+      {
+        "slug": "v03_017",
+        "take_idx": 17,
+        "t0": 34.24,
+        "t1": 35.2,
+        "dur": 0.96,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v03_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_017.mp4"
+      },
+      {
+        "slug": "v03_018",
+        "take_idx": 18,
+        "t0": 35.2,
+        "t1": 36.49,
+        "dur": 1.29,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v03_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_018.mp4"
+      },
+      {
+        "slug": "v03_019",
+        "take_idx": 19,
+        "t0": 36.49,
+        "t1": 37.54,
+        "dur": 1.04,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v03_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_019.mp4"
+      },
+      {
+        "slug": "v03_020",
+        "take_idx": 20,
+        "t0": 37.54,
+        "t1": 39.12,
+        "dur": 1.58,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v03_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_020.mp4"
+      },
+      {
+        "slug": "v03_021",
+        "take_idx": 21,
+        "t0": 39.12,
+        "t1": 42.63,
+        "dur": 3.5,
+        "desc": "Take #21",
+        "jpg": "assets/shots/vizzela_takes/v03_021.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_021.mp4"
+      },
+      {
+        "slug": "v03_022",
+        "take_idx": 22,
+        "t0": 42.63,
+        "t1": 44.84,
+        "dur": 2.21,
+        "desc": "Take #22",
+        "jpg": "assets/shots/vizzela_takes/v03_022.jpg",
+        "mp4": "assets/videos/vizzela_takes/v03_022.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 4,
+    "title": "BIG NO Panda Cherry Alterado",
+    "filename": "Cópia de BIG NO Panda Cherry Alterado.mov",
+    "orientation": "vertical",
+    "aspect": "9:16",
+    "width": 2160,
+    "height": 3840,
+    "fps": "23.98",
+    "total_dur": 25.32,
+    "category": "Labial & Boca",
+    "takes_count": 16,
+    "takes": [
+      {
+        "slug": "v04_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 0.79,
+        "dur": 0.79,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v04_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_001.mp4"
+      },
+      {
+        "slug": "v04_002",
+        "take_idx": 2,
+        "t0": 0.79,
+        "t1": 2.92,
+        "dur": 2.13,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v04_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_002.mp4"
+      },
+      {
+        "slug": "v04_003",
+        "take_idx": 3,
+        "t0": 2.92,
+        "t1": 4.42,
+        "dur": 1.5,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v04_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_003.mp4"
+      },
+      {
+        "slug": "v04_004",
+        "take_idx": 4,
+        "t0": 4.42,
+        "t1": 5.92,
+        "dur": 1.5,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v04_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_004.mp4"
+      },
+      {
+        "slug": "v04_005",
+        "take_idx": 5,
+        "t0": 5.92,
+        "t1": 6.88,
+        "dur": 0.96,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v04_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_005.mp4"
+      },
+      {
+        "slug": "v04_006",
+        "take_idx": 6,
+        "t0": 6.88,
+        "t1": 8.05,
+        "dur": 1.17,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v04_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_006.mp4"
+      },
+      {
+        "slug": "v04_007",
+        "take_idx": 7,
+        "t0": 8.05,
+        "t1": 9.84,
+        "dur": 1.79,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v04_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_007.mp4"
+      },
+      {
+        "slug": "v04_008",
+        "take_idx": 8,
+        "t0": 9.84,
+        "t1": 12.76,
+        "dur": 2.92,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v04_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_008.mp4"
+      },
+      {
+        "slug": "v04_009",
+        "take_idx": 9,
+        "t0": 12.76,
+        "t1": 14.47,
+        "dur": 1.71,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v04_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_009.mp4"
+      },
+      {
+        "slug": "v04_010",
+        "take_idx": 10,
+        "t0": 14.47,
+        "t1": 15.18,
+        "dur": 0.71,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v04_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_010.mp4"
+      },
+      {
+        "slug": "v04_011",
+        "take_idx": 11,
+        "t0": 15.18,
+        "t1": 15.85,
+        "dur": 0.67,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v04_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_011.mp4"
+      },
+      {
+        "slug": "v04_012",
+        "take_idx": 12,
+        "t0": 15.85,
+        "t1": 16.85,
+        "dur": 1.0,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v04_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_012.mp4"
+      },
+      {
+        "slug": "v04_013",
+        "take_idx": 13,
+        "t0": 16.85,
+        "t1": 17.52,
+        "dur": 0.67,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v04_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_013.mp4"
+      },
+      {
+        "slug": "v04_014",
+        "take_idx": 14,
+        "t0": 17.52,
+        "t1": 22.31,
+        "dur": 4.8,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v04_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_014.mp4"
+      },
+      {
+        "slug": "v04_015",
+        "take_idx": 15,
+        "t0": 22.31,
+        "t1": 24.86,
+        "dur": 2.54,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v04_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_015.mp4"
+      },
+      {
+        "slug": "v04_016",
+        "take_idx": 16,
+        "t0": 24.86,
+        "t1": 25.32,
+        "dur": 0.46,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v04_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v04_016.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 5,
+    "title": "Base Satin - Campanha 2025",
+    "filename": "Cópia de Base Satin - Campanha 2025.mp4",
+    "orientation": "vertical",
+    "aspect": "9:16",
+    "width": 2160,
+    "height": 3840,
+    "fps": "23.98",
+    "total_dur": 36.37,
+    "category": "Pele & Face",
+    "takes_count": 20,
+    "takes": [
+      {
+        "slug": "v05_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 1.92,
+        "dur": 1.92,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v05_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_001.mp4"
+      },
+      {
+        "slug": "v05_002",
+        "take_idx": 2,
+        "t0": 1.92,
+        "t1": 3.92,
+        "dur": 2.0,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v05_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_002.mp4"
+      },
+      {
+        "slug": "v05_003",
+        "take_idx": 3,
+        "t0": 3.92,
+        "t1": 4.92,
+        "dur": 1.0,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v05_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_003.mp4"
+      },
+      {
+        "slug": "v05_004",
+        "take_idx": 4,
+        "t0": 4.92,
+        "t1": 5.84,
+        "dur": 0.92,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v05_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_004.mp4"
+      },
+      {
+        "slug": "v05_005",
+        "take_idx": 5,
+        "t0": 5.84,
+        "t1": 6.84,
+        "dur": 1.0,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v05_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_005.mp4"
+      },
+      {
+        "slug": "v05_006",
+        "take_idx": 6,
+        "t0": 6.84,
+        "t1": 8.84,
+        "dur": 2.0,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v05_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_006.mp4"
+      },
+      {
+        "slug": "v05_007",
+        "take_idx": 7,
+        "t0": 8.84,
+        "t1": 9.8,
+        "dur": 0.96,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v05_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_007.mp4"
+      },
+      {
+        "slug": "v05_008",
+        "take_idx": 8,
+        "t0": 9.8,
+        "t1": 10.8,
+        "dur": 1.0,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v05_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_008.mp4"
+      },
+      {
+        "slug": "v05_009",
+        "take_idx": 9,
+        "t0": 10.8,
+        "t1": 12.76,
+        "dur": 1.96,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v05_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_009.mp4"
+      },
+      {
+        "slug": "v05_010",
+        "take_idx": 10,
+        "t0": 12.76,
+        "t1": 14.72,
+        "dur": 1.96,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v05_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_010.mp4"
+      },
+      {
+        "slug": "v05_011",
+        "take_idx": 11,
+        "t0": 14.72,
+        "t1": 16.68,
+        "dur": 1.96,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v05_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_011.mp4"
+      },
+      {
+        "slug": "v05_012",
+        "take_idx": 12,
+        "t0": 16.68,
+        "t1": 18.64,
+        "dur": 1.96,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v05_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_012.mp4"
+      },
+      {
+        "slug": "v05_013",
+        "take_idx": 13,
+        "t0": 18.64,
+        "t1": 21.65,
+        "dur": 3.0,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v05_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_013.mp4"
+      },
+      {
+        "slug": "v05_014",
+        "take_idx": 14,
+        "t0": 21.65,
+        "t1": 23.57,
+        "dur": 1.92,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v05_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_014.mp4"
+      },
+      {
+        "slug": "v05_015",
+        "take_idx": 15,
+        "t0": 23.57,
+        "t1": 25.57,
+        "dur": 2.0,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v05_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_015.mp4"
+      },
+      {
+        "slug": "v05_016",
+        "take_idx": 16,
+        "t0": 25.57,
+        "t1": 26.57,
+        "dur": 1.0,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v05_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_016.mp4"
+      },
+      {
+        "slug": "v05_017",
+        "take_idx": 17,
+        "t0": 26.57,
+        "t1": 29.49,
+        "dur": 2.92,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v05_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_017.mp4"
+      },
+      {
+        "slug": "v05_018",
+        "take_idx": 18,
+        "t0": 29.49,
+        "t1": 30.49,
+        "dur": 1.0,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v05_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_018.mp4"
+      },
+      {
+        "slug": "v05_019",
+        "take_idx": 19,
+        "t0": 30.49,
+        "t1": 31.41,
+        "dur": 0.92,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v05_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_019.mp4"
+      },
+      {
+        "slug": "v05_020",
+        "take_idx": 20,
+        "t0": 31.41,
+        "t1": 36.37,
+        "dur": 4.96,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v05_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v05_020.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 6,
+    "title": "BlushStick LAS",
+    "filename": "Cópia de BlushStick LAS.mov",
+    "orientation": "horizontal",
+    "aspect": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": "23.98",
+    "total_dur": 49.26,
+    "category": "Pele & Face",
+    "takes_count": 11,
+    "takes": [
+      {
+        "slug": "v06_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 4.5,
+        "dur": 4.5,
+        "desc": "Bloco #01",
+        "jpg": "assets/shots/vizzela_takes/v06_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v06_001.mp4"
+      },
+      {
+        "slug": "v06_002",
+        "take_idx": 2,
+        "t0": 4.5,
+        "t1": 9.0,
+        "dur": 4.5,
+        "desc": "Bloco #02",
+        "jpg": "assets/shots/vizzela_takes/v06_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v06_002.mp4"
+      },
+      {
+        "slug": "v06_003",
+        "take_idx": 3,
+        "t0": 9.0,
+        "t1": 13.5,
+        "dur": 4.5,
+        "desc": "Bloco #03",
+        "jpg": "assets/shots/vizzela_takes/v06_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v06_003.mp4"
+      },
+      {
+        "slug": "v06_004",
+        "take_idx": 4,
+        "t0": 13.5,
+        "t1": 18.0,
+        "dur": 4.5,
+        "desc": "Bloco #04",
+        "jpg": "assets/shots/vizzela_takes/v06_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v06_004.mp4"
+      },
+      {
+        "slug": "v06_005",
+        "take_idx": 5,
+        "t0": 18.0,
+        "t1": 22.5,
+        "dur": 4.5,
+        "desc": "Bloco #05",
+        "jpg": "assets/shots/vizzela_takes/v06_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v06_005.mp4"
+      },
+      {
+        "slug": "v06_006",
+        "take_idx": 6,
+        "t0": 22.5,
+        "t1": 27.0,
+        "dur": 4.5,
+        "desc": "Bloco #06",
+        "jpg": "assets/shots/vizzela_takes/v06_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v06_006.mp4"
+      },
+      {
+        "slug": "v06_007",
+        "take_idx": 7,
+        "t0": 27.0,
+        "t1": 31.5,
+        "dur": 4.5,
+        "desc": "Bloco #07",
+        "jpg": "assets/shots/vizzela_takes/v06_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v06_007.mp4"
+      },
+      {
+        "slug": "v06_008",
+        "take_idx": 8,
+        "t0": 31.5,
+        "t1": 36.0,
+        "dur": 4.5,
+        "desc": "Bloco #08",
+        "jpg": "assets/shots/vizzela_takes/v06_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v06_008.mp4"
+      },
+      {
+        "slug": "v06_009",
+        "take_idx": 9,
+        "t0": 36.0,
+        "t1": 40.5,
+        "dur": 4.5,
+        "desc": "Bloco #09",
+        "jpg": "assets/shots/vizzela_takes/v06_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v06_009.mp4"
+      },
+      {
+        "slug": "v06_010",
+        "take_idx": 10,
+        "t0": 40.5,
+        "t1": 45.0,
+        "dur": 4.5,
+        "desc": "Bloco #10",
+        "jpg": "assets/shots/vizzela_takes/v06_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v06_010.mp4"
+      },
+      {
+        "slug": "v06_011",
+        "take_idx": 11,
+        "t0": 45.0,
+        "t1": 49.26,
+        "dur": 4.26,
+        "desc": "Bloco #11",
+        "jpg": "assets/shots/vizzela_takes/v06_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v06_011.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 7,
+    "title": "BodySplash - Pink Vanilla",
+    "filename": "Cópia de BodySplash - Pink Vanilla.mp4",
+    "orientation": "vertical",
+    "aspect": "9:16",
+    "width": 2160,
+    "height": 3840,
+    "fps": "30",
+    "total_dur": 62.73,
+    "category": "Corpo, Hair & Lifestyle",
+    "takes_count": 31,
+    "takes": [
+      {
+        "slug": "v07_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 1.8,
+        "dur": 1.8,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v07_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_001.mp4"
+      },
+      {
+        "slug": "v07_002",
+        "take_idx": 2,
+        "t0": 1.8,
+        "t1": 2.6,
+        "dur": 0.8,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v07_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_002.mp4"
+      },
+      {
+        "slug": "v07_003",
+        "take_idx": 3,
+        "t0": 2.6,
+        "t1": 5.6,
+        "dur": 3.0,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v07_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_003.mp4"
+      },
+      {
+        "slug": "v07_004",
+        "take_idx": 4,
+        "t0": 5.6,
+        "t1": 7.3,
+        "dur": 1.7,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v07_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_004.mp4"
+      },
+      {
+        "slug": "v07_005",
+        "take_idx": 5,
+        "t0": 7.3,
+        "t1": 8.67,
+        "dur": 1.37,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v07_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_005.mp4"
+      },
+      {
+        "slug": "v07_006",
+        "take_idx": 6,
+        "t0": 8.67,
+        "t1": 9.93,
+        "dur": 1.27,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v07_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_006.mp4"
+      },
+      {
+        "slug": "v07_007",
+        "take_idx": 7,
+        "t0": 9.93,
+        "t1": 13.7,
+        "dur": 3.77,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v07_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_007.mp4"
+      },
+      {
+        "slug": "v07_008",
+        "take_idx": 8,
+        "t0": 13.7,
+        "t1": 14.87,
+        "dur": 1.17,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v07_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_008.mp4"
+      },
+      {
+        "slug": "v07_009",
+        "take_idx": 9,
+        "t0": 14.87,
+        "t1": 15.83,
+        "dur": 0.97,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v07_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_009.mp4"
+      },
+      {
+        "slug": "v07_010",
+        "take_idx": 10,
+        "t0": 15.83,
+        "t1": 19.53,
+        "dur": 3.7,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v07_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_010.mp4"
+      },
+      {
+        "slug": "v07_011",
+        "take_idx": 11,
+        "t0": 19.53,
+        "t1": 20.5,
+        "dur": 0.97,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v07_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_011.mp4"
+      },
+      {
+        "slug": "v07_012",
+        "take_idx": 12,
+        "t0": 20.5,
+        "t1": 22.53,
+        "dur": 2.03,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v07_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_012.mp4"
+      },
+      {
+        "slug": "v07_013",
+        "take_idx": 13,
+        "t0": 22.53,
+        "t1": 24.7,
+        "dur": 2.17,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v07_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_013.mp4"
+      },
+      {
+        "slug": "v07_014",
+        "take_idx": 14,
+        "t0": 24.7,
+        "t1": 25.53,
+        "dur": 0.83,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v07_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_014.mp4"
+      },
+      {
+        "slug": "v07_015",
+        "take_idx": 15,
+        "t0": 25.53,
+        "t1": 26.8,
+        "dur": 1.27,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v07_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_015.mp4"
+      },
+      {
+        "slug": "v07_016",
+        "take_idx": 16,
+        "t0": 26.8,
+        "t1": 30.93,
+        "dur": 4.13,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v07_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_016.mp4"
+      },
+      {
+        "slug": "v07_017",
+        "take_idx": 17,
+        "t0": 30.93,
+        "t1": 32.97,
+        "dur": 2.03,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v07_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_017.mp4"
+      },
+      {
+        "slug": "v07_018",
+        "take_idx": 18,
+        "t0": 32.97,
+        "t1": 33.83,
+        "dur": 0.87,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v07_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_018.mp4"
+      },
+      {
+        "slug": "v07_019",
+        "take_idx": 19,
+        "t0": 33.83,
+        "t1": 35.13,
+        "dur": 1.3,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v07_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_019.mp4"
+      },
+      {
+        "slug": "v07_020",
+        "take_idx": 20,
+        "t0": 35.13,
+        "t1": 38.87,
+        "dur": 3.73,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v07_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_020.mp4"
+      },
+      {
+        "slug": "v07_021",
+        "take_idx": 21,
+        "t0": 38.87,
+        "t1": 40.0,
+        "dur": 1.13,
+        "desc": "Take #21",
+        "jpg": "assets/shots/vizzela_takes/v07_021.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_021.mp4"
+      },
+      {
+        "slug": "v07_022",
+        "take_idx": 22,
+        "t0": 40.0,
+        "t1": 41.5,
+        "dur": 1.5,
+        "desc": "Take #22",
+        "jpg": "assets/shots/vizzela_takes/v07_022.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_022.mp4"
+      },
+      {
+        "slug": "v07_023",
+        "take_idx": 23,
+        "t0": 41.5,
+        "t1": 42.57,
+        "dur": 1.07,
+        "desc": "Take #23",
+        "jpg": "assets/shots/vizzela_takes/v07_023.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_023.mp4"
+      },
+      {
+        "slug": "v07_024",
+        "take_idx": 24,
+        "t0": 42.57,
+        "t1": 44.0,
+        "dur": 1.43,
+        "desc": "Take #24",
+        "jpg": "assets/shots/vizzela_takes/v07_024.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_024.mp4"
+      },
+      {
+        "slug": "v07_025",
+        "take_idx": 25,
+        "t0": 44.0,
+        "t1": 45.83,
+        "dur": 1.83,
+        "desc": "Take #25",
+        "jpg": "assets/shots/vizzela_takes/v07_025.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_025.mp4"
+      },
+      {
+        "slug": "v07_026",
+        "take_idx": 26,
+        "t0": 45.83,
+        "t1": 48.27,
+        "dur": 2.43,
+        "desc": "Take #26",
+        "jpg": "assets/shots/vizzela_takes/v07_026.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_026.mp4"
+      },
+      {
+        "slug": "v07_027",
+        "take_idx": 27,
+        "t0": 48.27,
+        "t1": 53.07,
+        "dur": 4.8,
+        "desc": "Take #27",
+        "jpg": "assets/shots/vizzela_takes/v07_027.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_027.mp4"
+      },
+      {
+        "slug": "v07_028",
+        "take_idx": 28,
+        "t0": 53.07,
+        "t1": 54.03,
+        "dur": 0.97,
+        "desc": "Take #28",
+        "jpg": "assets/shots/vizzela_takes/v07_028.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_028.mp4"
+      },
+      {
+        "slug": "v07_029",
+        "take_idx": 29,
+        "t0": 54.03,
+        "t1": 56.27,
+        "dur": 2.23,
+        "desc": "Take #29",
+        "jpg": "assets/shots/vizzela_takes/v07_029.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_029.mp4"
+      },
+      {
+        "slug": "v07_030",
+        "take_idx": 30,
+        "t0": 56.27,
+        "t1": 59.73,
+        "dur": 3.47,
+        "desc": "Take #30",
+        "jpg": "assets/shots/vizzela_takes/v07_030.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_030.mp4"
+      },
+      {
+        "slug": "v07_031",
+        "take_idx": 31,
+        "t0": 59.73,
+        "t1": 62.73,
+        "dur": 3.0,
+        "desc": "Take #31",
+        "jpg": "assets/shots/vizzela_takes/v07_031.jpg",
+        "mp4": "assets/videos/vizzela_takes/v07_031.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 8,
+    "title": "Carnaval - Horizontal",
+    "filename": "Cópia de Carnaval - Horizontal.mov",
+    "orientation": "horizontal",
+    "aspect": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": "23.98",
+    "total_dur": 38.2,
+    "category": "Corpo, Hair & Lifestyle",
+    "takes_count": 14,
+    "takes": [
+      {
+        "slug": "v08_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 0.75,
+        "dur": 0.75,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v08_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_001.mp4"
+      },
+      {
+        "slug": "v08_002",
+        "take_idx": 2,
+        "t0": 0.75,
+        "t1": 2.71,
+        "dur": 1.96,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v08_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_002.mp4"
+      },
+      {
+        "slug": "v08_003",
+        "take_idx": 3,
+        "t0": 2.71,
+        "t1": 10.76,
+        "dur": 8.05,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v08_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_003.mp4"
+      },
+      {
+        "slug": "v08_004",
+        "take_idx": 4,
+        "t0": 10.76,
+        "t1": 11.72,
+        "dur": 0.96,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v08_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_004.mp4"
+      },
+      {
+        "slug": "v08_005",
+        "take_idx": 5,
+        "t0": 11.72,
+        "t1": 13.14,
+        "dur": 1.42,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v08_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_005.mp4"
+      },
+      {
+        "slug": "v08_006",
+        "take_idx": 6,
+        "t0": 13.14,
+        "t1": 15.06,
+        "dur": 1.92,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v08_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_006.mp4"
+      },
+      {
+        "slug": "v08_007",
+        "take_idx": 7,
+        "t0": 15.06,
+        "t1": 16.47,
+        "dur": 1.42,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v08_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_007.mp4"
+      },
+      {
+        "slug": "v08_008",
+        "take_idx": 8,
+        "t0": 16.47,
+        "t1": 17.98,
+        "dur": 1.5,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v08_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_008.mp4"
+      },
+      {
+        "slug": "v08_009",
+        "take_idx": 9,
+        "t0": 17.98,
+        "t1": 19.81,
+        "dur": 1.84,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v08_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_009.mp4"
+      },
+      {
+        "slug": "v08_010",
+        "take_idx": 10,
+        "t0": 19.81,
+        "t1": 20.9,
+        "dur": 1.08,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v08_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_010.mp4"
+      },
+      {
+        "slug": "v08_011",
+        "take_idx": 11,
+        "t0": 20.9,
+        "t1": 22.44,
+        "dur": 1.54,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v08_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_011.mp4"
+      },
+      {
+        "slug": "v08_012",
+        "take_idx": 12,
+        "t0": 22.44,
+        "t1": 24.02,
+        "dur": 1.58,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v08_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_012.mp4"
+      },
+      {
+        "slug": "v08_013",
+        "take_idx": 13,
+        "t0": 24.02,
+        "t1": 25.69,
+        "dur": 1.67,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v08_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_013.mp4"
+      },
+      {
+        "slug": "v08_014",
+        "take_idx": 14,
+        "t0": 25.69,
+        "t1": 38.2,
+        "dur": 12.51,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v08_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v08_014.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 9,
+    "title": "Cream Contour - 2026 - Vertical",
+    "filename": "Cópia de Cream Contour - 2026 - Vertical.mp4",
+    "orientation": "vertical",
+    "aspect": "9:16",
+    "width": 2160,
+    "height": 3840,
+    "fps": "23.98",
+    "total_dur": 56.77,
+    "category": "Pele & Face",
+    "takes_count": 32,
+    "takes": [
+      {
+        "slug": "v09_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 2.25,
+        "dur": 2.25,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v09_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_001.mp4"
+      },
+      {
+        "slug": "v09_002",
+        "take_idx": 2,
+        "t0": 2.25,
+        "t1": 4.42,
+        "dur": 2.17,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v09_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_002.mp4"
+      },
+      {
+        "slug": "v09_003",
+        "take_idx": 3,
+        "t0": 4.42,
+        "t1": 6.3,
+        "dur": 1.88,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v09_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_003.mp4"
+      },
+      {
+        "slug": "v09_004",
+        "take_idx": 4,
+        "t0": 6.3,
+        "t1": 10.64,
+        "dur": 4.34,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v09_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_004.mp4"
+      },
+      {
+        "slug": "v09_005",
+        "take_idx": 5,
+        "t0": 10.64,
+        "t1": 12.8,
+        "dur": 2.17,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v09_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_005.mp4"
+      },
+      {
+        "slug": "v09_006",
+        "take_idx": 6,
+        "t0": 12.8,
+        "t1": 14.85,
+        "dur": 2.04,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v09_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_006.mp4"
+      },
+      {
+        "slug": "v09_007",
+        "take_idx": 7,
+        "t0": 14.85,
+        "t1": 16.6,
+        "dur": 1.75,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v09_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_007.mp4"
+      },
+      {
+        "slug": "v09_008",
+        "take_idx": 8,
+        "t0": 16.6,
+        "t1": 20.27,
+        "dur": 3.67,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v09_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_008.mp4"
+      },
+      {
+        "slug": "v09_009",
+        "take_idx": 9,
+        "t0": 20.27,
+        "t1": 21.73,
+        "dur": 1.46,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v09_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_009.mp4"
+      },
+      {
+        "slug": "v09_010",
+        "take_idx": 10,
+        "t0": 21.73,
+        "t1": 23.36,
+        "dur": 1.63,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v09_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_010.mp4"
+      },
+      {
+        "slug": "v09_011",
+        "take_idx": 11,
+        "t0": 23.36,
+        "t1": 23.94,
+        "dur": 0.58,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v09_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_011.mp4"
+      },
+      {
+        "slug": "v09_012",
+        "take_idx": 12,
+        "t0": 23.94,
+        "t1": 27.44,
+        "dur": 3.5,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v09_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_012.mp4"
+      },
+      {
+        "slug": "v09_013",
+        "take_idx": 13,
+        "t0": 27.44,
+        "t1": 28.53,
+        "dur": 1.08,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v09_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_013.mp4"
+      },
+      {
+        "slug": "v09_014",
+        "take_idx": 14,
+        "t0": 28.53,
+        "t1": 29.82,
+        "dur": 1.29,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v09_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_014.mp4"
+      },
+      {
+        "slug": "v09_015",
+        "take_idx": 15,
+        "t0": 29.82,
+        "t1": 31.41,
+        "dur": 1.58,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v09_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_015.mp4"
+      },
+      {
+        "slug": "v09_016",
+        "take_idx": 16,
+        "t0": 31.41,
+        "t1": 31.99,
+        "dur": 0.58,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v09_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_016.mp4"
+      },
+      {
+        "slug": "v09_017",
+        "take_idx": 17,
+        "t0": 31.99,
+        "t1": 35.58,
+        "dur": 3.59,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v09_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_017.mp4"
+      },
+      {
+        "slug": "v09_018",
+        "take_idx": 18,
+        "t0": 35.58,
+        "t1": 36.91,
+        "dur": 1.33,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v09_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_018.mp4"
+      },
+      {
+        "slug": "v09_019",
+        "take_idx": 19,
+        "t0": 36.91,
+        "t1": 38.0,
+        "dur": 1.08,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v09_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_019.mp4"
+      },
+      {
+        "slug": "v09_020",
+        "take_idx": 20,
+        "t0": 38.0,
+        "t1": 39.04,
+        "dur": 1.04,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v09_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_020.mp4"
+      },
+      {
+        "slug": "v09_021",
+        "take_idx": 21,
+        "t0": 39.04,
+        "t1": 39.62,
+        "dur": 0.58,
+        "desc": "Take #21",
+        "jpg": "assets/shots/vizzela_takes/v09_021.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_021.mp4"
+      },
+      {
+        "slug": "v09_022",
+        "take_idx": 22,
+        "t0": 39.62,
+        "t1": 42.04,
+        "dur": 2.42,
+        "desc": "Take #22",
+        "jpg": "assets/shots/vizzela_takes/v09_022.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_022.mp4"
+      },
+      {
+        "slug": "v09_023",
+        "take_idx": 23,
+        "t0": 42.04,
+        "t1": 42.63,
+        "dur": 0.58,
+        "desc": "Take #23",
+        "jpg": "assets/shots/vizzela_takes/v09_023.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_023.mp4"
+      },
+      {
+        "slug": "v09_024",
+        "take_idx": 24,
+        "t0": 42.63,
+        "t1": 43.88,
+        "dur": 1.25,
+        "desc": "Take #24",
+        "jpg": "assets/shots/vizzela_takes/v09_024.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_024.mp4"
+      },
+      {
+        "slug": "v09_025",
+        "take_idx": 25,
+        "t0": 43.88,
+        "t1": 45.09,
+        "dur": 1.21,
+        "desc": "Take #25",
+        "jpg": "assets/shots/vizzela_takes/v09_025.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_025.mp4"
+      },
+      {
+        "slug": "v09_026",
+        "take_idx": 26,
+        "t0": 45.09,
+        "t1": 45.67,
+        "dur": 0.58,
+        "desc": "Take #26",
+        "jpg": "assets/shots/vizzela_takes/v09_026.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_026.mp4"
+      },
+      {
+        "slug": "v09_027",
+        "take_idx": 27,
+        "t0": 45.67,
+        "t1": 48.09,
+        "dur": 2.42,
+        "desc": "Take #27",
+        "jpg": "assets/shots/vizzela_takes/v09_027.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_027.mp4"
+      },
+      {
+        "slug": "v09_028",
+        "take_idx": 28,
+        "t0": 48.09,
+        "t1": 49.05,
+        "dur": 0.96,
+        "desc": "Take #28",
+        "jpg": "assets/shots/vizzela_takes/v09_028.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_028.mp4"
+      },
+      {
+        "slug": "v09_029",
+        "take_idx": 29,
+        "t0": 49.05,
+        "t1": 50.63,
+        "dur": 1.58,
+        "desc": "Take #29",
+        "jpg": "assets/shots/vizzela_takes/v09_029.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_029.mp4"
+      },
+      {
+        "slug": "v09_030",
+        "take_idx": 30,
+        "t0": 50.63,
+        "t1": 51.59,
+        "dur": 0.96,
+        "desc": "Take #30",
+        "jpg": "assets/shots/vizzela_takes/v09_030.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_030.mp4"
+      },
+      {
+        "slug": "v09_031",
+        "take_idx": 31,
+        "t0": 51.59,
+        "t1": 52.89,
+        "dur": 1.29,
+        "desc": "Take #31",
+        "jpg": "assets/shots/vizzela_takes/v09_031.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_031.mp4"
+      },
+      {
+        "slug": "v09_032",
+        "take_idx": 32,
+        "t0": 52.89,
+        "t1": 56.77,
+        "dur": 3.88,
+        "desc": "Take #32",
+        "jpg": "assets/shots/vizzela_takes/v09_032.jpg",
+        "mp4": "assets/videos/vizzela_takes/v09_032.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 10,
+    "title": "ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL)",
+    "filename": "Cópia de ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL).mp4",
+    "orientation": "horizontal",
+    "aspect": "16:9",
+    "width": 3840,
+    "height": 2160,
+    "fps": "23.98",
+    "total_dur": 40.79,
+    "category": "Labial & Boca",
+    "takes_count": 33,
+    "takes": [
+      {
+        "slug": "v10_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 2.67,
+        "dur": 2.67,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v10_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_001.mp4"
+      },
+      {
+        "slug": "v10_002",
+        "take_idx": 2,
+        "t0": 2.67,
+        "t1": 6.88,
+        "dur": 4.21,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v10_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_002.mp4"
+      },
+      {
+        "slug": "v10_003",
+        "take_idx": 3,
+        "t0": 6.88,
+        "t1": 7.51,
+        "dur": 0.63,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v10_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_003.mp4"
+      },
+      {
+        "slug": "v10_004",
+        "take_idx": 4,
+        "t0": 7.51,
+        "t1": 7.97,
+        "dur": 0.46,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v10_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_004.mp4"
+      },
+      {
+        "slug": "v10_005",
+        "take_idx": 5,
+        "t0": 7.97,
+        "t1": 8.68,
+        "dur": 0.71,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v10_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_005.mp4"
+      },
+      {
+        "slug": "v10_006",
+        "take_idx": 6,
+        "t0": 8.68,
+        "t1": 9.13,
+        "dur": 0.46,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v10_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_006.mp4"
+      },
+      {
+        "slug": "v10_007",
+        "take_idx": 7,
+        "t0": 9.13,
+        "t1": 9.59,
+        "dur": 0.46,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v10_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_007.mp4"
+      },
+      {
+        "slug": "v10_008",
+        "take_idx": 8,
+        "t0": 9.59,
+        "t1": 10.34,
+        "dur": 0.75,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v10_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_008.mp4"
+      },
+      {
+        "slug": "v10_009",
+        "take_idx": 9,
+        "t0": 10.34,
+        "t1": 11.39,
+        "dur": 1.04,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v10_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_009.mp4"
+      },
+      {
+        "slug": "v10_010",
+        "take_idx": 10,
+        "t0": 11.39,
+        "t1": 13.56,
+        "dur": 2.17,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v10_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_010.mp4"
+      },
+      {
+        "slug": "v10_011",
+        "take_idx": 11,
+        "t0": 13.56,
+        "t1": 14.6,
+        "dur": 1.04,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v10_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_011.mp4"
+      },
+      {
+        "slug": "v10_012",
+        "take_idx": 12,
+        "t0": 14.6,
+        "t1": 15.64,
+        "dur": 1.04,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v10_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_012.mp4"
+      },
+      {
+        "slug": "v10_013",
+        "take_idx": 13,
+        "t0": 15.64,
+        "t1": 16.68,
+        "dur": 1.04,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v10_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_013.mp4"
+      },
+      {
+        "slug": "v10_014",
+        "take_idx": 14,
+        "t0": 16.68,
+        "t1": 17.81,
+        "dur": 1.13,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v10_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_014.mp4"
+      },
+      {
+        "slug": "v10_015",
+        "take_idx": 15,
+        "t0": 17.81,
+        "t1": 18.44,
+        "dur": 0.63,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v10_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_015.mp4"
+      },
+      {
+        "slug": "v10_016",
+        "take_idx": 16,
+        "t0": 18.44,
+        "t1": 21.98,
+        "dur": 3.55,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v10_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_016.mp4"
+      },
+      {
+        "slug": "v10_017",
+        "take_idx": 17,
+        "t0": 21.98,
+        "t1": 24.15,
+        "dur": 2.17,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v10_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_017.mp4"
+      },
+      {
+        "slug": "v10_018",
+        "take_idx": 18,
+        "t0": 24.15,
+        "t1": 24.94,
+        "dur": 0.79,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v10_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_018.mp4"
+      },
+      {
+        "slug": "v10_019",
+        "take_idx": 19,
+        "t0": 24.94,
+        "t1": 25.65,
+        "dur": 0.71,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v10_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_019.mp4"
+      },
+      {
+        "slug": "v10_020",
+        "take_idx": 20,
+        "t0": 25.65,
+        "t1": 26.28,
+        "dur": 0.63,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v10_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_020.mp4"
+      },
+      {
+        "slug": "v10_021",
+        "take_idx": 21,
+        "t0": 26.28,
+        "t1": 27.24,
+        "dur": 0.96,
+        "desc": "Take #21",
+        "jpg": "assets/shots/vizzela_takes/v10_021.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_021.mp4"
+      },
+      {
+        "slug": "v10_022",
+        "take_idx": 22,
+        "t0": 27.24,
+        "t1": 28.36,
+        "dur": 1.13,
+        "desc": "Take #22",
+        "jpg": "assets/shots/vizzela_takes/v10_022.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_022.mp4"
+      },
+      {
+        "slug": "v10_023",
+        "take_idx": 23,
+        "t0": 28.36,
+        "t1": 28.86,
+        "dur": 0.5,
+        "desc": "Take #23",
+        "jpg": "assets/shots/vizzela_takes/v10_023.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_023.mp4"
+      },
+      {
+        "slug": "v10_024",
+        "take_idx": 24,
+        "t0": 28.86,
+        "t1": 29.45,
+        "dur": 0.58,
+        "desc": "Take #24",
+        "jpg": "assets/shots/vizzela_takes/v10_024.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_024.mp4"
+      },
+      {
+        "slug": "v10_025",
+        "take_idx": 25,
+        "t0": 29.45,
+        "t1": 30.53,
+        "dur": 1.08,
+        "desc": "Take #25",
+        "jpg": "assets/shots/vizzela_takes/v10_025.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_025.mp4"
+      },
+      {
+        "slug": "v10_026",
+        "take_idx": 26,
+        "t0": 30.53,
+        "t1": 31.53,
+        "dur": 1.0,
+        "desc": "Take #26",
+        "jpg": "assets/shots/vizzela_takes/v10_026.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_026.mp4"
+      },
+      {
+        "slug": "v10_027",
+        "take_idx": 27,
+        "t0": 31.53,
+        "t1": 33.66,
+        "dur": 2.13,
+        "desc": "Take #27",
+        "jpg": "assets/shots/vizzela_takes/v10_027.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_027.mp4"
+      },
+      {
+        "slug": "v10_028",
+        "take_idx": 28,
+        "t0": 33.66,
+        "t1": 34.2,
+        "dur": 0.54,
+        "desc": "Take #28",
+        "jpg": "assets/shots/vizzela_takes/v10_028.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_028.mp4"
+      },
+      {
+        "slug": "v10_029",
+        "take_idx": 29,
+        "t0": 34.2,
+        "t1": 34.74,
+        "dur": 0.54,
+        "desc": "Take #29",
+        "jpg": "assets/shots/vizzela_takes/v10_029.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_029.mp4"
+      },
+      {
+        "slug": "v10_030",
+        "take_idx": 30,
+        "t0": 34.74,
+        "t1": 35.29,
+        "dur": 0.54,
+        "desc": "Take #30",
+        "jpg": "assets/shots/vizzela_takes/v10_030.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_030.mp4"
+      },
+      {
+        "slug": "v10_031",
+        "take_idx": 31,
+        "t0": 35.29,
+        "t1": 35.87,
+        "dur": 0.58,
+        "desc": "Take #31",
+        "jpg": "assets/shots/vizzela_takes/v10_031.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_031.mp4"
+      },
+      {
+        "slug": "v10_032",
+        "take_idx": 32,
+        "t0": 35.87,
+        "t1": 38.25,
+        "dur": 2.38,
+        "desc": "Take #32",
+        "jpg": "assets/shots/vizzela_takes/v10_032.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_032.mp4"
+      },
+      {
+        "slug": "v10_033",
+        "take_idx": 33,
+        "t0": 38.25,
+        "t1": 40.79,
+        "dur": 2.54,
+        "desc": "Take #33",
+        "jpg": "assets/shots/vizzela_takes/v10_033.jpg",
+        "mp4": "assets/videos/vizzela_takes/v10_033.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 11,
+    "title": "FIX Pro Sealer - Campanha",
+    "filename": "Cópia de FIX Pro Sealer - Campanha.mp4",
+    "orientation": "vertical",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": "30",
+    "total_dur": 45.67,
+    "category": "Linha FIX",
+    "takes_count": 14,
+    "takes": [
+      {
+        "slug": "v11_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 6.4,
+        "dur": 6.4,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v11_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_001.mp4"
+      },
+      {
+        "slug": "v11_002",
+        "take_idx": 2,
+        "t0": 6.4,
+        "t1": 6.9,
+        "dur": 0.5,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v11_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_002.mp4"
+      },
+      {
+        "slug": "v11_003",
+        "take_idx": 3,
+        "t0": 6.9,
+        "t1": 7.4,
+        "dur": 0.5,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v11_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_003.mp4"
+      },
+      {
+        "slug": "v11_004",
+        "take_idx": 4,
+        "t0": 7.4,
+        "t1": 7.87,
+        "dur": 0.47,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v11_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_004.mp4"
+      },
+      {
+        "slug": "v11_005",
+        "take_idx": 5,
+        "t0": 7.87,
+        "t1": 8.37,
+        "dur": 0.5,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v11_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_005.mp4"
+      },
+      {
+        "slug": "v11_006",
+        "take_idx": 6,
+        "t0": 8.37,
+        "t1": 9.6,
+        "dur": 1.23,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v11_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_006.mp4"
+      },
+      {
+        "slug": "v11_007",
+        "take_idx": 7,
+        "t0": 9.6,
+        "t1": 14.43,
+        "dur": 4.83,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v11_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_007.mp4"
+      },
+      {
+        "slug": "v11_008",
+        "take_idx": 8,
+        "t0": 14.43,
+        "t1": 24.0,
+        "dur": 9.57,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v11_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_008.mp4"
+      },
+      {
+        "slug": "v11_009",
+        "take_idx": 9,
+        "t0": 24.0,
+        "t1": 28.8,
+        "dur": 4.8,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v11_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_009.mp4"
+      },
+      {
+        "slug": "v11_010",
+        "take_idx": 10,
+        "t0": 28.8,
+        "t1": 30.83,
+        "dur": 2.03,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v11_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_010.mp4"
+      },
+      {
+        "slug": "v11_011",
+        "take_idx": 11,
+        "t0": 30.83,
+        "t1": 33.6,
+        "dur": 2.77,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v11_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_011.mp4"
+      },
+      {
+        "slug": "v11_012",
+        "take_idx": 12,
+        "t0": 33.6,
+        "t1": 37.7,
+        "dur": 4.1,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v11_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_012.mp4"
+      },
+      {
+        "slug": "v11_013",
+        "take_idx": 13,
+        "t0": 37.7,
+        "t1": 42.53,
+        "dur": 4.83,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v11_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_013.mp4"
+      },
+      {
+        "slug": "v11_014",
+        "take_idx": 14,
+        "t0": 42.53,
+        "t1": 45.67,
+        "dur": 3.14,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v11_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v11_014.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 12,
+    "title": "Lapiseiras FIX - Campanha Vertical",
+    "filename": "Cópia de Lapiseiras FIX - Campanha Vertical.mp4",
+    "orientation": "vertical",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": "23.98",
+    "total_dur": 42.79,
+    "category": "Olhos & Sobrancelhas",
+    "takes_count": 27,
+    "takes": [
+      {
+        "slug": "v12_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 4.0,
+        "dur": 4.0,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v12_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_001.mp4"
+      },
+      {
+        "slug": "v12_002",
+        "take_idx": 2,
+        "t0": 4.0,
+        "t1": 5.13,
+        "dur": 1.13,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v12_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_002.mp4"
+      },
+      {
+        "slug": "v12_003",
+        "take_idx": 3,
+        "t0": 5.13,
+        "t1": 6.21,
+        "dur": 1.08,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v12_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_003.mp4"
+      },
+      {
+        "slug": "v12_004",
+        "take_idx": 4,
+        "t0": 6.21,
+        "t1": 7.3,
+        "dur": 1.08,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v12_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_004.mp4"
+      },
+      {
+        "slug": "v12_005",
+        "take_idx": 5,
+        "t0": 7.3,
+        "t1": 9.43,
+        "dur": 2.13,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v12_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_005.mp4"
+      },
+      {
+        "slug": "v12_006",
+        "take_idx": 6,
+        "t0": 9.43,
+        "t1": 10.55,
+        "dur": 1.13,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v12_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_006.mp4"
+      },
+      {
+        "slug": "v12_007",
+        "take_idx": 7,
+        "t0": 10.55,
+        "t1": 11.59,
+        "dur": 1.04,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v12_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_007.mp4"
+      },
+      {
+        "slug": "v12_008",
+        "take_idx": 8,
+        "t0": 11.59,
+        "t1": 12.64,
+        "dur": 1.04,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v12_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_008.mp4"
+      },
+      {
+        "slug": "v12_009",
+        "take_idx": 9,
+        "t0": 12.64,
+        "t1": 13.72,
+        "dur": 1.08,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v12_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_009.mp4"
+      },
+      {
+        "slug": "v12_010",
+        "take_idx": 10,
+        "t0": 13.72,
+        "t1": 14.81,
+        "dur": 1.08,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v12_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_010.mp4"
+      },
+      {
+        "slug": "v12_011",
+        "take_idx": 11,
+        "t0": 14.81,
+        "t1": 16.93,
+        "dur": 2.13,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v12_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_011.mp4"
+      },
+      {
+        "slug": "v12_012",
+        "take_idx": 12,
+        "t0": 16.93,
+        "t1": 18.02,
+        "dur": 1.08,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v12_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_012.mp4"
+      },
+      {
+        "slug": "v12_013",
+        "take_idx": 13,
+        "t0": 18.02,
+        "t1": 20.15,
+        "dur": 2.13,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v12_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_013.mp4"
+      },
+      {
+        "slug": "v12_014",
+        "take_idx": 14,
+        "t0": 20.15,
+        "t1": 21.73,
+        "dur": 1.58,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v12_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_014.mp4"
+      },
+      {
+        "slug": "v12_015",
+        "take_idx": 15,
+        "t0": 21.73,
+        "t1": 22.86,
+        "dur": 1.13,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v12_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_015.mp4"
+      },
+      {
+        "slug": "v12_016",
+        "take_idx": 16,
+        "t0": 22.86,
+        "t1": 23.9,
+        "dur": 1.04,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v12_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_016.mp4"
+      },
+      {
+        "slug": "v12_017",
+        "take_idx": 17,
+        "t0": 23.9,
+        "t1": 25.69,
+        "dur": 1.79,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v12_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_017.mp4"
+      },
+      {
+        "slug": "v12_018",
+        "take_idx": 18,
+        "t0": 25.69,
+        "t1": 27.15,
+        "dur": 1.46,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v12_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_018.mp4"
+      },
+      {
+        "slug": "v12_019",
+        "take_idx": 19,
+        "t0": 27.15,
+        "t1": 28.7,
+        "dur": 1.54,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v12_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_019.mp4"
+      },
+      {
+        "slug": "v12_020",
+        "take_idx": 20,
+        "t0": 28.7,
+        "t1": 30.32,
+        "dur": 1.63,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v12_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_020.mp4"
+      },
+      {
+        "slug": "v12_021",
+        "take_idx": 21,
+        "t0": 30.32,
+        "t1": 31.74,
+        "dur": 1.42,
+        "desc": "Take #21",
+        "jpg": "assets/shots/vizzela_takes/v12_021.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_021.mp4"
+      },
+      {
+        "slug": "v12_022",
+        "take_idx": 22,
+        "t0": 31.74,
+        "t1": 32.99,
+        "dur": 1.25,
+        "desc": "Take #22",
+        "jpg": "assets/shots/vizzela_takes/v12_022.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_022.mp4"
+      },
+      {
+        "slug": "v12_023",
+        "take_idx": 23,
+        "t0": 32.99,
+        "t1": 33.87,
+        "dur": 0.88,
+        "desc": "Take #23",
+        "jpg": "assets/shots/vizzela_takes/v12_023.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_023.mp4"
+      },
+      {
+        "slug": "v12_024",
+        "take_idx": 24,
+        "t0": 33.87,
+        "t1": 35.08,
+        "dur": 1.21,
+        "desc": "Take #24",
+        "jpg": "assets/shots/vizzela_takes/v12_024.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_024.mp4"
+      },
+      {
+        "slug": "v12_025",
+        "take_idx": 25,
+        "t0": 35.08,
+        "t1": 37.33,
+        "dur": 2.25,
+        "desc": "Take #25",
+        "jpg": "assets/shots/vizzela_takes/v12_025.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_025.mp4"
+      },
+      {
+        "slug": "v12_026",
+        "take_idx": 26,
+        "t0": 37.33,
+        "t1": 40.71,
+        "dur": 3.38,
+        "desc": "Take #26",
+        "jpg": "assets/shots/vizzela_takes/v12_026.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_026.mp4"
+      },
+      {
+        "slug": "v12_027",
+        "take_idx": 27,
+        "t0": 40.71,
+        "t1": 42.79,
+        "dur": 2.08,
+        "desc": "Take #27",
+        "jpg": "assets/shots/vizzela_takes/v12_027.jpg",
+        "mp4": "assets/videos/vizzela_takes/v12_027.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 13,
+    "title": "Linha Sense",
+    "filename": "Cópia de Linha Sense.mp4",
+    "orientation": "vertical",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": "24",
+    "total_dur": 49.86,
+    "category": "Corpo, Hair & Lifestyle",
+    "takes_count": 32,
+    "takes": [
+      {
+        "slug": "v13_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 1.0,
+        "dur": 1.0,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v13_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_001.mp4"
+      },
+      {
+        "slug": "v13_002",
+        "take_idx": 2,
+        "t0": 1.0,
+        "t1": 1.67,
+        "dur": 0.67,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v13_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_002.mp4"
+      },
+      {
+        "slug": "v13_003",
+        "take_idx": 3,
+        "t0": 1.67,
+        "t1": 5.38,
+        "dur": 3.71,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v13_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_003.mp4"
+      },
+      {
+        "slug": "v13_004",
+        "take_idx": 4,
+        "t0": 5.38,
+        "t1": 7.42,
+        "dur": 2.04,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v13_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_004.mp4"
+      },
+      {
+        "slug": "v13_005",
+        "take_idx": 5,
+        "t0": 7.42,
+        "t1": 8.54,
+        "dur": 1.12,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v13_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_005.mp4"
+      },
+      {
+        "slug": "v13_006",
+        "take_idx": 6,
+        "t0": 8.54,
+        "t1": 9.92,
+        "dur": 1.38,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v13_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_006.mp4"
+      },
+      {
+        "slug": "v13_007",
+        "take_idx": 7,
+        "t0": 9.92,
+        "t1": 12.33,
+        "dur": 2.42,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v13_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_007.mp4"
+      },
+      {
+        "slug": "v13_008",
+        "take_idx": 8,
+        "t0": 12.33,
+        "t1": 13.46,
+        "dur": 1.12,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v13_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_008.mp4"
+      },
+      {
+        "slug": "v13_009",
+        "take_idx": 9,
+        "t0": 13.46,
+        "t1": 15.04,
+        "dur": 1.58,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v13_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_009.mp4"
+      },
+      {
+        "slug": "v13_010",
+        "take_idx": 10,
+        "t0": 15.04,
+        "t1": 16.46,
+        "dur": 1.42,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v13_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_010.mp4"
+      },
+      {
+        "slug": "v13_011",
+        "take_idx": 11,
+        "t0": 16.46,
+        "t1": 17.62,
+        "dur": 1.17,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v13_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_011.mp4"
+      },
+      {
+        "slug": "v13_012",
+        "take_idx": 12,
+        "t0": 17.62,
+        "t1": 19.29,
+        "dur": 1.67,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v13_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_012.mp4"
+      },
+      {
+        "slug": "v13_013",
+        "take_idx": 13,
+        "t0": 19.29,
+        "t1": 20.58,
+        "dur": 1.29,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v13_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_013.mp4"
+      },
+      {
+        "slug": "v13_014",
+        "take_idx": 14,
+        "t0": 20.58,
+        "t1": 22.08,
+        "dur": 1.5,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v13_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_014.mp4"
+      },
+      {
+        "slug": "v13_015",
+        "take_idx": 15,
+        "t0": 22.08,
+        "t1": 23.5,
+        "dur": 1.42,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v13_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_015.mp4"
+      },
+      {
+        "slug": "v13_016",
+        "take_idx": 16,
+        "t0": 23.5,
+        "t1": 24.75,
+        "dur": 1.25,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v13_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_016.mp4"
+      },
+      {
+        "slug": "v13_017",
+        "take_idx": 17,
+        "t0": 24.75,
+        "t1": 26.21,
+        "dur": 1.46,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v13_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_017.mp4"
+      },
+      {
+        "slug": "v13_018",
+        "take_idx": 18,
+        "t0": 26.21,
+        "t1": 27.67,
+        "dur": 1.46,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v13_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_018.mp4"
+      },
+      {
+        "slug": "v13_019",
+        "take_idx": 19,
+        "t0": 27.67,
+        "t1": 30.42,
+        "dur": 2.75,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v13_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_019.mp4"
+      },
+      {
+        "slug": "v13_020",
+        "take_idx": 20,
+        "t0": 30.42,
+        "t1": 32.58,
+        "dur": 2.17,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v13_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_020.mp4"
+      },
+      {
+        "slug": "v13_021",
+        "take_idx": 21,
+        "t0": 32.58,
+        "t1": 33.25,
+        "dur": 0.67,
+        "desc": "Take #21",
+        "jpg": "assets/shots/vizzela_takes/v13_021.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_021.mp4"
+      },
+      {
+        "slug": "v13_022",
+        "take_idx": 22,
+        "t0": 33.25,
+        "t1": 34.62,
+        "dur": 1.38,
+        "desc": "Take #22",
+        "jpg": "assets/shots/vizzela_takes/v13_022.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_022.mp4"
+      },
+      {
+        "slug": "v13_023",
+        "take_idx": 23,
+        "t0": 34.62,
+        "t1": 35.71,
+        "dur": 1.08,
+        "desc": "Take #23",
+        "jpg": "assets/shots/vizzela_takes/v13_023.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_023.mp4"
+      },
+      {
+        "slug": "v13_024",
+        "take_idx": 24,
+        "t0": 35.71,
+        "t1": 37.42,
+        "dur": 1.71,
+        "desc": "Take #24",
+        "jpg": "assets/shots/vizzela_takes/v13_024.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_024.mp4"
+      },
+      {
+        "slug": "v13_025",
+        "take_idx": 25,
+        "t0": 37.42,
+        "t1": 38.83,
+        "dur": 1.42,
+        "desc": "Take #25",
+        "jpg": "assets/shots/vizzela_takes/v13_025.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_025.mp4"
+      },
+      {
+        "slug": "v13_026",
+        "take_idx": 26,
+        "t0": 38.83,
+        "t1": 40.92,
+        "dur": 2.08,
+        "desc": "Take #26",
+        "jpg": "assets/shots/vizzela_takes/v13_026.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_026.mp4"
+      },
+      {
+        "slug": "v13_027",
+        "take_idx": 27,
+        "t0": 40.92,
+        "t1": 43.08,
+        "dur": 2.17,
+        "desc": "Take #27",
+        "jpg": "assets/shots/vizzela_takes/v13_027.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_027.mp4"
+      },
+      {
+        "slug": "v13_028",
+        "take_idx": 28,
+        "t0": 43.08,
+        "t1": 44.42,
+        "dur": 1.33,
+        "desc": "Take #28",
+        "jpg": "assets/shots/vizzela_takes/v13_028.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_028.mp4"
+      },
+      {
+        "slug": "v13_029",
+        "take_idx": 29,
+        "t0": 44.42,
+        "t1": 45.58,
+        "dur": 1.17,
+        "desc": "Take #29",
+        "jpg": "assets/shots/vizzela_takes/v13_029.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_029.mp4"
+      },
+      {
+        "slug": "v13_030",
+        "take_idx": 30,
+        "t0": 45.58,
+        "t1": 46.29,
+        "dur": 0.71,
+        "desc": "Take #30",
+        "jpg": "assets/shots/vizzela_takes/v13_030.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_030.mp4"
+      },
+      {
+        "slug": "v13_031",
+        "take_idx": 31,
+        "t0": 46.29,
+        "t1": 47.12,
+        "dur": 0.83,
+        "desc": "Take #31",
+        "jpg": "assets/shots/vizzela_takes/v13_031.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_031.mp4"
+      },
+      {
+        "slug": "v13_032",
+        "take_idx": 32,
+        "t0": 47.12,
+        "t1": 49.86,
+        "dur": 2.73,
+        "desc": "Take #32",
+        "jpg": "assets/shots/vizzela_takes/v13_032.jpg",
+        "mp4": "assets/videos/vizzela_takes/v13_032.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 14,
+    "title": "Lip Oil - As Brabas CT",
+    "filename": "Cópia de Lip Oil - As Brabas CT.mp4",
+    "orientation": "horizontal",
+    "aspect": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": "24",
+    "total_dur": 41.88,
+    "category": "Labial & Boca",
+    "takes_count": 18,
+    "takes": [
+      {
+        "slug": "v14_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 9.21,
+        "dur": 9.21,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v14_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_001.mp4"
+      },
+      {
+        "slug": "v14_002",
+        "take_idx": 2,
+        "t0": 9.21,
+        "t1": 11.21,
+        "dur": 2.0,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v14_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_002.mp4"
+      },
+      {
+        "slug": "v14_003",
+        "take_idx": 3,
+        "t0": 11.21,
+        "t1": 12.12,
+        "dur": 0.92,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v14_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_003.mp4"
+      },
+      {
+        "slug": "v14_004",
+        "take_idx": 4,
+        "t0": 12.12,
+        "t1": 14.17,
+        "dur": 2.04,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v14_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_004.mp4"
+      },
+      {
+        "slug": "v14_005",
+        "take_idx": 5,
+        "t0": 14.17,
+        "t1": 17.21,
+        "dur": 3.04,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v14_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_005.mp4"
+      },
+      {
+        "slug": "v14_006",
+        "take_idx": 6,
+        "t0": 17.21,
+        "t1": 20.46,
+        "dur": 3.25,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v14_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_006.mp4"
+      },
+      {
+        "slug": "v14_007",
+        "take_idx": 7,
+        "t0": 20.46,
+        "t1": 21.92,
+        "dur": 1.46,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v14_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_007.mp4"
+      },
+      {
+        "slug": "v14_008",
+        "take_idx": 8,
+        "t0": 21.92,
+        "t1": 24.21,
+        "dur": 2.29,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v14_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_008.mp4"
+      },
+      {
+        "slug": "v14_009",
+        "take_idx": 9,
+        "t0": 24.21,
+        "t1": 28.67,
+        "dur": 4.46,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v14_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_009.mp4"
+      },
+      {
+        "slug": "v14_010",
+        "take_idx": 10,
+        "t0": 28.67,
+        "t1": 31.29,
+        "dur": 2.62,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v14_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_010.mp4"
+      },
+      {
+        "slug": "v14_011",
+        "take_idx": 11,
+        "t0": 31.29,
+        "t1": 32.96,
+        "dur": 1.67,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v14_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_011.mp4"
+      },
+      {
+        "slug": "v14_012",
+        "take_idx": 12,
+        "t0": 32.96,
+        "t1": 35.0,
+        "dur": 2.04,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v14_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_012.mp4"
+      },
+      {
+        "slug": "v14_013",
+        "take_idx": 13,
+        "t0": 35.0,
+        "t1": 37.12,
+        "dur": 2.12,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v14_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_013.mp4"
+      },
+      {
+        "slug": "v14_014",
+        "take_idx": 14,
+        "t0": 37.12,
+        "t1": 38.0,
+        "dur": 0.88,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v14_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_014.mp4"
+      },
+      {
+        "slug": "v14_015",
+        "take_idx": 15,
+        "t0": 38.0,
+        "t1": 38.96,
+        "dur": 0.96,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v14_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_015.mp4"
+      },
+      {
+        "slug": "v14_016",
+        "take_idx": 16,
+        "t0": 38.96,
+        "t1": 40.17,
+        "dur": 1.21,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v14_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_016.mp4"
+      },
+      {
+        "slug": "v14_017",
+        "take_idx": 17,
+        "t0": 40.17,
+        "t1": 40.71,
+        "dur": 0.54,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v14_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_017.mp4"
+      },
+      {
+        "slug": "v14_018",
+        "take_idx": 18,
+        "t0": 40.71,
+        "t1": 41.88,
+        "dur": 1.17,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v14_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v14_018.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 15,
+    "title": "Mascara e Lapiseira - Olive Green - Vertical",
+    "filename": "Cópia de Mascara e Lapiseira - Olive Green - Vertical.mp4",
+    "orientation": "vertical",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": "24",
+    "total_dur": 60.04,
+    "category": "Olhos & Sobrancelhas",
+    "takes_count": 55,
+    "takes": [
+      {
+        "slug": "v15_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 0.71,
+        "dur": 0.71,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v15_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_001.mp4"
+      },
+      {
+        "slug": "v15_002",
+        "take_idx": 2,
+        "t0": 0.71,
+        "t1": 1.25,
+        "dur": 0.54,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v15_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_002.mp4"
+      },
+      {
+        "slug": "v15_003",
+        "take_idx": 3,
+        "t0": 1.25,
+        "t1": 1.71,
+        "dur": 0.46,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v15_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_003.mp4"
+      },
+      {
+        "slug": "v15_004",
+        "take_idx": 4,
+        "t0": 1.71,
+        "t1": 2.25,
+        "dur": 0.54,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v15_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_004.mp4"
+      },
+      {
+        "slug": "v15_005",
+        "take_idx": 5,
+        "t0": 2.25,
+        "t1": 2.96,
+        "dur": 0.71,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v15_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_005.mp4"
+      },
+      {
+        "slug": "v15_006",
+        "take_idx": 6,
+        "t0": 2.96,
+        "t1": 3.46,
+        "dur": 0.5,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v15_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_006.mp4"
+      },
+      {
+        "slug": "v15_007",
+        "take_idx": 7,
+        "t0": 3.46,
+        "t1": 4.17,
+        "dur": 0.71,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v15_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_007.mp4"
+      },
+      {
+        "slug": "v15_008",
+        "take_idx": 8,
+        "t0": 4.17,
+        "t1": 8.46,
+        "dur": 4.29,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v15_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_008.mp4"
+      },
+      {
+        "slug": "v15_009",
+        "take_idx": 9,
+        "t0": 8.46,
+        "t1": 10.04,
+        "dur": 1.58,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v15_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_009.mp4"
+      },
+      {
+        "slug": "v15_010",
+        "take_idx": 10,
+        "t0": 10.04,
+        "t1": 11.71,
+        "dur": 1.67,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v15_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_010.mp4"
+      },
+      {
+        "slug": "v15_011",
+        "take_idx": 11,
+        "t0": 11.71,
+        "t1": 13.79,
+        "dur": 2.08,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v15_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_011.mp4"
+      },
+      {
+        "slug": "v15_012",
+        "take_idx": 12,
+        "t0": 13.79,
+        "t1": 16.62,
+        "dur": 2.83,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v15_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_012.mp4"
+      },
+      {
+        "slug": "v15_013",
+        "take_idx": 13,
+        "t0": 16.62,
+        "t1": 17.29,
+        "dur": 0.67,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v15_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_013.mp4"
+      },
+      {
+        "slug": "v15_014",
+        "take_idx": 14,
+        "t0": 17.29,
+        "t1": 18.46,
+        "dur": 1.17,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v15_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_014.mp4"
+      },
+      {
+        "slug": "v15_015",
+        "take_idx": 15,
+        "t0": 18.46,
+        "t1": 20.0,
+        "dur": 1.54,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v15_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_015.mp4"
+      },
+      {
+        "slug": "v15_016",
+        "take_idx": 16,
+        "t0": 20.0,
+        "t1": 21.33,
+        "dur": 1.33,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v15_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_016.mp4"
+      },
+      {
+        "slug": "v15_017",
+        "take_idx": 17,
+        "t0": 21.33,
+        "t1": 23.17,
+        "dur": 1.83,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v15_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_017.mp4"
+      },
+      {
+        "slug": "v15_018",
+        "take_idx": 18,
+        "t0": 23.17,
+        "t1": 25.75,
+        "dur": 2.58,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v15_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_018.mp4"
+      },
+      {
+        "slug": "v15_019",
+        "take_idx": 19,
+        "t0": 25.75,
+        "t1": 26.29,
+        "dur": 0.54,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v15_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_019.mp4"
+      },
+      {
+        "slug": "v15_020",
+        "take_idx": 20,
+        "t0": 26.29,
+        "t1": 26.88,
+        "dur": 0.58,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v15_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_020.mp4"
+      },
+      {
+        "slug": "v15_021",
+        "take_idx": 21,
+        "t0": 26.88,
+        "t1": 27.42,
+        "dur": 0.54,
+        "desc": "Take #21",
+        "jpg": "assets/shots/vizzela_takes/v15_021.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_021.mp4"
+      },
+      {
+        "slug": "v15_022",
+        "take_idx": 22,
+        "t0": 27.42,
+        "t1": 27.92,
+        "dur": 0.5,
+        "desc": "Take #22",
+        "jpg": "assets/shots/vizzela_takes/v15_022.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_022.mp4"
+      },
+      {
+        "slug": "v15_023",
+        "take_idx": 23,
+        "t0": 27.92,
+        "t1": 28.96,
+        "dur": 1.04,
+        "desc": "Take #23",
+        "jpg": "assets/shots/vizzela_takes/v15_023.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_023.mp4"
+      },
+      {
+        "slug": "v15_024",
+        "take_idx": 24,
+        "t0": 28.96,
+        "t1": 29.54,
+        "dur": 0.58,
+        "desc": "Take #24",
+        "jpg": "assets/shots/vizzela_takes/v15_024.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_024.mp4"
+      },
+      {
+        "slug": "v15_025",
+        "take_idx": 25,
+        "t0": 29.54,
+        "t1": 30.12,
+        "dur": 0.58,
+        "desc": "Take #25",
+        "jpg": "assets/shots/vizzela_takes/v15_025.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_025.mp4"
+      },
+      {
+        "slug": "v15_026",
+        "take_idx": 26,
+        "t0": 30.12,
+        "t1": 30.62,
+        "dur": 0.5,
+        "desc": "Take #26",
+        "jpg": "assets/shots/vizzela_takes/v15_026.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_026.mp4"
+      },
+      {
+        "slug": "v15_027",
+        "take_idx": 27,
+        "t0": 30.62,
+        "t1": 31.62,
+        "dur": 1.0,
+        "desc": "Take #27",
+        "jpg": "assets/shots/vizzela_takes/v15_027.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_027.mp4"
+      },
+      {
+        "slug": "v15_028",
+        "take_idx": 28,
+        "t0": 31.62,
+        "t1": 32.29,
+        "dur": 0.67,
+        "desc": "Take #28",
+        "jpg": "assets/shots/vizzela_takes/v15_028.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_028.mp4"
+      },
+      {
+        "slug": "v15_029",
+        "take_idx": 29,
+        "t0": 32.29,
+        "t1": 32.79,
+        "dur": 0.5,
+        "desc": "Take #29",
+        "jpg": "assets/shots/vizzela_takes/v15_029.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_029.mp4"
+      },
+      {
+        "slug": "v15_030",
+        "take_idx": 30,
+        "t0": 32.79,
+        "t1": 33.33,
+        "dur": 0.54,
+        "desc": "Take #30",
+        "jpg": "assets/shots/vizzela_takes/v15_030.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_030.mp4"
+      },
+      {
+        "slug": "v15_031",
+        "take_idx": 31,
+        "t0": 33.33,
+        "t1": 34.46,
+        "dur": 1.12,
+        "desc": "Take #31",
+        "jpg": "assets/shots/vizzela_takes/v15_031.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_031.mp4"
+      },
+      {
+        "slug": "v15_032",
+        "take_idx": 32,
+        "t0": 34.46,
+        "t1": 35.12,
+        "dur": 0.67,
+        "desc": "Take #32",
+        "jpg": "assets/shots/vizzela_takes/v15_032.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_032.mp4"
+      },
+      {
+        "slug": "v15_033",
+        "take_idx": 33,
+        "t0": 35.12,
+        "t1": 35.71,
+        "dur": 0.58,
+        "desc": "Take #33",
+        "jpg": "assets/shots/vizzela_takes/v15_033.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_033.mp4"
+      },
+      {
+        "slug": "v15_034",
+        "take_idx": 34,
+        "t0": 35.71,
+        "t1": 37.79,
+        "dur": 2.08,
+        "desc": "Take #34",
+        "jpg": "assets/shots/vizzela_takes/v15_034.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_034.mp4"
+      },
+      {
+        "slug": "v15_035",
+        "take_idx": 35,
+        "t0": 37.79,
+        "t1": 39.5,
+        "dur": 1.71,
+        "desc": "Take #35",
+        "jpg": "assets/shots/vizzela_takes/v15_035.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_035.mp4"
+      },
+      {
+        "slug": "v15_036",
+        "take_idx": 36,
+        "t0": 39.5,
+        "t1": 40.5,
+        "dur": 1.0,
+        "desc": "Take #36",
+        "jpg": "assets/shots/vizzela_takes/v15_036.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_036.mp4"
+      },
+      {
+        "slug": "v15_037",
+        "take_idx": 37,
+        "t0": 40.5,
+        "t1": 41.88,
+        "dur": 1.38,
+        "desc": "Take #37",
+        "jpg": "assets/shots/vizzela_takes/v15_037.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_037.mp4"
+      },
+      {
+        "slug": "v15_038",
+        "take_idx": 38,
+        "t0": 41.88,
+        "t1": 43.38,
+        "dur": 1.5,
+        "desc": "Take #38",
+        "jpg": "assets/shots/vizzela_takes/v15_038.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_038.mp4"
+      },
+      {
+        "slug": "v15_039",
+        "take_idx": 39,
+        "t0": 43.38,
+        "t1": 45.38,
+        "dur": 2.0,
+        "desc": "Take #39",
+        "jpg": "assets/shots/vizzela_takes/v15_039.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_039.mp4"
+      },
+      {
+        "slug": "v15_040",
+        "take_idx": 40,
+        "t0": 45.38,
+        "t1": 48.25,
+        "dur": 2.88,
+        "desc": "Take #40",
+        "jpg": "assets/shots/vizzela_takes/v15_040.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_040.mp4"
+      },
+      {
+        "slug": "v15_041",
+        "take_idx": 41,
+        "t0": 48.25,
+        "t1": 48.71,
+        "dur": 0.46,
+        "desc": "Take #41",
+        "jpg": "assets/shots/vizzela_takes/v15_041.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_041.mp4"
+      },
+      {
+        "slug": "v15_042",
+        "take_idx": 42,
+        "t0": 48.71,
+        "t1": 49.25,
+        "dur": 0.54,
+        "desc": "Take #42",
+        "jpg": "assets/shots/vizzela_takes/v15_042.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_042.mp4"
+      },
+      {
+        "slug": "v15_043",
+        "take_idx": 43,
+        "t0": 49.25,
+        "t1": 49.75,
+        "dur": 0.5,
+        "desc": "Take #43",
+        "jpg": "assets/shots/vizzela_takes/v15_043.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_043.mp4"
+      },
+      {
+        "slug": "v15_044",
+        "take_idx": 44,
+        "t0": 49.75,
+        "t1": 50.25,
+        "dur": 0.5,
+        "desc": "Take #44",
+        "jpg": "assets/shots/vizzela_takes/v15_044.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_044.mp4"
+      },
+      {
+        "slug": "v15_045",
+        "take_idx": 45,
+        "t0": 50.25,
+        "t1": 50.71,
+        "dur": 0.46,
+        "desc": "Take #45",
+        "jpg": "assets/shots/vizzela_takes/v15_045.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_045.mp4"
+      },
+      {
+        "slug": "v15_046",
+        "take_idx": 46,
+        "t0": 50.71,
+        "t1": 51.29,
+        "dur": 0.58,
+        "desc": "Take #46",
+        "jpg": "assets/shots/vizzela_takes/v15_046.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_046.mp4"
+      },
+      {
+        "slug": "v15_047",
+        "take_idx": 47,
+        "t0": 51.29,
+        "t1": 51.79,
+        "dur": 0.5,
+        "desc": "Take #47",
+        "jpg": "assets/shots/vizzela_takes/v15_047.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_047.mp4"
+      },
+      {
+        "slug": "v15_048",
+        "take_idx": 48,
+        "t0": 51.79,
+        "t1": 52.38,
+        "dur": 0.58,
+        "desc": "Take #48",
+        "jpg": "assets/shots/vizzela_takes/v15_048.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_048.mp4"
+      },
+      {
+        "slug": "v15_049",
+        "take_idx": 49,
+        "t0": 52.38,
+        "t1": 52.83,
+        "dur": 0.46,
+        "desc": "Take #49",
+        "jpg": "assets/shots/vizzela_takes/v15_049.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_049.mp4"
+      },
+      {
+        "slug": "v15_050",
+        "take_idx": 50,
+        "t0": 52.83,
+        "t1": 54.17,
+        "dur": 1.33,
+        "desc": "Take #50",
+        "jpg": "assets/shots/vizzela_takes/v15_050.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_050.mp4"
+      },
+      {
+        "slug": "v15_051",
+        "take_idx": 51,
+        "t0": 54.17,
+        "t1": 54.83,
+        "dur": 0.67,
+        "desc": "Take #51",
+        "jpg": "assets/shots/vizzela_takes/v15_051.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_051.mp4"
+      },
+      {
+        "slug": "v15_052",
+        "take_idx": 52,
+        "t0": 54.83,
+        "t1": 55.5,
+        "dur": 0.67,
+        "desc": "Take #52",
+        "jpg": "assets/shots/vizzela_takes/v15_052.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_052.mp4"
+      },
+      {
+        "slug": "v15_053",
+        "take_idx": 53,
+        "t0": 55.5,
+        "t1": 56.0,
+        "dur": 0.5,
+        "desc": "Take #53",
+        "jpg": "assets/shots/vizzela_takes/v15_053.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_053.mp4"
+      },
+      {
+        "slug": "v15_054",
+        "take_idx": 54,
+        "t0": 56.0,
+        "t1": 57.12,
+        "dur": 1.12,
+        "desc": "Take #54",
+        "jpg": "assets/shots/vizzela_takes/v15_054.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_054.mp4"
+      },
+      {
+        "slug": "v15_055",
+        "take_idx": 55,
+        "t0": 57.12,
+        "t1": 60.04,
+        "dur": 2.91,
+        "desc": "Take #55",
+        "jpg": "assets/shots/vizzela_takes/v15_055.jpg",
+        "mp4": "assets/videos/vizzela_takes/v15_055.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 16,
+    "title": "Mascara e Lapiseira Cherry - Vertical",
+    "filename": "Cópia de Mascara e Lapiseira Cherry - Vertical.mov",
+    "orientation": "vertical",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": "23.98",
+    "total_dur": 32.87,
+    "category": "Labial & Boca",
+    "takes_count": 25,
+    "takes": [
+      {
+        "slug": "v16_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 1.46,
+        "dur": 1.46,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v16_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_001.mp4"
+      },
+      {
+        "slug": "v16_002",
+        "take_idx": 2,
+        "t0": 1.46,
+        "t1": 3.25,
+        "dur": 1.79,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v16_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_002.mp4"
+      },
+      {
+        "slug": "v16_003",
+        "take_idx": 3,
+        "t0": 3.25,
+        "t1": 4.34,
+        "dur": 1.08,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v16_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_003.mp4"
+      },
+      {
+        "slug": "v16_004",
+        "take_idx": 4,
+        "t0": 4.34,
+        "t1": 6.01,
+        "dur": 1.67,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v16_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_004.mp4"
+      },
+      {
+        "slug": "v16_005",
+        "take_idx": 5,
+        "t0": 6.01,
+        "t1": 7.42,
+        "dur": 1.42,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v16_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_005.mp4"
+      },
+      {
+        "slug": "v16_006",
+        "take_idx": 6,
+        "t0": 7.42,
+        "t1": 8.76,
+        "dur": 1.33,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v16_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_006.mp4"
+      },
+      {
+        "slug": "v16_007",
+        "take_idx": 7,
+        "t0": 8.76,
+        "t1": 9.3,
+        "dur": 0.54,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v16_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_007.mp4"
+      },
+      {
+        "slug": "v16_008",
+        "take_idx": 8,
+        "t0": 9.3,
+        "t1": 10.64,
+        "dur": 1.33,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v16_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_008.mp4"
+      },
+      {
+        "slug": "v16_009",
+        "take_idx": 9,
+        "t0": 10.64,
+        "t1": 11.97,
+        "dur": 1.33,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v16_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_009.mp4"
+      },
+      {
+        "slug": "v16_010",
+        "take_idx": 10,
+        "t0": 11.97,
+        "t1": 13.35,
+        "dur": 1.38,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v16_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_010.mp4"
+      },
+      {
+        "slug": "v16_011",
+        "take_idx": 11,
+        "t0": 13.35,
+        "t1": 14.93,
+        "dur": 1.58,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v16_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_011.mp4"
+      },
+      {
+        "slug": "v16_012",
+        "take_idx": 12,
+        "t0": 14.93,
+        "t1": 16.1,
+        "dur": 1.17,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v16_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_012.mp4"
+      },
+      {
+        "slug": "v16_013",
+        "take_idx": 13,
+        "t0": 16.1,
+        "t1": 17.93,
+        "dur": 1.84,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v16_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_013.mp4"
+      },
+      {
+        "slug": "v16_014",
+        "take_idx": 14,
+        "t0": 17.93,
+        "t1": 19.31,
+        "dur": 1.38,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v16_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_014.mp4"
+      },
+      {
+        "slug": "v16_015",
+        "take_idx": 15,
+        "t0": 19.31,
+        "t1": 19.77,
+        "dur": 0.46,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v16_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_015.mp4"
+      },
+      {
+        "slug": "v16_016",
+        "take_idx": 16,
+        "t0": 19.77,
+        "t1": 20.69,
+        "dur": 0.92,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v16_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_016.mp4"
+      },
+      {
+        "slug": "v16_017",
+        "take_idx": 17,
+        "t0": 20.69,
+        "t1": 22.02,
+        "dur": 1.33,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v16_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_017.mp4"
+      },
+      {
+        "slug": "v16_018",
+        "take_idx": 18,
+        "t0": 22.02,
+        "t1": 22.94,
+        "dur": 0.92,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v16_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_018.mp4"
+      },
+      {
+        "slug": "v16_019",
+        "take_idx": 19,
+        "t0": 22.94,
+        "t1": 23.86,
+        "dur": 0.92,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v16_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_019.mp4"
+      },
+      {
+        "slug": "v16_020",
+        "take_idx": 20,
+        "t0": 23.86,
+        "t1": 25.28,
+        "dur": 1.42,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v16_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_020.mp4"
+      },
+      {
+        "slug": "v16_021",
+        "take_idx": 21,
+        "t0": 25.28,
+        "t1": 26.15,
+        "dur": 0.88,
+        "desc": "Take #21",
+        "jpg": "assets/shots/vizzela_takes/v16_021.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_021.mp4"
+      },
+      {
+        "slug": "v16_022",
+        "take_idx": 22,
+        "t0": 26.15,
+        "t1": 27.49,
+        "dur": 1.33,
+        "desc": "Take #22",
+        "jpg": "assets/shots/vizzela_takes/v16_022.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_022.mp4"
+      },
+      {
+        "slug": "v16_023",
+        "take_idx": 23,
+        "t0": 27.49,
+        "t1": 28.9,
+        "dur": 1.42,
+        "desc": "Take #23",
+        "jpg": "assets/shots/vizzela_takes/v16_023.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_023.mp4"
+      },
+      {
+        "slug": "v16_024",
+        "take_idx": 24,
+        "t0": 28.9,
+        "t1": 30.74,
+        "dur": 1.84,
+        "desc": "Take #24",
+        "jpg": "assets/shots/vizzela_takes/v16_024.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_024.mp4"
+      },
+      {
+        "slug": "v16_025",
+        "take_idx": 25,
+        "t0": 30.74,
+        "t1": 32.87,
+        "dur": 2.13,
+        "desc": "Take #25",
+        "jpg": "assets/shots/vizzela_takes/v16_025.jpg",
+        "mp4": "assets/videos/vizzela_takes/v16_025.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 17,
+    "title": "Po Compacto FIX HD - Campanha Vertical",
+    "filename": "Cópia de Po Compacto FIX HD - Campanha Vertical.mp4",
+    "orientation": "vertical",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": "23.98",
+    "total_dur": 34.53,
+    "category": "Pele & Face",
+    "takes_count": 20,
+    "takes": [
+      {
+        "slug": "v17_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 2.17,
+        "dur": 2.17,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v17_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_001.mp4"
+      },
+      {
+        "slug": "v17_002",
+        "take_idx": 2,
+        "t0": 2.17,
+        "t1": 2.67,
+        "dur": 0.5,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v17_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_002.mp4"
+      },
+      {
+        "slug": "v17_003",
+        "take_idx": 3,
+        "t0": 2.67,
+        "t1": 3.63,
+        "dur": 0.96,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v17_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_003.mp4"
+      },
+      {
+        "slug": "v17_004",
+        "take_idx": 4,
+        "t0": 3.63,
+        "t1": 4.63,
+        "dur": 1.0,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v17_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_004.mp4"
+      },
+      {
+        "slug": "v17_005",
+        "take_idx": 5,
+        "t0": 4.63,
+        "t1": 5.63,
+        "dur": 1.0,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v17_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_005.mp4"
+      },
+      {
+        "slug": "v17_006",
+        "take_idx": 6,
+        "t0": 5.63,
+        "t1": 6.76,
+        "dur": 1.13,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v17_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_006.mp4"
+      },
+      {
+        "slug": "v17_007",
+        "take_idx": 7,
+        "t0": 6.76,
+        "t1": 7.88,
+        "dur": 1.13,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v17_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_007.mp4"
+      },
+      {
+        "slug": "v17_008",
+        "take_idx": 8,
+        "t0": 7.88,
+        "t1": 8.97,
+        "dur": 1.08,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v17_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_008.mp4"
+      },
+      {
+        "slug": "v17_009",
+        "take_idx": 9,
+        "t0": 8.97,
+        "t1": 10.01,
+        "dur": 1.04,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v17_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_009.mp4"
+      },
+      {
+        "slug": "v17_010",
+        "take_idx": 10,
+        "t0": 10.01,
+        "t1": 11.55,
+        "dur": 1.54,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v17_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_010.mp4"
+      },
+      {
+        "slug": "v17_011",
+        "take_idx": 11,
+        "t0": 11.55,
+        "t1": 12.76,
+        "dur": 1.21,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v17_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_011.mp4"
+      },
+      {
+        "slug": "v17_012",
+        "take_idx": 12,
+        "t0": 12.76,
+        "t1": 14.18,
+        "dur": 1.42,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v17_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_012.mp4"
+      },
+      {
+        "slug": "v17_013",
+        "take_idx": 13,
+        "t0": 14.18,
+        "t1": 16.27,
+        "dur": 2.09,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v17_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_013.mp4"
+      },
+      {
+        "slug": "v17_014",
+        "take_idx": 14,
+        "t0": 16.27,
+        "t1": 19.39,
+        "dur": 3.13,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v17_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_014.mp4"
+      },
+      {
+        "slug": "v17_015",
+        "take_idx": 15,
+        "t0": 19.39,
+        "t1": 21.98,
+        "dur": 2.59,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v17_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_015.mp4"
+      },
+      {
+        "slug": "v17_016",
+        "take_idx": 16,
+        "t0": 21.98,
+        "t1": 23.52,
+        "dur": 1.54,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v17_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_016.mp4"
+      },
+      {
+        "slug": "v17_017",
+        "take_idx": 17,
+        "t0": 23.52,
+        "t1": 26.73,
+        "dur": 3.21,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v17_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_017.mp4"
+      },
+      {
+        "slug": "v17_018",
+        "take_idx": 18,
+        "t0": 26.73,
+        "t1": 30.2,
+        "dur": 3.46,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v17_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_018.mp4"
+      },
+      {
+        "slug": "v17_019",
+        "take_idx": 19,
+        "t0": 30.2,
+        "t1": 31.91,
+        "dur": 1.71,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v17_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_019.mp4"
+      },
+      {
+        "slug": "v17_020",
+        "take_idx": 20,
+        "t0": 31.91,
+        "t1": 34.53,
+        "dur": 2.62,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v17_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v17_020.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 18,
+    "title": "Sombras Liquidas Velvet FIX - Horizontal",
+    "filename": "Cópia de Sombras Liquidas Velvet FIX - Horizontal.mp4",
+    "orientation": "horizontal",
+    "aspect": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": "23.98",
+    "total_dur": 66.57,
+    "category": "Olhos & Sobrancelhas",
+    "takes_count": 63,
+    "takes": [
+      {
+        "slug": "v18_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 1.67,
+        "dur": 1.67,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v18_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_001.mp4"
+      },
+      {
+        "slug": "v18_002",
+        "take_idx": 2,
+        "t0": 1.67,
+        "t1": 2.25,
+        "dur": 0.58,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v18_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_002.mp4"
+      },
+      {
+        "slug": "v18_003",
+        "take_idx": 3,
+        "t0": 2.25,
+        "t1": 3.13,
+        "dur": 0.88,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v18_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_003.mp4"
+      },
+      {
+        "slug": "v18_004",
+        "take_idx": 4,
+        "t0": 3.13,
+        "t1": 6.84,
+        "dur": 3.71,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v18_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_004.mp4"
+      },
+      {
+        "slug": "v18_005",
+        "take_idx": 5,
+        "t0": 6.84,
+        "t1": 9.01,
+        "dur": 2.17,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v18_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_005.mp4"
+      },
+      {
+        "slug": "v18_006",
+        "take_idx": 6,
+        "t0": 9.01,
+        "t1": 9.97,
+        "dur": 0.96,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v18_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_006.mp4"
+      },
+      {
+        "slug": "v18_007",
+        "take_idx": 7,
+        "t0": 9.97,
+        "t1": 10.97,
+        "dur": 1.0,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v18_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_007.mp4"
+      },
+      {
+        "slug": "v18_008",
+        "take_idx": 8,
+        "t0": 10.97,
+        "t1": 12.05,
+        "dur": 1.08,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v18_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_008.mp4"
+      },
+      {
+        "slug": "v18_009",
+        "take_idx": 9,
+        "t0": 12.05,
+        "t1": 13.05,
+        "dur": 1.0,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v18_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_009.mp4"
+      },
+      {
+        "slug": "v18_010",
+        "take_idx": 10,
+        "t0": 13.05,
+        "t1": 14.06,
+        "dur": 1.0,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v18_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_010.mp4"
+      },
+      {
+        "slug": "v18_011",
+        "take_idx": 11,
+        "t0": 14.06,
+        "t1": 15.1,
+        "dur": 1.04,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v18_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_011.mp4"
+      },
+      {
+        "slug": "v18_012",
+        "take_idx": 12,
+        "t0": 15.1,
+        "t1": 16.81,
+        "dur": 1.71,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v18_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_012.mp4"
+      },
+      {
+        "slug": "v18_013",
+        "take_idx": 13,
+        "t0": 16.81,
+        "t1": 17.6,
+        "dur": 0.79,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v18_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_013.mp4"
+      },
+      {
+        "slug": "v18_014",
+        "take_idx": 14,
+        "t0": 17.6,
+        "t1": 18.64,
+        "dur": 1.04,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v18_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_014.mp4"
+      },
+      {
+        "slug": "v18_015",
+        "take_idx": 15,
+        "t0": 18.64,
+        "t1": 19.52,
+        "dur": 0.88,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v18_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_015.mp4"
+      },
+      {
+        "slug": "v18_016",
+        "take_idx": 16,
+        "t0": 19.52,
+        "t1": 20.6,
+        "dur": 1.08,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v18_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_016.mp4"
+      },
+      {
+        "slug": "v18_017",
+        "take_idx": 17,
+        "t0": 20.6,
+        "t1": 22.15,
+        "dur": 1.54,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v18_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_017.mp4"
+      },
+      {
+        "slug": "v18_018",
+        "take_idx": 18,
+        "t0": 22.15,
+        "t1": 23.23,
+        "dur": 1.08,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v18_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_018.mp4"
+      },
+      {
+        "slug": "v18_019",
+        "take_idx": 19,
+        "t0": 23.23,
+        "t1": 24.77,
+        "dur": 1.54,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v18_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_019.mp4"
+      },
+      {
+        "slug": "v18_020",
+        "take_idx": 20,
+        "t0": 24.77,
+        "t1": 25.82,
+        "dur": 1.04,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v18_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_020.mp4"
+      },
+      {
+        "slug": "v18_021",
+        "take_idx": 21,
+        "t0": 25.82,
+        "t1": 28.4,
+        "dur": 2.59,
+        "desc": "Take #21",
+        "jpg": "assets/shots/vizzela_takes/v18_021.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_021.mp4"
+      },
+      {
+        "slug": "v18_022",
+        "take_idx": 22,
+        "t0": 28.4,
+        "t1": 30.49,
+        "dur": 2.09,
+        "desc": "Take #22",
+        "jpg": "assets/shots/vizzela_takes/v18_022.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_022.mp4"
+      },
+      {
+        "slug": "v18_023",
+        "take_idx": 23,
+        "t0": 30.49,
+        "t1": 31.32,
+        "dur": 0.83,
+        "desc": "Take #23",
+        "jpg": "assets/shots/vizzela_takes/v18_023.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_023.mp4"
+      },
+      {
+        "slug": "v18_024",
+        "take_idx": 24,
+        "t0": 31.32,
+        "t1": 31.87,
+        "dur": 0.54,
+        "desc": "Take #24",
+        "jpg": "assets/shots/vizzela_takes/v18_024.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_024.mp4"
+      },
+      {
+        "slug": "v18_025",
+        "take_idx": 25,
+        "t0": 31.87,
+        "t1": 32.41,
+        "dur": 0.54,
+        "desc": "Take #25",
+        "jpg": "assets/shots/vizzela_takes/v18_025.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_025.mp4"
+      },
+      {
+        "slug": "v18_026",
+        "take_idx": 26,
+        "t0": 32.41,
+        "t1": 32.99,
+        "dur": 0.58,
+        "desc": "Take #26",
+        "jpg": "assets/shots/vizzela_takes/v18_026.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_026.mp4"
+      },
+      {
+        "slug": "v18_027",
+        "take_idx": 27,
+        "t0": 32.99,
+        "t1": 33.58,
+        "dur": 0.58,
+        "desc": "Take #27",
+        "jpg": "assets/shots/vizzela_takes/v18_027.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_027.mp4"
+      },
+      {
+        "slug": "v18_028",
+        "take_idx": 28,
+        "t0": 33.58,
+        "t1": 34.03,
+        "dur": 0.46,
+        "desc": "Take #28",
+        "jpg": "assets/shots/vizzela_takes/v18_028.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_028.mp4"
+      },
+      {
+        "slug": "v18_029",
+        "take_idx": 29,
+        "t0": 34.03,
+        "t1": 34.49,
+        "dur": 0.46,
+        "desc": "Take #29",
+        "jpg": "assets/shots/vizzela_takes/v18_029.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_029.mp4"
+      },
+      {
+        "slug": "v18_030",
+        "take_idx": 30,
+        "t0": 34.49,
+        "t1": 35.41,
+        "dur": 0.92,
+        "desc": "Take #30",
+        "jpg": "assets/shots/vizzela_takes/v18_030.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_030.mp4"
+      },
+      {
+        "slug": "v18_031",
+        "take_idx": 31,
+        "t0": 35.41,
+        "t1": 35.87,
+        "dur": 0.46,
+        "desc": "Take #31",
+        "jpg": "assets/shots/vizzela_takes/v18_031.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_031.mp4"
+      },
+      {
+        "slug": "v18_032",
+        "take_idx": 32,
+        "t0": 35.87,
+        "t1": 36.41,
+        "dur": 0.54,
+        "desc": "Take #32",
+        "jpg": "assets/shots/vizzela_takes/v18_032.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_032.mp4"
+      },
+      {
+        "slug": "v18_033",
+        "take_idx": 33,
+        "t0": 36.41,
+        "t1": 36.95,
+        "dur": 0.54,
+        "desc": "Take #33",
+        "jpg": "assets/shots/vizzela_takes/v18_033.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_033.mp4"
+      },
+      {
+        "slug": "v18_034",
+        "take_idx": 34,
+        "t0": 36.95,
+        "t1": 37.5,
+        "dur": 0.54,
+        "desc": "Take #34",
+        "jpg": "assets/shots/vizzela_takes/v18_034.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_034.mp4"
+      },
+      {
+        "slug": "v18_035",
+        "take_idx": 35,
+        "t0": 37.5,
+        "t1": 38.12,
+        "dur": 0.63,
+        "desc": "Take #35",
+        "jpg": "assets/shots/vizzela_takes/v18_035.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_035.mp4"
+      },
+      {
+        "slug": "v18_036",
+        "take_idx": 36,
+        "t0": 38.12,
+        "t1": 38.58,
+        "dur": 0.46,
+        "desc": "Take #36",
+        "jpg": "assets/shots/vizzela_takes/v18_036.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_036.mp4"
+      },
+      {
+        "slug": "v18_037",
+        "take_idx": 37,
+        "t0": 38.58,
+        "t1": 39.12,
+        "dur": 0.54,
+        "desc": "Take #37",
+        "jpg": "assets/shots/vizzela_takes/v18_037.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_037.mp4"
+      },
+      {
+        "slug": "v18_038",
+        "take_idx": 38,
+        "t0": 39.12,
+        "t1": 39.79,
+        "dur": 0.67,
+        "desc": "Take #38",
+        "jpg": "assets/shots/vizzela_takes/v18_038.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_038.mp4"
+      },
+      {
+        "slug": "v18_039",
+        "take_idx": 39,
+        "t0": 39.79,
+        "t1": 42.08,
+        "dur": 2.29,
+        "desc": "Take #39",
+        "jpg": "assets/shots/vizzela_takes/v18_039.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_039.mp4"
+      },
+      {
+        "slug": "v18_040",
+        "take_idx": 40,
+        "t0": 42.08,
+        "t1": 42.54,
+        "dur": 0.46,
+        "desc": "Take #40",
+        "jpg": "assets/shots/vizzela_takes/v18_040.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_040.mp4"
+      },
+      {
+        "slug": "v18_041",
+        "take_idx": 41,
+        "t0": 42.54,
+        "t1": 43.17,
+        "dur": 0.63,
+        "desc": "Take #41",
+        "jpg": "assets/shots/vizzela_takes/v18_041.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_041.mp4"
+      },
+      {
+        "slug": "v18_042",
+        "take_idx": 42,
+        "t0": 43.17,
+        "t1": 43.67,
+        "dur": 0.5,
+        "desc": "Take #42",
+        "jpg": "assets/shots/vizzela_takes/v18_042.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_042.mp4"
+      },
+      {
+        "slug": "v18_043",
+        "take_idx": 43,
+        "t0": 43.67,
+        "t1": 44.17,
+        "dur": 0.5,
+        "desc": "Take #43",
+        "jpg": "assets/shots/vizzela_takes/v18_043.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_043.mp4"
+      },
+      {
+        "slug": "v18_044",
+        "take_idx": 44,
+        "t0": 44.17,
+        "t1": 44.63,
+        "dur": 0.46,
+        "desc": "Take #44",
+        "jpg": "assets/shots/vizzela_takes/v18_044.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_044.mp4"
+      },
+      {
+        "slug": "v18_045",
+        "take_idx": 45,
+        "t0": 44.63,
+        "t1": 45.17,
+        "dur": 0.54,
+        "desc": "Take #45",
+        "jpg": "assets/shots/vizzela_takes/v18_045.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_045.mp4"
+      },
+      {
+        "slug": "v18_046",
+        "take_idx": 46,
+        "t0": 45.17,
+        "t1": 45.63,
+        "dur": 0.46,
+        "desc": "Take #46",
+        "jpg": "assets/shots/vizzela_takes/v18_046.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_046.mp4"
+      },
+      {
+        "slug": "v18_047",
+        "take_idx": 47,
+        "t0": 45.63,
+        "t1": 47.17,
+        "dur": 1.54,
+        "desc": "Take #47",
+        "jpg": "assets/shots/vizzela_takes/v18_047.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_047.mp4"
+      },
+      {
+        "slug": "v18_048",
+        "take_idx": 48,
+        "t0": 47.17,
+        "t1": 48.38,
+        "dur": 1.21,
+        "desc": "Take #48",
+        "jpg": "assets/shots/vizzela_takes/v18_048.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_048.mp4"
+      },
+      {
+        "slug": "v18_049",
+        "take_idx": 49,
+        "t0": 48.38,
+        "t1": 48.88,
+        "dur": 0.5,
+        "desc": "Take #49",
+        "jpg": "assets/shots/vizzela_takes/v18_049.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_049.mp4"
+      },
+      {
+        "slug": "v18_050",
+        "take_idx": 50,
+        "t0": 48.88,
+        "t1": 50.26,
+        "dur": 1.38,
+        "desc": "Take #50",
+        "jpg": "assets/shots/vizzela_takes/v18_050.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_050.mp4"
+      },
+      {
+        "slug": "v18_051",
+        "take_idx": 51,
+        "t0": 50.26,
+        "t1": 51.3,
+        "dur": 1.04,
+        "desc": "Take #51",
+        "jpg": "assets/shots/vizzela_takes/v18_051.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_051.mp4"
+      },
+      {
+        "slug": "v18_052",
+        "take_idx": 52,
+        "t0": 51.3,
+        "t1": 52.3,
+        "dur": 1.0,
+        "desc": "Take #52",
+        "jpg": "assets/shots/vizzela_takes/v18_052.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_052.mp4"
+      },
+      {
+        "slug": "v18_053",
+        "take_idx": 53,
+        "t0": 52.3,
+        "t1": 53.85,
+        "dur": 1.54,
+        "desc": "Take #53",
+        "jpg": "assets/shots/vizzela_takes/v18_053.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_053.mp4"
+      },
+      {
+        "slug": "v18_054",
+        "take_idx": 54,
+        "t0": 53.85,
+        "t1": 54.85,
+        "dur": 1.0,
+        "desc": "Take #54",
+        "jpg": "assets/shots/vizzela_takes/v18_054.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_054.mp4"
+      },
+      {
+        "slug": "v18_055",
+        "take_idx": 55,
+        "t0": 54.85,
+        "t1": 55.68,
+        "dur": 0.83,
+        "desc": "Take #55",
+        "jpg": "assets/shots/vizzela_takes/v18_055.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_055.mp4"
+      },
+      {
+        "slug": "v18_056",
+        "take_idx": 56,
+        "t0": 55.68,
+        "t1": 56.81,
+        "dur": 1.13,
+        "desc": "Take #56",
+        "jpg": "assets/shots/vizzela_takes/v18_056.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_056.mp4"
+      },
+      {
+        "slug": "v18_057",
+        "take_idx": 57,
+        "t0": 56.81,
+        "t1": 57.81,
+        "dur": 1.0,
+        "desc": "Take #57",
+        "jpg": "assets/shots/vizzela_takes/v18_057.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_057.mp4"
+      },
+      {
+        "slug": "v18_058",
+        "take_idx": 58,
+        "t0": 57.81,
+        "t1": 58.73,
+        "dur": 0.92,
+        "desc": "Take #58",
+        "jpg": "assets/shots/vizzela_takes/v18_058.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_058.mp4"
+      },
+      {
+        "slug": "v18_059",
+        "take_idx": 59,
+        "t0": 58.73,
+        "t1": 60.35,
+        "dur": 1.63,
+        "desc": "Take #59",
+        "jpg": "assets/shots/vizzela_takes/v18_059.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_059.mp4"
+      },
+      {
+        "slug": "v18_060",
+        "take_idx": 60,
+        "t0": 60.35,
+        "t1": 61.73,
+        "dur": 1.38,
+        "desc": "Take #60",
+        "jpg": "assets/shots/vizzela_takes/v18_060.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_060.mp4"
+      },
+      {
+        "slug": "v18_061",
+        "take_idx": 61,
+        "t0": 61.73,
+        "t1": 63.06,
+        "dur": 1.33,
+        "desc": "Take #61",
+        "jpg": "assets/shots/vizzela_takes/v18_061.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_061.mp4"
+      },
+      {
+        "slug": "v18_062",
+        "take_idx": 62,
+        "t0": 63.06,
+        "t1": 64.23,
+        "dur": 1.17,
+        "desc": "Take #62",
+        "jpg": "assets/shots/vizzela_takes/v18_062.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_062.mp4"
+      },
+      {
+        "slug": "v18_063",
+        "take_idx": 63,
+        "t0": 64.23,
+        "t1": 66.57,
+        "dur": 2.34,
+        "desc": "Take #63",
+        "jpg": "assets/shots/vizzela_takes/v18_063.jpg",
+        "mp4": "assets/videos/vizzela_takes/v18_063.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 19,
+    "title": "Stick Iluminador - Fashion Film - Horizontal",
+    "filename": "Cópia de Stick Iluminador - Fashion Film - Horizontal.mov",
+    "orientation": "horizontal",
+    "aspect": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": "23.98",
+    "total_dur": 50.59,
+    "category": "Pele & Face",
+    "takes_count": 36,
+    "takes": [
+      {
+        "slug": "v19_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 1.08,
+        "dur": 1.08,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v19_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_001.mp4"
+      },
+      {
+        "slug": "v19_002",
+        "take_idx": 2,
+        "t0": 1.08,
+        "t1": 2.13,
+        "dur": 1.04,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v19_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_002.mp4"
+      },
+      {
+        "slug": "v19_003",
+        "take_idx": 3,
+        "t0": 2.13,
+        "t1": 4.13,
+        "dur": 2.0,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v19_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_003.mp4"
+      },
+      {
+        "slug": "v19_004",
+        "take_idx": 4,
+        "t0": 4.13,
+        "t1": 7.13,
+        "dur": 3.0,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v19_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_004.mp4"
+      },
+      {
+        "slug": "v19_005",
+        "take_idx": 5,
+        "t0": 7.13,
+        "t1": 9.18,
+        "dur": 2.04,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v19_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_005.mp4"
+      },
+      {
+        "slug": "v19_006",
+        "take_idx": 6,
+        "t0": 9.18,
+        "t1": 10.22,
+        "dur": 1.04,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v19_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_006.mp4"
+      },
+      {
+        "slug": "v19_007",
+        "take_idx": 7,
+        "t0": 10.22,
+        "t1": 13.18,
+        "dur": 2.96,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v19_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_007.mp4"
+      },
+      {
+        "slug": "v19_008",
+        "take_idx": 8,
+        "t0": 13.18,
+        "t1": 15.18,
+        "dur": 2.0,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v19_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_008.mp4"
+      },
+      {
+        "slug": "v19_009",
+        "take_idx": 9,
+        "t0": 15.18,
+        "t1": 17.23,
+        "dur": 2.04,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v19_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_009.mp4"
+      },
+      {
+        "slug": "v19_010",
+        "take_idx": 10,
+        "t0": 17.23,
+        "t1": 23.15,
+        "dur": 5.92,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v19_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_010.mp4"
+      },
+      {
+        "slug": "v19_011",
+        "take_idx": 11,
+        "t0": 23.15,
+        "t1": 24.44,
+        "dur": 1.29,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v19_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_011.mp4"
+      },
+      {
+        "slug": "v19_012",
+        "take_idx": 12,
+        "t0": 24.44,
+        "t1": 24.9,
+        "dur": 0.46,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v19_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_012.mp4"
+      },
+      {
+        "slug": "v19_013",
+        "take_idx": 13,
+        "t0": 24.9,
+        "t1": 26.9,
+        "dur": 2.0,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v19_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_013.mp4"
+      },
+      {
+        "slug": "v19_014",
+        "take_idx": 14,
+        "t0": 26.9,
+        "t1": 27.4,
+        "dur": 0.5,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v19_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_014.mp4"
+      },
+      {
+        "slug": "v19_015",
+        "take_idx": 15,
+        "t0": 27.4,
+        "t1": 28.03,
+        "dur": 0.63,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v19_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_015.mp4"
+      },
+      {
+        "slug": "v19_016",
+        "take_idx": 16,
+        "t0": 28.03,
+        "t1": 28.65,
+        "dur": 0.63,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v19_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_016.mp4"
+      },
+      {
+        "slug": "v19_017",
+        "take_idx": 17,
+        "t0": 28.65,
+        "t1": 29.45,
+        "dur": 0.79,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v19_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_017.mp4"
+      },
+      {
+        "slug": "v19_018",
+        "take_idx": 18,
+        "t0": 29.45,
+        "t1": 29.9,
+        "dur": 0.46,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v19_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_018.mp4"
+      },
+      {
+        "slug": "v19_019",
+        "take_idx": 19,
+        "t0": 29.9,
+        "t1": 31.03,
+        "dur": 1.13,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v19_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_019.mp4"
+      },
+      {
+        "slug": "v19_020",
+        "take_idx": 20,
+        "t0": 31.03,
+        "t1": 31.61,
+        "dur": 0.58,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v19_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_020.mp4"
+      },
+      {
+        "slug": "v19_021",
+        "take_idx": 21,
+        "t0": 31.61,
+        "t1": 32.24,
+        "dur": 0.63,
+        "desc": "Take #21",
+        "jpg": "assets/shots/vizzela_takes/v19_021.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_021.mp4"
+      },
+      {
+        "slug": "v19_022",
+        "take_idx": 22,
+        "t0": 32.24,
+        "t1": 32.74,
+        "dur": 0.5,
+        "desc": "Take #22",
+        "jpg": "assets/shots/vizzela_takes/v19_022.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_022.mp4"
+      },
+      {
+        "slug": "v19_023",
+        "take_idx": 23,
+        "t0": 32.74,
+        "t1": 33.41,
+        "dur": 0.67,
+        "desc": "Take #23",
+        "jpg": "assets/shots/vizzela_takes/v19_023.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_023.mp4"
+      },
+      {
+        "slug": "v19_024",
+        "take_idx": 24,
+        "t0": 33.41,
+        "t1": 34.03,
+        "dur": 0.63,
+        "desc": "Take #24",
+        "jpg": "assets/shots/vizzela_takes/v19_024.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_024.mp4"
+      },
+      {
+        "slug": "v19_025",
+        "take_idx": 25,
+        "t0": 34.03,
+        "t1": 34.7,
+        "dur": 0.67,
+        "desc": "Take #25",
+        "jpg": "assets/shots/vizzela_takes/v19_025.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_025.mp4"
+      },
+      {
+        "slug": "v19_026",
+        "take_idx": 26,
+        "t0": 34.7,
+        "t1": 35.2,
+        "dur": 0.5,
+        "desc": "Take #26",
+        "jpg": "assets/shots/vizzela_takes/v19_026.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_026.mp4"
+      },
+      {
+        "slug": "v19_027",
+        "take_idx": 27,
+        "t0": 35.2,
+        "t1": 37.54,
+        "dur": 2.34,
+        "desc": "Take #27",
+        "jpg": "assets/shots/vizzela_takes/v19_027.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_027.mp4"
+      },
+      {
+        "slug": "v19_028",
+        "take_idx": 28,
+        "t0": 37.54,
+        "t1": 38.25,
+        "dur": 0.71,
+        "desc": "Take #28",
+        "jpg": "assets/shots/vizzela_takes/v19_028.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_028.mp4"
+      },
+      {
+        "slug": "v19_029",
+        "take_idx": 29,
+        "t0": 38.25,
+        "t1": 39.37,
+        "dur": 1.13,
+        "desc": "Take #29",
+        "jpg": "assets/shots/vizzela_takes/v19_029.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_029.mp4"
+      },
+      {
+        "slug": "v19_030",
+        "take_idx": 30,
+        "t0": 39.37,
+        "t1": 41.21,
+        "dur": 1.84,
+        "desc": "Take #30",
+        "jpg": "assets/shots/vizzela_takes/v19_030.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_030.mp4"
+      },
+      {
+        "slug": "v19_031",
+        "take_idx": 31,
+        "t0": 41.21,
+        "t1": 41.92,
+        "dur": 0.71,
+        "desc": "Take #31",
+        "jpg": "assets/shots/vizzela_takes/v19_031.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_031.mp4"
+      },
+      {
+        "slug": "v19_032",
+        "take_idx": 32,
+        "t0": 41.92,
+        "t1": 42.92,
+        "dur": 1.0,
+        "desc": "Take #32",
+        "jpg": "assets/shots/vizzela_takes/v19_032.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_032.mp4"
+      },
+      {
+        "slug": "v19_033",
+        "take_idx": 33,
+        "t0": 42.92,
+        "t1": 43.42,
+        "dur": 0.5,
+        "desc": "Take #33",
+        "jpg": "assets/shots/vizzela_takes/v19_033.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_033.mp4"
+      },
+      {
+        "slug": "v19_034",
+        "take_idx": 34,
+        "t0": 43.42,
+        "t1": 44.13,
+        "dur": 0.71,
+        "desc": "Take #34",
+        "jpg": "assets/shots/vizzela_takes/v19_034.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_034.mp4"
+      },
+      {
+        "slug": "v19_035",
+        "take_idx": 35,
+        "t0": 44.13,
+        "t1": 47.05,
+        "dur": 2.92,
+        "desc": "Take #35",
+        "jpg": "assets/shots/vizzela_takes/v19_035.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_035.mp4"
+      },
+      {
+        "slug": "v19_036",
+        "take_idx": 36,
+        "t0": 47.05,
+        "t1": 50.59,
+        "dur": 3.54,
+        "desc": "Take #36",
+        "jpg": "assets/shots/vizzela_takes/v19_036.jpg",
+        "mp4": "assets/videos/vizzela_takes/v19_036.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 20,
+    "title": "Stick Iluminador - Video Full - Horizontal",
+    "filename": "Cópia de Stick Iluminador - Video Full - Horizontal.mp4",
+    "orientation": "horizontal",
+    "aspect": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": "23.98",
+    "total_dur": 29.99,
+    "category": "Pele & Face",
+    "takes_count": 13,
+    "takes": [
+      {
+        "slug": "v20_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 1.46,
+        "dur": 1.46,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v20_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v20_001.mp4"
+      },
+      {
+        "slug": "v20_002",
+        "take_idx": 2,
+        "t0": 1.46,
+        "t1": 4.05,
+        "dur": 2.59,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v20_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v20_002.mp4"
+      },
+      {
+        "slug": "v20_003",
+        "take_idx": 3,
+        "t0": 4.05,
+        "t1": 6.8,
+        "dur": 2.75,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v20_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v20_003.mp4"
+      },
+      {
+        "slug": "v20_004",
+        "take_idx": 4,
+        "t0": 6.8,
+        "t1": 8.22,
+        "dur": 1.42,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v20_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v20_004.mp4"
+      },
+      {
+        "slug": "v20_005",
+        "take_idx": 5,
+        "t0": 8.22,
+        "t1": 10.3,
+        "dur": 2.09,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v20_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v20_005.mp4"
+      },
+      {
+        "slug": "v20_006",
+        "take_idx": 6,
+        "t0": 10.3,
+        "t1": 15.06,
+        "dur": 4.75,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v20_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v20_006.mp4"
+      },
+      {
+        "slug": "v20_007",
+        "take_idx": 7,
+        "t0": 15.06,
+        "t1": 17.06,
+        "dur": 2.0,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v20_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v20_007.mp4"
+      },
+      {
+        "slug": "v20_008",
+        "take_idx": 8,
+        "t0": 17.06,
+        "t1": 18.94,
+        "dur": 1.88,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v20_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v20_008.mp4"
+      },
+      {
+        "slug": "v20_009",
+        "take_idx": 9,
+        "t0": 18.94,
+        "t1": 20.27,
+        "dur": 1.33,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v20_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v20_009.mp4"
+      },
+      {
+        "slug": "v20_010",
+        "take_idx": 10,
+        "t0": 20.27,
+        "t1": 22.77,
+        "dur": 2.5,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v20_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v20_010.mp4"
+      },
+      {
+        "slug": "v20_011",
+        "take_idx": 11,
+        "t0": 22.77,
+        "t1": 24.73,
+        "dur": 1.96,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v20_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v20_011.mp4"
+      },
+      {
+        "slug": "v20_012",
+        "take_idx": 12,
+        "t0": 24.73,
+        "t1": 27.44,
+        "dur": 2.71,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v20_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v20_012.mp4"
+      },
+      {
+        "slug": "v20_013",
+        "take_idx": 13,
+        "t0": 27.44,
+        "t1": 29.99,
+        "dur": 2.55,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v20_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v20_013.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 21,
+    "title": "VZ + HASKELL - HAIR & LIP OIL",
+    "filename": "Cópia de VZ + HASKELL - HAIR & LIP OIL.mp4",
+    "orientation": "horizontal",
+    "aspect": "16:9",
+    "width": 3840,
+    "height": 2160,
+    "fps": "23.98",
+    "total_dur": 85.79,
+    "category": "Labial & Boca",
+    "takes_count": 27,
+    "takes": [
+      {
+        "slug": "v21_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 2.59,
+        "dur": 2.59,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v21_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_001.mp4"
+      },
+      {
+        "slug": "v21_002",
+        "take_idx": 2,
+        "t0": 2.59,
+        "t1": 5.09,
+        "dur": 2.5,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v21_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_002.mp4"
+      },
+      {
+        "slug": "v21_003",
+        "take_idx": 3,
+        "t0": 5.09,
+        "t1": 17.56,
+        "dur": 12.47,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v21_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_003.mp4"
+      },
+      {
+        "slug": "v21_004",
+        "take_idx": 4,
+        "t0": 17.56,
+        "t1": 18.77,
+        "dur": 1.21,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v21_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_004.mp4"
+      },
+      {
+        "slug": "v21_005",
+        "take_idx": 5,
+        "t0": 18.77,
+        "t1": 22.48,
+        "dur": 3.71,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v21_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_005.mp4"
+      },
+      {
+        "slug": "v21_006",
+        "take_idx": 6,
+        "t0": 22.48,
+        "t1": 24.19,
+        "dur": 1.71,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v21_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_006.mp4"
+      },
+      {
+        "slug": "v21_007",
+        "take_idx": 7,
+        "t0": 24.19,
+        "t1": 25.48,
+        "dur": 1.29,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v21_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_007.mp4"
+      },
+      {
+        "slug": "v21_008",
+        "take_idx": 8,
+        "t0": 25.48,
+        "t1": 26.61,
+        "dur": 1.13,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v21_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_008.mp4"
+      },
+      {
+        "slug": "v21_009",
+        "take_idx": 9,
+        "t0": 26.61,
+        "t1": 28.19,
+        "dur": 1.58,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v21_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_009.mp4"
+      },
+      {
+        "slug": "v21_010",
+        "take_idx": 10,
+        "t0": 28.19,
+        "t1": 31.74,
+        "dur": 3.55,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v21_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_010.mp4"
+      },
+      {
+        "slug": "v21_011",
+        "take_idx": 11,
+        "t0": 31.74,
+        "t1": 33.16,
+        "dur": 1.42,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v21_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_011.mp4"
+      },
+      {
+        "slug": "v21_012",
+        "take_idx": 12,
+        "t0": 33.16,
+        "t1": 35.87,
+        "dur": 2.71,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v21_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_012.mp4"
+      },
+      {
+        "slug": "v21_013",
+        "take_idx": 13,
+        "t0": 35.87,
+        "t1": 38.58,
+        "dur": 2.71,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v21_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_013.mp4"
+      },
+      {
+        "slug": "v21_014",
+        "take_idx": 14,
+        "t0": 38.58,
+        "t1": 40.08,
+        "dur": 1.5,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v21_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_014.mp4"
+      },
+      {
+        "slug": "v21_015",
+        "take_idx": 15,
+        "t0": 40.08,
+        "t1": 42.04,
+        "dur": 1.96,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v21_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_015.mp4"
+      },
+      {
+        "slug": "v21_016",
+        "take_idx": 16,
+        "t0": 42.04,
+        "t1": 46.59,
+        "dur": 4.55,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v21_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_016.mp4"
+      },
+      {
+        "slug": "v21_017",
+        "take_idx": 17,
+        "t0": 46.59,
+        "t1": 49.55,
+        "dur": 2.96,
+        "desc": "Take #17",
+        "jpg": "assets/shots/vizzela_takes/v21_017.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_017.mp4"
+      },
+      {
+        "slug": "v21_018",
+        "take_idx": 18,
+        "t0": 49.55,
+        "t1": 51.72,
+        "dur": 2.17,
+        "desc": "Take #18",
+        "jpg": "assets/shots/vizzela_takes/v21_018.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_018.mp4"
+      },
+      {
+        "slug": "v21_019",
+        "take_idx": 19,
+        "t0": 51.72,
+        "t1": 54.51,
+        "dur": 2.79,
+        "desc": "Take #19",
+        "jpg": "assets/shots/vizzela_takes/v21_019.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_019.mp4"
+      },
+      {
+        "slug": "v21_020",
+        "take_idx": 20,
+        "t0": 54.51,
+        "t1": 56.18,
+        "dur": 1.67,
+        "desc": "Take #20",
+        "jpg": "assets/shots/vizzela_takes/v21_020.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_020.mp4"
+      },
+      {
+        "slug": "v21_021",
+        "take_idx": 21,
+        "t0": 56.18,
+        "t1": 62.1,
+        "dur": 5.92,
+        "desc": "Take #21",
+        "jpg": "assets/shots/vizzela_takes/v21_021.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_021.mp4"
+      },
+      {
+        "slug": "v21_022",
+        "take_idx": 22,
+        "t0": 62.1,
+        "t1": 64.69,
+        "dur": 2.59,
+        "desc": "Take #22",
+        "jpg": "assets/shots/vizzela_takes/v21_022.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_022.mp4"
+      },
+      {
+        "slug": "v21_023",
+        "take_idx": 23,
+        "t0": 64.69,
+        "t1": 67.07,
+        "dur": 2.38,
+        "desc": "Take #23",
+        "jpg": "assets/shots/vizzela_takes/v21_023.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_023.mp4"
+      },
+      {
+        "slug": "v21_024",
+        "take_idx": 24,
+        "t0": 67.07,
+        "t1": 71.78,
+        "dur": 4.71,
+        "desc": "Take #24",
+        "jpg": "assets/shots/vizzela_takes/v21_024.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_024.mp4"
+      },
+      {
+        "slug": "v21_025",
+        "take_idx": 25,
+        "t0": 71.78,
+        "t1": 77.66,
+        "dur": 5.88,
+        "desc": "Take #25",
+        "jpg": "assets/shots/vizzela_takes/v21_025.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_025.mp4"
+      },
+      {
+        "slug": "v21_026",
+        "take_idx": 26,
+        "t0": 77.66,
+        "t1": 82.79,
+        "dur": 5.13,
+        "desc": "Take #26",
+        "jpg": "assets/shots/vizzela_takes/v21_026.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_026.mp4"
+      },
+      {
+        "slug": "v21_027",
+        "take_idx": 27,
+        "t0": 82.79,
+        "t1": 85.79,
+        "dur": 3.0,
+        "desc": "Take #27",
+        "jpg": "assets/shots/vizzela_takes/v21_027.jpg",
+        "mp4": "assets/videos/vizzela_takes/v21_027.mp4"
+      }
+    ]
+  },
+  {
+    "vid_idx": 22,
+    "title": "Video Principal",
+    "filename": "Cópia de Video Principal.mov",
+    "orientation": "vertical",
+    "aspect": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": "24",
+    "total_dur": 46.67,
+    "category": "Geral",
+    "takes_count": 16,
+    "takes": [
+      {
+        "slug": "v22_001",
+        "take_idx": 1,
+        "t0": 0.0,
+        "t1": 0.5,
+        "dur": 0.5,
+        "desc": "Take #01",
+        "jpg": "assets/shots/vizzela_takes/v22_001.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_001.mp4"
+      },
+      {
+        "slug": "v22_002",
+        "take_idx": 2,
+        "t0": 0.5,
+        "t1": 1.0,
+        "dur": 0.5,
+        "desc": "Take #02",
+        "jpg": "assets/shots/vizzela_takes/v22_002.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_002.mp4"
+      },
+      {
+        "slug": "v22_003",
+        "take_idx": 3,
+        "t0": 1.0,
+        "t1": 1.5,
+        "dur": 0.5,
+        "desc": "Take #03",
+        "jpg": "assets/shots/vizzela_takes/v22_003.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_003.mp4"
+      },
+      {
+        "slug": "v22_004",
+        "take_idx": 4,
+        "t0": 1.5,
+        "t1": 3.29,
+        "dur": 1.79,
+        "desc": "Take #04",
+        "jpg": "assets/shots/vizzela_takes/v22_004.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_004.mp4"
+      },
+      {
+        "slug": "v22_005",
+        "take_idx": 5,
+        "t0": 3.29,
+        "t1": 12.92,
+        "dur": 9.63,
+        "desc": "Take #05",
+        "jpg": "assets/shots/vizzela_takes/v22_005.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_005.mp4"
+      },
+      {
+        "slug": "v22_006",
+        "take_idx": 6,
+        "t0": 12.92,
+        "t1": 13.67,
+        "dur": 0.75,
+        "desc": "Take #06",
+        "jpg": "assets/shots/vizzela_takes/v22_006.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_006.mp4"
+      },
+      {
+        "slug": "v22_007",
+        "take_idx": 7,
+        "t0": 13.67,
+        "t1": 16.62,
+        "dur": 2.96,
+        "desc": "Take #07",
+        "jpg": "assets/shots/vizzela_takes/v22_007.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_007.mp4"
+      },
+      {
+        "slug": "v22_008",
+        "take_idx": 8,
+        "t0": 16.62,
+        "t1": 22.21,
+        "dur": 5.58,
+        "desc": "Take #08",
+        "jpg": "assets/shots/vizzela_takes/v22_008.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_008.mp4"
+      },
+      {
+        "slug": "v22_009",
+        "take_idx": 9,
+        "t0": 22.21,
+        "t1": 24.54,
+        "dur": 2.33,
+        "desc": "Take #09",
+        "jpg": "assets/shots/vizzela_takes/v22_009.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_009.mp4"
+      },
+      {
+        "slug": "v22_010",
+        "take_idx": 10,
+        "t0": 24.54,
+        "t1": 30.54,
+        "dur": 6.0,
+        "desc": "Take #10",
+        "jpg": "assets/shots/vizzela_takes/v22_010.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_010.mp4"
+      },
+      {
+        "slug": "v22_011",
+        "take_idx": 11,
+        "t0": 30.54,
+        "t1": 31.29,
+        "dur": 0.75,
+        "desc": "Take #11",
+        "jpg": "assets/shots/vizzela_takes/v22_011.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_011.mp4"
+      },
+      {
+        "slug": "v22_012",
+        "take_idx": 12,
+        "t0": 31.29,
+        "t1": 31.96,
+        "dur": 0.67,
+        "desc": "Take #12",
+        "jpg": "assets/shots/vizzela_takes/v22_012.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_012.mp4"
+      },
+      {
+        "slug": "v22_013",
+        "take_idx": 13,
+        "t0": 31.96,
+        "t1": 33.04,
+        "dur": 1.08,
+        "desc": "Take #13",
+        "jpg": "assets/shots/vizzela_takes/v22_013.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_013.mp4"
+      },
+      {
+        "slug": "v22_014",
+        "take_idx": 14,
+        "t0": 33.04,
+        "t1": 35.62,
+        "dur": 2.58,
+        "desc": "Take #14",
+        "jpg": "assets/shots/vizzela_takes/v22_014.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_014.mp4"
+      },
+      {
+        "slug": "v22_015",
+        "take_idx": 15,
+        "t0": 35.62,
+        "t1": 43.17,
+        "dur": 7.54,
+        "desc": "Take #15",
+        "jpg": "assets/shots/vizzela_takes/v22_015.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_015.mp4"
+      },
+      {
+        "slug": "v22_016",
+        "take_idx": 16,
+        "t0": 43.17,
+        "t1": 46.67,
+        "dur": 3.5,
+        "desc": "Take #16",
+        "jpg": "assets/shots/vizzela_takes/v22_016.jpg",
+        "mp4": "assets/videos/vizzela_takes/v22_016.mp4"
+      }
+    ]
+  }
+]

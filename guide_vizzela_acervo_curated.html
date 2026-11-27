@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÀWA — Curadoria Final Montada · Acervo Vizzela Cosméticos (135 itens)</title>
+  <style>
+    :root { --bg: #050505; --card: #111; --border: #242424; --fg: #f4f4f4; --dim: #8f8f8f; --accent: #ffffff; --green: #4ade80; --merge: #f59e0b; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; padding: 20px clamp(14px, 2vw, 32px) 84px; }
+    header { max-width: 2200px; margin: 0 auto 14px; border-bottom: 1px solid var(--border); padding-bottom: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; align-items: flex-end; }
+    h1 { margin: 0 0 4px; font-size: 1.35rem; letter-spacing: -0.02em; }
+    p.lead { margin: 0; color: var(--dim); font-size: 0.85rem; max-width: 960px; line-height: 1.45; }
+    .actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .btn { background: var(--accent); color: #000; border: 0; padding: 8px 14px; border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.82rem; }
+    .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    .toolbar { max-width: 2200px; margin: 0 auto 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; background: rgba(5,5,5,0.95); backdrop-filter: blur(8px); padding: 10px 0; border-bottom: 1px solid #181818; }
+    .chapters { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chap-pill { color: var(--dim); text-decoration: none; font-size: 0.76rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); }
+    .chap-pill:hover { color: var(--fg); border-color: #666; }
+    .search-box { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .vid-select, .search-input { background: #111; color: var(--fg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; font-size: 0.8rem; outline: none; }
+    .vid-select { max-width: 300px; }
+    .search-input { width: 250px; }
+    main { max-width: 2200px; margin: 0 auto; }
+    .group { margin-bottom: 32px; scroll-margin-top: 72px; }
+    .group h2 { font-size: 1rem; font-weight: 600; margin: 0 0 12px; border-left: 3px solid var(--accent); padding-left: 10px; }
+    .group h2 .count { color: var(--dim); font-weight: 400; font-size: 0.82rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; align-items: start; }
+    .card { display: block; background: var(--card); border: 2px solid var(--border); border-radius: 7px; overflow: hidden; cursor: pointer; user-select: none; transition: border-color 0.14s, opacity 0.14s; }
+    .card.is-picked { border-color: var(--green); }
+    .card:not(.is-picked) { opacity: 0.5; }
+    .card.hidden { display: none; }
+    .media-wrap { position: relative; background: #000; overflow: hidden; }
+    .media-wrap.aspect-9-16 { aspect-ratio: 9 / 16; }
+    .media-wrap.aspect-16-9 { aspect-ratio: 16 / 9; }
+    .media-wrap img, .media-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+    .media-wrap video { position: absolute; inset: 0; opacity: 0; transition: opacity 0.18s; }
+    .card:hover .media-wrap video { opacity: 1; }
+    .num-badge { position: absolute; top: 6px; left: 6px; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.68rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; max-width: 58%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .indiv-badge { background: var(--green); color: #052e16; }
+    .junc-badge { background: var(--merge); color: #1c1102; }
+    .ep-badge { position: absolute; top: 6px; right: 6px; background: rgba(15,15,15,0.86); color: #d4d4d4; border: 1px solid rgba(255,255,255,0.16); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.6rem; font-weight: 600; padding: 2px 6px; border-radius: 4px; }
+    .meta { padding: 8px 10px; }
+    .title { font-size: 0.79rem; font-weight: 600; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .num-inline { font-family: ui-monospace, SFMono-Regular, monospace; color: var(--green); margin-right: 3px; }
+    .sub-row { margin-top: 5px; display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+    .sub { font-size: 0.64rem; color: var(--dim); font-family: ui-monospace, SFMono-Regular, monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    #toast { position: fixed; bottom: 20px; right: 20px; background: var(--green); color: #052e16; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; display: none; z-index: 40; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Curadoria Final Montada — Acervo Vizzela Cosméticos</h1>
+      <p class="lead"><strong>22 takes individuais</strong> + <strong>113 sequências montadas (concatenadas)</strong> = <strong>135 itens prontos para publicação</strong> (extraídos de 21 filmes da Vizzela). Passe o mouse para assistir cada sequência já montada sem sobra de frame. (<span id="selectedCount">135</span> ativos).</p>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" href="guide_vizzela_acervo.html">← Guide Completo (581)</a>
+      <a class="btn ghost" href="portfolio.html?q=Vizzela" target="_blank">Abrir Galeria Vizzela ↗</a>
+      <button class="btn ghost" id="selectAllBtn">Marcar Todos</button>
+      <button class="btn ghost" id="resetBtn">Desmarcar Todos</button>
+      <button class="btn" id="copyBtn">Copiar Ativos (<span id="copyCount">135</span>)</button>
+    </div>
+  </header>
+  <div class="toolbar">
+    <nav class="chapters">
+      <a class="chap-pill" href="#individuais">Takes Individuais (22)</a>
+      <a class="chap-pill" href="#juncoes">Sequências Montadas (113)</a>
+    </nav>
+    <div class="search-box">
+      <select class="vid-select" id="vidFilter">
+        <option value="all">Todos os Filmes (20)</option>
+<option value="V02">V02 · BB Cream Campanha - Vertical</option>
+<option value="V03">V03 · BEAUTY BLUSH CINNAMON - VERTICAL</option>
+<option value="V04">V04 · BIG NO Panda Cherry Alterado</option>
+<option value="V05">V05 · Base Satin - Campanha 2025</option>
+<option value="V06">V06 · BlushStick LAS</option>
+<option value="V07">V07 · BodySplash - Pink Vanilla</option>
+<option value="V08">V08 · Carnaval - Horizontal</option>
+<option value="V09">V09 · Cream Contour - 2026 - Vertical</option>
+<option value="V10">V10 · ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL)</option>
+<option value="V11">V11 · FIX Pro Sealer - Campanha</option>
+<option value="V12">V12 · Lapiseiras FIX - Campanha Vertical</option>
+<option value="V13">V13 · Linha Sense</option>
+<option value="V15">V15 · Mascara e Lapiseira - Olive Green - Vertical</option>
+<option value="V16">V16 · Mascara e Lapiseira Cherry - Vertical</option>
+<option value="V17">V17 · Po Compacto FIX HD - Campanha Vertical</option>
+<option value="V18">V18 · Sombras Liquidas Velvet FIX - Horizontal</option>
+<option value="V19">V19 · Stick Iluminador - Fashion Film - Horizontal</option>
+<option value="V20">V20 · Stick Iluminador - Video Full - Horizontal</option>
+<option value="V21">V21 · VZ + HASKELL - HAIR &amp; LIP OIL</option>
+<option value="V22">V22 · Video Principal</option>
+      </select>
+      <input type="search" class="search-input" id="searchInput" placeholder="Filtrar filme, J14, 9:16, batom...">
+    </div>
+  </div>
+  <main>
+    <section class="group" id="individuais">
+      <h2>Takes Individuais <span class="count">(22 takes)</span></h2>
+      <div class="grid">
+        <div class="card is-picked" role="button" tabindex="0" data-id="t001_v02_019" data-vid="V02" data-val="T001 | V02 | BB Cream Campanha - Vertical | v02_019 | 1.08s" data-search="t001 v02 bb cream campanha - vertical pele &amp; face v02_019 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/t001_v02_019.jpg" alt="BB Cream Campanha - Vertical — T001" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t001_v02_019.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0040</span>
+            <span class="ep-badge">V02 · 9:16 · 1.08s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T001</span> BB Cream Campanha - Vertical</div>
+            <div class="sub-row"><span class="sub">v02_019</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t002_v02_024" data-vid="V02" data-val="T002 | V02 | BB Cream Campanha - Vertical | v02_024 | 1.54s" data-search="t002 v02 bb cream campanha - vertical pele &amp; face v02_024 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/t002_v02_024.jpg" alt="BB Cream Campanha - Vertical — T002" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t002_v02_024.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0045</span>
+            <span class="ep-badge">V02 · 9:16 · 1.54s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T002</span> BB Cream Campanha - Vertical</div>
+            <div class="sub-row"><span class="sub">v02_024</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t003_v05_002" data-vid="V05" data-val="T003 | V05 | Base Satin - Campanha 2025 | v05_002 | 1.75s" data-search="t003 v05 base satin - campanha 2025 pele &amp; face v05_002 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/t003_v05_002.jpg" alt="Base Satin - Campanha 2025 — T003" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t003_v05_002.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0096</span>
+            <span class="ep-badge">V05 · 9:16 · 1.75s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T003</span> Base Satin - Campanha 2025</div>
+            <div class="sub-row"><span class="sub">v05_002</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t004_v05_020" data-vid="V05" data-val="T004 | V05 | Base Satin - Campanha 2025 | v05_020 | 4.71s" data-search="t004 v05 base satin - campanha 2025 pele &amp; face v05_020 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/t004_v05_020.jpg" alt="Base Satin - Campanha 2025 — T004" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t004_v05_020.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0114</span>
+            <span class="ep-badge">V05 · 9:16 · 4.71s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T004</span> Base Satin - Campanha 2025</div>
+            <div class="sub-row"><span class="sub">v05_020</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t005_v06_002" data-vid="V06" data-val="T005 | V06 | BlushStick LAS | v06_002 | 4.25s" data-search="t005 v06 blushstick las pele &amp; face v06_002 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/t005_v06_002.jpg" alt="BlushStick LAS — T005" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t005_v06_002.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0116</span>
+            <span class="ep-badge">V06 · 16:9 · 4.25s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T005</span> BlushStick LAS</div>
+            <div class="sub-row"><span class="sub">v06_002</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t006_v06_011" data-vid="V06" data-val="T006 | V06 | BlushStick LAS | v06_011 | 4.01s" data-search="t006 v06 blushstick las pele &amp; face v06_011 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/t006_v06_011.jpg" alt="BlushStick LAS — T006" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t006_v06_011.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0125</span>
+            <span class="ep-badge">V06 · 16:9 · 4.01s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T006</span> BlushStick LAS</div>
+            <div class="sub-row"><span class="sub">v06_011</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t007_v07_012" data-vid="V07" data-val="T007 | V07 | BodySplash - Pink Vanilla | v07_012 | 1.78s" data-search="t007 v07 bodysplash - pink vanilla corpo, hair &amp; lifestyle v07_012 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/t007_v07_012.jpg" alt="BodySplash - Pink Vanilla — T007" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t007_v07_012.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0137</span>
+            <span class="ep-badge">V07 · 9:16 · 1.78s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T007</span> BodySplash - Pink Vanilla</div>
+            <div class="sub-row"><span class="sub">v07_012</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t008_v09_012" data-vid="V09" data-val="T008 | V09 | Cream Contour - 2026 - Vertical | v09_012 | 3.25s" data-search="t008 v09 cream contour - 2026 - vertical pele &amp; face v09_012 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/t008_v09_012.jpg" alt="Cream Contour - 2026 - Vertical — T008" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t008_v09_012.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0182</span>
+            <span class="ep-badge">V09 · 9:16 · 3.25s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T008</span> Cream Contour - 2026 - Vertical</div>
+            <div class="sub-row"><span class="sub">v09_012</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t009_v09_022" data-vid="V09" data-val="T009 | V09 | Cream Contour - 2026 - Vertical | v09_022 | 2.17s" data-search="t009 v09 cream contour - 2026 - vertical pele &amp; face v09_022 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/t009_v09_022.jpg" alt="Cream Contour - 2026 - Vertical — T009" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t009_v09_022.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0192</span>
+            <span class="ep-badge">V09 · 9:16 · 2.17s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T009</span> Cream Contour - 2026 - Vertical</div>
+            <div class="sub-row"><span class="sub">v09_022</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t010_v10_001" data-vid="V10" data-val="T010 | V10 | ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL) | v10_001 | 2.42s" data-search="t010 v10 ela é - batom e lapiseira labial (horizontal) labial &amp; boca v10_001 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/t010_v10_001.jpg" alt="ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL) — T010" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t010_v10_001.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0203</span>
+            <span class="ep-badge">V10 · 16:9 · 2.42s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T010</span> ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL)</div>
+            <div class="sub-row"><span class="sub">v10_001</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t011_v10_032" data-vid="V10" data-val="T011 | V10 | ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL) | v10_032 | 2.13s" data-search="t011 v10 ela é - batom e lapiseira labial (horizontal) labial &amp; boca v10_032 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/t011_v10_032.jpg" alt="ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL) — T011" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t011_v10_032.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0234</span>
+            <span class="ep-badge">V10 · 16:9 · 2.13s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T011</span> ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL)</div>
+            <div class="sub-row"><span class="sub">v10_032</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t012_v11_001" data-vid="V11" data-val="T012 | V11 | FIX Pro Sealer - Campanha | v11_001 | 6.15s" data-search="t012 v11 fix pro sealer - campanha linha fix v11_001 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/t012_v11_001.jpg" alt="FIX Pro Sealer - Campanha — T012" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t012_v11_001.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0236</span>
+            <span class="ep-badge">V11 · 9:16 · 6.15s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T012</span> FIX Pro Sealer - Campanha</div>
+            <div class="sub-row"><span class="sub">v11_001</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t013_v11_013" data-vid="V11" data-val="T013 | V11 | FIX Pro Sealer - Campanha | v11_013 | 4.58s" data-search="t013 v11 fix pro sealer - campanha linha fix v11_013 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/t013_v11_013.jpg" alt="FIX Pro Sealer - Campanha — T013" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t013_v11_013.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0248</span>
+            <span class="ep-badge">V11 · 9:16 · 4.58s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T013</span> FIX Pro Sealer - Campanha</div>
+            <div class="sub-row"><span class="sub">v11_013</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t014_v12_026" data-vid="V12" data-val="T014 | V12 | Lapiseiras FIX - Campanha Vertical | v12_026 | 3.13s" data-search="t014 v12 lapiseiras fix - campanha vertical olhos &amp; sobrancelhas v12_026 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/t014_v12_026.jpg" alt="Lapiseiras FIX - Campanha Vertical — T014" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t014_v12_026.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0275</span>
+            <span class="ep-badge">V12 · 9:16 · 3.13s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T014</span> Lapiseiras FIX - Campanha Vertical</div>
+            <div class="sub-row"><span class="sub">v12_026</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t015_v16_009" data-vid="V16" data-val="T015 | V16 | Mascara e Lapiseira Cherry - Vertical | v16_009 | 1.08s" data-search="t015 v16 mascara e lapiseira cherry - vertical labial &amp; boca v16_009 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/t015_v16_009.jpg" alt="Mascara e Lapiseira Cherry - Vertical — T015" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t015_v16_009.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0390</span>
+            <span class="ep-badge">V16 · 9:16 · 1.08s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T015</span> Mascara e Lapiseira Cherry - Vertical</div>
+            <div class="sub-row"><span class="sub">v16_009</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t016_v17_015" data-vid="V17" data-val="T016 | V17 | Po Compacto FIX HD - Campanha Vertical | v17_015 | 2.34s" data-search="t016 v17 po compacto fix hd - campanha vertical pele &amp; face v17_015 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/t016_v17_015.jpg" alt="Po Compacto FIX HD - Campanha Vertical — T016" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t016_v17_015.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0421</span>
+            <span class="ep-badge">V17 · 9:16 · 2.34s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T016</span> Po Compacto FIX HD - Campanha Vertical</div>
+            <div class="sub-row"><span class="sub">v17_015</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t017_v18_005" data-vid="V18" data-val="T017 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_005 | 1.92s" data-search="t017 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_005 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/t017_v18_005.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — T017" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t017_v18_005.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0431</span>
+            <span class="ep-badge">V18 · 16:9 · 1.92s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T017</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_005</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t018_v18_025" data-vid="V18" data-val="T018 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_025 | 0.34s" data-search="t018 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_025 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/t018_v18_025.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — T018" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t018_v18_025.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0451</span>
+            <span class="ep-badge">V18 · 16:9 · 0.34s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T018</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_025</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t019_v19_035" data-vid="V19" data-val="T019 | V19 | Stick Iluminador - Fashion Film - Horizontal | v19_035 | 2.67s" data-search="t019 v19 stick iluminador - fashion film - horizontal pele &amp; face v19_035 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/t019_v19_035.jpg" alt="Stick Iluminador - Fashion Film - Horizontal — T019" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t019_v19_035.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0524</span>
+            <span class="ep-badge">V19 · 16:9 · 2.67s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T019</span> Stick Iluminador - Fashion Film - Horizontal</div>
+            <div class="sub-row"><span class="sub">v19_035</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t020_v21_003" data-vid="V21" data-val="T020 | V21 | VZ + HASKELL - HAIR &amp; LIP OIL | v21_003 | 12.22s" data-search="t020 v21 vz + haskell - hair &amp; lip oil labial &amp; boca v21_003 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/t020_v21_003.jpg" alt="VZ + HASKELL - HAIR &amp; LIP OIL — T020" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t020_v21_003.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0541</span>
+            <span class="ep-badge">V21 · 16:9 · 12.22s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T020</span> VZ + HASKELL - HAIR &amp; LIP OIL</div>
+            <div class="sub-row"><span class="sub">v21_003</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t021_v21_020" data-vid="V21" data-val="T021 | V21 | VZ + HASKELL - HAIR &amp; LIP OIL | v21_020 | 1.42s" data-search="t021 v21 vz + haskell - hair &amp; lip oil labial &amp; boca v21_020 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/t021_v21_020.jpg" alt="VZ + HASKELL - HAIR &amp; LIP OIL — T021" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t021_v21_020.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0558</span>
+            <span class="ep-badge">V21 · 16:9 · 1.42s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T021</span> VZ + HASKELL - HAIR &amp; LIP OIL</div>
+            <div class="sub-row"><span class="sub">v21_020</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="t022_v21_025" data-vid="V21" data-val="T022 | V21 | VZ + HASKELL - HAIR &amp; LIP OIL | v21_025 | 5.63s" data-search="t022 v21 vz + haskell - hair &amp; lip oil labial &amp; boca v21_025 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/t022_v21_025.jpg" alt="VZ + HASKELL - HAIR &amp; LIP OIL — T022" loading="lazy">
+            <video src="assets/videos/vizzela_curated/t022_v21_025.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge indiv-badge">TAKE #0563</span>
+            <span class="ep-badge">V21 · 16:9 · 5.63s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">T022</span> VZ + HASKELL - HAIR &amp; LIP OIL</div>
+            <div class="sub-row"><span class="sub">v21_025</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="group" id="juncoes">
+      <h2>Sequências Montadas (Junções Concatenadas) <span class="count">(113 sequências)</span></h2>
+      <div class="grid">
+        <div class="card is-picked" role="button" tabindex="0" data-id="j001_v02_001_002_004_005" data-vid="V02" data-val="J1 | V02 | BB Cream Campanha - Vertical | v02_001 + v02_002 + v02_004 + v02_005 + v02_007 + v02_008 | 9.39s" data-search="j1 v02 bb cream campanha - vertical pele &amp; face v02_001 + v02_002 + v02_004 + v02_005 + v02_007 + v02_008 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j001_v02_001_002_004_005.jpg" alt="BB Cream Campanha - Vertical — J1" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j001_v02_001_002_004_005.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J1 (6x)</span>
+            <span class="ep-badge">V02 · 9:16 · 9.39s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J1</span> BB Cream Campanha - Vertical</div>
+            <div class="sub-row"><span class="sub">v02_001 + v02_002 + v02_004 + v02_005 + v02_007 + v02_008</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j002_v02_006_013" data-vid="V02" data-val="J2 | V02 | BB Cream Campanha - Vertical | v02_006 + v02_013 | 6.27s" data-search="j2 v02 bb cream campanha - vertical pele &amp; face v02_006 + v02_013 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j002_v02_006_013.jpg" alt="BB Cream Campanha - Vertical — J2" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j002_v02_006_013.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J2 (2x)</span>
+            <span class="ep-badge">V02 · 9:16 · 6.27s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J2</span> BB Cream Campanha - Vertical</div>
+            <div class="sub-row"><span class="sub">v02_006 + v02_013</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j003_v02_010_011_012" data-vid="V02" data-val="J3 | V02 | BB Cream Campanha - Vertical | v02_010 + v02_011 + v02_012 | 4.67s" data-search="j3 v02 bb cream campanha - vertical pele &amp; face v02_010 + v02_011 + v02_012 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j003_v02_010_011_012.jpg" alt="BB Cream Campanha - Vertical — J3" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j003_v02_010_011_012.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J3 (3x)</span>
+            <span class="ep-badge">V02 · 9:16 · 4.67s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J3</span> BB Cream Campanha - Vertical</div>
+            <div class="sub-row"><span class="sub">v02_010 + v02_011 + v02_012</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j004_v02_014_015" data-vid="V02" data-val="J4 | V02 | BB Cream Campanha - Vertical | v02_014 + v02_015 | 1.46s" data-search="j4 v02 bb cream campanha - vertical pele &amp; face v02_014 + v02_015 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j004_v02_014_015.jpg" alt="BB Cream Campanha - Vertical — J4" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j004_v02_014_015.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J4 (2x)</span>
+            <span class="ep-badge">V02 · 9:16 · 1.46s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J4</span> BB Cream Campanha - Vertical</div>
+            <div class="sub-row"><span class="sub">v02_014 + v02_015</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j005_v02_031_016" data-vid="V02" data-val="J5 | V02 | BB Cream Campanha - Vertical | v02_031 + v02_016 | 1.33s" data-search="j5 v02 bb cream campanha - vertical pele &amp; face v02_031 + v02_016 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j005_v02_031_016.jpg" alt="BB Cream Campanha - Vertical — J5" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j005_v02_031_016.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J5 (2x)</span>
+            <span class="ep-badge">V02 · 9:16 · 1.33s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J5</span> BB Cream Campanha - Vertical</div>
+            <div class="sub-row"><span class="sub">v02_031 + v02_016</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j006_v02_003_022_023" data-vid="V02" data-val="J6 | V02 | BB Cream Campanha - Vertical | v02_003 + v02_022 + v02_023 | 2.50s" data-search="j6 v02 bb cream campanha - vertical pele &amp; face v02_003 + v02_022 + v02_023 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j006_v02_003_022_023.jpg" alt="BB Cream Campanha - Vertical — J6" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j006_v02_003_022_023.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J6 (3x)</span>
+            <span class="ep-badge">V02 · 9:16 · 2.50s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J6</span> BB Cream Campanha - Vertical</div>
+            <div class="sub-row"><span class="sub">v02_003 + v02_022 + v02_023</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j007_v02_032_021" data-vid="V02" data-val="J7 | V02 | BB Cream Campanha - Vertical | v02_032 + v02_021 | 1.92s" data-search="j7 v02 bb cream campanha - vertical pele &amp; face v02_032 + v02_021 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j007_v02_032_021.jpg" alt="BB Cream Campanha - Vertical — J7" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j007_v02_032_021.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J7 (2x)</span>
+            <span class="ep-badge">V02 · 9:16 · 1.92s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J7</span> BB Cream Campanha - Vertical</div>
+            <div class="sub-row"><span class="sub">v02_032 + v02_021</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j008_v02_025_026_027" data-vid="V02" data-val="J8 | V02 | BB Cream Campanha - Vertical | v02_025 + v02_026 + v02_027 | 3.54s" data-search="j8 v02 bb cream campanha - vertical pele &amp; face v02_025 + v02_026 + v02_027 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j008_v02_025_026_027.jpg" alt="BB Cream Campanha - Vertical — J8" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j008_v02_025_026_027.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J8 (3x)</span>
+            <span class="ep-badge">V02 · 9:16 · 3.54s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J8</span> BB Cream Campanha - Vertical</div>
+            <div class="sub-row"><span class="sub">v02_025 + v02_026 + v02_027</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j009_v02_028_029_030" data-vid="V02" data-val="J9 | V02 | BB Cream Campanha - Vertical | v02_028 + v02_029 + v02_030 | 3.55s" data-search="j9 v02 bb cream campanha - vertical pele &amp; face v02_028 + v02_029 + v02_030 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j009_v02_028_029_030.jpg" alt="BB Cream Campanha - Vertical — J9" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j009_v02_028_029_030.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J9 (3x)</span>
+            <span class="ep-badge">V02 · 9:16 · 3.55s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J9</span> BB Cream Campanha - Vertical</div>
+            <div class="sub-row"><span class="sub">v02_028 + v02_029 + v02_030</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j010_v03_001_002" data-vid="V03" data-val="J10 | V03 | BEAUTY BLUSH CINNAMON - VERTICAL | v03_001 + v03_002 | 4.21s" data-search="j10 v03 beauty blush cinnamon - vertical pele &amp; face v03_001 + v03_002 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j010_v03_001_002.jpg" alt="BEAUTY BLUSH CINNAMON - VERTICAL — J10" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j010_v03_001_002.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J10 (2x)</span>
+            <span class="ep-badge">V03 · 9:16 · 4.21s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J10</span> BEAUTY BLUSH CINNAMON - VERTICAL</div>
+            <div class="sub-row"><span class="sub">v03_001 + v03_002</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j011_v03_004_011" data-vid="V03" data-val="J11 | V03 | BEAUTY BLUSH CINNAMON - VERTICAL | v03_004 + v03_011 | 4.76s" data-search="j11 v03 beauty blush cinnamon - vertical pele &amp; face v03_004 + v03_011 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j011_v03_004_011.jpg" alt="BEAUTY BLUSH CINNAMON - VERTICAL — J11" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j011_v03_004_011.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J11 (2x)</span>
+            <span class="ep-badge">V03 · 9:16 · 4.76s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J11</span> BEAUTY BLUSH CINNAMON - VERTICAL</div>
+            <div class="sub-row"><span class="sub">v03_004 + v03_011</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j012_v03_013_010" data-vid="V03" data-val="J12 | V03 | BEAUTY BLUSH CINNAMON - VERTICAL | v03_013 + v03_010 | 2.46s" data-search="j12 v03 beauty blush cinnamon - vertical pele &amp; face v03_013 + v03_010 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j012_v03_013_010.jpg" alt="BEAUTY BLUSH CINNAMON - VERTICAL — J12" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j012_v03_013_010.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J12 (2x)</span>
+            <span class="ep-badge">V03 · 9:16 · 2.46s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J12</span> BEAUTY BLUSH CINNAMON - VERTICAL</div>
+            <div class="sub-row"><span class="sub">v03_013 + v03_010</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j013_v03_005_006_007_008" data-vid="V03" data-val="J13 | V03 | BEAUTY BLUSH CINNAMON - VERTICAL | v03_005 + v03_006 + v03_007 + v03_008 + v03_009 | 7.96s" data-search="j13 v03 beauty blush cinnamon - vertical pele &amp; face v03_005 + v03_006 + v03_007 + v03_008 + v03_009 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j013_v03_005_006_007_008.jpg" alt="BEAUTY BLUSH CINNAMON - VERTICAL — J13" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j013_v03_005_006_007_008.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J13 (5x)</span>
+            <span class="ep-badge">V03 · 9:16 · 7.96s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J13</span> BEAUTY BLUSH CINNAMON - VERTICAL</div>
+            <div class="sub-row"><span class="sub">v03_005 + v03_006 + v03_007 + v03_008 + v03_009</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j014_v03_017_018" data-vid="V03" data-val="J14 | V03 | BEAUTY BLUSH CINNAMON - VERTICAL | v03_017 + v03_018 | 1.75s" data-search="j14 v03 beauty blush cinnamon - vertical pele &amp; face v03_017 + v03_018 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j014_v03_017_018.jpg" alt="BEAUTY BLUSH CINNAMON - VERTICAL — J14" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j014_v03_017_018.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J14 (2x)</span>
+            <span class="ep-badge">V03 · 9:16 · 1.75s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J14</span> BEAUTY BLUSH CINNAMON - VERTICAL</div>
+            <div class="sub-row"><span class="sub">v03_017 + v03_018</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j015_v03_019_021" data-vid="V03" data-val="J15 | V03 | BEAUTY BLUSH CINNAMON - VERTICAL | v03_019 + v03_021 | 4.06s" data-search="j15 v03 beauty blush cinnamon - vertical pele &amp; face v03_019 + v03_021 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j015_v03_019_021.jpg" alt="BEAUTY BLUSH CINNAMON - VERTICAL — J15" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j015_v03_019_021.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J15 (2x)</span>
+            <span class="ep-badge">V03 · 9:16 · 4.06s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J15</span> BEAUTY BLUSH CINNAMON - VERTICAL</div>
+            <div class="sub-row"><span class="sub">v03_019 + v03_021</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j016_v03_016_020" data-vid="V03" data-val="J16 | V03 | BEAUTY BLUSH CINNAMON - VERTICAL | v03_016 + v03_020 | 2.91s" data-search="j16 v03 beauty blush cinnamon - vertical pele &amp; face v03_016 + v03_020 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j016_v03_016_020.jpg" alt="BEAUTY BLUSH CINNAMON - VERTICAL — J16" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j016_v03_016_020.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J16 (2x)</span>
+            <span class="ep-badge">V03 · 9:16 · 2.91s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J16</span> BEAUTY BLUSH CINNAMON - VERTICAL</div>
+            <div class="sub-row"><span class="sub">v03_016 + v03_020</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j017_v04_001_002" data-vid="V04" data-val="J17 | V04 | BIG NO Panda Cherry Alterado | v04_001 + v04_002 | 2.42s" data-search="j17 v04 big no panda cherry alterado labial &amp; boca v04_001 + v04_002 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j017_v04_001_002.jpg" alt="BIG NO Panda Cherry Alterado — J17" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j017_v04_001_002.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J17 (2x)</span>
+            <span class="ep-badge">V04 · 9:16 · 2.42s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J17</span> BIG NO Panda Cherry Alterado</div>
+            <div class="sub-row"><span class="sub">v04_001 + v04_002</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j018_v04_004_005" data-vid="V04" data-val="J18 | V04 | BIG NO Panda Cherry Alterado | v04_004 + v04_005 | 1.96s" data-search="j18 v04 big no panda cherry alterado labial &amp; boca v04_004 + v04_005 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j018_v04_004_005.jpg" alt="BIG NO Panda Cherry Alterado — J18" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j018_v04_004_005.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J18 (2x)</span>
+            <span class="ep-badge">V04 · 9:16 · 1.96s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J18</span> BIG NO Panda Cherry Alterado</div>
+            <div class="sub-row"><span class="sub">v04_004 + v04_005</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j019_v04_003_009" data-vid="V04" data-val="J19 | V04 | BIG NO Panda Cherry Alterado | v04_003 + v04_009 | 2.71s" data-search="j19 v04 big no panda cherry alterado labial &amp; boca v04_003 + v04_009 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j019_v04_003_009.jpg" alt="BIG NO Panda Cherry Alterado — J19" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j019_v04_003_009.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J19 (2x)</span>
+            <span class="ep-badge">V04 · 9:16 · 2.71s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J19</span> BIG NO Panda Cherry Alterado</div>
+            <div class="sub-row"><span class="sub">v04_003 + v04_009</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j020_v04_010_011_014" data-vid="V04" data-val="J20 | V04 | BIG NO Panda Cherry Alterado | v04_010 + v04_011 + v04_014 | 5.42s" data-search="j20 v04 big no panda cherry alterado labial &amp; boca v04_010 + v04_011 + v04_014 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j020_v04_010_011_014.jpg" alt="BIG NO Panda Cherry Alterado — J20" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j020_v04_010_011_014.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J20 (3x)</span>
+            <span class="ep-badge">V04 · 9:16 · 5.42s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J20</span> BIG NO Panda Cherry Alterado</div>
+            <div class="sub-row"><span class="sub">v04_010 + v04_011 + v04_014</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j021_v05_003_004" data-vid="V05" data-val="J21 | V05 | Base Satin - Campanha 2025 | v05_003 + v05_004 | 1.42s" data-search="j21 v05 base satin - campanha 2025 pele &amp; face v05_003 + v05_004 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j021_v05_003_004.jpg" alt="Base Satin - Campanha 2025 — J21" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j021_v05_003_004.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J21 (2x)</span>
+            <span class="ep-badge">V05 · 9:16 · 1.42s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J21</span> Base Satin - Campanha 2025</div>
+            <div class="sub-row"><span class="sub">v05_003 + v05_004</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j022_v05_005_006" data-vid="V05" data-val="J22 | V05 | Base Satin - Campanha 2025 | v05_005 + v05_006 | 2.50s" data-search="j22 v05 base satin - campanha 2025 pele &amp; face v05_005 + v05_006 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j022_v05_005_006.jpg" alt="Base Satin - Campanha 2025 — J22" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j022_v05_005_006.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J22 (2x)</span>
+            <span class="ep-badge">V05 · 9:16 · 2.50s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J22</span> Base Satin - Campanha 2025</div>
+            <div class="sub-row"><span class="sub">v05_005 + v05_006</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j023_v05_007_008" data-vid="V05" data-val="J23 | V05 | Base Satin - Campanha 2025 | v05_007 + v05_008 | 1.46s" data-search="j23 v05 base satin - campanha 2025 pele &amp; face v05_007 + v05_008 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j023_v05_007_008.jpg" alt="Base Satin - Campanha 2025 — J23" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j023_v05_007_008.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J23 (2x)</span>
+            <span class="ep-badge">V05 · 9:16 · 1.46s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J23</span> Base Satin - Campanha 2025</div>
+            <div class="sub-row"><span class="sub">v05_007 + v05_008</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j024_v05_016_012" data-vid="V05" data-val="J24 | V05 | Base Satin - Campanha 2025 | v05_016 + v05_012 | 2.46s" data-search="j24 v05 base satin - campanha 2025 pele &amp; face v05_016 + v05_012 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j024_v05_016_012.jpg" alt="Base Satin - Campanha 2025 — J24" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j024_v05_016_012.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J24 (2x)</span>
+            <span class="ep-badge">V05 · 9:16 · 2.46s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J24</span> Base Satin - Campanha 2025</div>
+            <div class="sub-row"><span class="sub">v05_016 + v05_012</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j025_v05_017_018_019" data-vid="V05" data-val="J25 | V05 | Base Satin - Campanha 2025 | v05_017 + v05_018 + v05_019 | 4.09s" data-search="j25 v05 base satin - campanha 2025 pele &amp; face v05_017 + v05_018 + v05_019 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j025_v05_017_018_019.jpg" alt="Base Satin - Campanha 2025 — J25" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j025_v05_017_018_019.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J25 (3x)</span>
+            <span class="ep-badge">V05 · 9:16 · 4.09s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J25</span> Base Satin - Campanha 2025</div>
+            <div class="sub-row"><span class="sub">v05_017 + v05_018 + v05_019</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j026_v06_004_005" data-vid="V06" data-val="J26 | V06 | BlushStick LAS | v06_004 + v06_005 | 8.50s" data-search="j26 v06 blushstick las pele &amp; face v06_004 + v06_005 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j026_v06_004_005.jpg" alt="BlushStick LAS — J26" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j026_v06_004_005.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J26 (2x)</span>
+            <span class="ep-badge">V06 · 16:9 · 8.50s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J26</span> BlushStick LAS</div>
+            <div class="sub-row"><span class="sub">v06_004 + v06_005</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j027_v07_001_002_003" data-vid="V07" data-val="J27 | V07 | BodySplash - Pink Vanilla | v07_001 + v07_002 + v07_003 | 4.85s" data-search="j27 v07 bodysplash - pink vanilla corpo, hair &amp; lifestyle v07_001 + v07_002 + v07_003 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j027_v07_001_002_003.jpg" alt="BodySplash - Pink Vanilla — J27" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j027_v07_001_002_003.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J27 (3x)</span>
+            <span class="ep-badge">V07 · 9:16 · 4.85s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J27</span> BodySplash - Pink Vanilla</div>
+            <div class="sub-row"><span class="sub">v07_001 + v07_002 + v07_003</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j028_v07_004_005" data-vid="V07" data-val="J28 | V07 | BodySplash - Pink Vanilla | v07_004 + v07_005 | 2.57s" data-search="j28 v07 bodysplash - pink vanilla corpo, hair &amp; lifestyle v07_004 + v07_005 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j028_v07_004_005.jpg" alt="BodySplash - Pink Vanilla — J28" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j028_v07_004_005.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J28 (2x)</span>
+            <span class="ep-badge">V07 · 9:16 · 2.57s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J28</span> BodySplash - Pink Vanilla</div>
+            <div class="sub-row"><span class="sub">v07_004 + v07_005</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j029_v07_008_009" data-vid="V07" data-val="J29 | V07 | BodySplash - Pink Vanilla | v07_008 + v07_009 | 1.63s" data-search="j29 v07 bodysplash - pink vanilla corpo, hair &amp; lifestyle v07_008 + v07_009 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j029_v07_008_009.jpg" alt="BodySplash - Pink Vanilla — J29" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j029_v07_008_009.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J29 (2x)</span>
+            <span class="ep-badge">V07 · 9:16 · 1.63s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J29</span> BodySplash - Pink Vanilla</div>
+            <div class="sub-row"><span class="sub">v07_008 + v07_009</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j030_v07_016_011" data-vid="V07" data-val="J30 | V07 | BodySplash - Pink Vanilla | v07_016 + v07_011 | 4.60s" data-search="j30 v07 bodysplash - pink vanilla corpo, hair &amp; lifestyle v07_016 + v07_011 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j030_v07_016_011.jpg" alt="BodySplash - Pink Vanilla — J30" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j030_v07_016_011.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J30 (2x)</span>
+            <span class="ep-badge">V07 · 9:16 · 4.60s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J30</span> BodySplash - Pink Vanilla</div>
+            <div class="sub-row"><span class="sub">v07_016 + v07_011</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j031_v07_017_019" data-vid="V07" data-val="J31 | V07 | BodySplash - Pink Vanilla | v07_017 + v07_019 | 2.84s" data-search="j31 v07 bodysplash - pink vanilla corpo, hair &amp; lifestyle v07_017 + v07_019 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j031_v07_017_019.jpg" alt="BodySplash - Pink Vanilla — J31" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j031_v07_017_019.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J31 (2x)</span>
+            <span class="ep-badge">V07 · 9:16 · 2.84s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J31</span> BodySplash - Pink Vanilla</div>
+            <div class="sub-row"><span class="sub">v07_017 + v07_019</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j032_v07_029_030" data-vid="V07" data-val="J32 | V07 | BodySplash - Pink Vanilla | v07_029 + v07_030 | 5.20s" data-search="j32 v07 bodysplash - pink vanilla corpo, hair &amp; lifestyle v07_029 + v07_030 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j032_v07_029_030.jpg" alt="BodySplash - Pink Vanilla — J32" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j032_v07_029_030.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J32 (2x)</span>
+            <span class="ep-badge">V07 · 9:16 · 5.20s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J32</span> BodySplash - Pink Vanilla</div>
+            <div class="sub-row"><span class="sub">v07_029 + v07_030</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j033_v07_023_024" data-vid="V07" data-val="J33 | V07 | BodySplash - Pink Vanilla | v07_023 + v07_024 | 2.00s" data-search="j33 v07 bodysplash - pink vanilla corpo, hair &amp; lifestyle v07_023 + v07_024 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j033_v07_023_024.jpg" alt="BodySplash - Pink Vanilla — J33" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j033_v07_023_024.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J33 (2x)</span>
+            <span class="ep-badge">V07 · 9:16 · 2.00s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J33</span> BodySplash - Pink Vanilla</div>
+            <div class="sub-row"><span class="sub">v07_023 + v07_024</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j034_v08_005_007" data-vid="V08" data-val="J34 | V08 | Carnaval - Horizontal | v08_005 + v08_007 | 2.33s" data-search="j34 v08 carnaval - horizontal corpo, hair &amp; lifestyle v08_005 + v08_007 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j034_v08_005_007.jpg" alt="Carnaval - Horizontal — J34" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j034_v08_005_007.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J34 (2x)</span>
+            <span class="ep-badge">V08 · 16:9 · 2.33s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J34</span> Carnaval - Horizontal</div>
+            <div class="sub-row"><span class="sub">v08_005 + v08_007</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j035_v08_009_008" data-vid="V08" data-val="J35 | V08 | Carnaval - Horizontal | v08_009 + v08_008 | 2.84s" data-search="j35 v08 carnaval - horizontal corpo, hair &amp; lifestyle v08_009 + v08_008 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j035_v08_009_008.jpg" alt="Carnaval - Horizontal — J35" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j035_v08_009_008.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J35 (2x)</span>
+            <span class="ep-badge">V08 · 16:9 · 2.84s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J35</span> Carnaval - Horizontal</div>
+            <div class="sub-row"><span class="sub">v08_009 + v08_008</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j036_v08_010_011" data-vid="V08" data-val="J36 | V08 | Carnaval - Horizontal | v08_010 + v08_011 | 2.13s" data-search="j36 v08 carnaval - horizontal corpo, hair &amp; lifestyle v08_010 + v08_011 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j036_v08_010_011.jpg" alt="Carnaval - Horizontal — J36" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j036_v08_010_011.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J36 (2x)</span>
+            <span class="ep-badge">V08 · 16:9 · 2.13s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J36</span> Carnaval - Horizontal</div>
+            <div class="sub-row"><span class="sub">v08_010 + v08_011</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j037_v09_001_002_003" data-vid="V09" data-val="J37 | V09 | Cream Contour - 2026 - Vertical | v09_001 + v09_002 + v09_003 | 5.55s" data-search="j37 v09 cream contour - 2026 - vertical pele &amp; face v09_001 + v09_002 + v09_003 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j037_v09_001_002_003.jpg" alt="Cream Contour - 2026 - Vertical — J37" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j037_v09_001_002_003.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J37 (3x)</span>
+            <span class="ep-badge">V09 · 9:16 · 5.55s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J37</span> Cream Contour - 2026 - Vertical</div>
+            <div class="sub-row"><span class="sub">v09_001 + v09_002 + v09_003</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j038_v09_016_014" data-vid="V09" data-val="J38 | V09 | Cream Contour - 2026 - Vertical | v09_016 + v09_014 | 1.41s" data-search="j38 v09 cream contour - 2026 - vertical pele &amp; face v09_016 + v09_014 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j038_v09_016_014.jpg" alt="Cream Contour - 2026 - Vertical — J38" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j038_v09_016_014.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J38 (2x)</span>
+            <span class="ep-badge">V09 · 9:16 · 1.41s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J38</span> Cream Contour - 2026 - Vertical</div>
+            <div class="sub-row"><span class="sub">v09_016 + v09_014</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j039_v09_015_017" data-vid="V09" data-val="J39 | V09 | Cream Contour - 2026 - Vertical | v09_015 + v09_017 | 4.68s" data-search="j39 v09 cream contour - 2026 - vertical pele &amp; face v09_015 + v09_017 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j039_v09_015_017.jpg" alt="Cream Contour - 2026 - Vertical — J39" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j039_v09_015_017.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J39 (2x)</span>
+            <span class="ep-badge">V09 · 9:16 · 4.68s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J39</span> Cream Contour - 2026 - Vertical</div>
+            <div class="sub-row"><span class="sub">v09_015 + v09_017</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j040_v09_031_030" data-vid="V09" data-val="J40 | V09 | Cream Contour - 2026 - Vertical | v09_031 + v09_030 | 1.76s" data-search="j40 v09 cream contour - 2026 - vertical pele &amp; face v09_031 + v09_030 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j040_v09_031_030.jpg" alt="Cream Contour - 2026 - Vertical — J40" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j040_v09_031_030.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J40 (2x)</span>
+            <span class="ep-badge">V09 · 9:16 · 1.76s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J40</span> Cream Contour - 2026 - Vertical</div>
+            <div class="sub-row"><span class="sub">v09_031 + v09_030</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j041_v09_027_029" data-vid="V09" data-val="J41 | V09 | Cream Contour - 2026 - Vertical | v09_027 + v09_029 | 3.50s" data-search="j41 v09 cream contour - 2026 - vertical pele &amp; face v09_027 + v09_029 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j041_v09_027_029.jpg" alt="Cream Contour - 2026 - Vertical — J41" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j041_v09_027_029.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J41 (2x)</span>
+            <span class="ep-badge">V09 · 9:16 · 3.50s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J41</span> Cream Contour - 2026 - Vertical</div>
+            <div class="sub-row"><span class="sub">v09_027 + v09_029</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j042_v10_009_010_011" data-vid="V10" data-val="J42 | V10 | ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL) | v10_009 + v10_010 + v10_011 | 3.51s" data-search="j42 v10 ela é - batom e lapiseira labial (horizontal) labial &amp; boca v10_009 + v10_010 + v10_011 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j042_v10_009_010_011.jpg" alt="ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL) — J42" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j042_v10_009_010_011.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J42 (3x)</span>
+            <span class="ep-badge">V10 · 16:9 · 3.51s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J42</span> ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL)</div>
+            <div class="sub-row"><span class="sub">v10_009 + v10_010 + v10_011</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j043_v10_017_018" data-vid="V10" data-val="J43 | V10 | ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL) | v10_017 + v10_018 | 2.46s" data-search="j43 v10 ela é - batom e lapiseira labial (horizontal) labial &amp; boca v10_017 + v10_018 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j043_v10_017_018.jpg" alt="ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL) — J43" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j043_v10_017_018.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J43 (2x)</span>
+            <span class="ep-badge">V10 · 16:9 · 2.46s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J43</span> ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL)</div>
+            <div class="sub-row"><span class="sub">v10_017 + v10_018</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j044_v10_021_022_023" data-vid="V10" data-val="J44 | V10 | ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL) | v10_021 + v10_022 + v10_023 | 1.90s" data-search="j44 v10 ela é - batom e lapiseira labial (horizontal) labial &amp; boca v10_021 + v10_022 + v10_023 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j044_v10_021_022_023.jpg" alt="ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL) — J44" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j044_v10_021_022_023.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J44 (3x)</span>
+            <span class="ep-badge">V10 · 16:9 · 1.90s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J44</span> ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL)</div>
+            <div class="sub-row"><span class="sub">v10_021 + v10_022 + v10_023</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j045_v10_028_029_030_031" data-vid="V10" data-val="J45 | V10 | ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL) | v10_028 + v10_029 + v10_030 + v10_031 | 1.39s" data-search="j45 v10 ela é - batom e lapiseira labial (horizontal) labial &amp; boca v10_028 + v10_029 + v10_030 + v10_031 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j045_v10_028_029_030_031.jpg" alt="ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL) — J45" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j045_v10_028_029_030_031.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J45 (4x)</span>
+            <span class="ep-badge">V10 · 16:9 · 1.39s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J45</span> ELA É - BATOM E LAPISEIRA LABIAL (HORIZONTAL)</div>
+            <div class="sub-row"><span class="sub">v10_028 + v10_029 + v10_030 + v10_031</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j046_v11_002_003_004_005" data-vid="V11" data-val="J46 | V11 | FIX Pro Sealer - Campanha | v11_002 + v11_003 + v11_004 + v11_005 + v11_006 | 2.22s" data-search="j46 v11 fix pro sealer - campanha linha fix v11_002 + v11_003 + v11_004 + v11_005 + v11_006 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j046_v11_002_003_004_005.jpg" alt="FIX Pro Sealer - Campanha — J46" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j046_v11_002_003_004_005.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J46 (5x)</span>
+            <span class="ep-badge">V11 · 9:16 · 2.22s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J46</span> FIX Pro Sealer - Campanha</div>
+            <div class="sub-row"><span class="sub">v11_002 + v11_003 + v11_004 + v11_005 + v11_006</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j047_v11_009_010_011" data-vid="V11" data-val="J47 | V11 | FIX Pro Sealer - Campanha | v11_009 + v11_010 + v11_011 | 8.85s" data-search="j47 v11 fix pro sealer - campanha linha fix v11_009 + v11_010 + v11_011 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j047_v11_009_010_011.jpg" alt="FIX Pro Sealer - Campanha — J47" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j047_v11_009_010_011.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J47 (3x)</span>
+            <span class="ep-badge">V11 · 9:16 · 8.85s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J47</span> FIX Pro Sealer - Campanha</div>
+            <div class="sub-row"><span class="sub">v11_009 + v11_010 + v11_011</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j048_v12_014_017" data-vid="V12" data-val="J48 | V12 | Lapiseiras FIX - Campanha Vertical | v12_014 + v12_017 | 2.87s" data-search="j48 v12 lapiseiras fix - campanha vertical olhos &amp; sobrancelhas v12_014 + v12_017 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j048_v12_014_017.jpg" alt="Lapiseiras FIX - Campanha Vertical — J48" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j048_v12_014_017.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J48 (2x)</span>
+            <span class="ep-badge">V12 · 9:16 · 2.87s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J48</span> Lapiseiras FIX - Campanha Vertical</div>
+            <div class="sub-row"><span class="sub">v12_014 + v12_017</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j049_v12_022_023_024_025" data-vid="V12" data-val="J49 | V12 | Lapiseiras FIX - Campanha Vertical | v12_022 + v12_023 + v12_024 + v12_025 | 4.59s" data-search="j49 v12 lapiseiras fix - campanha vertical olhos &amp; sobrancelhas v12_022 + v12_023 + v12_024 + v12_025 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j049_v12_022_023_024_025.jpg" alt="Lapiseiras FIX - Campanha Vertical — J49" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j049_v12_022_023_024_025.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J49 (4x)</span>
+            <span class="ep-badge">V12 · 9:16 · 4.59s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J49</span> Lapiseiras FIX - Campanha Vertical</div>
+            <div class="sub-row"><span class="sub">v12_022 + v12_023 + v12_024 + v12_025</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j050_v13_001_002_003" data-vid="V13" data-val="J50 | V13 | Linha Sense | v13_001 + v13_002 + v13_003 | 4.63s" data-search="j50 v13 linha sense corpo, hair &amp; lifestyle v13_001 + v13_002 + v13_003 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j050_v13_001_002_003.jpg" alt="Linha Sense — J50" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j050_v13_001_002_003.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J50 (3x)</span>
+            <span class="ep-badge">V13 · 9:16 · 4.63s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J50</span> Linha Sense</div>
+            <div class="sub-row"><span class="sub">v13_001 + v13_002 + v13_003</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j051_v13_005_006_007" data-vid="V13" data-val="J51 | V13 | Linha Sense | v13_005 + v13_006 + v13_007 | 4.16s" data-search="j51 v13 linha sense corpo, hair &amp; lifestyle v13_005 + v13_006 + v13_007 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j051_v13_005_006_007.jpg" alt="Linha Sense — J51" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j051_v13_005_006_007.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J51 (3x)</span>
+            <span class="ep-badge">V13 · 9:16 · 4.16s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J51</span> Linha Sense</div>
+            <div class="sub-row"><span class="sub">v13_005 + v13_006 + v13_007</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j052_v13_008_009" data-vid="V13" data-val="J52 | V13 | Linha Sense | v13_008 + v13_009 | 2.21s" data-search="j52 v13 linha sense corpo, hair &amp; lifestyle v13_008 + v13_009 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j052_v13_008_009.jpg" alt="Linha Sense — J52" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j052_v13_008_009.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J52 (2x)</span>
+            <span class="ep-badge">V13 · 9:16 · 2.21s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J52</span> Linha Sense</div>
+            <div class="sub-row"><span class="sub">v13_008 + v13_009</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j053_v13_010_011" data-vid="V13" data-val="J53 | V13 | Linha Sense | v13_010 + v13_011 | 2.08s" data-search="j53 v13 linha sense corpo, hair &amp; lifestyle v13_010 + v13_011 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j053_v13_010_011.jpg" alt="Linha Sense — J53" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j053_v13_010_011.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J53 (2x)</span>
+            <span class="ep-badge">V13 · 9:16 · 2.08s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J53</span> Linha Sense</div>
+            <div class="sub-row"><span class="sub">v13_010 + v13_011</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j054_v13_015_013" data-vid="V13" data-val="J54 | V13 | Linha Sense | v13_015 + v13_013 | 2.21s" data-search="j54 v13 linha sense corpo, hair &amp; lifestyle v13_015 + v13_013 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j054_v13_015_013.jpg" alt="Linha Sense — J54" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j054_v13_015_013.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J54 (2x)</span>
+            <span class="ep-badge">V13 · 9:16 · 2.21s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J54</span> Linha Sense</div>
+            <div class="sub-row"><span class="sub">v13_015 + v13_013</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j055_v13_016_017" data-vid="V13" data-val="J55 | V13 | Linha Sense | v13_016 + v13_017 | 2.21s" data-search="j55 v13 linha sense corpo, hair &amp; lifestyle v13_016 + v13_017 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j055_v13_016_017.jpg" alt="Linha Sense — J55" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j055_v13_016_017.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J55 (2x)</span>
+            <span class="ep-badge">V13 · 9:16 · 2.21s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J55</span> Linha Sense</div>
+            <div class="sub-row"><span class="sub">v13_016 + v13_017</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j056_v13_018_019_020" data-vid="V13" data-val="J56 | V13 | Linha Sense | v13_018 + v13_019 + v13_020 | 5.62s" data-search="j56 v13 linha sense corpo, hair &amp; lifestyle v13_018 + v13_019 + v13_020 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j056_v13_018_019_020.jpg" alt="Linha Sense — J56" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j056_v13_018_019_020.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J56 (3x)</span>
+            <span class="ep-badge">V13 · 9:16 · 5.62s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J56</span> Linha Sense</div>
+            <div class="sub-row"><span class="sub">v13_018 + v13_019 + v13_020</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j057_v13_021_024" data-vid="V13" data-val="J57 | V13 | Linha Sense | v13_021 + v13_024 | 1.88s" data-search="j57 v13 linha sense corpo, hair &amp; lifestyle v13_021 + v13_024 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j057_v13_021_024.jpg" alt="Linha Sense — J57" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j057_v13_021_024.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J57 (2x)</span>
+            <span class="ep-badge">V13 · 9:16 · 1.88s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J57</span> Linha Sense</div>
+            <div class="sub-row"><span class="sub">v13_021 + v13_024</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j058_v13_022_023" data-vid="V13" data-val="J58 | V13 | Linha Sense | v13_022 + v13_023 | 1.96s" data-search="j58 v13 linha sense corpo, hair &amp; lifestyle v13_022 + v13_023 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j058_v13_022_023.jpg" alt="Linha Sense — J58" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j058_v13_022_023.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J58 (2x)</span>
+            <span class="ep-badge">V13 · 9:16 · 1.96s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J58</span> Linha Sense</div>
+            <div class="sub-row"><span class="sub">v13_022 + v13_023</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j059_v13_025_026_027" data-vid="V13" data-val="J59 | V13 | Linha Sense | v13_025 + v13_026 + v13_027 | 4.91s" data-search="j59 v13 linha sense corpo, hair &amp; lifestyle v13_025 + v13_026 + v13_027 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j059_v13_025_026_027.jpg" alt="Linha Sense — J59" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j059_v13_025_026_027.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J59 (3x)</span>
+            <span class="ep-badge">V13 · 9:16 · 4.91s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J59</span> Linha Sense</div>
+            <div class="sub-row"><span class="sub">v13_025 + v13_026 + v13_027</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j060_v13_029_030_031" data-vid="V13" data-val="J60 | V13 | Linha Sense | v13_029 + v13_030 + v13_031 | 1.95s" data-search="j60 v13 linha sense corpo, hair &amp; lifestyle v13_029 + v13_030 + v13_031 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j060_v13_029_030_031.jpg" alt="Linha Sense — J60" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j060_v13_029_030_031.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J60 (3x)</span>
+            <span class="ep-badge">V13 · 9:16 · 1.95s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J60</span> Linha Sense</div>
+            <div class="sub-row"><span class="sub">v13_029 + v13_030 + v13_031</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j061_v15_001_002_005_006" data-vid="V15" data-val="J61 | V15 | Mascara e Lapiseira - Olive Green - Vertical | v15_001 + v15_002 + v15_005 + v15_006 | 1.57s" data-search="j61 v15 mascara e lapiseira - olive green - vertical olhos &amp; sobrancelhas v15_001 + v15_002 + v15_005 + v15_006 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j061_v15_001_002_005_006.jpg" alt="Mascara e Lapiseira - Olive Green - Vertical — J61" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j061_v15_001_002_005_006.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J61 (4x)</span>
+            <span class="ep-badge">V15 · 9:16 · 1.57s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J61</span> Mascara e Lapiseira - Olive Green - Vertical</div>
+            <div class="sub-row"><span class="sub">v15_001 + v15_002 + v15_005 + v15_006</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j062_v15_010_011" data-vid="V15" data-val="J62 | V15 | Mascara e Lapiseira - Olive Green - Vertical | v15_010 + v15_011 | 3.25s" data-search="j62 v15 mascara e lapiseira - olive green - vertical olhos &amp; sobrancelhas v15_010 + v15_011 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j062_v15_010_011.jpg" alt="Mascara e Lapiseira - Olive Green - Vertical — J62" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j062_v15_010_011.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J62 (2x)</span>
+            <span class="ep-badge">V15 · 9:16 · 3.25s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J62</span> Mascara e Lapiseira - Olive Green - Vertical</div>
+            <div class="sub-row"><span class="sub">v15_010 + v15_011</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j063_v15_009_012" data-vid="V15" data-val="J63 | V15 | Mascara e Lapiseira - Olive Green - Vertical | v15_009 + v15_012 | 3.91s" data-search="j63 v15 mascara e lapiseira - olive green - vertical olhos &amp; sobrancelhas v15_009 + v15_012 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j063_v15_009_012.jpg" alt="Mascara e Lapiseira - Olive Green - Vertical — J63" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j063_v15_009_012.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J63 (2x)</span>
+            <span class="ep-badge">V15 · 9:16 · 3.91s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J63</span> Mascara e Lapiseira - Olive Green - Vertical</div>
+            <div class="sub-row"><span class="sub">v15_009 + v15_012</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j064_v15_013_014" data-vid="V15" data-val="J64 | V15 | Mascara e Lapiseira - Olive Green - Vertical | v15_013 + v15_014 | 1.34s" data-search="j64 v15 mascara e lapiseira - olive green - vertical olhos &amp; sobrancelhas v15_013 + v15_014 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j064_v15_013_014.jpg" alt="Mascara e Lapiseira - Olive Green - Vertical — J64" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j064_v15_013_014.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J64 (2x)</span>
+            <span class="ep-badge">V15 · 9:16 · 1.34s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J64</span> Mascara e Lapiseira - Olive Green - Vertical</div>
+            <div class="sub-row"><span class="sub">v15_013 + v15_014</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j065_v15_007_017_016" data-vid="V15" data-val="J65 | V15 | Mascara e Lapiseira - Olive Green - Vertical | v15_007 + v15_017 + v15_016 | 3.13s" data-search="j65 v15 mascara e lapiseira - olive green - vertical olhos &amp; sobrancelhas v15_007 + v15_017 + v15_016 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j065_v15_007_017_016.jpg" alt="Mascara e Lapiseira - Olive Green - Vertical — J65" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j065_v15_007_017_016.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J65 (3x)</span>
+            <span class="ep-badge">V15 · 9:16 · 3.13s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J65</span> Mascara e Lapiseira - Olive Green - Vertical</div>
+            <div class="sub-row"><span class="sub">v15_007 + v15_017 + v15_016</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j066_v15_018_019_020_021" data-vid="V15" data-val="J66 | V15 | Mascara e Lapiseira - Olive Green - Vertical | v15_018 + v15_019 + v15_020 + v15_021 | 3.38s" data-search="j66 v15 mascara e lapiseira - olive green - vertical olhos &amp; sobrancelhas v15_018 + v15_019 + v15_020 + v15_021 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j066_v15_018_019_020_021.jpg" alt="Mascara e Lapiseira - Olive Green - Vertical — J66" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j066_v15_018_019_020_021.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J66 (4x)</span>
+            <span class="ep-badge">V15 · 9:16 · 3.38s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J66</span> Mascara e Lapiseira - Olive Green - Vertical</div>
+            <div class="sub-row"><span class="sub">v15_018 + v15_019 + v15_020 + v15_021</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j067_v15_023_024_025_026" data-vid="V15" data-val="J67 | V15 | Mascara e Lapiseira - Olive Green - Vertical | v15_023 + v15_024 + v15_025 + v15_026 + v15_027 | 2.59s" data-search="j67 v15 mascara e lapiseira - olive green - vertical olhos &amp; sobrancelhas v15_023 + v15_024 + v15_025 + v15_026 + v15_027 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j067_v15_023_024_025_026.jpg" alt="Mascara e Lapiseira - Olive Green - Vertical — J67" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j067_v15_023_024_025_026.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J67 (5x)</span>
+            <span class="ep-badge">V15 · 9:16 · 2.59s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J67</span> Mascara e Lapiseira - Olive Green - Vertical</div>
+            <div class="sub-row"><span class="sub">v15_023 + v15_024 + v15_025 + v15_026 + v15_027</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j068_v15_029_030_031_032" data-vid="V15" data-val="J68 | V15 | Mascara e Lapiseira - Olive Green - Vertical | v15_029 + v15_030 + v15_031 + v15_032 + v15_033 | 2.32s" data-search="j68 v15 mascara e lapiseira - olive green - vertical olhos &amp; sobrancelhas v15_029 + v15_030 + v15_031 + v15_032 + v15_033 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j068_v15_029_030_031_032.jpg" alt="Mascara e Lapiseira - Olive Green - Vertical — J68" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j068_v15_029_030_031_032.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J68 (5x)</span>
+            <span class="ep-badge">V15 · 9:16 · 2.32s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J68</span> Mascara e Lapiseira - Olive Green - Vertical</div>
+            <div class="sub-row"><span class="sub">v15_029 + v15_030 + v15_031 + v15_032 + v15_033</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j069_v15_034_035_036" data-vid="V15" data-val="J69 | V15 | Mascara e Lapiseira - Olive Green - Vertical | v15_034 + v15_035 + v15_036 | 4.04s" data-search="j69 v15 mascara e lapiseira - olive green - vertical olhos &amp; sobrancelhas v15_034 + v15_035 + v15_036 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j069_v15_034_035_036.jpg" alt="Mascara e Lapiseira - Olive Green - Vertical — J69" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j069_v15_034_035_036.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J69 (3x)</span>
+            <span class="ep-badge">V15 · 9:16 · 4.04s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J69</span> Mascara e Lapiseira - Olive Green - Vertical</div>
+            <div class="sub-row"><span class="sub">v15_034 + v15_035 + v15_036</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j070_v15_039_040_041" data-vid="V15" data-val="J70 | V15 | Mascara e Lapiseira - Olive Green - Vertical | v15_039 + v15_040 + v15_041 | 4.66s" data-search="j70 v15 mascara e lapiseira - olive green - vertical olhos &amp; sobrancelhas v15_039 + v15_040 + v15_041 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j070_v15_039_040_041.jpg" alt="Mascara e Lapiseira - Olive Green - Vertical — J70" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j070_v15_039_040_041.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J70 (3x)</span>
+            <span class="ep-badge">V15 · 9:16 · 4.66s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J70</span> Mascara e Lapiseira - Olive Green - Vertical</div>
+            <div class="sub-row"><span class="sub">v15_039 + v15_040 + v15_041</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j071_v15_042_043_044_045" data-vid="V15" data-val="J71 | V15 | Mascara e Lapiseira - Olive Green - Vertical | v15_042 + v15_043 + v15_044 + v15_045 | 1.26s" data-search="j71 v15 mascara e lapiseira - olive green - vertical olhos &amp; sobrancelhas v15_042 + v15_043 + v15_044 + v15_045 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j071_v15_042_043_044_045.jpg" alt="Mascara e Lapiseira - Olive Green - Vertical — J71" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j071_v15_042_043_044_045.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J71 (4x)</span>
+            <span class="ep-badge">V15 · 9:16 · 1.26s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J71</span> Mascara e Lapiseira - Olive Green - Vertical</div>
+            <div class="sub-row"><span class="sub">v15_042 + v15_043 + v15_044 + v15_045</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j072_v15_046_047_049" data-vid="V15" data-val="J72 | V15 | Mascara e Lapiseira - Olive Green - Vertical | v15_046 + v15_047 + v15_049 | 0.96s" data-search="j72 v15 mascara e lapiseira - olive green - vertical olhos &amp; sobrancelhas v15_046 + v15_047 + v15_049 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j072_v15_046_047_049.jpg" alt="Mascara e Lapiseira - Olive Green - Vertical — J72" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j072_v15_046_047_049.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J72 (3x)</span>
+            <span class="ep-badge">V15 · 9:16 · 0.96s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J72</span> Mascara e Lapiseira - Olive Green - Vertical</div>
+            <div class="sub-row"><span class="sub">v15_046 + v15_047 + v15_049</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j073_v15_050_051_052_053" data-vid="V15" data-val="J73 | V15 | Mascara e Lapiseira - Olive Green - Vertical | v15_050 + v15_051 + v15_052 + v15_053 + v15_054 | 3.11s" data-search="j73 v15 mascara e lapiseira - olive green - vertical olhos &amp; sobrancelhas v15_050 + v15_051 + v15_052 + v15_053 + v15_054 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j073_v15_050_051_052_053.jpg" alt="Mascara e Lapiseira - Olive Green - Vertical — J73" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j073_v15_050_051_052_053.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J73 (5x)</span>
+            <span class="ep-badge">V15 · 9:16 · 3.11s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J73</span> Mascara e Lapiseira - Olive Green - Vertical</div>
+            <div class="sub-row"><span class="sub">v15_050 + v15_051 + v15_052 + v15_053 + v15_054</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j074_v16_001_006_007_008" data-vid="V16" data-val="J74 | V16 | Mascara e Lapiseira Cherry - Vertical | v16_001 + v16_006 + v16_007 + v16_008 | 3.73s" data-search="j74 v16 mascara e lapiseira cherry - vertical labial &amp; boca v16_001 + v16_006 + v16_007 + v16_008 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j074_v16_001_006_007_008.jpg" alt="Mascara e Lapiseira Cherry - Vertical — J74" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j074_v16_001_006_007_008.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J74 (4x)</span>
+            <span class="ep-badge">V16 · 9:16 · 3.73s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J74</span> Mascara e Lapiseira Cherry - Vertical</div>
+            <div class="sub-row"><span class="sub">v16_001 + v16_006 + v16_007 + v16_008</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j075_v16_011_012" data-vid="V16" data-val="J75 | V16 | Mascara e Lapiseira Cherry - Vertical | v16_011 + v16_012 | 2.25s" data-search="j75 v16 mascara e lapiseira cherry - vertical labial &amp; boca v16_011 + v16_012 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j075_v16_011_012.jpg" alt="Mascara e Lapiseira Cherry - Vertical — J75" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j075_v16_011_012.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J75 (2x)</span>
+            <span class="ep-badge">V16 · 9:16 · 2.25s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J75</span> Mascara e Lapiseira Cherry - Vertical</div>
+            <div class="sub-row"><span class="sub">v16_011 + v16_012</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j076_v16_013_014" data-vid="V16" data-val="J76 | V16 | Mascara e Lapiseira Cherry - Vertical | v16_013 + v16_014 | 2.71s" data-search="j76 v16 mascara e lapiseira cherry - vertical labial &amp; boca v16_013 + v16_014 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j076_v16_013_014.jpg" alt="Mascara e Lapiseira Cherry - Vertical — J76" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j076_v16_013_014.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J76 (2x)</span>
+            <span class="ep-badge">V16 · 9:16 · 2.71s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J76</span> Mascara e Lapiseira Cherry - Vertical</div>
+            <div class="sub-row"><span class="sub">v16_013 + v16_014</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j077_v16_015_016" data-vid="V16" data-val="J77 | V16 | Mascara e Lapiseira Cherry - Vertical | v16_015 + v16_016 | 0.96s" data-search="j77 v16 mascara e lapiseira cherry - vertical labial &amp; boca v16_015 + v16_016 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j077_v16_015_016.jpg" alt="Mascara e Lapiseira Cherry - Vertical — J77" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j077_v16_015_016.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J77 (2x)</span>
+            <span class="ep-badge">V16 · 9:16 · 0.96s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J77</span> Mascara e Lapiseira Cherry - Vertical</div>
+            <div class="sub-row"><span class="sub">v16_015 + v16_016</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j078_v16_017_018" data-vid="V16" data-val="J78 | V16 | Mascara e Lapiseira Cherry - Vertical | v16_017 + v16_018 | 1.75s" data-search="j78 v16 mascara e lapiseira cherry - vertical labial &amp; boca v16_017 + v16_018 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j078_v16_017_018.jpg" alt="Mascara e Lapiseira Cherry - Vertical — J78" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j078_v16_017_018.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J78 (2x)</span>
+            <span class="ep-badge">V16 · 9:16 · 1.75s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J78</span> Mascara e Lapiseira Cherry - Vertical</div>
+            <div class="sub-row"><span class="sub">v16_017 + v16_018</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j079_v16_020_021" data-vid="V16" data-val="J79 | V16 | Mascara e Lapiseira Cherry - Vertical | v16_020 + v16_021 | 1.79s" data-search="j79 v16 mascara e lapiseira cherry - vertical labial &amp; boca v16_020 + v16_021 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j079_v16_020_021.jpg" alt="Mascara e Lapiseira Cherry - Vertical — J79" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j079_v16_020_021.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J79 (2x)</span>
+            <span class="ep-badge">V16 · 9:16 · 1.79s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J79</span> Mascara e Lapiseira Cherry - Vertical</div>
+            <div class="sub-row"><span class="sub">v16_020 + v16_021</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j080_v16_022_024" data-vid="V16" data-val="J80 | V16 | Mascara e Lapiseira Cherry - Vertical | v16_022 + v16_024 | 2.68s" data-search="j80 v16 mascara e lapiseira cherry - vertical labial &amp; boca v16_022 + v16_024 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j080_v16_022_024.jpg" alt="Mascara e Lapiseira Cherry - Vertical — J80" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j080_v16_022_024.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J80 (2x)</span>
+            <span class="ep-badge">V16 · 9:16 · 2.68s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J80</span> Mascara e Lapiseira Cherry - Vertical</div>
+            <div class="sub-row"><span class="sub">v16_022 + v16_024</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j081_v17_010_011_012" data-vid="V17" data-val="J81 | V17 | Po Compacto FIX HD - Campanha Vertical | v17_010 + v17_011 + v17_012 | 3.42s" data-search="j81 v17 po compacto fix hd - campanha vertical pele &amp; face v17_010 + v17_011 + v17_012 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j081_v17_010_011_012.jpg" alt="Po Compacto FIX HD - Campanha Vertical — J81" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j081_v17_010_011_012.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J81 (3x)</span>
+            <span class="ep-badge">V17 · 9:16 · 3.42s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J81</span> Po Compacto FIX HD - Campanha Vertical</div>
+            <div class="sub-row"><span class="sub">v17_010 + v17_011 + v17_012</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j082_v17_016_014" data-vid="V17" data-val="J82 | V17 | Po Compacto FIX HD - Campanha Vertical | v17_016 + v17_014 | 4.16s" data-search="j82 v17 po compacto fix hd - campanha vertical pele &amp; face v17_016 + v17_014 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j082_v17_016_014.jpg" alt="Po Compacto FIX HD - Campanha Vertical — J82" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j082_v17_016_014.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J82 (2x)</span>
+            <span class="ep-badge">V17 · 9:16 · 4.16s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J82</span> Po Compacto FIX HD - Campanha Vertical</div>
+            <div class="sub-row"><span class="sub">v17_016 + v17_014</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j083_v18_001_002_003_004" data-vid="V18" data-val="J83 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_001 + v18_002 + v18_003 + v18_004 | 5.88s" data-search="j83 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_001 + v18_002 + v18_003 + v18_004 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j083_v18_001_002_003_004.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — J83" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j083_v18_001_002_003_004.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J83 (4x)</span>
+            <span class="ep-badge">V18 · 16:9 · 5.88s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J83</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_001 + v18_002 + v18_003 + v18_004</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j084_v18_006_007" data-vid="V18" data-val="J84 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_006 + v18_007 | 1.46s" data-search="j84 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_006 + v18_007 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j084_v18_006_007.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — J84" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j084_v18_006_007.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J84 (2x)</span>
+            <span class="ep-badge">V18 · 16:9 · 1.46s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J84</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_006 + v18_007</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j085_v18_008_009" data-vid="V18" data-val="J85 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_008 + v18_009 | 1.58s" data-search="j85 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_008 + v18_009 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j085_v18_008_009.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — J85" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j085_v18_008_009.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J85 (2x)</span>
+            <span class="ep-badge">V18 · 16:9 · 1.58s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J85</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_008 + v18_009</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j086_v18_019_020_021_022" data-vid="V18" data-val="J86 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_019 + v18_020 + v18_021 + v18_022 + v18_023 | 6.84s" data-search="j86 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_019 + v18_020 + v18_021 + v18_022 + v18_023 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j086_v18_019_020_021_022.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — J86" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j086_v18_019_020_021_022.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J86 (5x)</span>
+            <span class="ep-badge">V18 · 16:9 · 6.84s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J86</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_019 + v18_020 + v18_021 + v18_022 + v18_023</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j087_v18_026_027_028" data-vid="V18" data-val="J87 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_026 + v18_027 + v18_028 | 1.02s" data-search="j87 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_026 + v18_027 + v18_028 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j087_v18_026_027_028.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — J87" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j087_v18_026_027_028.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J87 (3x)</span>
+            <span class="ep-badge">V18 · 16:9 · 1.02s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J87</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_026 + v18_027 + v18_028</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j088_v18_029_030_031" data-vid="V18" data-val="J88 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_029 + v18_030 + v18_031 | 1.25s" data-search="j88 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_029 + v18_030 + v18_031 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j088_v18_029_030_031.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — J88" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j088_v18_029_030_031.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J88 (3x)</span>
+            <span class="ep-badge">V18 · 16:9 · 1.25s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J88</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_029 + v18_030 + v18_031</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j089_v18_032_033_034_035" data-vid="V18" data-val="J89 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_032 + v18_033 + v18_034 + v18_035 + v18_036 + v18_037 + v18_038 | 2.47s" data-search="j89 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_032 + v18_033 + v18_034 + v18_035 + v18_036 + v18_037 + v18_038 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j089_v18_032_033_034_035.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — J89" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j089_v18_032_033_034_035.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J89 (7x)</span>
+            <span class="ep-badge">V18 · 16:9 · 2.47s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J89</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_032 + v18_033 + v18_034 + v18_035 + v18_036 + v18_037 + v18_038</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j090_v18_039_040_041_042" data-vid="V18" data-val="J90 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_039 + v18_040 + v18_041 + v18_042 | 3.04s" data-search="j90 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_039 + v18_040 + v18_041 + v18_042 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j090_v18_039_040_041_042.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — J90" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j090_v18_039_040_041_042.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J90 (4x)</span>
+            <span class="ep-badge">V18 · 16:9 · 3.04s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J90</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_039 + v18_040 + v18_041 + v18_042</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j091_v18_043_044_045_046" data-vid="V18" data-val="J91 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_043 + v18_044 + v18_045 + v18_046 | 1.24s" data-search="j91 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_043 + v18_044 + v18_045 + v18_046 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j091_v18_043_044_045_046.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — J91" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j091_v18_043_044_045_046.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J91 (4x)</span>
+            <span class="ep-badge">V18 · 16:9 · 1.24s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J91</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_043 + v18_044 + v18_045 + v18_046</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j092_v18_047_048_049" data-vid="V18" data-val="J92 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_047 + v18_048 + v18_049 | 2.57s" data-search="j92 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_047 + v18_048 + v18_049 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j092_v18_047_048_049.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — J92" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j092_v18_047_048_049.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J92 (3x)</span>
+            <span class="ep-badge">V18 · 16:9 · 2.57s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J92</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_047 + v18_048 + v18_049</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j093_v18_051_053_055_056" data-vid="V18" data-val="J93 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_051 + v18_053 + v18_055 + v18_056 | 3.55s" data-search="j93 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_051 + v18_053 + v18_055 + v18_056 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j093_v18_051_053_055_056.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — J93" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j093_v18_051_053_055_056.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J93 (4x)</span>
+            <span class="ep-badge">V18 · 16:9 · 3.55s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J93</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_051 + v18_053 + v18_055 + v18_056</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j094_v18_057_058_059_061" data-vid="V18" data-val="J94 | V18 | Sombras Liquidas Velvet FIX - Horizontal | v18_057 + v18_058 + v18_059 + v18_061 + v18_062 | 4.79s" data-search="j94 v18 sombras liquidas velvet fix - horizontal olhos &amp; sobrancelhas v18_057 + v18_058 + v18_059 + v18_061 + v18_062 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j094_v18_057_058_059_061.jpg" alt="Sombras Liquidas Velvet FIX - Horizontal — J94" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j094_v18_057_058_059_061.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J94 (5x)</span>
+            <span class="ep-badge">V18 · 16:9 · 4.79s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J94</span> Sombras Liquidas Velvet FIX - Horizontal</div>
+            <div class="sub-row"><span class="sub">v18_057 + v18_058 + v18_059 + v18_061 + v18_062</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j095_v19_001_003" data-vid="V19" data-val="J95 | V19 | Stick Iluminador - Fashion Film - Horizontal | v19_001 + v19_003 | 2.58s" data-search="j95 v19 stick iluminador - fashion film - horizontal pele &amp; face v19_001 + v19_003 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j095_v19_001_003.jpg" alt="Stick Iluminador - Fashion Film - Horizontal — J95" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j095_v19_001_003.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J95 (2x)</span>
+            <span class="ep-badge">V19 · 16:9 · 2.58s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J95</span> Stick Iluminador - Fashion Film - Horizontal</div>
+            <div class="sub-row"><span class="sub">v19_001 + v19_003</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j096_v19_004_007" data-vid="V19" data-val="J96 | V19 | Stick Iluminador - Fashion Film - Horizontal | v19_004 + v19_007 | 5.46s" data-search="j96 v19 stick iluminador - fashion film - horizontal pele &amp; face v19_004 + v19_007 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j096_v19_004_007.jpg" alt="Stick Iluminador - Fashion Film - Horizontal — J96" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j096_v19_004_007.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J96 (2x)</span>
+            <span class="ep-badge">V19 · 16:9 · 5.46s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J96</span> Stick Iluminador - Fashion Film - Horizontal</div>
+            <div class="sub-row"><span class="sub">v19_004 + v19_007</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j097_v19_005_009" data-vid="V19" data-val="J97 | V19 | Stick Iluminador - Fashion Film - Horizontal | v19_005 + v19_009 | 3.60s" data-search="j97 v19 stick iluminador - fashion film - horizontal pele &amp; face v19_005 + v19_009 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j097_v19_005_009.jpg" alt="Stick Iluminador - Fashion Film - Horizontal — J97" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j097_v19_005_009.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J97 (2x)</span>
+            <span class="ep-badge">V19 · 16:9 · 3.60s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J97</span> Stick Iluminador - Fashion Film - Horizontal</div>
+            <div class="sub-row"><span class="sub">v19_005 + v19_009</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j098_v19_012_013_011" data-vid="V19" data-val="J98 | V19 | Stick Iluminador - Fashion Film - Horizontal | v19_012 + v19_013 + v19_011 | 3.08s" data-search="j98 v19 stick iluminador - fashion film - horizontal pele &amp; face v19_012 + v19_013 + v19_011 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j098_v19_012_013_011.jpg" alt="Stick Iluminador - Fashion Film - Horizontal — J98" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j098_v19_012_013_011.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J98 (3x)</span>
+            <span class="ep-badge">V19 · 16:9 · 3.08s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J98</span> Stick Iluminador - Fashion Film - Horizontal</div>
+            <div class="sub-row"><span class="sub">v19_012 + v19_013 + v19_011</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j099_v19_010_014_015" data-vid="V19" data-val="J99 | V19 | Stick Iluminador - Fashion Film - Horizontal | v19_010 + v19_014 + v19_015 | 6.38s" data-search="j99 v19 stick iluminador - fashion film - horizontal pele &amp; face v19_010 + v19_014 + v19_015 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j099_v19_010_014_015.jpg" alt="Stick Iluminador - Fashion Film - Horizontal — J99" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j099_v19_010_014_015.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J99 (3x)</span>
+            <span class="ep-badge">V19 · 16:9 · 6.38s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J99</span> Stick Iluminador - Fashion Film - Horizontal</div>
+            <div class="sub-row"><span class="sub">v19_010 + v19_014 + v19_015</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j100_v19_016_017_018_019" data-vid="V19" data-val="J100 | V19 | Stick Iluminador - Fashion Film - Horizontal | v19_016 + v19_017 + v19_018 + v19_019 + v19_020 | 2.47s" data-search="j100 v19 stick iluminador - fashion film - horizontal pele &amp; face v19_016 + v19_017 + v19_018 + v19_019 + v19_020 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j100_v19_016_017_018_019.jpg" alt="Stick Iluminador - Fashion Film - Horizontal — J100" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j100_v19_016_017_018_019.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J100 (5x)</span>
+            <span class="ep-badge">V19 · 16:9 · 2.47s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J100</span> Stick Iluminador - Fashion Film - Horizontal</div>
+            <div class="sub-row"><span class="sub">v19_016 + v19_017 + v19_018 + v19_019 + v19_020</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j101_v19_021_022_023_024" data-vid="V19" data-val="J101 | V19 | Stick Iluminador - Fashion Film - Horizontal | v19_021 + v19_022 + v19_023 + v19_024 + v19_025 + v19_026 | 2.26s" data-search="j101 v19 stick iluminador - fashion film - horizontal pele &amp; face v19_021 + v19_022 + v19_023 + v19_024 + v19_025 + v19_026 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j101_v19_021_022_023_024.jpg" alt="Stick Iluminador - Fashion Film - Horizontal — J101" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j101_v19_021_022_023_024.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J101 (6x)</span>
+            <span class="ep-badge">V19 · 16:9 · 2.26s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J101</span> Stick Iluminador - Fashion Film - Horizontal</div>
+            <div class="sub-row"><span class="sub">v19_021 + v19_022 + v19_023 + v19_024 + v19_025 + v19_026</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j102_v19_034_033_030_027" data-vid="V19" data-val="J102 | V19 | Stick Iluminador - Fashion Film - Horizontal | v19_034 + v19_033 + v19_030 + v19_027 | 4.46s" data-search="j102 v19 stick iluminador - fashion film - horizontal pele &amp; face v19_034 + v19_033 + v19_030 + v19_027 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j102_v19_034_033_030_027.jpg" alt="Stick Iluminador - Fashion Film - Horizontal — J102" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j102_v19_034_033_030_027.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J102 (4x)</span>
+            <span class="ep-badge">V19 · 16:9 · 4.46s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J102</span> Stick Iluminador - Fashion Film - Horizontal</div>
+            <div class="sub-row"><span class="sub">v19_034 + v19_033 + v19_030 + v19_027</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j103_v19_028_029_031_032" data-vid="V19" data-val="J103 | V19 | Stick Iluminador - Fashion Film - Horizontal | v19_028 + v19_029 + v19_031 + v19_032 | 2.54s" data-search="j103 v19 stick iluminador - fashion film - horizontal pele &amp; face v19_028 + v19_029 + v19_031 + v19_032 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j103_v19_028_029_031_032.jpg" alt="Stick Iluminador - Fashion Film - Horizontal — J103" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j103_v19_028_029_031_032.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J103 (4x)</span>
+            <span class="ep-badge">V19 · 16:9 · 2.54s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J103</span> Stick Iluminador - Fashion Film - Horizontal</div>
+            <div class="sub-row"><span class="sub">v19_028 + v19_029 + v19_031 + v19_032</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j104_v20_005_006_007_008" data-vid="V20" data-val="J104 | V20 | Stick Iluminador - Video Full - Horizontal | v20_005 + v20_006 + v20_007 + v20_008 + v20_009 | 10.80s" data-search="j104 v20 stick iluminador - video full - horizontal pele &amp; face v20_005 + v20_006 + v20_007 + v20_008 + v20_009 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j104_v20_005_006_007_008.jpg" alt="Stick Iluminador - Video Full - Horizontal — J104" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j104_v20_005_006_007_008.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J104 (5x)</span>
+            <span class="ep-badge">V20 · 16:9 · 10.80s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J104</span> Stick Iluminador - Video Full - Horizontal</div>
+            <div class="sub-row"><span class="sub">v20_005 + v20_006 + v20_007 + v20_008 + v20_009</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j105_v20_011_012_013" data-vid="V20" data-val="J105 | V20 | Stick Iluminador - Video Full - Horizontal | v20_011 + v20_012 + v20_013 | 6.47s" data-search="j105 v20 stick iluminador - video full - horizontal pele &amp; face v20_011 + v20_012 + v20_013 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j105_v20_011_012_013.jpg" alt="Stick Iluminador - Video Full - Horizontal — J105" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j105_v20_011_012_013.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J105 (3x)</span>
+            <span class="ep-badge">V20 · 16:9 · 6.47s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J105</span> Stick Iluminador - Video Full - Horizontal</div>
+            <div class="sub-row"><span class="sub">v20_011 + v20_012 + v20_013</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j106_v21_001_002" data-vid="V21" data-val="J106 | V21 | VZ + HASKELL - HAIR &amp; LIP OIL | v21_001 + v21_002 | 4.59s" data-search="j106 v21 vz + haskell - hair &amp; lip oil labial &amp; boca v21_001 + v21_002 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j106_v21_001_002.jpg" alt="VZ + HASKELL - HAIR &amp; LIP OIL — J106" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j106_v21_001_002.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J106 (2x)</span>
+            <span class="ep-badge">V21 · 16:9 · 4.59s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J106</span> VZ + HASKELL - HAIR &amp; LIP OIL</div>
+            <div class="sub-row"><span class="sub">v21_001 + v21_002</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j107_v21_006_007_008" data-vid="V21" data-val="J107 | V21 | VZ + HASKELL - HAIR &amp; LIP OIL | v21_006 + v21_007 + v21_008 | 3.38s" data-search="j107 v21 vz + haskell - hair &amp; lip oil labial &amp; boca v21_006 + v21_007 + v21_008 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j107_v21_006_007_008.jpg" alt="VZ + HASKELL - HAIR &amp; LIP OIL — J107" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j107_v21_006_007_008.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J107 (3x)</span>
+            <span class="ep-badge">V21 · 16:9 · 3.38s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J107</span> VZ + HASKELL - HAIR &amp; LIP OIL</div>
+            <div class="sub-row"><span class="sub">v21_006 + v21_007 + v21_008</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j108_v21_009_015" data-vid="V21" data-val="J108 | V21 | VZ + HASKELL - HAIR &amp; LIP OIL | v21_009 + v21_015 | 3.04s" data-search="j108 v21 vz + haskell - hair &amp; lip oil labial &amp; boca v21_009 + v21_015 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j108_v21_009_015.jpg" alt="VZ + HASKELL - HAIR &amp; LIP OIL — J108" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j108_v21_009_015.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J108 (2x)</span>
+            <span class="ep-badge">V21 · 16:9 · 3.04s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J108</span> VZ + HASKELL - HAIR &amp; LIP OIL</div>
+            <div class="sub-row"><span class="sub">v21_009 + v21_015</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j109_v21_010_011_012" data-vid="V21" data-val="J109 | V21 | VZ + HASKELL - HAIR &amp; LIP OIL | v21_010 + v21_011 + v21_012 | 6.93s" data-search="j109 v21 vz + haskell - hair &amp; lip oil labial &amp; boca v21_010 + v21_011 + v21_012 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j109_v21_010_011_012.jpg" alt="VZ + HASKELL - HAIR &amp; LIP OIL — J109" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j109_v21_010_011_012.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J109 (3x)</span>
+            <span class="ep-badge">V21 · 16:9 · 6.93s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J109</span> VZ + HASKELL - HAIR &amp; LIP OIL</div>
+            <div class="sub-row"><span class="sub">v21_010 + v21_011 + v21_012</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j110_v21_016_017" data-vid="V21" data-val="J110 | V21 | VZ + HASKELL - HAIR &amp; LIP OIL | v21_016 + v21_017 | 7.01s" data-search="j110 v21 vz + haskell - hair &amp; lip oil labial &amp; boca v21_016 + v21_017 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j110_v21_016_017.jpg" alt="VZ + HASKELL - HAIR &amp; LIP OIL — J110" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j110_v21_016_017.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J110 (2x)</span>
+            <span class="ep-badge">V21 · 16:9 · 7.01s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J110</span> VZ + HASKELL - HAIR &amp; LIP OIL</div>
+            <div class="sub-row"><span class="sub">v21_016 + v21_017</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j111_v21_022_023" data-vid="V21" data-val="J111 | V21 | VZ + HASKELL - HAIR &amp; LIP OIL | v21_022 + v21_023 | 4.47s" data-search="j111 v21 vz + haskell - hair &amp; lip oil labial &amp; boca v21_022 + v21_023 16:9">
+          <div class="media-wrap aspect-16-9">
+            <img src="assets/shots/vizzela_curated/j111_v21_022_023.jpg" alt="VZ + HASKELL - HAIR &amp; LIP OIL — J111" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j111_v21_022_023.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J111 (2x)</span>
+            <span class="ep-badge">V21 · 16:9 · 4.47s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J111</span> VZ + HASKELL - HAIR &amp; LIP OIL</div>
+            <div class="sub-row"><span class="sub">v21_022 + v21_023</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j112_v22_001_002_003_004" data-vid="V22" data-val="J112 | V22 | Video Principal | v22_001 + v22_002 + v22_003 + v22_004 | 2.49s" data-search="j112 v22 video principal geral v22_001 + v22_002 + v22_003 + v22_004 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j112_v22_001_002_003_004.jpg" alt="Video Principal — J112" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j112_v22_001_002_003_004.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J112 (4x)</span>
+            <span class="ep-badge">V22 · 9:16 · 2.49s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J112</span> Video Principal</div>
+            <div class="sub-row"><span class="sub">v22_001 + v22_002 + v22_003 + v22_004</span></div>
+          </div>
+        </div>
+        <div class="card is-picked" role="button" tabindex="0" data-id="j113_v22_007_008_009_010" data-vid="V22" data-val="J113 | V22 | Video Principal | v22_007 + v22_008 + v22_009 + v22_010 | 15.87s" data-search="j113 v22 video principal geral v22_007 + v22_008 + v22_009 + v22_010 9:16">
+          <div class="media-wrap aspect-9-16">
+            <img src="assets/shots/vizzela_curated/j113_v22_007_008_009_010.jpg" alt="Video Principal — J113" loading="lazy">
+            <video src="assets/videos/vizzela_curated/j113_v22_007_008_009_010.mp4" muted loop playsinline preload="none"></video>
+            <span class="num-badge junc-badge">J113 (4x)</span>
+            <span class="ep-badge">V22 · 9:16 · 15.87s</span>
+          </div>
+          <div class="meta">
+            <div class="title"><span class="num-inline">J113</span> Video Principal</div>
+            <div class="sub-row"><span class="sub">v22_007 + v22_008 + v22_009 + v22_010</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="toast">Copiado!</div>
+  <script>
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const countEl = document.getElementById('selectedCount');
+    const copyCountEl = document.getElementById('copyCount');
+    const searchInput = document.getElementById('searchInput');
+    const vidFilter = document.getElementById('vidFilter');
+
+    function updateCount() {
+      const n = cards.filter(c => c.classList.contains('is-picked')).length;
+      countEl.textContent = n;
+      copyCountEl.textContent = n;
+    }
+
+    function applyFilter() {
+      const q = searchInput.value.trim().toLowerCase();
+      const v = vidFilter.value;
+      cards.forEach(c => {
+        const matchV = (v === 'all' || c.dataset.vid === v);
+        const matchQ = !q || c.dataset.search.includes(q);
+        c.classList.toggle('hidden', !(matchV && matchQ));
+      });
+      document.querySelectorAll('.group').forEach(g => {
+        const vis = g.querySelectorAll('.card:not(.hidden)').length;
+        g.style.display = vis > 0 ? '' : 'none';
+      });
+    }
+
+    cards.forEach(c => {
+      const vid = c.querySelector('video');
+      c.addEventListener('mouseenter', () => vid.play().catch(() => {}));
+      c.addEventListener('mouseleave', () => { vid.pause(); vid.currentTime = 0; });
+      c.addEventListener('click', () => {
+        c.classList.toggle('is-picked');
+        updateCount();
+      });
+    });
+
+    searchInput.addEventListener('input', applyFilter);
+    vidFilter.addEventListener('change', applyFilter);
+    document.getElementById('selectAllBtn').addEventListener('click', () => {
+      cards.filter(c => !c.classList.contains('hidden')).forEach(c => c.classList.add('is-picked'));
+      updateCount();
+    });
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('is-picked'));
+      updateCount();
+    });
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const lines = cards.filter(c => c.classList.contains('is-picked')).map(c => c.dataset.val);
+      navigator.clipboard.writeText(lines.join('\n')).then(() => {
+        const t = document.getElementById('toast');
+        t.style.display = 'block';
+        setTimeout(() => t.style.display = 'none', 2200);
+      });
+    });
+  </script>
+</body>
+</html>
