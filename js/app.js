@@ -238,13 +238,17 @@
   // Lazy-play videos when visible in viewport + unload offscreen decoders to save RAM
   let _videoObserver = null;
   let _visibleVideos = new Set();
-  const MAX_ACTIVE_GRID_VIDEOS = 16;
+
+  function getMaxActiveGridVideos() {
+    return window.innerWidth >= 900 ? 40 : 18;
+  }
 
   function unloadGridVideo(vid) {
     if (!vid || !vid.dataset.src) return;
     try {
       vid.pause();
     } catch (_) {}
+    vid.preload = "none";
     if (vid.getAttribute("src")) {
       vid.removeAttribute("src");
       vid.load();
@@ -252,15 +256,30 @@
   }
 
   function syncVisibleGridVideos() {
-    let activeCount = 0;
+    const vh = window.innerHeight || 900;
+    const center = vh / 2;
+    const candidates = [];
+
     _visibleVideos.forEach((vid) => {
       if (!document.body.contains(vid)) {
         _visibleVideos.delete(vid);
         return;
       }
       if (!vid.dataset.src) return; // Reels are managed by mountProjectTakeReel
-      if (activeCount < MAX_ACTIVE_GRID_VIDEOS) {
-        activeCount += 1;
+      const rect = vid.getBoundingClientRect();
+      const inViewport = rect.bottom > 0 && rect.top < vh;
+      const dist = Math.abs((rect.top + rect.bottom) / 2 - center);
+      candidates.push({ vid, inViewport, dist });
+    });
+
+    candidates.sort((a, b) => {
+      if (a.inViewport !== b.inViewport) return a.inViewport ? -1 : 1;
+      return a.dist - b.dist;
+    });
+
+    const limit = getMaxActiveGridVideos();
+    candidates.forEach(({ vid }, idx) => {
+      if (idx < limit) {
         if (!vid.getAttribute("src") || vid.paused) {
           safePlayVideo(vid);
         }
@@ -289,6 +308,7 @@
   function safePlayVideo(vid) {
     prepareMobileVideoAttrs(vid);
     if (!vid.getAttribute("src") && vid.dataset.src) {
+      vid.preload = "auto";
       vid.setAttribute("src", vid.dataset.src);
       vid.addEventListener(
         "loadeddata",
@@ -328,7 +348,7 @@
     videos.forEach(prepareMobileVideoAttrs);
 
     if (!("IntersectionObserver" in window)) {
-      videos.slice(0, MAX_ACTIVE_GRID_VIDEOS).forEach((v) => {
+      videos.slice(0, getMaxActiveGridVideos()).forEach((v) => {
         _visibleVideos.add(v);
         safePlayVideo(v);
       });
@@ -356,7 +376,7 @@
           });
           syncVisibleGridVideos();
         },
-        { rootMargin: "120px 0px", threshold: 0.05 }
+        { rootMargin: "400px 0px", threshold: 0.01 }
       );
     }
     videos.forEach((v) => _videoObserver.observe(v));
@@ -1406,7 +1426,7 @@
           return;
         }
 
-        const PAGE_SIZE = 48;
+        const PAGE_SIZE = 60;
         let renderedCount = 0;
 
         let sentinelEl = document.getElementById("gallery-scroll-sentinel");
@@ -1467,7 +1487,7 @@
                 }
               }
             },
-            { rootMargin: "500px 0px" }
+            { rootMargin: "900px 0px" }
           );
           resultsGridEl._sentinelObs.observe(sentinelEl);
         }
