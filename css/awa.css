@@ -2378,6 +2378,13 @@ main {
   overflow: hidden;
 }
 
+.youtube-player-wrap.is-vertical {
+  aspect-ratio: 9 / 16;
+  max-width: 440px;
+  max-height: 78vh;
+  margin: 0 auto;
+}
+
 .youtube-player-wrap iframe {
   position: absolute;
   inset: 0;

@@ -1481,6 +1481,15 @@
 
     const projectShots = window.AWA_SHOTS.filter((s) => s.projectId === project.id);
     const ytId = extractYouTubeId(project.youtubeId || project.youtubeUrl);
+    const isVerticalProject = (() => {
+      const ar = String(project.aspectRatio || "");
+      const ratioMatch = ar.match(/(\d+(?:\.\d+)?)\s*[:/]\s*(\d+(?:\.\d+)?)/);
+      if (ratioMatch && Number(ratioMatch[1]) < Number(ratioMatch[2])) return true;
+      const dimMatch = ar.match(/(\d+)\s*[×x]\s*(\d+)/i);
+      if (dimMatch && Number(dimMatch[1]) < Number(dimMatch[2])) return true;
+      const firstAspect = String(projectShots[0]?.aspect || "").match(/(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/);
+      return Boolean(firstAspect && Number(firstAspect[1]) < Number(firstAspect[2]));
+    })();
 
     container.innerHTML = `
       <section class="project-hero">
@@ -1495,7 +1504,7 @@
         <div class="container">
           ${
             ytId
-              ? `<div class="youtube-player-wrap">
+              ? `<div class="youtube-player-wrap ${isVerticalProject ? "is-vertical" : ""}">
                   <iframe
                     src="https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1"
                     title="${project.title}"
@@ -1503,7 +1512,7 @@
                     allowfullscreen
                   ></iframe>
                 </div>`
-              : `<div class="youtube-player-wrap" id="project-hero-reel"></div>`
+              : `<div class="youtube-player-wrap ${isVerticalProject ? "is-vertical" : ""}" id="project-hero-reel"></div>`
           }
         </div>
       </section>
