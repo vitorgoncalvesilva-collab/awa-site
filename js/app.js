@@ -127,27 +127,37 @@
     });
   }
 
-  function renderMasonryGrid(gridEl, shots) {
-    if (!gridEl) return;
-    gridEl.className = "eyecandy-masonry";
-    gridEl.innerHTML = shots
-      .map((shot) => {
-        const proj = getProjectById(shot.projectId);
-        const ratio = parseShotAspect(shot.aspect);
-        const isVert = ratio < 1;
-        return `
+  function buildMasonryCardHtml(shot) {
+    const proj = getProjectById(shot.projectId);
+    const ratio = parseShotAspect(shot.aspect);
+    const isVert = ratio < 1;
+    return `
         <article class="video-masonry-card ${isVert ? "is-vertical" : ""}" data-shot-id="${shot.id}" data-aspect-ratio="${ratio}" tabindex="0" aria-label="${shot.title} — ${proj ? proj.title : ""}">
+          <img class="video-masonry-poster" src="${shot.image}" alt="${shot.title}" loading="lazy" decoding="async" />
           ${
             shot.video
-              ? `<video data-src="${shot.video}" poster="${shot.image}" style="background:#000 url('${shot.image}') center/cover no-repeat;" autoplay loop muted playsinline webkit-playsinline preload="metadata"></video>`
-              : `<img src="${shot.image}" alt="${shot.title}" loading="lazy" />`
+              ? `<video data-src="${shot.video}" preload="none" autoplay loop muted playsinline webkit-playsinline></video>`
+              : ""
           }
           <div class="video-masonry-hover">
             ${renderHoverMeta(proj)}
           </div>
         </article>`;
-      })
-      .join("");
+  }
+
+  function renderMasonryGrid(gridEl, shots, { append = false } = {}) {
+    if (!gridEl) return [];
+    gridEl.className = "eyecandy-masonry";
+    const html = shots.map(buildMasonryCardHtml).join("");
+    let newCards = [];
+    if (append) {
+      const prevCount = gridEl.children.length;
+      gridEl.insertAdjacentHTML("beforeend", html);
+      newCards = Array.from(gridEl.children).slice(prevCount);
+    } else {
+      gridEl.innerHTML = html;
+      newCards = Array.from(gridEl.children);
+    }
 
     layoutOrganicMasonry(gridEl);
     if ("ResizeObserver" in window && !gridEl._masonryRO) {
@@ -158,6 +168,7 @@
       });
       gridEl._masonryRO.observe(gridEl);
     }
+    return newCards;
   }
 
   function shuffleArray(arr) {
@@ -169,9 +180,40 @@
     return copy;
   }
 
-  // Lazy-play videos when visible in viewport + mobile Safari/Android autoplay unlock
+  // Lazy-play videos when visible in viewport + unload offscreen decoders to save RAM
   let _videoObserver = null;
   let _visibleVideos = new Set();
+  const MAX_ACTIVE_GRID_VIDEOS = 16;
+
+  function unloadGridVideo(vid) {
+    if (!vid || !vid.dataset.src) return;
+    try {
+      vid.pause();
+    } catch (_) {}
+    if (vid.getAttribute("src")) {
+      vid.removeAttribute("src");
+      vid.load();
+    }
+  }
+
+  function syncVisibleGridVideos() {
+    let activeCount = 0;
+    _visibleVideos.forEach((vid) => {
+      if (!document.body.contains(vid)) {
+        _visibleVideos.delete(vid);
+        return;
+      }
+      if (!vid.dataset.src) return; // Reels are managed by mountProjectTakeReel
+      if (activeCount < MAX_ACTIVE_GRID_VIDEOS) {
+        activeCount += 1;
+        if (!vid.getAttribute("src") || vid.paused) {
+          safePlayVideo(vid);
+        }
+      } else {
+        unloadGridVideo(vid);
+      }
+    });
+  }
 
   function prepareMobileVideoAttrs(vid) {
     vid.muted = true;
@@ -216,43 +258,52 @@
       evt,
       () => {
         _visibleVideos.forEach((vid) => {
-          if (vid.paused) safePlayVideo(vid);
+          if (!vid.dataset.src && vid.paused) safePlayVideo(vid);
         });
+        syncVisibleGridVideos();
       },
       { passive: true }
     );
   });
 
-  function attachViewportVideoObserver(rootEl) {
+  function attachViewportVideoObserver(rootEl, { append = false, nodes = null } = {}) {
     if (!rootEl) return;
-    const videos = rootEl.querySelectorAll("video[data-src]");
+    const videos = nodes ? Array.from(nodes) : Array.from(rootEl.querySelectorAll("video[data-src]"));
     if (!videos.length) return;
-    _visibleVideos.clear();
     videos.forEach(prepareMobileVideoAttrs);
 
     if (!("IntersectionObserver" in window)) {
-      videos.forEach((v) => {
+      videos.slice(0, MAX_ACTIVE_GRID_VIDEOS).forEach((v) => {
         _visibleVideos.add(v);
         safePlayVideo(v);
       });
       return;
     }
-    if (_videoObserver) _videoObserver.disconnect();
-    _videoObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const vid = entry.target;
-          if (entry.isIntersecting) {
-            _visibleVideos.add(vid);
-            safePlayVideo(vid);
-          } else {
-            _visibleVideos.delete(vid);
-            vid.pause();
-          }
-        });
-      },
-      { rootMargin: "80px 0px", threshold: 0.05 }
-    );
+
+    if (!append || !_videoObserver) {
+      if (_videoObserver) _videoObserver.disconnect();
+      _visibleVideos.forEach((v) => {
+        if (v.dataset.src) {
+          unloadGridVideo(v);
+          _visibleVideos.delete(v);
+        }
+      });
+      _videoObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const vid = entry.target;
+            if (entry.isIntersecting) {
+              _visibleVideos.add(vid);
+            } else {
+              _visibleVideos.delete(vid);
+              unloadGridVideo(vid);
+            }
+          });
+          syncVisibleGridVideos();
+        },
+        { rootMargin: "120px 0px", threshold: 0.05 }
+      );
+    }
     videos.forEach((v) => _videoObserver.observe(v));
   }
 
@@ -1267,6 +1318,12 @@
         }${state.query ? ` para "${state.query}"` : ""}`;
 
         if (!filtered.length) {
+          const sentinelEl = document.getElementById("gallery-scroll-sentinel");
+          if (sentinelEl) sentinelEl.style.display = "none";
+          if (resultsGridEl._sentinelObs) {
+            resultsGridEl._sentinelObs.disconnect();
+            resultsGridEl._sentinelObs = null;
+          }
           resultsGridEl.className = "shotdeck-grid";
           resultsGridEl.innerHTML = `
             <div class="empty-state">
@@ -1292,19 +1349,78 @@
           return;
         }
 
-        renderMasonryGrid(resultsGridEl, filtered);
+        const PAGE_SIZE = 48;
+        let renderedCount = 0;
 
-        resultsGridEl.querySelectorAll("[data-shot-id]").forEach((card) => {
-          card.addEventListener("click", () => openShotModal(card.dataset.shotId, filtered));
-          card.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              openShotModal(card.dataset.shotId, filtered);
-            }
+        let sentinelEl = document.getElementById("gallery-scroll-sentinel");
+        if (!sentinelEl) {
+          sentinelEl = document.createElement("div");
+          sentinelEl.id = "gallery-scroll-sentinel";
+          sentinelEl.className = "gallery-scroll-sentinel";
+          resultsGridEl.insertAdjacentElement("afterend", sentinelEl);
+        }
+        if (resultsGridEl._sentinelObs) {
+          resultsGridEl._sentinelObs.disconnect();
+          resultsGridEl._sentinelObs = null;
+        }
+
+        function bindCards(cards) {
+          cards.forEach((card) => {
+            card.addEventListener("click", () => openShotModal(card.dataset.shotId, filtered));
+            card.addEventListener("keydown", (e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openShotModal(card.dataset.shotId, filtered);
+              }
+            });
           });
-        });
-        attachViewportVideoObserver(resultsGridEl);
+        }
+
+        function appendBatch(isInitial) {
+          if (renderedCount >= filtered.length) {
+            sentinelEl.style.display = "none";
+            return;
+          }
+          const slice = filtered.slice(renderedCount, renderedCount + PAGE_SIZE);
+          renderedCount += slice.length;
+          const newCards = renderMasonryGrid(resultsGridEl, slice, { append: !isInitial });
+          bindCards(newCards);
+          const newVideos = newCards
+            .map((c) => c.querySelector("video[data-src]"))
+            .filter(Boolean);
+          attachViewportVideoObserver(resultsGridEl, { append: !isInitial, nodes: newVideos });
+
+          if (renderedCount < filtered.length) {
+            sentinelEl.style.display = "block";
+            sentinelEl.textContent = `Carregando mais takes (${renderedCount} / ${filtered.length})...`;
+          } else {
+            sentinelEl.style.display = "none";
+          }
+        }
+
+        appendBatch(true);
+
+        if (renderedCount < filtered.length && "IntersectionObserver" in window) {
+          resultsGridEl._sentinelObs = new IntersectionObserver(
+            (entries) => {
+              if (entries.some((e) => e.isIntersecting)) {
+                appendBatch(false);
+                if (renderedCount >= filtered.length && resultsGridEl._sentinelObs) {
+                  resultsGridEl._sentinelObs.disconnect();
+                }
+              }
+            },
+            { rootMargin: "500px 0px" }
+          );
+          resultsGridEl._sentinelObs.observe(sentinelEl);
+        }
       } else {
+        const sentinelEl = document.getElementById("gallery-scroll-sentinel");
+        if (sentinelEl) sentinelEl.style.display = "none";
+        if (resultsGridEl._sentinelObs) {
+          resultsGridEl._sentinelObs.disconnect();
+          resultsGridEl._sentinelObs = null;
+        }
         // Modo "Trabalhos Completos (Obras)"
         resultsGridEl.className = "shotdeck-grid";
         const filteredProjects = window.AWA_PROJECTS.filter((proj) => {
