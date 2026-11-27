@@ -1020,7 +1020,7 @@
       }
     }, 2600);
 
-    // Nuvem randômica de técnicas, categorias & tags reais do acervo (50 termos por carregamento)
+    // Nuvem randômica de técnicas, categorias & tags reais do acervo (16 termos por carregamento)
     const cloudTagMap = new Map();
     const addCloudTerm = (raw) => {
       const clean = String(raw || "").trim();
@@ -1034,7 +1034,7 @@
       addCloudTerm(s.enquadramento);
       (s.tags || []).forEach(addCloudTerm);
     });
-    const cloudTerms = shuffleArray(Array.from(cloudTagMap.values())).slice(0, 50);
+    const cloudTerms = shuffleArray(Array.from(cloudTagMap.values())).slice(0, 16);
 
     // Construir índice de autocompletar
     const suggestionPool = [];
