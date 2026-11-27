@@ -974,13 +974,7 @@
     }
 
     if (latestGridEl) {
-      const allProjects = getPublicProjects();
-      const horizontalPool = shuffleArray(allProjects.filter((p) => !getProjectAspectInfo(p).isVertical));
-      const verticalPool = shuffleArray(allProjects.filter((p) => getProjectAspectInfo(p).isVertical));
-      const pickedProjects = shuffleArray([
-        ...horizontalPool.slice(0, 2),
-        ...verticalPool.slice(0, 1)
-      ]);
+      const pickedProjects = shuffleArray(getPublicProjects()).slice(0, 12);
       const randomProjects = pickedProjects.map((proj) => {
         const newsMatch = (window.AWA_NEWS || []).find((n) => n.projectId === proj.id);
         return {

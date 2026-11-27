@@ -423,26 +423,23 @@ main {
 
 .hero-latest-grid {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .hero-latest-grid .hero-featured-card {
-  flex: var(--card-weight, 1.333) 1 0;
+  flex: var(--card-weight, 1.333) 1 calc(var(--card-weight, 1.333) * 215px);
   min-width: 0;
+  max-width: 100%;
 }
 
 .hero-latest-grid .hero-featured-card.is-vertical {
-  max-width: 300px;
+  max-width: 260px;
 }
 
 @media (max-width: 1024px) {
-  .hero-latest-grid {
-    flex-wrap: wrap;
-  }
-
   .hero-latest-grid .hero-featured-card {
     flex: var(--card-weight, 1.333) 1 calc(var(--card-weight, 1.333) * 175px);
     max-width: 100%;
