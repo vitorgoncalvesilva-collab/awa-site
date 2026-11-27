@@ -2121,23 +2121,17 @@ main {
 }
 
 .eyecandy-masonry {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-auto-rows: 8px;
+  grid-auto-flow: dense;
   gap: 10px;
   width: 100%;
 }
 
-.eyecandy-masonry-col {
-  flex: 1 1 0;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 @media (max-width: 600px) {
-  .eyecandy-masonry,
-  .eyecandy-masonry-col {
+  .eyecandy-masonry {
+    grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
     gap: 8px;
   }
 }
@@ -2150,6 +2144,12 @@ main {
   cursor: pointer;
   display: block;
   width: 100%;
+  height: 100%;
+  grid-column: span 2;
+}
+
+.video-masonry-card.is-vertical {
+  grid-column: span 1;
 }
 
 .video-masonry-card video,

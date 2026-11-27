@@ -103,6 +103,63 @@
     return `<div class="video-masonry-sub"><span class="video-masonry-proj">${project.title}</span><span class="video-masonry-year"> · ${project.year}</span></div>`;
   }
 
+  function parseShotAspect(aspectStr) {
+    const m = String(aspectStr || "").match(/(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/);
+    if (!m) return 16 / 9;
+    const w = Number(m[1]);
+    const h = Number(m[2]);
+    return w > 0 && h > 0 ? w / h : 16 / 9;
+  }
+
+  function layoutOrganicMasonry(gridEl) {
+    if (!gridEl || !gridEl.classList.contains("eyecandy-masonry")) return;
+    const cs = getComputedStyle(gridEl);
+    const rowH = parseFloat(cs.gridAutoRows) || 8;
+    const gap = parseFloat(cs.rowGap) || 10;
+    const cards = gridEl.querySelectorAll(".video-masonry-card");
+    cards.forEach((card) => {
+      const w = card.getBoundingClientRect().width;
+      if (!w) return;
+      const ratio = Number(card.dataset.aspectRatio) || 16 / 9;
+      const h = w / ratio;
+      const span = Math.max(4, Math.round((h + gap) / (rowH + gap)));
+      card.style.gridRowEnd = `span ${span}`;
+    });
+  }
+
+  function renderMasonryGrid(gridEl, shots) {
+    if (!gridEl) return;
+    gridEl.className = "eyecandy-masonry";
+    gridEl.innerHTML = shots
+      .map((shot) => {
+        const proj = getProjectById(shot.projectId);
+        const ratio = parseShotAspect(shot.aspect);
+        const isVert = ratio < 1;
+        return `
+        <article class="video-masonry-card ${isVert ? "is-vertical" : ""}" data-shot-id="${shot.id}" data-aspect-ratio="${ratio}" tabindex="0" aria-label="${shot.title} — ${proj ? proj.title : ""}">
+          ${
+            shot.video
+              ? `<video data-src="${shot.video}" poster="${shot.image}" style="background:#000 url('${shot.image}') center/cover no-repeat;" autoplay loop muted playsinline webkit-playsinline preload="metadata"></video>`
+              : `<img src="${shot.image}" alt="${shot.title}" loading="lazy" />`
+          }
+          <div class="video-masonry-hover">
+            ${renderHoverMeta(proj)}
+          </div>
+        </article>`;
+      })
+      .join("");
+
+    layoutOrganicMasonry(gridEl);
+    if ("ResizeObserver" in window && !gridEl._masonryRO) {
+      let rafId = 0;
+      gridEl._masonryRO = new ResizeObserver(() => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => layoutOrganicMasonry(gridEl));
+      });
+      gridEl._masonryRO.observe(gridEl);
+    }
+  }
+
   function shuffleArray(arr) {
     const copy = [...arr];
     for (let i = copy.length - 1; i > 0; i--) {
@@ -958,37 +1015,7 @@
         return;
       }
 
-      const w = window.innerWidth;
-      const maxCols = w >= 1400 ? 4 : w >= 900 ? 3 : 2;
-      const numCols = Math.min(maxCols, filtered.length);
-      const cols = Array.from({ length: numCols }, () => []);
-      filtered.forEach((shot, i) => cols[i % numCols].push(shot));
-
-      galleryGridEl.className = "eyecandy-masonry";
-      galleryGridEl.innerHTML = cols
-        .map(
-          (colShots) => `
-        <div class="eyecandy-masonry-col">
-          ${colShots
-            .map((shot) => {
-              const project = getProjectById(shot.projectId);
-              const aspectStyle = shot.aspect ? `aspect-ratio:${shot.aspect};` : "aspect-ratio:16 / 9;";
-              return `
-              <article class="video-masonry-card" data-shot-id="${shot.id}" style="${aspectStyle}" tabindex="0" aria-label="${shot.title} — ${project ? project.title : ""}">
-                ${
-                  shot.video
-                    ? `<video data-src="${shot.video}" poster="${shot.image}" style="background:#000 url('${shot.image}') center/cover no-repeat;" autoplay loop muted playsinline webkit-playsinline preload="metadata"></video>`
-                    : `<img src="${shot.image}" alt="${shot.title}" loading="lazy" />`
-                }
-                <div class="video-masonry-hover">
-                  ${renderHoverMeta(project)}
-                </div>
-              </article>`;
-            })
-            .join("")}
-        </div>`
-        )
-        .join("");
+      renderMasonryGrid(galleryGridEl, filtered);
 
       galleryGridEl.querySelectorAll("[data-shot-id]").forEach((tile) => {
         tile.addEventListener("click", () => openShotModal(tile.dataset.shotId, filtered));
@@ -1265,48 +1292,7 @@
           return;
         }
 
-        function getMasonryCols() {
-          const w = window.innerWidth;
-          if (w >= 2000) return 7;
-          if (w >= 1600) return 6;
-          if (w >= 1200) return 5;
-          if (w >= 900) return 4;
-          if (w >= 600) return 3;
-          return 2;
-        }
-
-        const numCols = Math.min(getMasonryCols(), Math.max(1, filtered.length));
-        const cols = Array.from({ length: numCols }, () => []);
-        filtered.forEach((shot, i) => {
-          cols[i % numCols].push(shot);
-        });
-
-        resultsGridEl.innerHTML = cols
-          .map(
-            (colShots) => `
-          <div class="eyecandy-masonry-col">
-            ${colShots
-              .map((shot) => {
-                const proj = getProjectById(shot.projectId);
-                const aspectStyle = shot.aspect ? `aspect-ratio:${shot.aspect};` : "aspect-ratio:16 / 9;";
-                return `
-                <article class="video-masonry-card" data-shot-id="${shot.id}" style="${aspectStyle}" tabindex="0" aria-label="${shot.title} — ${proj.title}">
-                  ${
-                    shot.video
-                      ? `<video data-src="${shot.video}" poster="${shot.image}" style="background:#000 url('${shot.image}') center/cover no-repeat;" autoplay loop muted playsinline webkit-playsinline preload="metadata"></video>`
-                      : `<img src="${shot.image}" alt="${shot.title}" loading="lazy" />`
-                  }
-                  <div class="video-masonry-hover">
-                    ${renderHoverMeta(proj)}
-                  </div>
-                </article>`;
-              })
-              .join("")}
-          </div>`
-          )
-          .join("");
-
-        resultsGridEl.dataset.lastCols = String(numCols);
+        renderMasonryGrid(resultsGridEl, filtered);
 
         resultsGridEl.querySelectorAll("[data-shot-id]").forEach((card) => {
           card.addEventListener("click", () => openShotModal(card.dataset.shotId, filtered));
@@ -1434,15 +1420,6 @@
       if (e.key === "/" && document.activeElement !== searchInput) {
         e.preventDefault();
         searchInput.focus();
-      }
-    });
-
-    // Rebalanceia colunas ao redimensionar a janela lateralmente
-    let lastWidth = window.innerWidth;
-    window.addEventListener("resize", () => {
-      if (Math.abs(window.innerWidth - lastWidth) > 40) {
-        lastWidth = window.innerWidth;
-        if (state.mode === "shots") renderResults();
       }
     });
 
