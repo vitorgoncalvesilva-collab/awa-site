@@ -111,6 +111,61 @@
     return w > 0 && h > 0 ? w / h : 16 / 9;
   }
 
+  /**
+   * Computes normalized aspect ratio, CSS aspect-ratio string, vertical flag,
+   * and organic flex weight (sqrt of ratio for balanced visual area).
+   */
+  function getProjectAspectInfo(project, shots) {
+    const projectShots = Array.isArray(shots)
+      ? shots
+      : project && window.AWA_SHOTS
+        ? window.AWA_SHOTS.filter((s) => s.projectId === project.id)
+        : [];
+    let ratio = null;
+    let cssAspect = "16 / 9";
+
+    const shotWithAspect = projectShots.find((s) =>
+      /(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/.test(String(s.aspect || ""))
+    );
+    if (shotWithAspect) {
+      const m = String(shotWithAspect.aspect).match(/(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/);
+      const w = Number(m[1]);
+      const h = Number(m[2]);
+      if (w > 0 && h > 0) {
+        ratio = w / h;
+        cssAspect = `${m[1]} / ${m[2]}`;
+      }
+    }
+
+    if (!ratio && project && project.aspectRatio) {
+      const ar = String(project.aspectRatio);
+      const ratioMatch = ar.match(/(\d+(?:\.\d+)?)\s*[:/]\s*(\d+(?:\.\d+)?)/);
+      const dimMatch = ar.match(/(\d+)\s*[×x]\s*(\d+)/i);
+      const m = ratioMatch || dimMatch;
+      if (m) {
+        const w = Number(m[1]);
+        const h = Number(m[2]);
+        if (w > 0 && h > 0) {
+          ratio = w / h;
+          cssAspect = `${m[1]} / ${m[2]}`;
+        }
+      }
+    }
+
+    if (!ratio || !Number.isFinite(ratio)) {
+      ratio = 16 / 9;
+      cssAspect = "16 / 9";
+    }
+
+    const clampedRatio = Math.max(0.45, Math.min(2.6, ratio));
+    return {
+      ratio: clampedRatio,
+      cssAspect,
+      isVertical: clampedRatio < 0.95,
+      weight: Number(Math.sqrt(clampedRatio).toFixed(4))
+    };
+  }
+
   function layoutOrganicMasonry(gridEl) {
     if (!gridEl || !gridEl.classList.contains("eyecandy-masonry")) return;
     const cs = getComputedStyle(gridEl);
@@ -823,6 +878,7 @@
       stopActiveNewsReel = null;
     }
     const project = projectMatch || getProjectById(item.projectId);
+    const aspectInfo = getProjectAspectInfo(project);
     const modal = ensureGlobalModal();
 
     modal.innerHTML = `
@@ -834,7 +890,7 @@
           </div>
           <button type="button" class="btn btn-ghost btn-sm" id="modal-close-btn">Fechar</button>
         </div>
-        <div class="modal-media" id="news-modal-media">
+        <div class="modal-media ${aspectInfo.isVertical ? "is-vertical" : ""}" id="news-modal-media" style="--modal-aspect: ${aspectInfo.cssAspect};">
           <img src="${item.image}" alt="${item.title}" />
         </div>
         <div style="padding:28px 32px;display:flex;flex-direction:column;gap:16px;">
@@ -888,7 +944,7 @@
     }
 
     if (latestGridEl) {
-      const randomProjects = shuffleArray(window.AWA_PROJECTS || []).slice(0, 3).map((proj) => {
+      const randomProjects = shuffleArray(window.AWA_PROJECTS || []).slice(0, 5).map((proj) => {
         const newsMatch = (window.AWA_NEWS || []).find((n) => n.projectId === proj.id);
         return {
           modalKey: newsMatch ? newsMatch.id : proj.id,
@@ -897,28 +953,29 @@
           date: proj.year,
           title: newsMatch ? newsMatch.title : proj.title,
           excerpt: newsMatch ? newsMatch.excerpt : proj.logline,
-          image: newsMatch ? newsMatch.image : proj.coverImage
+          image: newsMatch ? newsMatch.image : proj.coverImage,
+          aspectInfo: getProjectAspectInfo(proj)
         };
       });
       if (randomProjects.length) {
         latestGridEl.innerHTML = randomProjects
           .map(
             (item, idx) => `
-          <article class="hero-featured-card" data-news-id="${item.modalKey}" tabindex="0">
-            <div class="hero-featured-media" id="hero-featured-media-${idx}">
+          <article class="hero-featured-card ${item.aspectInfo.isVertical ? "is-vertical" : ""}" data-news-id="${item.modalKey}" style="--card-aspect: ${item.aspectInfo.cssAspect}; --card-weight: ${item.aspectInfo.weight};" tabindex="0">
+            <div class="hero-featured-media ${item.aspectInfo.isVertical ? "is-vertical" : ""}" id="hero-featured-media-${idx}">
               <img src="${item.image}" alt="${item.title}" />
             </div>
             <div class="hero-featured-body">
-              <div style="display:flex;flex-direction:column;gap:10px;">
+              <div class="hero-featured-body-top">
                 <div class="news-meta-row">
                   <span class="news-tag">${item.tag}</span>
                   <span>${item.date}</span>
                 </div>
-                <h2 style="font-family:var(--font-display);font-size:1.15rem;font-weight:500;line-height:1.28;">${item.title}</h2>
-                <p style="color:var(--fg-muted);font-size:0.86rem;line-height:1.55;">${item.excerpt}</p>
+                <h2 class="hero-featured-title">${item.title}</h2>
+                <p class="hero-featured-excerpt">${item.excerpt}</p>
               </div>
-              <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border);">
-                <span class="mono" style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;">Projeto</span>
+              <div class="hero-featured-cta">
+                <span class="mono" style="font-size:0.64rem;letter-spacing:0.14em;text-transform:uppercase;">Projeto</span>
                 <span>→</span>
               </div>
             </div>
@@ -1574,15 +1631,7 @@
 
     const projectShots = window.AWA_SHOTS.filter((s) => s.projectId === project.id);
     const ytId = extractYouTubeId(project.youtubeId || project.youtubeUrl);
-    const isVerticalProject = (() => {
-      const ar = String(project.aspectRatio || "");
-      const ratioMatch = ar.match(/(\d+(?:\.\d+)?)\s*[:/]\s*(\d+(?:\.\d+)?)/);
-      if (ratioMatch && Number(ratioMatch[1]) < Number(ratioMatch[2])) return true;
-      const dimMatch = ar.match(/(\d+)\s*[×x]\s*(\d+)/i);
-      if (dimMatch && Number(dimMatch[1]) < Number(dimMatch[2])) return true;
-      const firstAspect = String(projectShots[0]?.aspect || "").match(/(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/);
-      return Boolean(firstAspect && Number(firstAspect[1]) < Number(firstAspect[2]));
-    })();
+    const isVerticalProject = getProjectAspectInfo(project, projectShots).isVertical;
 
     container.innerHTML = `
       <section class="project-hero">
