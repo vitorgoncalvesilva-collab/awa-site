@@ -36,6 +36,66 @@
   }
 
   /**
+   * Extracts individual person/crew/partner names from a project's technical credits.
+   */
+  function extractCreditNames(project) {
+    if (!project || !Array.isArray(project.credits)) return [];
+    const seen = new Map();
+    project.credits.forEach((c) => {
+      const raw = String(c.name || "").trim();
+      if (!raw) return;
+      raw
+        .split(/\s*,\s*|\s+\/\s+|\s+e\s+/i)
+        .map((part) => part.replace(/^["“”']+|["“”']+$/g, "").trim())
+        .filter((part) => part.length >= 2)
+        .forEach((name) => {
+          const key = norm(name);
+          if (key && !seen.has(key)) seen.set(key, name);
+        });
+    });
+    return Array.from(seen.values());
+  }
+
+  /**
+   * Turns individual credit names in a project's technical sheet into clickable gallery search links.
+   */
+  function renderCreditValueLinks(rawName) {
+    return String(rawName || "")
+      .split(/(\s*,\s*|\s+\/\s+|\s+e\s+)/i)
+      .map((part) => {
+        if (/^(\s*,\s*|\s+\/\s+|\s+e\s+)$/i.test(part)) return part;
+        const clean = part.replace(/^["“”']+|["“”']+$/g, "").trim();
+        if (clean.length < 2) return part;
+        return `<a href="portfolio.html?q=${encodeURIComponent(clean)}" class="eyecandy-credit-link">${part.trim()}</a>`;
+      })
+      .join("");
+  }
+
+  /**
+   * Enriches every shot's tags with the names of everyone credited in its project's technical sheet.
+   */
+  function enrichShotsWithCreditTags() {
+    const projectCreditsMap = new Map();
+    (window.AWA_PROJECTS || []).forEach((proj) => {
+      projectCreditsMap.set(proj.id, extractCreditNames(proj));
+    });
+
+    (window.AWA_SHOTS || []).forEach((shot) => {
+      const crewNames = projectCreditsMap.get(shot.projectId) || [];
+      if (!crewNames.length) return;
+      if (!Array.isArray(shot.tags)) shot.tags = [];
+      const existing = new Set(shot.tags.map((t) => norm(t)));
+      crewNames.forEach((name) => {
+        const key = norm(name);
+        if (key && !existing.has(key)) {
+          existing.add(key);
+          shot.tags.push(name);
+        }
+      });
+    });
+  }
+
+  /**
    * Renders minimal hover metadata with project title and slightly smaller year.
    */
   function renderHoverMeta(project) {
@@ -586,13 +646,25 @@
             </div>
             <p style="color:var(--fg-muted);font-size:0.9rem;line-height:1.55;margin-bottom:14px;max-width:66ch;">${shot.notes}</p>
             <div class="eyecandy-pill-tags">
-              ${shot.tags
-                .slice(0, shot.projectId === "instrumental-sesc-brasil-2026" ? 45 : 6)
-                .map(
-                  (t) =>
-                    `<a href="portfolio.html?q=${encodeURIComponent(t)}" class="eyecandy-pill-tag">${t}</a>`
-                )
-                .join("")}
+              ${(() => {
+                const limit = shot.projectId === "instrumental-sesc-brasil-2026" ? 45 : 8;
+                const combined = [...(shot.tags || []).slice(0, limit), ...extractCreditNames(project)];
+                const unique = [];
+                const seenModal = new Set();
+                combined.forEach((t) => {
+                  const k = norm(t);
+                  if (k && !seenModal.has(k)) {
+                    seenModal.add(k);
+                    unique.push(t);
+                  }
+                });
+                return unique
+                  .map(
+                    (t) =>
+                      `<a href="portfolio.html?q=${encodeURIComponent(t)}" class="eyecandy-pill-tag">${t}</a>`
+                  )
+                  .join("");
+              })()}
             </div>
           </div>
 
@@ -1045,16 +1117,17 @@
       seen.add(k);
       suggestionPool.push({ text, type });
     }
+    window.AWA_PROJECTS.forEach((p) => {
+      addSug(p.title, "Projeto");
+      addSug(p.category, "Formato");
+      extractCreditNames(p).forEach((name) => addSug(name, "Ficha Técnica"));
+    });
     window.AWA_SHOTS.forEach((s) => {
       addSug(s.enquadramento, "Enquadramento");
       addSug(s.lente, "Lente");
       addSug(s.camera, "Câmera");
       addSug(s.title, "Take");
       s.tags.forEach((t) => addSug(t, "Tag"));
-    });
-    window.AWA_PROJECTS.forEach((p) => {
-      addSug(p.title, "Projeto");
-      addSug(p.category, "Formato");
     });
 
     function renderTagCloud() {
@@ -1259,6 +1332,7 @@
             proj.lenses,
             proj.logline,
             proj.synopsis,
+            ...extractCreditNames(proj),
             ...projShots.flatMap((s) => [s.enquadramento, ...s.tags])
           ].join(" ");
           if (!matchQuery(blob, state.query)) return false;
@@ -1453,7 +1527,7 @@
                     (c) => `
                   <div class="spec-row">
                     <span class="spec-label">${c.role}</span>
-                    <span class="spec-value">${c.name}</span>
+                    <span class="spec-value">${renderCreditValueLinks(c.name)}</span>
                   </div>`
                   )
                   .join("")}
@@ -1851,6 +1925,7 @@
 
   // Boot
   document.addEventListener("DOMContentLoaded", () => {
+    enrichShotsWithCreditTags();
     renderLayoutChrome();
     const page = document.body.dataset.page;
     if (page === "home") initHomePage();
