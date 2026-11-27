@@ -1493,27 +1493,27 @@
 
     container.innerHTML = `
       <section class="project-hero">
-        <div class="container">
-          <div class="eyebrow" style="margin-bottom:14px;">${project.category} · ${project.year} · ${project.status}</div>
-          <h1 class="project-title-xl">${project.title}</h1>
-          <p style="color:var(--fg-soft);font-size:1.15rem;max-width:60ch;">${project.logline}</p>
-        </div>
-      </section>
+        <div class="container project-hero-split ${isVerticalProject ? "is-vertical-split" : ""}">
+          <div class="project-hero-player" id="filme-completo">
+            ${
+              ytId
+                ? `<div class="youtube-player-wrap ${isVerticalProject ? "is-vertical" : ""}">
+                    <iframe
+                      src="https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1"
+                      title="${project.title}"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>`
+                : `<div class="youtube-player-wrap ${isVerticalProject ? "is-vertical" : ""}" id="project-hero-reel"></div>`
+            }
+          </div>
 
-      <section id="filme-completo" style="padding:36px 0 52px;border-bottom:1px solid var(--border);background:var(--surface-1);">
-        <div class="container">
-          ${
-            ytId
-              ? `<div class="youtube-player-wrap ${isVerticalProject ? "is-vertical" : ""}">
-                  <iframe
-                    src="https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1"
-                    title="${project.title}"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>`
-              : `<div class="youtube-player-wrap ${isVerticalProject ? "is-vertical" : ""}" id="project-hero-reel"></div>`
-          }
+          <div class="project-hero-copy">
+            <div class="eyebrow" style="margin-bottom:14px;">${project.category} · ${project.year} · ${project.status}</div>
+            <h1 class="project-title-xl">${project.title}</h1>
+            <p class="project-hero-logline">${project.logline}</p>
+          </div>
         </div>
       </section>
 
