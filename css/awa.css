@@ -421,77 +421,51 @@ main {
   line-height: 1.15;
 }
 
-.hero-origin-bar {
-  text-align: center;
-  margin-bottom: clamp(18px, 2.5vw, 28px);
-}
-
-.hero-origin-bottom {
-  padding: 26px clamp(20px, 4vw, 48px);
-  border-top: 1px solid var(--border);
-  margin-bottom: 0;
-}
-
-.hero-origin-text {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  letter-spacing: 0.14em;
-  color: var(--fg-muted);
-  text-transform: uppercase;
-}
-
 .hero-latest-grid {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x proximity;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  cursor: grab;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding-left: max(clamp(20px, 4vw, 48px), calc((100vw - var(--max-w)) / 2 + clamp(20px, 4vw, 48px)));
-  padding-right: max(clamp(20px, 4vw, 48px), calc((100vw - var(--max-w)) / 2 + clamp(20px, 4vw, 48px)));
-  padding-bottom: 4px;
-}
-
-.hero-latest-grid::-webkit-scrollbar {
-  display: none;
-}
-
-.hero-latest-grid.is-dragging {
-  cursor: grabbing;
-  user-select: none;
+  justify-content: center;
+  gap: 14px;
 }
 
 .hero-latest-grid .hero-featured-card {
-  flex: 0 0 clamp(300px, 58vw, 760px);
+  flex: var(--card-weight, 1.333) 1 0;
   min-width: 0;
-  max-width: none;
-  scroll-snap-align: start;
 }
 
 .hero-latest-grid .hero-featured-card.is-vertical {
-  flex: 0 0 clamp(210px, 24vw, 310px);
-  max-width: none;
+  max-width: 300px;
+}
+
+@media (max-width: 1024px) {
+  .hero-latest-grid {
+    flex-wrap: wrap;
+  }
+
+  .hero-latest-grid .hero-featured-card {
+    flex: var(--card-weight, 1.333) 1 calc(var(--card-weight, 1.333) * 175px);
+    max-width: 100%;
+  }
+
+  .hero-latest-grid .hero-featured-card.is-vertical {
+    max-width: 240px;
+  }
 }
 
 @media (max-width: 640px) {
   .hero-latest-grid {
     align-items: flex-start;
-    gap: 12px;
+    gap: 14px;
   }
 
   .hero-latest-grid .hero-featured-card {
-    flex: 0 0 82vw;
+    flex: 1 1 100%;
   }
 
   .hero-latest-grid .hero-featured-card.is-vertical {
-    flex: 0 0 56vw;
+    flex: 1 1 calc(50% - 8px);
+    max-width: 260px;
   }
 }
 

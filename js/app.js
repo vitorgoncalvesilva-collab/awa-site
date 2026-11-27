@@ -634,11 +634,7 @@
           return;
         }
         const rect = containerEl.getBoundingClientRect();
-        const offscreen =
-          rect.bottom < -120 ||
-          rect.top > (window.innerHeight || 900) + 120 ||
-          rect.right < -200 ||
-          rect.left > (window.innerWidth || 1440) + 200;
+        const offscreen = rect.bottom < -120 || rect.top > (window.innerHeight || 900) + 120;
         if (document.hidden || offscreen) {
           cutTimer = setTimeout(triggerAdvance, 1000);
           return;
@@ -978,7 +974,13 @@
     }
 
     if (latestGridEl) {
-      const pickedProjects = shuffleArray(getPublicProjects()).slice(0, 12);
+      const allProjects = getPublicProjects();
+      const horizontalPool = shuffleArray(allProjects.filter((p) => !getProjectAspectInfo(p).isVertical));
+      const verticalPool = shuffleArray(allProjects.filter((p) => getProjectAspectInfo(p).isVertical));
+      const pickedProjects = shuffleArray([
+        ...horizontalPool.slice(0, 2),
+        ...verticalPool.slice(0, 1)
+      ]);
       const randomProjects = pickedProjects.map((proj) => {
         const newsMatch = (window.AWA_NEWS || []).find((n) => n.projectId === proj.id);
         return {
@@ -1027,49 +1029,8 @@
           );
         });
 
-        let isDown = false;
-        let startX = 0;
-        let scrollStart = 0;
-        let hasDragged = false;
-
-        latestGridEl.addEventListener("mousedown", (e) => {
-          isDown = true;
-          hasDragged = false;
-          startX = e.pageX;
-          scrollStart = latestGridEl.scrollLeft;
-          latestGridEl.classList.add("is-dragging");
-        });
-        window.addEventListener("mouseup", () => {
-          if (!isDown) return;
-          isDown = false;
-          latestGridEl.classList.remove("is-dragging");
-        });
-        latestGridEl.addEventListener("mousemove", (e) => {
-          if (!isDown) return;
-          const dx = e.pageX - startX;
-          if (Math.abs(dx) > 6) hasDragged = true;
-          latestGridEl.scrollLeft = scrollStart - dx;
-        });
-
-        const prevBtn = document.getElementById("hero-scroll-prev");
-        const nextBtn = document.getElementById("hero-scroll-next");
-        const scrollStep = () => Math.max(320, Math.round(latestGridEl.clientWidth * 0.62));
-        if (prevBtn) {
-          prevBtn.addEventListener("click", () => {
-            latestGridEl.scrollBy({ left: -scrollStep(), behavior: "smooth" });
-          });
-        }
-        if (nextBtn) {
-          nextBtn.addEventListener("click", () => {
-            latestGridEl.scrollBy({ left: scrollStep(), behavior: "smooth" });
-          });
-        }
-
         latestGridEl.querySelectorAll("[data-news-id]").forEach((card) => {
-          card.addEventListener("click", () => {
-            if (hasDragged) return;
-            openNewsModal(card.dataset.newsId);
-          });
+          card.addEventListener("click", () => openNewsModal(card.dataset.newsId));
           card.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
