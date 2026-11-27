@@ -435,7 +435,7 @@ main {
 }
 
 .hero-latest-grid .hero-featured-card.is-vertical {
-  max-width: 260px;
+  max-width: 300px;
 }
 
 @media (max-width: 1024px) {

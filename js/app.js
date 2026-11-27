@@ -964,7 +964,14 @@
     }
 
     if (latestGridEl) {
-      const randomProjects = shuffleArray(window.AWA_PROJECTS || []).slice(0, 5).map((proj) => {
+      const allProjects = window.AWA_PROJECTS || [];
+      const horizontalPool = shuffleArray(allProjects.filter((p) => !getProjectAspectInfo(p).isVertical));
+      const verticalPool = shuffleArray(allProjects.filter((p) => getProjectAspectInfo(p).isVertical));
+      const pickedProjects = shuffleArray([
+        ...horizontalPool.slice(0, 2),
+        ...verticalPool.slice(0, 1)
+      ]);
+      const randomProjects = pickedProjects.map((proj) => {
         const newsMatch = (window.AWA_NEWS || []).find((n) => n.projectId === proj.id);
         return {
           modalKey: newsMatch ? newsMatch.id : proj.id,
@@ -1131,7 +1138,7 @@
         activeTag === "Todos"
           ? window.AWA_SHOTS
           : (window.AWA_SHOTS || []).filter((s) => shotMatchesTag(s, activeTag));
-      const filtered = shuffleArray(basePool).slice(0, 8);
+      const filtered = shuffleArray(basePool).slice(0, 18);
 
       if (!filtered.length) {
         galleryGridEl.className = "interactive-gallery-grid";
@@ -1151,51 +1158,53 @@
       attachViewportVideoObserver(galleryGridEl);
     }
 
-    if (galleryFiltersEl && galleryGridEl) {
-      function renderGalleryFilters() {
-        const visibleTags = showAllTags ? allFilterTags : allFilterTags.slice(0, INITIAL_TAG_LIMIT);
-        const pillList = ["Todos", ...visibleTags];
-        if (activeTag !== "Todos" && !pillList.includes(activeTag)) {
-          pillList.push(activeTag);
+    if (galleryGridEl) {
+      if (galleryFiltersEl) {
+        function renderGalleryFilters() {
+          const visibleTags = showAllTags ? allFilterTags : allFilterTags.slice(0, INITIAL_TAG_LIMIT);
+          const pillList = ["Todos", ...visibleTags];
+          if (activeTag !== "Todos" && !pillList.includes(activeTag)) {
+            pillList.push(activeTag);
+          }
+
+          const pillsHtml = pillList
+            .map((tag) => {
+              const safeTag = tag.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+              return `
+            <button type="button" class="filter-pill ${tag === activeTag ? "active" : ""}" data-tag="${safeTag}">
+              ${safeTag}
+            </button>`;
+            })
+            .join("");
+
+          const toggleHtml =
+            allFilterTags.length > INITIAL_TAG_LIMIT
+              ? `<button type="button" class="filter-pill" id="gallery-toggle-tags" style="border-style:dashed;color:var(--fg);">
+                  ${showAllTags ? "Mostrar menos" : `Ver todas (${allFilterTags.length}) +`}
+                </button>`
+              : "";
+
+          galleryFiltersEl.innerHTML = pillsHtml + toggleHtml;
+
+          galleryFiltersEl.querySelectorAll("[data-tag]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              activeTag = btn.dataset.tag;
+              renderGalleryFilters();
+              renderGallery();
+            });
+          });
+
+          const toggleBtn = document.getElementById("gallery-toggle-tags");
+          if (toggleBtn) {
+            toggleBtn.addEventListener("click", () => {
+              showAllTags = !showAllTags;
+              renderGalleryFilters();
+            });
+          }
         }
 
-        const pillsHtml = pillList
-          .map((tag) => {
-            const safeTag = tag.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
-            return `
-          <button type="button" class="filter-pill ${tag === activeTag ? "active" : ""}" data-tag="${safeTag}">
-            ${safeTag}
-          </button>`;
-          })
-          .join("");
-
-        const toggleHtml =
-          allFilterTags.length > INITIAL_TAG_LIMIT
-            ? `<button type="button" class="filter-pill" id="gallery-toggle-tags" style="border-style:dashed;color:var(--fg);">
-                ${showAllTags ? "Mostrar menos" : `Ver todas (${allFilterTags.length}) +`}
-              </button>`
-            : "";
-
-        galleryFiltersEl.innerHTML = pillsHtml + toggleHtml;
-
-        galleryFiltersEl.querySelectorAll("[data-tag]").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            activeTag = btn.dataset.tag;
-            renderGalleryFilters();
-            renderGallery();
-          });
-        });
-
-        const toggleBtn = document.getElementById("gallery-toggle-tags");
-        if (toggleBtn) {
-          toggleBtn.addEventListener("click", () => {
-            showAllTags = !showAllTags;
-            renderGalleryFilters();
-          });
-        }
+        renderGalleryFilters();
       }
-
-      renderGalleryFilters();
       renderGallery();
     }
   }
