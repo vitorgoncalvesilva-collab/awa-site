@@ -989,6 +989,7 @@ window.AWA_PROJECTS = [
   },
   {
     "id": "vizzela-carnaval",
+    "hidden": true,
     "title": "Vizzela — Carnaval",
     "category": "Publicidade",
     "year": "2025",

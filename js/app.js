@@ -35,6 +35,15 @@
     return (window.AWA_PROJECTS || []).find((p) => p.id === id) || window.AWA_PROJECTS[0];
   }
 
+  function isProjectHidden(projectOrId) {
+    const proj = typeof projectOrId === "string" ? getProjectById(projectOrId) : projectOrId;
+    return Boolean(proj && proj.hidden);
+  }
+
+  function getPublicProjects() {
+    return (window.AWA_PROJECTS || []).filter((p) => !p.hidden);
+  }
+
   /**
    * Extracts individual person/crew/partner names from a project's technical credits.
    */
@@ -950,7 +959,8 @@
     const galleryGridEl = document.getElementById("interactive-gallery-grid");
 
     if (tickerEl) {
-      tickerEl.innerHTML = window.AWA_NEWS.map(
+      const publicNews = (window.AWA_NEWS || []).filter((n) => !isProjectHidden(n.projectId));
+      tickerEl.innerHTML = publicNews.map(
         (n) => `
         <span class="ticker-item" data-news-id="${n.id}">
           <span class="ticker-dot"></span>
@@ -964,7 +974,7 @@
     }
 
     if (latestGridEl) {
-      const allProjects = window.AWA_PROJECTS || [];
+      const allProjects = getPublicProjects();
       const horizontalPool = shuffleArray(allProjects.filter((p) => !getProjectAspectInfo(p).isVertical));
       const verticalPool = shuffleArray(allProjects.filter((p) => getProjectAspectInfo(p).isVertical));
       const pickedProjects = shuffleArray([
@@ -1116,6 +1126,7 @@
     };
 
     (window.AWA_SHOTS || []).forEach((s) => {
+      if (isProjectHidden(s.projectId)) return;
       addFilterTag(s.category);
       addFilterTag(s.enquadramento);
       (s.tags || []).forEach(addFilterTag);
@@ -1134,10 +1145,11 @@
     }
 
     function renderGallery() {
+      const publicShots = (window.AWA_SHOTS || []).filter((s) => !isProjectHidden(s.projectId));
       const basePool =
         activeTag === "Todos"
-          ? window.AWA_SHOTS
-          : (window.AWA_SHOTS || []).filter((s) => shotMatchesTag(s, activeTag));
+          ? publicShots
+          : publicShots.filter((s) => shotMatchesTag(s, activeTag));
       const filtered = shuffleArray(basePool).slice(0, 18);
 
       if (!filtered.length) {
@@ -1266,6 +1278,7 @@
       cloudTagMap.set(key, clean.toUpperCase());
     };
     (window.AWA_SHOTS || []).forEach((s) => {
+      if (isProjectHidden(s.projectId)) return;
       addCloudTerm(s.category);
       addCloudTerm(s.enquadramento);
       (s.tags || []).forEach(addCloudTerm);
@@ -1281,12 +1294,13 @@
       seen.add(k);
       suggestionPool.push({ text, type });
     }
-    window.AWA_PROJECTS.forEach((p) => {
+    getPublicProjects().forEach((p) => {
       addSug(p.title, "Projeto");
       addSug(p.category, "Formato");
       extractCreditNames(p).forEach((name) => addSug(name, "Ficha Técnica"));
     });
     window.AWA_SHOTS.forEach((s) => {
+      if (isProjectHidden(s.projectId)) return;
       addSug(s.enquadramento, "Enquadramento");
       addSug(s.lente, "Lente");
       addSug(s.camera, "Câmera");
@@ -1373,9 +1387,11 @@
       if (state.mode === "shots") {
         resultsGridEl.className = "eyecandy-masonry";
 
+        const hasSearch = Boolean(state.query.trim());
         const filtered = sortList(
           window.AWA_SHOTS.filter((shot) => {
             const proj = getProjectById(shot.projectId);
+            if (!hasSearch && proj && proj.hidden) return false;
             const searchBlob = [
               shot.title,
               shot.enquadramento,
@@ -1509,7 +1525,7 @@
         }
         // Modo "Trabalhos Completos (Obras)"
         resultsGridEl.className = "shotdeck-grid";
-        const filteredProjects = window.AWA_PROJECTS.filter((proj) => {
+        const filteredProjects = getPublicProjects().filter((proj) => {
           const projShots = window.AWA_SHOTS.filter((s) => s.projectId === proj.id);
           const blob = [
             proj.title,
@@ -1652,9 +1668,12 @@
     const id = params.get("id");
     const focusShotId = params.get("shot");
     const projIdx = window.AWA_PROJECTS.findIndex((p) => p.id === id);
-    const project = projIdx >= 0 ? window.AWA_PROJECTS[projIdx] : window.AWA_PROJECTS[0];
-    const prevProject = window.AWA_PROJECTS[(projIdx - 1 + window.AWA_PROJECTS.length) % window.AWA_PROJECTS.length];
-    const nextProject = window.AWA_PROJECTS[(projIdx + 1) % window.AWA_PROJECTS.length];
+    const project = projIdx >= 0 ? window.AWA_PROJECTS[projIdx] : getPublicProjects()[0] || window.AWA_PROJECTS[0];
+    const publicProjects = getPublicProjects();
+    const pubIdx = publicProjects.findIndex((p) => p.id === project.id);
+    const navPool = publicProjects.length ? publicProjects : window.AWA_PROJECTS;
+    const prevProject = pubIdx >= 0 ? navPool[(pubIdx - 1 + navPool.length) % navPool.length] : navPool[navPool.length - 1];
+    const nextProject = pubIdx >= 0 ? navPool[(pubIdx + 1) % navPool.length] : navPool[0];
 
     document.title = `${project.title} — ÀWA`;
 
@@ -1867,7 +1886,7 @@
     let activeFilter = "Todos";
     const cats = ["Todos", "Show Ao Vivo", "Ficção", "Documentário", "Videoclipe", "Publicidade", "Bastidores"];
 
-    clientsWall.innerHTML = window.AWA_CLIENTS.map(
+    clientsWall.innerHTML = window.AWA_CLIENTS.filter((c) => !isProjectHidden(c.projectId)).map(
       (c) => `
       <a href="projeto.html?id=${encodeURIComponent(c.projectId)}" class="client-tile">
         <div>
@@ -1884,10 +1903,11 @@
     ).join("");
 
     function renderTable() {
+      const publicProjects = getPublicProjects();
       const list =
         activeFilter === "Todos"
-          ? window.AWA_PROJECTS
-          : window.AWA_PROJECTS.filter((p) => p.category === activeFilter);
+          ? publicProjects
+          : publicProjects.filter((p) => p.category === activeFilter);
 
       projectsTableBody.innerHTML = list
         .map(
