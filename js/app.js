@@ -176,7 +176,7 @@
   }
 
   function layoutOrganicMasonry(gridEl) {
-    if (!gridEl || !gridEl.classList.contains("eyecandy-masonry")) return;
+    if (!gridEl || !gridEl.classList.contains("eyecandy-masonry") || gridEl.id === "interactive-gallery-grid") return;
     const cs = getComputedStyle(gridEl);
     const rowH = parseFloat(cs.gridAutoRows) || 8;
     const gap = parseFloat(cs.rowGap) || 10;
@@ -196,7 +196,7 @@
     const ratio = parseShotAspect(shot.aspect);
     const isVert = ratio < 1;
     return `
-        <article class="video-masonry-card ${isVert ? "is-vertical" : ""}" data-shot-id="${shot.id}" data-aspect-ratio="${ratio}" tabindex="0" aria-label="${shot.title} — ${proj ? proj.title : ""}">
+        <article class="video-masonry-card ${isVert ? "is-vertical" : ""}" data-shot-id="${shot.id}" data-aspect-ratio="${ratio}" style="--shot-aspect: ${ratio};" tabindex="0" aria-label="${shot.title} — ${proj ? proj.title : ""}">
           <img class="video-masonry-poster" src="${shot.image}" alt="${shot.title}" loading="lazy" decoding="async" />
           ${
             shot.video

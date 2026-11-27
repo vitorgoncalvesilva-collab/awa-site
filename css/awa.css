@@ -811,10 +811,35 @@ main {
   border-color: var(--fg);
 }
 
-.interactive-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-  gap: 16px;
+.interactive-gallery-grid,
+#interactive-gallery-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+#interactive-gallery-grid::-webkit-scrollbar {
+  display: none;
+}
+
+#interactive-gallery-grid .video-masonry-card {
+  flex: 0 0 auto;
+  height: clamp(170px, 22vw, 240px);
+  width: auto;
+  aspect-ratio: var(--shot-aspect, 16 / 9);
+  grid-column: auto;
+  scroll-snap-align: start;
+}
+
+#interactive-gallery-grid .video-masonry-card.is-vertical {
+  height: clamp(190px, 24vw, 260px);
 }
 
 .gallery-tile {
