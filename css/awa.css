@@ -536,7 +536,7 @@ main {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 0.25s ease, transform 0.8s var(--ease-cinema);
+  transition: transform 0.8s var(--ease-cinema);
   pointer-events: none;
 }
 
