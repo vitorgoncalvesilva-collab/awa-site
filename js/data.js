@@ -64,7 +64,7 @@ window.AWA_NEWS = [
   },
   {
     "id": "news-vizzela-as-brabas",
-    "date": "2024",
+    "date": "2026",
     "tag": "PUBLICIDADE",
     "title": "Vizzela + As Brabas — “Lip Oil Frozen Grape” (Edição Especial)",
     "excerpt": "Campanha da colaboração Vizzela Cosméticos + As Brabas (Corinthians Feminino) com direção audiovisual de Vitor Gonc.",
@@ -364,7 +364,7 @@ window.AWA_PROJECTS = [
     "id": "vizzela-as-brabas",
     "title": "Vizzela + As Brabas — Lip Oil Frozen Grape",
     "category": "Publicidade",
-    "year": "2024",
+    "year": "2026",
     "client": "Vizzela Cosméticos / Corinthians (As Brabas)",
     "duration": "00 min 42s",
     "format": "16:9 1080p · Cor",
