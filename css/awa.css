@@ -160,6 +160,18 @@ input, textarea, select {
   gap: 24px;
 }
 
+.header-origin-tagline {
+  font-size: 0.72rem;
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 1120px) {
+  .header-origin-tagline {
+    display: none;
+  }
+}
+
 .brand-link {
   display: inline-flex;
   align-items: center;
@@ -430,13 +442,13 @@ main {
 }
 
 .hero-latest-grid .hero-featured-card {
-  flex: var(--card-weight, 1.333) 1 calc(var(--card-weight, 1.333) * 215px);
+  flex: var(--card-weight, 1.333) 1 calc(var(--card-weight, 1.333) * 235px);
   min-width: 0;
   max-width: 100%;
 }
 
 .hero-latest-grid .hero-featured-card.is-vertical {
-  max-width: 260px;
+  max-width: 280px;
 }
 
 @media (max-width: 1024px) {
@@ -2026,7 +2038,7 @@ main {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.9fr 0.9fr 1fr;
+  grid-template-columns: 1.3fr 0.9fr 1fr;
   gap: 36px;
   padding-bottom: 48px;
   border-bottom: 1px solid var(--border);

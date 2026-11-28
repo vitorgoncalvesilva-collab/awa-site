@@ -420,6 +420,8 @@
             <img src="${cfg.assets.tipografia}" alt="ÀWA" class="brand-wordmark" />
           </a>
 
+          <span class="mono header-origin-tagline">ÀWA (IORUBÁ) — "NÓS" / "NÓS SOMOS" · VI.GONC asc.</span>
+
           <nav class="nav-links" aria-label="Navegação principal">
             ${navItems
               .map(
@@ -487,15 +489,6 @@
               </div>
             </div>
             <div>
-              <div class="footer-heading">Busca Rápida</div>
-              <div class="footer-links">
-                <a href="portfolio.html?q=zenital">Takes Zenitais</a>
-                <a href="portfolio.html?q=anamorfica">Lentes Anamórficas</a>
-                <a href="portfolio.html?q=preto%20e%20branco">Monocromático P&B</a>
-                <a href="portfolio.html?q=documentario">Documentários</a>
-              </div>
-            </div>
-            <div>
               <div class="footer-heading">Contato & Estúdio</div>
               <div class="footer-links">
                 <span>${cfg.location}</span>
@@ -506,7 +499,7 @@
           </div>
           <div class="footer-bottom">
             <span>© 2026 ÀWA — Todos os direitos reservados</span>
-            <span>Identidade Monocromática · 8 Pontas · Nó Infinito</span>
+            <span class="mono">ÀWA (IORUBÁ) — "NÓS" / "NÓS SOMOS" · VI.GONC asc.</span>
           </div>
         </div>
       `;
@@ -974,7 +967,7 @@
     }
 
     if (latestGridEl) {
-      const pickedProjects = shuffleArray(getPublicProjects()).slice(0, 12);
+      const pickedProjects = shuffleArray(getPublicProjects()).slice(0, 7);
       const randomProjects = pickedProjects.map((proj) => {
         const newsMatch = (window.AWA_NEWS || []).find((n) => n.projectId === proj.id);
         return {
